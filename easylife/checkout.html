@@ -15,8 +15,13 @@
 					<table border="1" width="100%" bgcolor="orange" >
 						<tr>
 							<td align="center"><a href="home.html"><img src="resources/e.jpg" height="60" width="120" /></a></td>
+
 							<td align="center"><input type="text"/><input type="submit" value="Serach Here"/></td>
+							<td align="center">(2)items<a href="shoppingCart.html"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+
+							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
 							<td align="center">(0)items<a href="shoppingCart.html"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+
 							<td align="center">
 								<table border="1">
 									<tr rowspan="2">
@@ -36,10 +41,10 @@
 			</tr>
 			<tr>
 				<td colspan="3" align="center">
-					<table>
+					<table width="100%">
 						<tr>
-							<td>
-								<table border="1" height="800">
+							<td width="20%">
+								<table border="1" height="800" width="100%">
 									<tr>
 										<td>
 											<select onchange="location = this.value;">
@@ -116,9 +121,10 @@
 								</table>
 								
 							</td>
-							<td align="center">
-								
-									<table border="1">
+							<td align="center" width="60%" valign="top">
+								<fieldset>
+									<legend>SELECT SHIPPING ADDRESS</legend>
+									<table border="1" width="80%">
 										<tr>
 											<td>Name :</td>
 											<td><input/></td>
@@ -145,26 +151,64 @@
 										</tr>
 										
 									</table>
+								</fieldset>
 									</br>
-									<table border="1">
+									<fieldset>
+									<legend>Choose Payment Method</legend>
+									<table border="1" width="70%">
+										
 										<tr>
-											<td colspan="2">Choose Payment Method</td>
+											<td width="10%"><img src="resources/COD.jpg" height="40" width="60" /></td>
+											<td ><input type="radio" name="pay_method"/><b>Cash On Delivery (COD)</b></td>
+											
+											
 										</tr>
 										<tr>
-											<td><img src="resources/bkash.jpg" height="40" width="40" /></td>
-											<td><input type="radio"/></td>
+											<td width="10%"><img src="resources/bkash.jpg" height="40" width="60" /></td>
+											<td><input type="radio" name="pay_method"/><b>bkash</b></td>
+											
+											
 										</tr>
 										<tr>
-											<td><img src="resources/rocket.jpg" height="40" width="40" /></td>
-											<td><input type="radio"/></td>
+											<td width="10%"><img src="resources/rocket.jpg" height="40" width="60" /></td>
+											<td><input type="radio" name="pay_method"/><b>rocket</b></td>
+											
+										
 										</tr>
 										<tr>
-											<td align="center"><a href="order.html">Confirm</a></td>
-											<td align="center"><a href="confirmOrder.html">Back</a></td>
+											<td width="10%"><img src="resources/credit card.jpg" height="40" width="60" /></td>
+											<td><input type="radio" name="pay_method"/><b>Debit or Credit Card</b></td>
+											
+										
+										</tr>
+										<tr>
+											
+											<td colspan="2" align="center" bgcolor="pink"><a href="order.html"><h3>Confirm</h3></a></td>
+											
 										</tr>
 									</table>
+									</fieldset>
 							</td>
 							
+							<td width="20%" valign="top">
+								<table border="1" width="100%">
+									<tr>
+						
+										<td width="41%">Sub-Total: </td>
+										<td >4000 Tk</td>
+									</tr>
+									<tr>
+						
+										<td width="41%">Shipping: </td>
+										<td>60 Tk</td>
+									</tr>
+									<tr>
+								
+										<td width="41%"><h2>Total: </h2></td>
+										<td>4060Tk</td>
+									</tr>
+								</table>
+							</td>
 						</tr>
 						
 					</table>
