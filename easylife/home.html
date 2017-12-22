@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<title>Home</title>
-
 	</head>
 	<body>
 		<table   width="100%" bgcolor="Gainsboro" >
@@ -16,7 +15,7 @@
 					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
 							<td align="center"><a href="home.html"><img src="resources/e.jpg" height="60" width="120" /></a></td>
-							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
+							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
 							<td align="center">(2)items<a href="shoppingCart.html"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.html">Track Product</a></td>
 							<td align="center">
@@ -118,23 +117,6 @@
 											</select>
 										</td>
 									</tr>
-									<tr>
-										<td>
-											<button onclick="prev()">Prev</button>	
-											<button onclick="next()">Next</button>
-
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<a href="details.html"><img id="im" src="resources/2.jpg" height="300" width="300" /></a>
-											</br>
-											<a href="details.html"><img id="im1" src="resources/3.jpg" height="300" width="300" /></a>
-											</br>
-											<a href="details.html"><img id="im2" src="resources/1.jpg" height="300" width="300" /></a>
-											
-										</td>
-									</tr>
 									
 								</table>
 								
@@ -160,94 +142,6 @@
 												}
 												
 												window.setInterval(next,2000);
-											</script>
-											<script>
-												function next()
-			{
-				var img = document.getElementById("im");
-				//var index
-				lastPos=img.src.length;
-				src=img.src.substr(lastPos-5,lastPos-4)
-				//alert(src);
-				if(src=="2.jpg")
-				document.getElementById('im').src='resources/3.jpg';
-				
-				else if(src=="3.jpg")
-				document.getElementById('im').src='resources/1.jpg';
-				
-				else if(src=="1.jpg")
-				document.getElementById('im').src='resources/2.jpg';
-				var img = document.getElementById("im1");
-				//var index
-				lastPos=img.src.length;
-				src=img.src.substr(lastPos-5,lastPos-4)
-				//alert(src);
-				if(src=="3.jpg")
-				document.getElementById('im1').src='resources/1.jpg';
-				
-				else if(src=="1.jpg")
-				document.getElementById('im1').src='resources/2.jpg';
-				
-				else if(src=="2.jpg")
-				document.getElementById('im1').src='resources/3.jpg';
-				var img = document.getElementById("im2");
-				//var index
-				lastPos=img.src.length;
-				src=img.src.substr(lastPos-5,lastPos-4)
-				//alert(src);
-				if(src=="1.jpg")
-				document.getElementById('im2').src='resources/2.jpg';
-				
-				else if(src=="2.jpg")
-				document.getElementById('im2').src='resources/3.jpg';
-				
-				else if(src=="3.jpg")
-				document.getElementById('im2').src='resources/1.jpg';
-				
-			}
-			function prev()
-			{
-				var img = document.getElementById("im");
-				//var index
-				lastPos=img.src.length;
-				src=img.src.substr(lastPos-5,lastPos-4)
-				//alert(src);
-				if(src=="2.jpg")
-				document.getElementById('im').src='resources/1.jpg';
-				
-				else if(src=="3.jpg")
-				document.getElementById('im').src='resources/2.jpg';
-				
-				else if(src=="1.jpg")
-				document.getElementById('im').src='resources/3.jpg';
-				var img = document.getElementById("im1");
-				//var index
-				lastPos=img.src.length;
-				src=img.src.substr(lastPos-5,lastPos-4)
-				//alert(src);
-				if(src=="3.jpg")
-				document.getElementById('im1').src='resources/2.jpg';
-				
-				else if(src=="1.jpg")
-				document.getElementById('im1').src='resources/3.jpg';
-				
-				else if(src=="2.jpg")
-				document.getElementById('im1').src='resources/1.jpg';
-				var img = document.getElementById("im2");
-				//var index
-				lastPos=img.src.length;
-				src=img.src.substr(lastPos-5,lastPos-4)
-				//alert(src);
-				if(src=="1.jpg")
-				document.getElementById('im2').src='resources/3.jpg';
-				
-				else if(src=="2.jpg")
-				document.getElementById('im2').src='resources/1.jpg';
-				
-				else if(src=="3.jpg")
-				document.getElementById('im2').src='resources/2.jpg';
-				
-			}
 											</script>
 										
 											<img id= "imgholder" src="resources/slider1.jpg" width=100% height=412>
@@ -364,84 +258,12 @@
 										</td>
 										
 									</tr>
-
-									<tr>
-
-
-							<td>
-							<table>
-							<tr>
-										
-										<td align="center">
-																						
-											<script>
-											var img1= ["resources/tshirt1.jpg","resources/tshirt2.jpg","resources/tshirt3.jpg","resources/tshirt4.jpg"];
-											var counter1=1;
-											function next(){
-											var img11 = document.getElementById("imgholder2");
-
-											img11.src=img1[counter1++];
-
-											if(counter1==4){
-											counter1=0;
-
-											}
-
-											}
-
-											window.setInterval(next,2000);
-											</script>
-											<a href="details.html"><img id= "imgholder2" src="resources/tshirt1.jpg" width=20% height=300></a>
-
-											<script>
-											var img2= ["resources/mw1.jpg","resources/mw2.jpg","resources/mw3.jpg","resources/mw1.jpg"];
-											var counter2=1;
-											function next(){
-											var img22 = document.getElementById("imgholder1");
-
-											img22.src=img2[counter2++];
-
-											if(counter2==4){
-											counter2=0;
-
-											}
-
-											}
-
-											window.setInterval(next,2000);
-											</script>
-											<a href="details.html"><img id= "imgholder1" src="resources/mw2.jpg" width=20% height=300></a>
-											
-											<script>
-											var img3= ["resources/gks1.jpg","resources/gks2.jpg","resources/kf1.jpg","resources/kf2.jpg"];
-											var counter3=1;
-											function next(){
-											var img33 = document.getElementById("imgholder4");
-
-											img33.src=img3[counter3++];
-
-											if(counter3==4){
-											counter3=0;
-
-											}
-
-											}
-
-											window.setInterval(next,2000);
-											</script>
-											<a href="details.html"><img id= "imgholder4" src="resources/gks1.jpg" width=20% height=300></a>
-
-
-
-										</td>
-									</tr>
-
+									
 								</table>
 							</td>
 						</tr>
 						
 					</table>
-				</table>
 				</td>
 			</tr>
 			<tr bgcolor="WhiteSmoke ">
