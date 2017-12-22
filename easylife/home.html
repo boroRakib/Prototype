@@ -139,7 +139,25 @@
 												
 												window.setInterval(next,2000);
 											</script>
-											<img id= "imgholder" src="resources/kw2.jpg" width=50% height=500>
+											<script>
+												var images= ["resources/mw2.jpg","resources/kw2.jpg","resources/kf1.jpg","resources/kf2.jpg"];
+												var counter=1;
+												function next(){
+													var img = document.getElementById("imgholder2");
+													
+													img.src=images[counter++];
+													
+													if(counter==4){
+														counter=0;
+														
+													}
+													
+												}
+												
+												window.setInterval(next,2000);
+											</script>
+											<img id= "imgholder" src="resources/kw2.jpg" width=40% height=400>
+											<img id= "imgholder2" src="resources/kw2.jpg" width=40% height=400>
 										</td>
 											
 										
