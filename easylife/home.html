@@ -258,8 +258,70 @@
 										
 									</tr>
 									<tr>
+
 										<td>
-											ff
+											
+
+										<td align="center">
+																						
+											<script>
+											var img1= ["resources/tshirt1.jpg","resources/tshirt2.jpg","resources/tshirt3.jpg","resources/tshirt4.jpg"];
+											var counter1=1;
+											function next(){
+											var img11 = document.getElementById("imgholder2");
+
+											img11.src=img1[counter1++];
+
+											if(counter1==4){
+											counter1=0;
+
+											}
+
+											}
+
+											window.setInterval(next,2000);
+											</script>
+											<a href="details.html"><img id= "imgholder2" src="resources/tshirt1.jpg" width=20% height=300></a>
+
+											<script>
+											var img2= ["resources/mw1.jpg","resources/mw2.jpg","resources/mw3.jpg","resources/mw1.jpg"];
+											var counter2=1;
+											function next(){
+											var img22 = document.getElementById("imgholder1");
+
+											img22.src=img2[counter2++];
+
+											if(counter2==4){
+											counter2=0;
+
+											}
+
+											}
+
+											window.setInterval(next,2000);
+											</script>
+											<a href="details.html"><img id= "imgholder1" src="resources/mw2.jpg" width=20% height=300></a>
+											
+											<script>
+											var img3= ["resources/gks1.jpg","resources/gks2.jpg","resources/kf1.jpg","resources/kf2.jpg"];
+											var counter3=1;
+											function next(){
+											var img33 = document.getElementById("imgholder4");
+
+											img33.src=img3[counter3++];
+
+											if(counter3==4){
+											counter3=0;
+
+											}
+
+											}
+
+											window.setInterval(next,2000);
+											</script>
+											<a href="details.html"><img id= "imgholder4" src="resources/gks1.jpg" width=20% height=300></a>
+
+
 
 										</td>
 									</tr>
@@ -283,7 +345,7 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr >
 				<td align="center" colspan="3">
 					<table width="100%">
 						<tr>
