@@ -1,7 +1,16 @@
 <?php require_once "data_access.php"; ?>
 <?php
-	function addProduct($product){
-        $sql = "INSERT INTO `product` (`Product Code`, `Name`, `Quantity`, `Total Sells`, `Price`, `Last Sold`, `Image`, `Catagory`, `Brand`, `Size`, `Description`) VALUES ('P-000001', 'kakashi tshirt', '100', '0', '640', NULL, 'P-000001', 'Gents Winter Collection', 'Esctasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle. Fully Export Quality. High Quality Rubber Print. Long Lasting color.Nicely Sewed.')";
+	function addProductToDB($product)
+	{
+        $sql = "INSERT INTO '$product[product'$product[ (Product Code,Name,Quantity,Total Sells,Price,Last Sold,Image,Catagory,Brand,Size,Description) VALUES ('$product[Product Code]', '$product[Name]', '$product[Quantity]', 0, '$product[Price]', NULL, '$product[Image]', '$product[Catagory]', '$product[Brand]', '$product[Size]', '$product[Description]')";
         $result = executeSQL($sql);
         return $result;
     }
+	
+	function editProductToDb($product){
+        $sql = "UPDATE person SET name='$person[name]', email='$person[email]' WHERE id=$person[id]";
+        $result = executeSQL($sql);
+        return $result;
+    }
+	
+	
