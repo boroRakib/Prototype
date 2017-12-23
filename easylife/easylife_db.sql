@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2017 at 12:34 PM
--- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Generation Time: Dec 23, 2017 at 05:13 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -48,16 +46,23 @@ CREATE TABLE `invoice` (
 CREATE TABLE `member` (
   `Member_ID` varchar(8) NOT NULL,
   `User_Name` varchar(15) NOT NULL,
-  `Password` varchar(15) NOT NULL,
+  `Password` varchar(20) NOT NULL,
   `Name` varchar(40) NOT NULL,
-  `Email` varchar(30) NOT NULL,
+  `Email` varchar(30) DEFAULT NULL,
   `Type` int(1) NOT NULL,
-  `Image` varchar(8) NOT NULL,
   `Status` varchar(10) NOT NULL DEFAULT 'Active',
   `Member_Since` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Last_Logged_in` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Total_Purchase` int(8) NOT NULL DEFAULT '0'
+  `Total_Purchase` int(8) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`Member_ID`, `User_Name`, `Password`, `Name`, `Email`, `Type`, `Status`, `Member_Since`, `Last_Logged_in`, `Total_Purchase`) VALUES
+('1', 'rajesh', '123', 'Rajesh saha', NULL, 1, 'Active', '2017-12-23 16:01:03', '2017-12-23 16:01:03', 0),
+('2', 'rajesh4', '123', 'Rajesh saha', NULL, 4, 'Active', '2017-12-23 16:01:50', '2017-12-23 16:01:50', 0);
 
 -- --------------------------------------------------------
 
@@ -130,9 +135,7 @@ ALTER TABLE `invoice`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`Member_ID`),
-  ADD UNIQUE KEY `User Name` (`User_Name`),
-  ADD UNIQUE KEY `Email` (`Email`),
-  ADD UNIQUE KEY `Image` (`Image`);
+  ADD UNIQUE KEY `User Name` (`User_Name`);
 
 --
 -- Indexes for table `order_product`
@@ -177,7 +180,6 @@ ALTER TABLE `order_product`
 --
 ALTER TABLE `report`
   ADD CONSTRAINT `report_of_member` FOREIGN KEY (`Member_ID`) REFERENCES `member` (`Member_ID`) ON DELETE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

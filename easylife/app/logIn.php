@@ -42,11 +42,11 @@
 					<table border="1" width="50%" height="300">
 						<tr>
 							<td>Username </td>
-							<td><input name="name"/></td>
+							<td><input name="uname"/></td>
 						</tr>
 						<tr>
 							<td>Password </td>
-							<td><input type="password" name="name"/></td>
+							<td><input type="password" name="pass"/></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center" bgcolor="RoyalBlue"><a href="home.html"><h3>Login</h3></a></td>
