@@ -38,7 +38,12 @@
 					<table width="100%">
 						<tr>
 							<td width="20%" valign="top">
-								<table bgcolor="SkyBlue" height="500" width="100%" valign="top">
+								<table bgcolor="SkyBlue" height="550" width="100%" valign="top">
+									<tr height="10" >
+										<td align="left">
+											<hr/><b>Account</b><hr/>
+										</td>
+									</tr>
 									<tr height="10" >
 										<td align="center">
 											<a href="admin/dashboard.html" target="contentFrame">Dashboard</a>
@@ -60,6 +65,11 @@
 										</td>
 									</tr>
 									<tr height="10" >
+										<td align="left">
+											<hr/><b>Registar</b><hr/>
+										</td>
+									</tr>
+									<tr height="10" >
 										<td align="center">
 											<a href="admin/add_member.html" target="contentFrame" >Add Member</a>
 										</td>
@@ -67,6 +77,11 @@
 									<tr height="10" >
 										<td align="center">
 											<a href="admin/add_product.html" target="contentFrame" >Add Product</a>
+										</td>
+									</tr>
+									<tr height="10" >
+										<td align="left">
+											<hr/><b>View</b><hr/>
 										</td>
 									</tr>
 									<tr height="10" >
@@ -97,6 +112,11 @@
 									<tr height="10" >
 										<td align="center">
 											<a href="admin/stock.html" target="contentFrame" >View Stock</a>
+										</td>
+									</tr>
+									<tr height="10" >
+										<td align="left">
+											<hr/><b>Slider</b><hr/>
 										</td>
 									</tr>
 									<tr height="10" >
