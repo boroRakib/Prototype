@@ -28,7 +28,7 @@
         
         $reports = array();
         for($i=0; $row=mysqli_fetch_assoc($result); ++$i){
-            $Reports[$i] = $row;
+            $reports[$i] = $row;
         }
         
         return $reports;
@@ -51,7 +51,7 @@
         
         $reports = array();
         for($i=0; $row = mysqli_fetch_assoc($result); ++$i){
-            $products[$i] = $row;
+            $reports[$i] = $row;
         }
         
         return $reports;
@@ -64,7 +64,7 @@
         
         $reports = array();
         for($i=0; $row = mysqli_fetch_assoc($result); ++$i){
-            $products[$i] = $row;
+            $reports[$i] = $row;
         }
         
         return $reports;
@@ -77,7 +77,7 @@
         
         $reports = array();
         for($i=0; $row = mysqli_fetch_assoc($result); ++$i){
-            $products[$i] = $row;
+            $reports[$i] = $row;
         }
         
         return $reports;
@@ -90,7 +90,7 @@
         
         $reports = array();
         for($i=0; $row = mysqli_fetch_assoc($result); ++$i){
-            $products[$i] = $row;
+            $reports[$i] = $row;
         }
         
         return $reports;
