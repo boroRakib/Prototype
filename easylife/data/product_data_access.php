@@ -8,7 +8,7 @@
     }
 	
 	function editProductToDb($product){
-        $sql = "UPDATE product SET Product_Code='$product[Product_Code]',Name='$product[Name]',Quantity='$product[Quantity]',Total_Sells='$product[Total_Sells]',Price='$product[Price]',Last_Sold='$product[Last_Sold]',Image='$product[Image]',Catagory='$product[Catagory]',Brand='$product[Brand]',Size='$product[Size]',Description='$product[Description]'";
+        $sql = "UPDATE product SET Name='$product[Name]',Quantity='$product[Quantity]',Total_Sells='$product[Total_Sells]',Price='$product[Price]',Last_Sold='$product[Last_Sold]',Image='$product[Image]',Catagory='$product[Catagory]',Brand='$product[Brand]',Size='$product[Size]',Description='$product[Description]' WHERE Product_Code='$product[Product_Code]'";
         $result = executeSQL($sql);
         return $result;
     }
