@@ -1,25 +1,32 @@
+<?php require_once "../service/product_serviec.php"; ?>
+<?php
+	$catagory=$_GET['catagory'];
+	$products=getAllProducts();
+
+?>
+
 <html>
 	<head>
 		<title>Men</title>
 	</head>
 	<body>
-		<table border="1" width="100%" >
-			<tr>
+		<table   width="100%" bgcolor="Gainsboro" >
+			<tr height="20">
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
 				<td align="center"><a href="howToBuy.php">How To Buy</a></td>
 				
 			</tr>
-			<tr>
+			<tr height="80">
 				<td align="center" colspan="3">
-					<table border="1" width="100%" bgcolor="orange" >
+					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
-							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
-							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
-							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
+							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
+							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
-								<table border="1">
+								<table  >
 									<tr rowspan="2">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										<td><a href="Registration.php">Registartion</a></td>
@@ -40,19 +47,22 @@
 					<table width="100%">
 						<tr>
 							<td width="20%" valign="top">
-								<table border="1" height="800" width="100%" valign="top">
+								<table height="400" width="100%" valign="top" bgcolor="RosyBrown    ">
+								<tr height="50">
+									<td><h2><?=$catagory?></h2><hr/></td>
+								</tr>
 									<tr>
-										<td>
-											<select onchange="location = this.value;">
+										<td height="50">
+											<select onchange="location = this.value;" 
 												<option value="home.php">Winter Collection</option>
-												<option value="men.php">Gents Winter Collection</option>
+												<option value="product_by_category.php?catagory=Gents Winter Collection">Gents Winter Collection</option>
 												<option value="women.php">Ladies Winter Collection</option>
 												<option value="kid.php">Kids Winter Collection</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Womens Clothing</option>
 												<option value="women.php">Hijab And Dupatta</option>
@@ -62,7 +72,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Mens Clothing</option>
 												<option value="men.php">Shirt</option>
@@ -72,7 +82,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Kids Clothing</option>
 												<option value="kid.php">T-Shirt</option>
@@ -82,7 +92,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Accessories</option>
 												<option value="accessories.php">Ear Rings</option>
@@ -95,7 +105,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Footwear</option>
 												<option value="footWear.php">Mens Footwear</option>
@@ -105,7 +115,7 @@
 										</td>
 									</tr>
 									<tr>
-										<td>
+										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Brand</option>
 												<option value="brand.php">Eacstasy</option>
@@ -118,7 +128,7 @@
 								
 							</td>
 							<td align="center" width="80%">
-								<table border="1" width="100%">
+								<table width="100%">
 									<tr>
 										<td >
 											
@@ -126,108 +136,19 @@
 									</tr>
 									<tr>
 										<td width="800">
-											<table align="center" border="1" width="100%">
+											<table align="center" width="100%" bgcolor="white">
+											<?php $count=0; for($p=1;$p<=(count($products)/3);$p++) { ?>
 												<tr>
-													<td align="center">
-														<a href="details.php"><img src="resources/tshirt1.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
+												<?php for($q=1;$q<=3;$q++) { ?>
+													<td align="center" height="300">
+														<a href="details.php"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<br/><?= $products[$count]['Name'] ?><br/>
+														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
 													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/tshirt2.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/tshirt3.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
+													<?php $count++; } ?>
 												</tr>
-												<tr>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw1.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw2.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw3.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-												</tr>
-												<tr>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw1.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw2.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw3.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-												</tr>
-												<tr>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw1.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw2.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw3.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-												<tr>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw1.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/pant1.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center">
-														<a href="details.php"><img src="resources/mw3.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													
-												</tr>
-											</tr>
+												<?php } ?>
 											</table>
 										</td>
 									</tr>
@@ -238,7 +159,7 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr bgcolor="WhiteSmoke ">
 				<td colspan="3" align="center">
 					<table>
 						<tr>

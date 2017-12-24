@@ -1,5 +1,4 @@
-<php>
-	<head>
+<head>
 		<title>Home</title>
 
 	</head>
@@ -51,7 +50,7 @@
 										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Winter Collection</option>
-												<option value="men.php">Gents Winter Collection</option>
+												<option value="product_by_category.php?catagory=Gents Winter Collection">Gents Winter Collection</option>
 												<option value="women.php">Ladies Winter Collection</option>
 												<option value="kid.php">Kids Winter Collection</option>
 											</select>
@@ -414,4 +413,4 @@
 		</table>
 	</body>
 
-</php>
+

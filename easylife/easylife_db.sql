@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2017 at 03:26 PM
+-- Generation Time: Dec 24, 2017 at 04:44 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -103,7 +103,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Price`, `Last_Sold`, `Image`, `Catagory`, `Brand`, `Size`, `Description`) VALUES
-('P-000001', 'kakashi tshirt', 100, 0, 640, NULL, 'P-000001', 'Gents Winter Collection', 'Esctasy', 'L', '');
+('1', 'p', 1, 0, 123, NULL, '', 'Gents Winter Collection', 'easy', 'L', ''),
+('2', 'q', 22, 0, 222, NULL, '2', 'Gents Winter Collection', 'easy', 'S', ''),
+('3', 's', 33, 0, 123, NULL, 's', 'Gents Winter Collection', 'easy', 'S', ''),
+('4', 'a', 1, 0, 11, NULL, 'a', 'Gents Winter Collection', '', '', ''),
+('5', 'b', 44, 0, 44, NULL, 'b', 'Gents Winter Collection', '', '', ''),
+('6', 'c', 44, 0, 0, NULL, '', 'Gents Winter Collection', '', '', ''),
+('7', 'd', 33, 0, 22, NULL, '', 'Gents Winter Collection', '', '', ''),
+('8', 'e', 33, 0, 33, NULL, '', 'Gents Winter Collection', '', '', ''),
+('9', 'f', 33, 0, 33, NULL, '', 'Gents Winter Collection', '', '', ''),
+('P-000001', 'r', 100, 0, 640, NULL, 'P-000001', 'Gents Winter Collection', 'Esctasy', 'L', '');
 
 -- --------------------------------------------------------
 
