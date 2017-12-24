@@ -3,7 +3,7 @@
 		<title>Personal Information</title>
 	</head>
 	<body>
-		<table border="1" width="100%">
+		<table  width="100%" bgcolor="Gainsboro">
 			<tr>
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
@@ -12,14 +12,14 @@
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<table border="1" width="100%">
+					<table  width="100%" bgcolor="WhiteSmoke" height="80" >
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
 							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
-								<table border="1">
+								<table >
 									<tr rowspan="2">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										<td><a href="Registration.php">Registartion</a></td>
@@ -40,7 +40,7 @@
 				<fieldset>
 					<legend><b>Edit Profile</b></legend>
 					
-					<table border="1" width="80%" height="500">
+					<table  width="80%" height="500">
 						<tr>
 							<td><b>Name</b></td>
 							<td colspan="2"> <input name="name" value="Rakibul Hossain"/></td>
@@ -94,7 +94,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="3" align="center">
+				<td colspan="3" align="center"  bgcolor="WhiteSmoke ">
 					<table>
 						<tr>
 							<td ><a href="https://www.facebook.com/"><img src="resources/f.jpg" height="30" width="30" /></a>
