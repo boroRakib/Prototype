@@ -1,7 +1,7 @@
 <?php require_once "../../service/validation_service.php"; ?>
-<?php require_once "../../service/member_service.php"; ?>
+<?php require_once "../../data/member_data_access.php"; ?>
 <?php
-	$name=$uname=$email=$userName=$password=$gender=$dob="";
+	$name=$uname=$email=$userName=$password=$cpassword=$gender=$dob="";
 ?>
 <form method="post">
 	<fieldset>
@@ -178,7 +178,7 @@
 		}
 		
 		if($isValid==true){
-			$id=getLastMemberID()['Member_ID'];
+			$id=getLastMemberIDFromDB()['Member_ID'];
 			$member['Member_ID']=$id;
 			$member['User_Name']=$uname;
 			$member['Password']=$password;
@@ -187,7 +187,7 @@
 			$member['Type']=$Type;
 			$member['Status']=$Status;
 			
-			if(addMember($member)==true){
+			if(addMemberToDB($member)==true){
                 echo "<script>
                         alert('Record Added');
                         document.location='a_success.php';
