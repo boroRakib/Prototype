@@ -79,7 +79,7 @@
 		}
 		
 		if($isValid==true){
-			$id=getLastMemberID()['MAX(Member_ID)'];
+			$id=getLastMemberIDFromDB()['MAX(Member_ID)'];
 			$member['Member_ID']=$id+1;
 			$member['Password']=$password;
 			$member['Name']=$name;
@@ -87,10 +87,9 @@
 			$member['Type']=$Type;
 			$member['Status']=$Status;
 			
-			if(addMember($member)==true){
+			if(addMemberToDB($member)==true){
                 echo "<script>
-                        alert('Record Added');
-                        document.location='a_success.php';
+                        document.location='a_success.php?memberID=".$member['Member_ID']."';
                      </script>";
                 die();
             }
@@ -147,17 +146,6 @@
 					<td><input name="cpassword" type="password" value="<?=$cpassword?>"/></td>
 					<td><font color="red"><?=$cpassErr?></font></td>
 				</tr>		
-				<tr><td colspan="4"><hr/></td></tr>
-				<tr>
-					<td>Gender</td>
-					<td>:</td>
-					<td>   
-						<input name="gender" type="radio" value="Male">Male
-						<input name="gender" type="radio" value="Female">Female
-						<input name="gender" type="radio" value="Other">Other
-					</td>
-					<td><font color="red"><?=$gErr?></font></td>
-				</tr>
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
 					<td>Type</td>
