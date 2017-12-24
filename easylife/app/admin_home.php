@@ -147,9 +147,9 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr bgcolor="gray">
 				<td colspan="3" align="center">
-					<table>
+					<table >
 						<tr>
 							<td ><a href="https://www.facebook.com/"><img src="resources/f.jpg" height="30" width="30" /></a>
 							<a href="https://www.instagram.com/"><img src="resources/i.jpg" height="30" width="30" /></a>
@@ -164,44 +164,11 @@
 				<td align="center" colspan="3">
 					<table width="100%">
 						<tr>
-							<td align="center">
-								<p><b>Information</b></p>
-								<a href="aboutUs.html">About Us</a></br>
-								<a href="contactUs.html">Contact Us</a>
-							</td>
-							<td align="center">
-								<p><b>Customer Serviece</b></p>
-								<a href="securityPolicy.html">Security Policy</a></br>
-								<a href="shipping.html">Shipping & Replacement</a></br>
-								<a href="privacyPolicy.html">Privacy Policy</a></br>
-								<a href="termsOfuse.html">Terms Of Use</a>
-							</td>
-							<td align="center">
-								<p><b>My Account</b></p>
-								<a href="personalInfo.html">Personal Info</a></br>
-								
-								<a href="order.html">Orders</a></br>
-								<a href="shoppingCart.html">Shopping Cart</a></br>
-							</td>
-							<td align="center">
-								<p><b>Visit Us</b></p>
-								<img src="resources/l.jpg" height="20" width="20" />Dhanmondi, Dhaka-1205 </br>
-								<img src="resources/mail.jpg" height="20" width="20" />admin@easylife.com </br>
-								<img src="resources/mobile.jpg" height="20" width="20" />09636-102030
-								
-							</td>
-						</tr>
-						
-					</table>
-						<tr>
-							<td align="center" colspan="3"><img src="resources/bkash.jpg" height="40" width="40" />
-							<img src="resources/rocket.jpg" height="40" width="40" /></td>
-						</tr>
-						<tr>
 							<td align="center">Powered By easylife</td>
 							<td></td>
-							<td align="center">Copyright &copy 2017 easylife.com. All rights reserved. 2017 </td>
+							<td align="right">Copyright &copy 2017 easylife.com. All rights reserved. 2017 </td>
 						</tr>
+					</table>
 				</td>
 			</tr>
 		
