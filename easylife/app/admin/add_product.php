@@ -119,6 +119,6 @@
 								</tr>
 								</table>
         <hr/>
-        <a href="successproduct.html?a=uedit"><button>Add</button></a> 
+        <a href="successproduct.php?a=uedit"><button>Add</button></a> 
         <input type="reset">
 </fieldset>

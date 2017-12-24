@@ -1,112 +1,28 @@
 <?php
    
-    function isValidPersonName($name){
-					$isValid = false;
-					$flag=0;
-					$fflg=0;
-					if($flag==0)
-					{
-						for($i=0;$i<strlen($name)&&!(empty($name));$i++)
-						{
-							if(!(($name[$i]>='A' && $name[$i]<='Z')||($name[$i]>='a' && $name[$i]<='z')||($name[$i]=='-')||($name[$i]==' ')))
-							{
-								$flag=1;
-								break;
-							}
-						}
-						if(empty($name))
-						{
-							
-							$fflg=1;							
-						}
-						else if($flag==1)
-						{
-								
-								$fflg=1;
-						}
-						else if(!(($name[0]>='A' && $name[0]<='Z')||($name[0]>='a' && $name[0]<='z')))
-						{
-								
-								$fflg=1;
-						}
-						
-						else if(str_word_count($name)<2)
-						{
-								$fflg=1;
-						}
-					}
-					else
-					{
-						if($fflg==1 || $flag=1 )
-						{
-							return $isValid; 
-						}
-						else
-						{
-							$isValid = true;
-							return $isValid;
-						
-						}
-					}
-					
+    function isValidPersonName($name)
+	{
+		$parts = explode(" ", $name);
+		$isValid = false;
+		 if(count($parts)>1){
+            if(preg_match("/[a-zA-Z ]/",$name)){
+                $isValid = true;
+            }
+        }
+        return $isValid;
 					
     }
 	
-    function isValidPersonUserName($uName){
-					$isValid = false;
-					$flag=0;
-					$fflg=0;
-					if($flag==0)
-					{
-						for($i=0;$i<strlen($uName)&&!(empty($uName));$i++)
-						{
-							if(!(($uName[$i]>='A' && $uName[$i]<='Z')||($uName[$i]>='a' && $uName[$i]<='z')||($uName[$i]=='-')||($uName[$i]==' ')))
-							{
-								$flag=1;
-								break;
-							}
-							else if(!($uName[$i]>='@' || $uName[$i]<='$'||$uName[$i]>='#'))
-							{
-								$flag=1;
-								break;
-							}
-						}
-						if(empty($uName))
-						{
-							
-							$fflg=1;							
-						}
-						else if($flag==1)
-						{
-								
-								$fflg=1;
-						}
-						else if(!(($uName[0]>='A' && $uName[0]<='Z')||($uName[0]>='a' && $uName[0]<='z')))
-						{
-								
-								$fflg=1;
-						}
-						
-						else if(str_word_count($uName)<1)
-						{
-								$fflg=1;
-						}
-					}
-					else
-					{
-						if($fflg==1 || $flag=1 )
-						{
-							return $isValid; 
-						}
-						else
-						{
-							$isValid = true;
-							return $isValid;
-						
-						}
-					}
-					
-					
+    function isValidPersonUserName($uname){
+		$parts=str_word_count($name)
+		$isValid = false;
+		 if($parts==1){
+            if(preg_match("/[a-zA-Z ]@$/",$uname)){
+                $isValid = true;
+            }
+        }
+        return $isValid;
+		
     }
 	
 	 function isValidEmail($email){
@@ -121,46 +37,23 @@
 	
 	 function isValidPassword($pass)
 	{
-	 
-	
 		$isValid = false;
-		$fflg=0;
-		
-		if($fflg==0)
-		{
-					if(empty($pass))
-				{
-						$fflg=1;
-				}
-				else if(strlen($pass)<8)
-				{
-						$fflg=1;
-				}
-				
-				if(empty($cpass))
-				{
-						$fflg=1;
-				}
-				
-				if($cpass!=$pass)
-				{
-						$fflg=1;
-				}
-		}
-		else
-		{
-			if($fflg==1)
-				{
-					return $isValid; 
-				}
-				else
-				{
-					$isValid = true;
-					return $isValid;
-				}
-		}
+		 if(preg_match("/.{8,}/",$pass)){
+                $isValid = true;
+            }
+		return $isValid;
 			
 	}
+	 function isValidRetypeaPassword($pass,$rpass)
+	{
+		$isValid = false;
+		 if(strcmp($pass,$rpass)==true){
+                $isValid = true;
+            }
+		return $isValid;
+			
+	}
+	
 	function isValidDOB()
 	{
 		$leap=0;
