@@ -38,7 +38,7 @@
 	 function isValidPassword($pass)
 	{
 		$isValid = false;
-		 if(preg_match("/.{8,}/",$pass)){
+		 if(preg_match("/.{2,}/",$pass)){
                 $isValid = true;
             }
 		return $isValid;
