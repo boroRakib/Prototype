@@ -51,7 +51,7 @@
 				<tr>
 					<td>Confirm Password</td>
 					<td>:</td>
-					<td><input name="confirmPassword" type="password" value="<?=$cpassword?>/></td>
+					<td><input name="confirmPassword" type="password" value="<?=$cpassword?>"/></td>
 					<td></td>
 				</tr>		
 				<tr><td colspan="4"><hr/></td></tr>
@@ -70,7 +70,7 @@
 					<td valign="top">Date of Birth</td>
 					<td valign="top">:</td>
 					<td>
-						<input name="dob" type="text" value="<?=$dob?>/>	
+						<input name="dob" type="text" value="<?=$dob?>" />	
 						<font size="2"><i>(dd/mm/yyyy)</i></font>
 					</td>
 					<td></td>
