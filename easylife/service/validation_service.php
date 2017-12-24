@@ -5,7 +5,7 @@
 		$parts = explode(" ", $name);
 		$isValid = false;
 		 if(count($parts)>1){
-            if(preg_match("[a-zA-Z ]",$name)){
+            if(preg_match("/[a-zA-Z ]/",$name)){
                 $isValid = true;
             }
         }
@@ -14,10 +14,10 @@
     }
 	
     function isValidPersonUserName($uName){
-		$parts = explode(" ", $name);
+		$parts=str_word_count($name)
 		$isValid = false;
-		 if(count($parts)>1){
-            if(preg_match("[a-zA-Z]",$name)){
+		 if($parts==1){
+            if(preg_match("/[a-zA-Z ]@$/",$uName)){
                 $isValid = true;
             }
         }
