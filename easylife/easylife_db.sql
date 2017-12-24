@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2017 at 05:13 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: Dec 24, 2017 at 02:58 PM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -90,7 +92,6 @@ CREATE TABLE `product` (
   `Total_Sells` int(8) NOT NULL DEFAULT '0',
   `Price` float NOT NULL,
   `Last_Sold` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `Image` varchar(8) NOT NULL,
   `Catagory` varchar(30) NOT NULL,
   `Brand` varchar(30) NOT NULL,
   `Size` varchar(10) NOT NULL,
@@ -101,8 +102,8 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Price`, `Last_Sold`, `Image`, `Catagory`, `Brand`, `Size`, `Description`) VALUES
-('P-000001', 'kakashi tshirt', 100, 0, 640, NULL, 'P-000001', 'Gents Winter Collection', 'Esctasy', 'L', '');
+INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Price`, `Last_Sold`, `Catagory`, `Brand`, `Size`, `Description`) VALUES
+('P-000001', 'kakashi tshirt', 100, 0, 640, NULL, 'Gents Winter Collection', 'Esctasy', 'L', '');
 
 -- --------------------------------------------------------
 
@@ -180,6 +181,7 @@ ALTER TABLE `order_product`
 --
 ALTER TABLE `report`
   ADD CONSTRAINT `report_of_member` FOREIGN KEY (`Member_ID`) REFERENCES `member` (`Member_ID`) ON DELETE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
