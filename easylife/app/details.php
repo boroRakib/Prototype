@@ -1,3 +1,11 @@
+<?php require_once "../service/product_serviec.php"; ?>
+<?php
+	$product_name=$_GET['product_name'];
+	$product=getProductsByName($product_name);
+	
+	
+?>
+
 <html>
 	<head>
 		<title>Details</title>
@@ -124,16 +132,16 @@
 								
 								<table  width="1000" bgcolor="white">
 									<tr>
-										<td align="center" colspan="2"><img src="resources/tshirt1.jpg" height="400"/></td>
+										<td align="center" colspan="2"><img src="resources/<?=$product[0]['Name']?>.jpg" height="400"/></td>
 										<td>
-										<h2>Kakashi T-Shirt</h2>
-										<h3>Product Code: S-1-895</h3>
+										<h2><?=$product[0]['Name']?></h2>
+										<h3>Product Code: <?=$product[0]['Product _Code']?></h3>
 										<p>Review : <input type="radio"/><input type="radio"/><input type="radio"/><input type="radio"/><input type="radio"/></p>
-										<h3>Tk 390</h3>
+										<h3>Tk <?=$product[0]['Price']?></h3>
 										<p>Size : <input type="radio">XL</input><input type="radio"/>L</input><input type="radio"/>M</input><input type="radio"/>S</input></p>
 										<p>Quantity: <input value="1"/></p>
 										
-										<table bgcolor="YellowGreen "><tr height="30" width="50%"><td align="center"><a href="shoppingCart.php"><h2>Buy Now</h2></a></td></tr></table>
+										<table bgcolor="YellowGreen "><tr height="30" width="50%"><td align="center"><a href="shoppingCart.php?product_name=<?=$product[0]['Name']?>"><h2>Buy Now</h2></a></td></tr></table>
 										
 										
 										</td>
@@ -144,7 +152,7 @@
 											</tr>
 											<tr>
 												
-												<td width="500" colspan="3"><p align="justify">High Quality Fabric: 150-180 GSM.Anti-Wrinkle.<br/>Fully Export Quality. <br/>High Quality Rubber Print.<br/>Long Lasting color.Nicely Sewed.</td>
+												<td width="500" colspan="3"><p align="justify"><?=$product[0]['Description']?></td>
 											</tr>
 						
 											<tr>

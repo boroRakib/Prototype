@@ -1,3 +1,18 @@
+<?php require_once "../service/product_serviec.php"; ?>
+<?php
+	$product_name=$_GET['product_name'];
+	$product=getProductsByName($product_name);
+	//var_dump($product);
+		 // $i=count($_COOKIE['easylife_cart']);
+		 // $cookie_name = "easylife_cart[$i]";
+		 // $cookie_value = $product[0]['Name'];
+		 // setcookie($cookie_name,$cookie_value,time() + 3600,"/");
+	setcookie("easylife_cart","",time() - 3600,"/");
+	var_dump($_COOKIE);
+	
+	
+?>
+
 <html>
 	<head>
 		<title>Shopping Cart</title>

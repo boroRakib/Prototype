@@ -1,7 +1,7 @@
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 	$catagory=$_GET['catagory'];
-	$products=getAllProducts();
+	$products=getProductsByCatagory($catagory);
 
 ?>
 
@@ -53,10 +53,10 @@
 								</tr>
 									<tr>
 										<td height="50">
-											<select onchange="location = this.value;" 
+											<select onchange="location = this.value;" >
 												<option value="home.php">Winter Collection</option>
 												<option value="product_by_category.php?catagory=Gents Winter Collection">Gents Winter Collection</option>
-												<option value="women.php">Ladies Winter Collection</option>
+												<option value="product_by_category.php?catagory=Ladies Winter Collection">Ladies Winter Collection</option>
 												<option value="kid.php">Kids Winter Collection</option>
 											</select>
 										</td>
@@ -137,11 +137,39 @@
 									<tr>
 										<td width="800">
 											<table align="center" width="100%" bgcolor="white">
-											<?php $count=0; for($p=1;$p<=(count($products)/3);$p++) { ?>
+											<?php $count=0; ?>
+											
+											<?php  for($p=1;$p<=(count($products)/3);$p++) { ?>
 												<tr>
 												<?php for($q=1;$q<=3;$q++) { ?>
 													<td align="center" height="300">
-														<a href="details.php"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<br/><?= $products[$count]['Name'] ?><br/>
+														<b>Tk <?= $products[$count]['Price'] ?></b>
+														
+													</td>
+													<?php $count++; } ?>
+												</tr>
+											<?php } ?>
+												
+												
+											<?php if(((count($products)%3)==1)|| count($products)==1) {?>
+												<tr>
+													<td align="center" height="300">
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<br/><?= $products[$count]['Name'] ?><br/>
+														<b>Tk <?= $products[$count]['Price'] ?></b>
+														
+													</td>
+												</tr>
+											<?php } ?>
+												
+												
+											<?php if(((count($products)%3)==2)||count($products)==2) {?>
+												<tr>
+													<?php for($q=1;$q<=2;$q++) { ?>
+													<td align="center" height="300">
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
@@ -149,6 +177,8 @@
 													<?php $count++; } ?>
 												</tr>
 												<?php } ?>
+												
+												
 											</table>
 										</td>
 									</tr>

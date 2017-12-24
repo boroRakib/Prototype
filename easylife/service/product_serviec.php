@@ -27,4 +27,8 @@
 	{
 		return getProductsByPriceFromDB($Price);
 	}
+	function getProductsByCatagory($Catagory)
+	{
+		return getProductsByCatagoryFromDB($Catagory);
+	}
 ?>

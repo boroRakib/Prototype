@@ -33,7 +33,7 @@
     }
 	
 	function getProductByCodeFromDB($Product_code){
-        $sql = "SELECT * FROM product WHERE Product_code=$Product_code";        
+        $sql = "SELECT * FROM product WHERE Product_code='$Product_code'";        
         $result = executeSQL($sql);
         
         $product = mysqli_fetch_assoc($result);
@@ -54,7 +54,7 @@
     }
 	
 	function getProductsByPriceFromDB($Price){
-        $sql = "SELECT * FROM product WHERE Price=$Price";
+        $sql = "SELECT * FROM product WHERE Price='$Price'";
         $result = executeSQL($sql);
         
         $products = array();
@@ -64,6 +64,16 @@
         
         return $products;
     }
+	
+	function getProductsByCatagoryFromDB($Catagory){
+        $sql = "SELECT * FROM product WHERE Catagory='$Catagory'";
+        $result = executeSQL($sql);
+        
+        $products = array();
+        for($i=0; $row = mysqli_fetch_assoc($result); $i++){
+            $products[$i] = $row;
+        }
+        
+        return $products;
+    }
 ?>
-	
-	
