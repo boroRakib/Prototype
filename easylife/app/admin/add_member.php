@@ -1,7 +1,7 @@
 <?php require_once "../../service/validation_service.php"; ?>
 <?php require_once "../../data/member_data_access.php"; ?>
 <?php
-	$name=$uname=$email=$userName=$password=$cpassword=$gender=$dob="";
+	$name=$email=$password=$cpassword=$gender=$dob="";
 ?>
 <form method="post">
 	<fieldset>
@@ -32,14 +32,7 @@
 						<abbr title="hint: sample@example.com"><b>i</b></abbr>
 					</td>
 					<td></td>
-				</tr>		
-				<tr><td colspan="4"><hr/></td></tr>
-				<tr>
-					<td>User Name</td>
-					<td>:</td>
-					<td><input name="userName" type="text" value="<?=$uname?>"/></td>
-					<td></td>
-				</tr>		
+				</tr>	
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
 					<td>Password</td>
@@ -51,7 +44,7 @@
 				<tr>
 					<td>Confirm Password</td>
 					<td>:</td>
-					<td><input name="confirmPassword" type="password" value="<?=$cpassword?>"/></td>
+					<td><input name="cpassword" type="password" value="<?=$cpassword?>"/></td>
 					<td></td>
 				</tr>		
 				<tr><td colspan="4"><hr/></td></tr>
@@ -116,7 +109,6 @@
 	{
 		$name=trim($_POST['name']);
         $email=trim($_POST['email']);
-		$uname=trim($_POST['uname']);
 		$password=trim($_POST['password']);
 		$cpassword=trim($_POST['cpassword']);
 		
@@ -180,7 +172,6 @@
 		if($isValid==true){
 			$id=getLastMemberIDFromDB()['Member_ID'];
 			$member['Member_ID']=$id+1;
-			$member['User_Name']=$uname;
 			$member['Password']=$password;
 			$member['Name']=$name;
 			$member['Email']=$email;
