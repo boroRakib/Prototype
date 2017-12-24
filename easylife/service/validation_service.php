@@ -13,11 +13,11 @@
 					
     }
 	
-    function isValidPersonUserName($uName){
+    function isValidPersonUserName($uname){
 		$parts=str_word_count($name)
 		$isValid = false;
 		 if($parts==1){
-            if(preg_match("/[a-zA-Z ]@$/",$uName)){
+            if(preg_match("/[a-zA-Z ]@$/",$uname)){
                 $isValid = true;
             }
         }
@@ -37,46 +37,23 @@
 	
 	 function isValidPassword($pass)
 	{
-	 
-	
 		$isValid = false;
-		$fflg=0;
-		
-		if($fflg==0)
-		{
-					if(empty($pass))
-				{
-						$fflg=1;
-				}
-				else if(strlen($pass)<8)
-				{
-						$fflg=1;
-				}
-				
-				if(empty($cpass))
-				{
-						$fflg=1;
-				}
-				
-				if($cpass!=$pass)
-				{
-						$fflg=1;
-				}
-		}
-		else
-		{
-			if($fflg==1)
-				{
-					return $isValid; 
-				}
-				else
-				{
-					$isValid = true;
-					return $isValid;
-				}
-		}
+		 if(preg_match("/.{8,}/",$pass)){
+                $isValid = true;
+            }
+		return $isValid;
 			
 	}
+	 function isValidretypeaPassword($pass,$rpass)
+	{
+		$isValid = false;
+		 if(strcmp($pass,$rpass)==true){
+                $isValid = true;
+            }
+		return $isValid;
+			
+	}
+	
 	function isValidDOB()
 	{
 		$leap=0;

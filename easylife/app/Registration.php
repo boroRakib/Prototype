@@ -81,11 +81,11 @@
 						</tr>
 						<tr>
 							<td colspan="2">Password </td>
-							<td><input type="password" name="name"/></td>
+							<td><input type="password" name="pass"/></td>
 						</tr>
 						<tr>
 							<td colspan="2">Retype Password </td>
-							<td><input type="password" name="name"/></td>
+							<td><input type="password" name="rpass"/></td>
 						</tr>
 						<tr>
 							<td colspan="2">Profile picture</td>
