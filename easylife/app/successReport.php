@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>User Report</title>
+		<title>Success Report</title>
 	</head>
 	<body>
 		<table   width="100%" bgcolor="Gainsboro" >
@@ -122,18 +122,19 @@
 							</td>
 							<td align="center" width="80%">
 								
-										<table  width="600">
+										<table  width="1000">
 											<tr>
-												<td>Report Title</td>
-												<td><input type="text"/></td>
+												<td><h1><font color="red">Sucessful!!</font></h1></td>
+												
 											</tr>
 											<tr>
-												<td>Details</td>
-												<td><textarea rows="10" cols="50"></textarea></td>
+												<td>Thanks for your review!!</td>
+												
 											</tr>
+											
 											<tr>
-												<td></td>
-												<td><a href="successReport.php">Submit</a></td>
+												
+												<td><a href="home.php">Go to home Page</a></td>
 											</tr>
 											
 											
