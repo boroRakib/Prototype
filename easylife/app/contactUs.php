@@ -1,32 +1,32 @@
 <html>
 	<head>
-		<title>Success Report</title>
+		<title>Contact Us</title>
 	</head>
 	<body>
-		<table   width="100%" bgcolor="Gainsboro" >
-			<tr height="20">
+		<table  width="100%" bgcolor="Gainsboro">
+			<tr>
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
-				<td align="center"><a href="howToBuy.php">How To Buy</a></td>
+				<td align="center"><a href="howToBuy.html">How To Buy</a></td>
 				
 			</tr>
-			<tr height="80">
+			<tr>
 				<td align="center" colspan="3">
-					<table   width="100%" bgcolor="WhiteSmoke " height="80">
+					<table  bgcolor="WhiteSmoke "  width="100%" height="80">
 						<tr>
-							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
-							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
-							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
-							<td align="center"><a href="trackProduct.php">Track Product</a></td>
+							<td align="center"><a href="home.html"><img src="resources/e.jpg" height="60" width="120" /></a></td>
+							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
+							<td align="center">(0)items<a href="shoppingCart.html"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<td align="center"><a href="trackProduct.html">Track Product</a></td>
 							<td align="center">
-								<table  >
+								<table >
 									<tr rowspan="2">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
-										<td><a href="Registration.php">Registartion</a></td>
+										<td><a href="Registration.html">Registartion</a></td>
 									</tr>
 									<tr>
-										<td><a href="home.php">Log Out</a></td>
-										<td><a href="logIn.php">Log In</a></td>
+										<td><a href="home.html">Log Out</a></td>
+										<td><a href="logIn.html">Log In</a></td>
 									</tr>
 									
 								</table>
@@ -35,44 +35,43 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr >
 				<td colspan="3" align="center">
-					<table width="100%">
-						
-							<td   align="center" width="800" height="400">
+					<table>
+						<tr>
+							
+					
+							<td align="center" width="800" height="400">
+								<p align="justify">
+									
+
+								We would like to receive your feedback about our site and any question or comment.
+								Keep in contact wth us and feel free to express any opinion, 
+								viewpoint, suggestion or comment that you might have. Corporate Office 
+
+								<h2>easylife.com</h2>
+
+								<p>39 North Road (1st Floor), Vuter Goli</p>
+								<p>(Near Kalabagan Police Station)</p>
+								<p>Dhanmondi, Dhaka-1205</p>
+
+								<p>Working Hour: 09.00 AM to 11.00 PM</p>
+								<p>Phone: 09636-102030</p>
+								<p>Email: admin@easylife.com</p>
+								<p>Website: www.easylife.com</p>
+								<p>Facebook: facebook.com/easylifecom</p>
+								</p>
 								
-										<table >
-											<tr>
-												<td><h1><font color="red">Sucessful!!</font></h1></td>
-												
-											</tr>
-											<tr>
-												<td>Thanks for your review!!</td>
-												
-											</tr>
-											
-											<tr>
-												
-												<td><a href="home.php">Go to home Page</a></td>
-											</tr>
-											
-											
-										</table>	
-									<table/>	
-										</td>
-									</tr>
-								</table>						
 							</td>
 						</tr>
+						
 					</table>
 				</td>
 			</tr>
-						
-		
-			<tr bgcolor="WhiteSmoke ">
-				<td colspan="3" align="center" >
-					<table >
-						<tr >
+			<tr>
+				<td colspan="3" align="center"  bgcolor="WhiteSmoke ">
+					<table>
+						<tr>
 							<td ><a href="https://www.facebook.com/"><img src="resources/f.jpg" height="30" width="30" /></a>
 							<a href="https://www.instagram.com/"><img src="resources/i.jpg" height="30" width="30" /></a>
 							<a href="https://twitter.com/"><img src="resources/t.jpg" height="30" width="30" /></a>
@@ -88,23 +87,22 @@
 						<tr>
 							<td align="center">
 								<p><b>Information</b></p>
-								<a href="aboutUs.php">About Us</a></br>
-								<a href="contactUs.php">Contact Us</a>
+								<a href="aboutUs.html">About Us</a></br>
+								<a href="contactUs.html">Contact Us</a>
 							</td>
 							<td align="center">
 								<p><b>Customer Serviece</b></p>
-								<a href="securityPolicy.php">Security Policy</a></br>
-								<a href="shipping.php">Shipping & Replacement</a></br>
-								<a href="privacyPolicy.php">Privacy Policy</a></br>
-								<a href="termsOfuse.php">Terms Of Use</a>
+								<a href="securityPolicy.html">Security Policy</a></br>
+								<a href="shipping.html">Shipping & Replacement</a></br>
+								<a href="privacyPolicy.html">Privacy Policy</a></br>
+								<a href="termsOfuse.html">Terms Of Use</a>
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								<a href="personalInfo.html">Personal Info</a></br>
 								
-								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br>
-								<a href="report.php">Report</a></br>
+								<a href="order.html">Orders</a></br>
+								<a href="shoppingCart.html">Shopping Cart</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>

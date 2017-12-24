@@ -41,7 +41,7 @@
 		
 		else if(isValidPassword($password)==false){
             $isValid = false;
-            $passErr = "Invalid Password";
+            $passErr = "Minimum length 2";
         }
 		
 		if(empty($cpassword)){
