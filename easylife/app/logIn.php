@@ -107,7 +107,7 @@
 											$v=true;
 										}
 								}
-								if($v==false){echo "<div><font color=red>"."Login was unsuccessful.<br/>No customer account found!!!"."</font></div>";}
+								if($v==false){echo "<div><font color=red>"."Login was unsuccessful.<br/>Customer account not found!!!"."</font></div>";}
 							 }
 							?>
 						
