@@ -16,6 +16,11 @@
         return getAllMembersFromDb();
     }
     
+	function getLastMemberID()
+	{
+		return getLastMemberIDFromDB();
+	}
+	
     function getMemberById($memberId){
         return getMemberByIdFromDb($memberId);
     }

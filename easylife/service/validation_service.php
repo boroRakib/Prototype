@@ -14,7 +14,7 @@
     }
 	
     function isValidPersonUserName($uname){
-		$parts=str_word_count($name)
+		$parts=str_word_count($name);
 		$isValid = false;
 		 if($parts==1){
             if(preg_match("/[a-zA-Z ]@$/",$uname)){
@@ -54,7 +54,7 @@
 			
 	}
 	
-	function isValidDOB()
+	/*function isValidDOB()
 	{
 		$leap=0;
 		$flag=0;
@@ -130,7 +130,7 @@
 					return $isValid;
 				}
 		}
-	}
+	}*/
 	
 	
 ?>
