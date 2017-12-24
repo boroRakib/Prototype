@@ -12,7 +12,7 @@
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<table  width="100%" bgcolor="WhiteSmoke " >
+					<table  width="100%" bgcolor="WhiteSmoke" height="80" >
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>

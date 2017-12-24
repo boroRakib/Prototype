@@ -3,7 +3,7 @@
 		<title>Contact Us</title>
 	</head>
 	<body>
-		<table border="1" width="100%">
+		<table  width="100%" bgcolor="Gainsboro">
 			<tr>
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
@@ -12,14 +12,14 @@
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<table border="1" width="100%">
+					<table  bgcolor="WhiteSmoke "  width="100%" height="80">
 						<tr>
 							<td align="center"><a href="home.html"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
 							<td align="center">(0)items<a href="shoppingCart.html"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.html">Track Product</a></td>
 							<td align="center">
-								<table border="1">
+								<table >
 									<tr rowspan="2">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										<td><a href="Registration.html">Registartion</a></td>
@@ -35,89 +35,13 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr >
 				<td colspan="3" align="center">
 					<table>
 						<tr>
-							<td>
-								<table border="1" height="800">
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.html">Winter Collection</option>
-												<option value="men.html">Gents Winter Collection</option>
-												<option value="women.html">Ladies Winter Collection</option>
-												<option value="kid.html">Kids Winter Collection</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.html">Womens Clothing</option>
-												<option value="women.html">Hijab And Dupatta</option>
-												<option value="women.html">Saree</option>
-												<option value="women.html">Three Piece</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.html">Mens Clothing</option>
-												<option value="men.html">Shirt</option>
-												<option value="men.html">Panjabi</option>
-												<option value="men.html">Pant</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.html">Kids Clothing</option>
-												<option value="kid.html">T-Shirt</option>
-												<option value="kid.html">Trouser</option>
-												<option value="kid.html">Cap</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.html">Accessories</option>
-												<option value="accessories.html">Ear Rings</option>
-												<option value="accessories.html">Money Bag</option>
-												<option value="accessories.html">Watch</option>
-												<option value="accessories.html">Necklace</option>
-												<option value="accessories.html">Sunglass</option>
-												<option value="accessories.html">Bag</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.html">Footwear</option>
-												<option value="footWear.html">Mens Footwear</option>
-												<option value="footWear.html">Womens Footwear</option>
-												<option value="footWear.html">Kids Footwear</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.html">Brand</option>
-												<option value="brand.html">Eacstasy</option>
-												<option value="brand.html">Aarong</option>
-												<option value="brand.html">Yellow</option>
-											</select>
-										</td>
-									</tr>
-								</table>
-								
-							</td>
-							<td align="center" width="800">
+							
+					
+							<td align="center" width="800" height="400">
 								<p align="justify">
 									
 
@@ -145,7 +69,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="3" align="center">
+				<td colspan="3" align="center"  bgcolor="WhiteSmoke ">
 					<table>
 						<tr>
 							<td ><a href="https://www.facebook.com/"><img src="resources/f.jpg" height="30" width="30" /></a>

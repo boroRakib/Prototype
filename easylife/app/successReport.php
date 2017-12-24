@@ -38,91 +38,10 @@
 			<tr>
 				<td colspan="3" align="center">
 					<table width="100%">
-						<tr>
-							<td width="20%" valign="top">
-								<table height="400" width="100%" valign="top" bgcolor="RosyBrown    ">
-								<tr height="50">
-									<td><h2>CATEGORIES</h2><hr/></td>
-								</tr>
-									<tr>
-										<td height="50">
-											<select onchange="location = this.value;" 
-												<option value="home.php">Winter Collection</option>
-												<option value="men.php">Gents Winter Collection</option>
-												<option value="women.php">Ladies Winter Collection</option>
-												<option value="kid.php">Kids Winter Collection</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td height="50">
-											<select onchange="location = this.value;">
-												<option value="home.php">Womens Clothing</option>
-												<option value="women.php">Hijab And Dupatta</option>
-												<option value="women.php">Saree</option>
-												<option value="women.php">Three Piece</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td height="50">
-											<select onchange="location = this.value;">
-												<option value="home.php">Mens Clothing</option>
-												<option value="men.php">Shirt</option>
-												<option value="men.php">Panjabi</option>
-												<option value="men.php">Pant</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td height="50">
-											<select onchange="location = this.value;">
-												<option value="home.php">Kids Clothing</option>
-												<option value="kid.php">T-Shirt</option>
-												<option value="kid.php">Trouser</option>
-												<option value="kid.php">Cap</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td height="50">
-											<select onchange="location = this.value;">
-												<option value="home.php">Accessories</option>
-												<option value="accessories.php">Ear Rings</option>
-												<option value="accessories.php">Money Bag</option>
-												<option value="accessories.php">Watch</option>
-												<option value="accessories.php">Necklace</option>
-												<option value="accessories.php">Sunglass</option>
-												<option value="accessories.php">Bag</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td height="50">
-											<select onchange="location = this.value;">
-												<option value="home.php">Footwear</option>
-												<option value="footWear.php">Mens Footwear</option>
-												<option value="footWear.php">Womens Footwear</option>
-												<option value="footWear.php">Kids Footwear</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td height="50">
-											<select onchange="location = this.value;">
-												<option value="home.php">Brand</option>
-												<option value="brand.php">Eacstasy</option>
-												<option value="brand.php">Aarong</option>
-												<option value="brand.php">Yellow</option>
-											</select>
-										</td>
-									</tr>
-								</table>
+						
+							<td   align="center" width="800" height="400">
 								
-							</td>
-							<td align="center" width="80%">
-								
-										<table  width="1000">
+										<table >
 											<tr>
 												<td><h1><font color="red">Sucessful!!</font></h1></td>
 												
