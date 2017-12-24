@@ -2,7 +2,7 @@
 <?php
 	function addMemberToDB($member)
 	{
-        $sql = "INSERT INTO member(Member_ID, User_Name, Password, Name, Email, Type, Image, Status) VALUES ('$member[Member_ID]', '$member[User_Name]', '$member[Password', '$member[Name]', '$member[Email]', '$member[Type]', '$member[Image]', '$member[Status]')";
+        $sql = "INSERT INTO member(Member_ID, Password, Name, Email, Type, Status) VALUES ('$member[Member_ID]', '$member[Password]', '$member[Name]', '$member[Email]', '$member[Type]', '$member[Status]')";
         $result = executeSQL($sql);
         return $result;
     }
@@ -30,7 +30,7 @@
         for($i=0; $row=mysqli_fetch_assoc($result); ++$i){
             $members[$i] = $row;
         }
-        
+       // var_dump($members);
         return $members;
     }
 	
@@ -77,18 +77,18 @@
         return $member;
     }
 	
-	function getMembersByTypeFromDB($Type)
-	{
-        $sql = "SELECT * FROM member WHERE Type=$Type";
-        $result = executeSQL($sql);
+	// function getMembersByTypeFromDB($Type)
+	// {
+        // $sql = "SELECT * FROM member WHERE Type=$Type";
+        // $result = executeSQL($sql);
         
-        $members = array();
-        for($i=0; $row = mysqli_fetch_assoc($result); ++$i){
-            $products[$i] = $row;
-        }
+        // $members = array();
+        // for($i=0; $row = mysqli_fetch_assoc($result); ++$i){
+            // $products[$i] = $row;
+        // }
         
-        return $members;
-    }
+        // return $members;
+    // }
 	
 	function getMembersByTypeFromDB($Status)
 	{

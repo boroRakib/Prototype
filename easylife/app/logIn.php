@@ -1,25 +1,29 @@
+<?php require_once "../service/member_service.php"; ?>
+
 <html>
 	<head>
 		<title>Login</title>
 	</head>
 	<body>
-		<table border="1" width="100%">
-			<tr>
+		<table   width="100%" bgcolor="Gainsboro" >
+			<tr height="20">
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
 				<td align="center"><a href="howToBuy.php">How To Buy</a></td>
 				
 			</tr>
-			<tr>
+			<tr height="80">
 				<td align="center" colspan="3">
-					<table border="1" width="100%">
+					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
-							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
-							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
-							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+
+							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
+							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
+
+							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
-								<table border="1">
+								<table  >
 									<tr rowspan="2">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										<td><a href="Registration.php">Registartion</a></td>
@@ -36,20 +40,90 @@
 				</td>
 			</tr>
 			<tr height="600">
+<script>
+	function validate(){
+		
+		var nameTextBox = document.getElementById("name");
+		var passTextBox = document.getElementById("pass");
+		
+				
+		var nameMsgBox = document.getElementById("namemsg");	
+		var passMsgBox = document.getElementById("passmsg");	
 
+		name = nameTextBox.value;	
+		pass = passTextBox.value;
+		
+		
+		if(name==""){
+			nameMsgBox.innerHTML = "*";return false;
+		}else{
+			nameMsgBox.innerHTML = "";
+		}
+		if(pass==""){
+			passMsgBox.innerHTML = "*";return false;
+		}
+		else{
+			passMsgBox.innerHTML = "";return true;
+		}
+		
+	}
+</script>
 				<td colspan="3" align="center" valign="top">
 							<h2 >WELCOME, PLEASE SIGN IN!</h2><hr/>
-					<table border="1" width="50%" height="300">
+				<form method="post" onsubmit="return validate()">
+					<table width="50%" height="300" bgcolor="white">
 						<tr>
-							<td>Username </td>
-							<td><input name="uname"/></td>
+						<td colspan="2" align="center">
+							<?php
+							 if($_SERVER['REQUEST_METHOD']=="POST")
+							 {
+								$members=getAllMembersFromDB();
+								$email=trim($_POST['email']);
+								$pass=trim($_POST['pass']);
+									$v=false;
+								foreach($members as $member)
+								{
+										if($member['Email']==$email)
+										{
+											if($member['Password']==$pass)
+											{
+												if($member['Type']==1)
+												{
+													echo "<script>				
+															document.location='admin_home.php';
+														 </script>";
+												}
+												if($member['Type']==4)
+												{
+													echo "<script>				
+															document.location='home.php';
+														 </script>";
+												}
+												
+											}
+											else{
+												echo "<div><font color=red>"."Login was unsuccessful.<br/>Wrong password!!!"."</font></div>";
+											}
+											$v=true;
+										}
+								}
+								if($v==false){echo "<div><font color=red>"."Login was unsuccessful.<br/>No customer account found!!!"."</font></div>";}
+							 }
+							?>
+						
+						
+						</td>
 						</tr>
 						<tr>
-							<td>Password </td>
-							<td><input type="password" name="pass"/></td>
+							<td>Email: </td>
+							<td><input id="name" name="email" size="50"/><span id="namemsg"></span></td>
 						</tr>
 						<tr>
-							<td colspan="2" align="center" bgcolor="RoyalBlue"><a href="home.php"><h3>Login</h3></a></td>
+							<td>Password: </td>
+							<td><input type="password" id="pass" name="pass" size="50"/><span id="passmsg"></span></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center" bgcolor="RoyalBlue"><input type="submit" value="Login" /></td>
 						</tr>
 						
 						<tr>
@@ -60,6 +134,7 @@
 						</tr>
 					
 					</table>
+				</form>
 				</td>
 			</tr>
 			<tr>
@@ -124,3 +199,5 @@
 	</body>
 
 </html>
+
+
