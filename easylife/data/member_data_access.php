@@ -7,14 +7,14 @@
         return $result;
     }
 
-	function editMemberToDb($member)
+	function editMemberToDB($member)
 	{
         $sql = "UPDATE member SET Password='$member[Password]',Name='$member[Name]',Email='$member[Email]',Type='$member[Type]',Status='$member[Status]',Member_Since='$member[Member_Since]',Last_Logged_in='$member[Last_Logged_in]',Total_Purchase='$member[Total_Purchase] WHERE Member_ID='$member[Member_ID]'";
         $result = executeSQL($sql);
         return $result;
     }
 	
-	function deleteMemberFromDb($member)
+	function deleteMemberFromDB($member)
 	{
         $sql = "DELETE FROM member WHERE Member_ID='$member[Member_ID]'";
         $result = executeSQL($sql);

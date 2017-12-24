@@ -2,6 +2,7 @@
 <?php require_once "../../data/member_data_access.php"; ?>
 <?php
 	$name=$email=$password=$cpassword=$gender=$dob="";
+	$nameErr=$emailErr=$passErr=$cpassErr=$typeErr=$gErr="";
 ?>
 
 <?php
@@ -16,37 +17,41 @@
         if(empty($email)){
             $isValid = false;
             $emailErr = "*";
-			echo "1";
         }
         else if(isValidEmail($email)==false){
             $isValid = false;
             $emailErr = "Invalid email format";
-			echo "2";
         }
 		
 		if(empty($name)){
             $isValid = false;
             $nameErr = "*";
-			echo "3";
         }
         else if(isValidPersonName($name)==false){
             $isValid = false;
             $nameErr = "At least two words required, Only letters and white space allowed";
-			echo "4";
         }
 		
 		
 		
-		else if(empty($password)){
+		if(empty($password)){
             $isValid = false;
-            $nameErr = "*";
-			echo "7";
+            $passErr = "*";
         }
 		
 		else if(isValidPassword($password)==false){
             $isValid = false;
-            $nameErr = "Invalid Password";
-			echo "8";
+            $passErr = "Invalid Password";
+        }
+		
+		if(empty($cpassword)){
+            $isValid = false;
+            $cpassErr = "*";
+        }
+		
+		else if($password!=$cpassword){
+            $isValid = false;
+            $cpassErr = "Password doesn't match";
         }
 		
 		if (isset($_POST['Blocked']))
@@ -58,6 +63,11 @@
 			$Status="Active";
 		}
 		
+		if (!(isset($_POST['gender'])))
+		{
+			$gErr="Must select one";
+		}
+		
 		if (isset($_POST['Type']))
 		{
 			$Type=$_POST['Type'];
@@ -65,12 +75,11 @@
 		else
 		{
 			$isValid = false;
-			$nameErr = "Invalid Type";
-			echo "9";
+			$typeErr = "Must select one";
 		}
 		
 		if($isValid==true){
-			$id=getLastMemberIDFromDB()['MAX(Member_ID)'];
+			$id=getLastMemberID()['MAX(Member_ID)'];
 			$member['Member_ID']=$id+1;
 			$member['Password']=$password;
 			$member['Name']=$name;
@@ -78,7 +87,7 @@
 			$member['Type']=$Type;
 			$member['Status']=$Status;
 			
-			if(addMemberToDB($member)==true){
+			if(addMember($member)==true){
                 echo "<script>
                         alert('Record Added');
                         document.location='a_success.php';
@@ -90,10 +99,7 @@
             }
 		
 		}
-		else
-		{
-			 echo "Error<hr/>";
-		}
+		
     }
 ?>
 
@@ -104,7 +110,7 @@
 			<table>
 			<tr>
 			<td>
-			<table width="100%">
+			<table width="100%" >
 				<tr>
 					<td width="130"></td>
 					<td width="10"></td>
@@ -115,7 +121,7 @@
 					<td>Name</td>
 					<td>:</td>
 					<td><input name="name" type="text"  value="<?=$name?>"></td>
-					<td></td>
+					<td><font color="red"><?=$nameErr?></font></td>
 				</tr>		
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
@@ -125,21 +131,21 @@
 						<input name="email" type="text"  value="<?=$email?>"/>
 						<abbr title="hint: sample@example.com"><b>i</b></abbr>
 					</td>
-					<td></td>
+					<td><font color="red"><?=$emailErr?></font></td>
 				</tr>	
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
 					<td>Password</td>
 					<td>:</td>
 					<td><input name="password" type="password" value="<?=$password?>" /></td>
-					<td></td>
+					<td><font color="red"><?=$passErr?></font></td>
 				</tr>		
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
 					<td>Confirm Password</td>
 					<td>:</td>
 					<td><input name="cpassword" type="password" value="<?=$cpassword?>"/></td>
-					<td></td>
+					<td><font color="red"><?=$cpassErr?></font></td>
 				</tr>		
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
@@ -150,17 +156,7 @@
 						<input name="gender" type="radio" value="Female">Female
 						<input name="gender" type="radio" value="Other">Other
 					</td>
-					<td></td>
-				</tr>		
-				<tr><td colspan="4"><hr/></td></tr>
-				<tr>
-					<td valign="top">Date of Birth</td>
-					<td valign="top">:</td>
-					<td>
-						<input name="dob" type="text" value="<?=$dob?>" />	
-						<font size="2"><i>(dd/mm/yyyy)</i></font>
-					</td>
-					<td></td>
+					<td><font color="red"><?=$gErr?></font></td>
 				</tr>
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
@@ -169,10 +165,10 @@
 					<td>   
 						<input name="Type" type="radio" value="1">Admin
 						<input name="Type" type="radio" value="2">Stock Executive
-						<input name="Type" type="radio" value="3">Order Executive
+						<br/><input name="Type" type="radio" value="3">Order Executive
 						<input name="Type" type="radio" value="4">User
 					</td>
-					<td></td>
+					<td><font color="red"><?=$typeErr?></font></td>
 				</tr>	
 				<tr><td colspan="4"><hr/></td></tr>
 				<tr>
@@ -184,7 +180,7 @@
 			</td>
 			<td>
 			<table>
-					<tr><td><img align="top" src="../resources/Image1.JPG" width="167"/></td></tr>
+					<tr  align="right"><td><img align="top" src="../resources/Image1.JPG" width="167"/></td></tr>
 					<tr><td><input type="file" name="propic" accept="image/*"/>
 							</td></tr>
 									</table>

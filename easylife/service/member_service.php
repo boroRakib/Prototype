@@ -5,15 +5,15 @@
     }
     
     function editMember($member){
-        return editMemberToDb($member);
+        return editMemberToDB($member);
     }
     
     function deleteMember($memberId){
-        return deleteMemberFromDb($memberId);
+        return deleteMemberFromDB($memberId);
     }
     
     function getAllMembers(){
-        return getAllMembersFromDb();
+        return getAllMembersFromDB();
     }
     
 	function getLastMemberID()
@@ -22,19 +22,19 @@
 	}
 	
     function getMemberById($memberId){
-        return getMemberByIdFromDb($memberId);
+        return getMemberByIdFromDB($memberId);
     }
     
     function getMembersByName($memberName){
-        return getMembersByNameFromDb($memberName);
+        return getMembersByNameFromDB($memberName);
     }
     
     function getMembersByEmail($memberEmail){
-        return getMembersByEmailFromDb($memberEmail);
+        return getMembersByEmailFromDB($memberEmail);
     }
     
     function getMembersByNameOrEmail($key){
-        return getMembersByNameOrEmailFromDb($key);
+        return getMembersByNameOrEmailFromDB($key);
     }
     
     function isUniqueMemberEmail($memberEmail){
