@@ -80,8 +80,8 @@
 										<td height="50">
 											<select onchange="location = this.value;">
 												<option value="home.php">Kids Clothing</option>
+												<option value="kid.php">Frok</option>
 												<option value="kid.php">T-Shirt</option>
-												<option value="kid.php">Trouser</option>
 												<option value="kid.php">Cap</option>
 											</select>
 										</td>
@@ -386,7 +386,8 @@
 								<a href="personalInfo.php">Personal Info</a></br>
 								
 								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br> <a href="report.php">Report</a></br>
+								 
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>
