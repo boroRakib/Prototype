@@ -8,7 +8,7 @@
 				<td align="center" colspan="3">
 					<table  width="100%" bgcolor="Gainsboro " >
 						<tr>
-							<td><a href="home.html"><img src="resources/e.jpg" height="60" width="120" /></a></td>
+							<td><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td >
 								<table  width="100%">
 									<tr>
@@ -17,11 +17,11 @@
 											<table >
 												<tr rowspan="2">
 													<td><img src="resources/m.jpg" height="30" width="30"/></td>
-													<td><a href="Registration.html">Registartion</a></td>
+													<td><a href="Registration.php">Registartion</a></td>
 												</tr>
 												<tr>
-													<td><a href="home.html">Log Out</a></td>
-													<td><a href="logIn.html">Log In</a></td>
+													<td><a href="home.php">Log Out</a></td>
+													<td><a href="logIn.php">Log In</a></td>
 												</tr>
 												
 											</table>
@@ -41,42 +41,42 @@
 								<table bgcolor="SkyBlue" height="500" width="100%" valign="top">
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/dashboard_stock.html" target="contentFrame">Dashboard</a>
+											<a href="admin/dashboard_stock.php" target="contentFrame">Dashboard</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/Editprofile.html" target="contentFrame" >Edit profile</a>
+											<a href="admin/Editprofile.php" target="contentFrame" >Edit profile</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/uedetails.html" target="contentFrame" >View profile</a>
+											<a href="admin/uedetails.php" target="contentFrame" >View profile</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/changepass.html" target="contentFrame" >Change password</a>
+											<a href="admin/changepass.php" target="contentFrame" >Change password</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/add_product.html" target="contentFrame" >Add Product</a>
+											<a href="admin/add_product.php" target="contentFrame" >Add Product</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/tpdetails.html" target="contentFrame" >View Product</a>
+											<a href="admin/tpdetails.php" target="contentFrame" >View Product</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/stock.html" target="contentFrame" >View Stock</a>
+											<a href="admin/stock.php" target="contentFrame" >View Stock</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/slider.html" target="contentFrame" >Update Slider</a>
+											<a href="admin/slider.php" target="contentFrame" >Update Slider</a>
 										</td>
 									</tr>
 								</table>
@@ -87,7 +87,7 @@
 							
 									<tr>
 										<td width="800" valign="top">
-											<iframe name="contentFrame" frameborder="0" width="100%" height="790" src="admin/dashboard_stock.html"></iframe>
+											<iframe name="contentFrame" frameborder="0" width="100%" height="790" src="admin/dashboard_stock.php"></iframe>
 										</td>
 									</tr>
 								</table>
@@ -116,22 +116,22 @@
 						<tr>
 							<td align="center">
 								<p><b>Information</b></p>
-								<a href="aboutUs.html">About Us</a></br>
-								<a href="contactUs.html">Contact Us</a>
+								<a href="aboutUs.php">About Us</a></br>
+								<a href="contactUs.php">Contact Us</a>
 							</td>
 							<td align="center">
 								<p><b>Customer Serviece</b></p>
-								<a href="securityPolicy.html">Security Policy</a></br>
-								<a href="shipping.html">Shipping & Replacement</a></br>
-								<a href="privacyPolicy.html">Privacy Policy</a></br>
-								<a href="termsOfuse.html">Terms Of Use</a>
+								<a href="securityPolicy.php">Security Policy</a></br>
+								<a href="shipping.php">Shipping & Replacement</a></br>
+								<a href="privacyPolicy.php">Privacy Policy</a></br>
+								<a href="termsOfuse.php">Terms Of Use</a>
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.html">Personal Info</a></br>
+								<a href="personalInfo.php">Personal Info</a></br>
 								
-								<a href="order.html">Orders</a></br>
-								<a href="shoppingCart.html">Shopping Cart</a></br>
+								<a href="order.php">Orders</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>

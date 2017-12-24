@@ -8,7 +8,7 @@
 			<tr height="20">
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
-				<td align="center"><a href="howToBuy.html">How To Buy</a></td>
+				<td align="center"><a href="howToBuy.php">How To Buy</a></td>
 				
 			</tr>
 			<tr height="80">
@@ -372,15 +372,15 @@
 						<tr>
 							<td align="center">
 								<p><b>Information</b></p>
-								<a href="aboutUs.html">About Us</a></br>
-								<a href="contactUs.html">Contact Us</a>
+								<a href="aboutUs.php">About Us</a></br>
+								<a href="contactUs.php">Contact Us</a>
 							</td>
 							<td align="center">
 								<p><b>Customer Serviece</b></p>
-								<a href="securityPolicy.html">Security Policy</a></br>
-								<a href="shipping.html">Shipping & Replacement</a></br>
-								<a href="privacyPolicy.html">Privacy Policy</a></br>
-								<a href="termsOfuse.html">Terms Of Use</a>
+								<a href="securityPolicy.php">Security Policy</a></br>
+								<a href="shipping.php">Shipping & Replacement</a></br>
+								<a href="privacyPolicy.php">Privacy Policy</a></br>
+								<a href="termsOfuse.php">Terms Of Use</a>
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>

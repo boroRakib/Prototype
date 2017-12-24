@@ -8,20 +8,20 @@
 				<td align="center" colspan="3">
 					<table  width="100%" bgcolor="Gainsboro " >
 						<tr>
-							<td><a href="home.html"><img src="resources/e.jpg" height="60" width="120" /></a></td>
+							<td><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td >
 								<table  width="100%">
 									<tr>
-										<td align="center">(3)reports<a href="admin/treports.html" target="contentFrame"><img src="resources/report.png" height="30" width="30"/></a></td>
+										<td align="center">(3)reports<a href="admin/treports.php" target="contentFrame"><img src="resources/report.png" height="30" width="30"/></a></td>
 										<td align="right">
 											<table >
 												<tr rowspan="2">
 													<td><img src="resources/m.jpg" height="30" width="30"/></td>
-													<td><a href="Registration.html">Registartion</a></td>
+													<td><a href="Registration.php">Registartion</a></td>
 												</tr>
 												<tr>
-													<td><a href="home.html">Log Out</a></td>
-													<td><a href="logIn.html">Log In</a></td>
+													<td><a href="home.php">Log Out</a></td>
+													<td><a href="logIn.php">Log In</a></td>
 												</tr>
 												
 											</table>
@@ -46,22 +46,22 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/dashboard.html" target="contentFrame">Dashboard</a>
+											<a href="admin/dashboard.php" target="contentFrame">Dashboard</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/Editprofile.html" target="contentFrame" >Edit profile</a>
+											<a href="admin/Editprofile.php" target="contentFrame" >Edit profile</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/uedetails.html" target="contentFrame" >View profile</a>
+											<a href="admin/uedetails.php" target="contentFrame" >View profile</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/changepass.html" target="contentFrame" >Change password</a>
+											<a href="admin/changepass.php" target="contentFrame" >Change password</a>
 										</td>
 									</tr>
 									<tr height="10" >
@@ -71,12 +71,12 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/add_member.html" target="contentFrame" >Add Member</a>
+											<a href="admin/add_member.php" target="contentFrame" >Add Member</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/add_product.html" target="contentFrame" >Add Product</a>
+											<a href="admin/add_product.php" target="contentFrame" >Add Product</a>
 										</td>
 									</tr>
 									<tr height="10" >
@@ -86,32 +86,32 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/tadmindetails.html" target="contentFrame" >View Admins</a>
+											<a href="admin/tadmindetails.php" target="contentFrame" >View Admins</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/tpdetails.html" target="contentFrame" >View Product</a>
+											<a href="admin/tpdetails.php" target="contentFrame" >View Product</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/tudetails.html" target="contentFrame" >View Users</a>
+											<a href="admin/tudetails.php" target="contentFrame" >View Users</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/tinvoice.html" target="contentFrame" >View Invoices</a>
+											<a href="admin/tinvoice.php" target="contentFrame" >View Invoices</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/orderdetails.html" target="contentFrame" >View Orders</a>
+											<a href="admin/orderdetails.php" target="contentFrame" >View Orders</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/stock.html" target="contentFrame" >View Stock</a>
+											<a href="admin/stock.php" target="contentFrame" >View Stock</a>
 										</td>
 									</tr>
 									<tr height="10" >
@@ -121,12 +121,12 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/slider.html" target="contentFrame" >Update Slider</a>
+											<a href="admin/slider.php" target="contentFrame" >Update Slider</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="DataBase/DataBase.html" target="contentFrame" >Database</a>
+											<a href="DataBase/DataBase.php" target="contentFrame" >Database</a>
 										</td>
 									</tr>
 								</table>
@@ -137,7 +137,7 @@
 							
 									<tr>
 										<td width="800" valign="top">
-											<iframe name="contentFrame" frameborder="0" width="100%" height="790" src="admin/dashboard.html"></iframe>
+											<iframe name="contentFrame" frameborder="0" width="100%" height="790" src="admin/dashboard.php"></iframe>
 										</td>
 									</tr>
 								</table>
