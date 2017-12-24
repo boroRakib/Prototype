@@ -44,7 +44,7 @@
 		return $isValid;
 			
 	}
-	 function isValidretypeaPassword($pass,$rpass)
+	 function isValidRetypeaPassword($pass,$rpass)
 	{
 		$isValid = false;
 		 if(strcmp($pass,$rpass)==true){
