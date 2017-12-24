@@ -47,80 +47,80 @@
 					<table width="100%">
 						<tr>
 							<td width="20%" valign="top">
-								<table height="400" width="100%" valign="top" bgcolor="RosyBrown    ">
+								<table height="400" width="100%" valign="top" bgcolor="LightCoral    ">
 								<tr height="50">
 									<td><h2><?=$catagory?></h2><hr/></td>
 								</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;" >
-												<option value="home.php">Winter Collection</option>
-												<option value="product_by_category.php?catagory=Gents Winter Collection">Gents Winter Collection</option>
-												<option value="product_by_category.php?catagory=Ladies Winter Collection">Ladies Winter Collection</option>
-												<option value="kid.php">Kids Winter Collection</option>
+												<option value="home.php" <?php if($catagory=="Winter Collection"){ ?> selected <?php } ?>>Winter Collection</option>
+												<option value="product_by_category.php?catagory=Gents Winter Collection" <?php if($catagory=="Gents Winter Collection"){ ?> selected <?php } ?>>Gents Winter Collection</option>
+												<option value="product_by_category.php?catagory=Ladies Winter Collection" <?php if($catagory=="Ladies Winter Collection"){ ?> selected <?php } ?>>Ladies Winter Collection</option>
+												<option value="product_by_category.php?catagory=Kids Winter Collection" <?php if($catagory=="Kids Winter Collection"){ ?> selected <?php } ?>>Kids Winter Collection</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Womens Clothing</option>
-												<option value="women.php">Hijab And Dupatta</option>
-												<option value="women.php">Saree</option>
-												<option value="women.php">Three Piece</option>
+												<option value="product_by_category.php?catagory=Womens Clothing" <?php if($catagory=="Womens Clothing"){ ?> selected <?php } ?>>Womens Clothing</option>
+												<option value="product_by_category.php?catagory=Hijab And Dupatta" <?php if($catagory=="Hijab And Dupatta"){ ?> selected <?php } ?>>Hijab And Dupatta</option>
+												<option value="product_by_category.php?catagory=Saree" <?php if($catagory=="Saree"){ ?> selected <?php } ?>>Saree</option>
+												<option value="product_by_category.php?catagory=Three Piece" <?php if($catagory=="Three Piece"){ ?> selected <?php } ?>>Three Piece</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Mens Clothing</option>
-												<option value="men.php">Shirt</option>
-												<option value="men.php">Panjabi</option>
-												<option value="men.php">Pant</option>
+												<option value="product_by_category.php?catagory=Mens Clothing" <?php if($catagory=="Mens Clothing"){ ?> selected <?php } ?>>Mens Clothing</option>
+												<option value="product_by_category.php?catagory=Shirt" <?php if($catagory=="Shirt"){ ?> selected <?php } ?>>Shirt</option>
+												<option value="product_by_category.php?catagory=Panjabi" <?php if($catagory=="Panjabi"){ ?> selected <?php } ?>>Panjabi</option>
+												<option value="product_by_category.php?catagory=Pant" <?php if($catagory=="Pant"){ ?> selected <?php } ?>>Pant</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Kids Clothing</option>
-												<option value="kid.php">T-Shirt</option>
-												<option value="kid.php">Trouser</option>
-												<option value="kid.php">Cap</option>
+												<option value="product_by_category.php?catagory=T-Shirt" <?php if($catagory=="T-Shirt"){ ?> selected <?php } ?>>T-Shirt</option>
+												<option value="product_by_category.php?catagory=T-Shirt" <?php if($catagory=="Three Piece"){ ?> selected <?php } ?>>T-Shirt</option>
+												<option value="product_by_category.php?catagory=Trouser" <?php if($catagory=="Trouser"){ ?> selected <?php } ?>>Trouser</option>
+												<option value="product_by_category.php?catagory=Cap" <?php if($catagory=="Cap"){ ?> selected <?php } ?>>Cap</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Accessories</option>
-												<option value="accessories.php">Ear Rings</option>
-												<option value="accessories.php">Money Bag</option>
-												<option value="accessories.php">Watch</option>
-												<option value="accessories.php">Necklace</option>
-												<option value="accessories.php">Sunglass</option>
-												<option value="accessories.php">Bag</option>
+												<option value="product_by_category.php?catagory=Accessories" <?php if($catagory=="Accessories"){ ?> selected <?php } ?>>Accessories</option>
+												<option value="product_by_category.php?catagory=Ear Rings" <?php if($catagory=="Ear Rings"){ ?> selected <?php } ?>>Ear Rings</option>
+												<option value="product_by_category.php?catagory=Money Bag" <?php if($catagory=="Money Bag"){ ?> selected <?php } ?>>Money Bag</option>
+												<option value="product_by_category.php?catagory=Watch" <?php if($catagory=="Watch"){ ?> selected <?php } ?>>Watch</option>
+												<option value="product_by_category.php?catagory=Necklace" <?php if($catagory=="Necklace"){ ?> selected <?php } ?>>Necklace</option>
+												<option value="product_by_category.php?catagory=Sunglass" <?php if($catagory=="Sunglass"){ ?> selected <?php } ?>>Sunglass</option>
+												<option value="product_by_category.php?catagory=Bag" <?php if($catagory=="Bag"){ ?> selected <?php } ?>>Bag</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Footwear</option>
-												<option value="footWear.php">Mens Footwear</option>
-												<option value="footWear.php">Womens Footwear</option>
-												<option value="footWear.php">Kids Footwear</option>
+												<option value="product_by_category.php?catagory=Footwear" <?php if($catagory=="Footwear"){ ?> selected <?php } ?>>Footwear</option>
+												<option value="product_by_category.php?catagory=Mens Footwear" <?php if($catagory=="Mens Footwear"){ ?> selected <?php } ?>>Mens Footwear</option>
+												<option value="product_by_category.php?catagory=Womens Footwear" <?php if($catagory=="Womens Footwear"){ ?> selected <?php } ?>>Womens Footwear</option>
+												<option value="product_by_category.php?catagory=Kids Footwear" <?php if($catagory=="Kids Footwear"){ ?> selected <?php } ?>>Kids Footwear</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Brand</option>
-												<option value="brand.php">Eacstasy</option>
-												<option value="brand.php">Aarong</option>
-												<option value="brand.php">Yellow</option>
+												<option value="product_by_category.php?catagory=Brand" <?php if($catagory=="Three Piece"){ ?> selected <?php } ?>>Brand</option>
+												<option value="product_by_category.php?catagory=Eacstasy" <?php if($catagory=="Eacstasy"){ ?> selected <?php } ?>>Eacstasy</option>
+												<option value="product_by_category.php?catagory=Aarong" <?php if($catagory=="Aarong"){ ?> selected <?php } ?>>Aarong</option>
+												<option value="product_by_category.php?catagory=Yellow" <?php if($catagory=="Yellow"){ ?> selected <?php } ?>>Yellow</option>
 											</select>
 										</td>
 									</tr>
@@ -142,7 +142,7 @@
 											<?php  for($p=1;$p<=(count($products)/3);$p++) { ?>
 												<tr>
 												<?php for($q=1;$q<=3;$q++) { ?>
-													<td align="center" height="300">
+													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?>  <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?>  <?php if($q==3) {?> bgcolor="SkyBlue"  <?php } ?>  >
 														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
@@ -155,7 +155,7 @@
 												
 											<?php if(((count($products)%3)==1)|| count($products)==1) {?>
 												<tr>
-													<td align="center" height="300">
+													<td align="center" height="300" width="33%" bgcolor="PaleGreen">
 														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
@@ -168,7 +168,7 @@
 											<?php if(((count($products)%3)==2)||count($products)==2) {?>
 												<tr>
 													<?php for($q=1;$q<=2;$q++) { ?>
-													<td align="center" height="300">
+													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?> <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?> >
 														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
@@ -178,6 +178,15 @@
 												</tr>
 												<?php } ?>
 												
+											
+											<?php if((count($products))==0){?>
+												<tr>
+													<td align="center" height="300" width="33%">
+														<h2>Sorry!!!There has no product in this section.</h2>
+														
+													</td>
+												</tr>
+											<?php } ?>											
 												
 											</table>
 										</td>

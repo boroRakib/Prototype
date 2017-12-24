@@ -1,6 +1,16 @@
+<?php require_once "../service/product_serviec.php"; ?>
+<?php
+	$products=getAllProducts();
+	// session_start();
+	// if(isset($_SESSION['easylife_email']))
+	// {
+		// $easylife_user=$_SESSION['easylife_email'];
+	// }
+	// var_dump($_SESSION);
+// ?>
+
 <head>
 		<title>Home</title>
-
 	</head>
 	<body>
 		<table   width="100%" bgcolor="Gainsboro" >
@@ -48,74 +58,74 @@
 								</tr>
 									<tr>
 										<td height="50">
-											<select onchange="location = this.value;">
+											<select onchange="location = this.value;" >
 												<option value="home.php">Winter Collection</option>
 												<option value="product_by_category.php?catagory=Gents Winter Collection">Gents Winter Collection</option>
 												<option value="product_by_category.php?catagory=Ladies Winter Collection">Ladies Winter Collection</option>
-												<option value="kid.php">Kids Winter Collection</option>
+												<option value="product_by_category.php?catagory=Kids Winter Collection">Kids Winter Collection</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Womens Clothing</option>
-												<option value="women.php">Hijab And Dupatta</option>
-												<option value="women.php">Saree</option>
-												<option value="women.php">Three Piece</option>
+												<option value="product_by_category.php?catagory=Womens Clothing">Womens Clothing</option>
+												<option value="product_by_category.php?catagory=Hijab And Dupatta">Hijab And Dupatta</option>
+												<option value="product_by_category.php?catagory=Saree">Saree</option>
+												<option value="product_by_category.php?catagory=Three Piece">Three Piece</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Mens Clothing</option>
-												<option value="men.php">Shirt</option>
-												<option value="men.php">Panjabi</option>
-												<option value="men.php">Pant</option>
+												<option value="product_by_category.php?catagory=Mens Clothing">Mens Clothing</option>
+												<option value="product_by_category.php?catagory=Shirt">Shirt</option>
+												<option value="product_by_category.php?catagory=Panjabi">Panjabi</option>
+												<option value="product_by_category.php?catagory=Pant">Pant</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Kids Clothing</option>
-												<option value="kid.php">Frok</option>
-												<option value="kid.php">T-Shirt</option>
-												<option value="kid.php">Cap</option>
+												<option value="product_by_category.php?catagory=T-Shirt">T-Shirt</option>
+												<option value="product_by_category.php?catagory=T-Shirt">T-Shirt</option>
+												<option value="product_by_category.php?catagory=Trouser">Trouser</option>
+												<option value="product_by_category.php?catagory=Cap">Cap</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Accessories</option>
-												<option value="accessories.php">Ear Rings</option>
-												<option value="accessories.php">Money Bag</option>
-												<option value="accessories.php">Watch</option>
-												<option value="accessories.php">Necklace</option>
-												<option value="accessories.php">Sunglass</option>
-												<option value="accessories.php">Bag</option>
+												<option value="product_by_category.php?catagory=Accessories">Accessories</option>
+												<option value="product_by_category.php?catagory=Ear Rings">Ear Rings</option>
+												<option value="product_by_category.php?catagory=Money Bag">Money Bag</option>
+												<option value="product_by_category.php?catagory=Watch">Watch</option>
+												<option value="product_by_category.php?catagory=Necklace">Necklace</option>
+												<option value="product_by_category.php?catagory=Sunglass">Sunglass</option>
+												<option value="product_by_category.php?catagory=Bag">Bag</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Footwear</option>
-												<option value="footWear.php">Mens Footwear</option>
-												<option value="footWear.php">Womens Footwear</option>
-												<option value="footWear.php">Kids Footwear</option>
+												<option value="product_by_category.php?catagory=Footwear">Footwear</option>
+												<option value="product_by_category.php?catagory=Mens Footwear">Mens Footwear</option>
+												<option value="product_by_category.php?catagory=Womens Footwear">Womens Footwear</option>
+												<option value="product_by_category.php?catagory=Kids Footwear">Kids Footwear</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Brand</option>
-												<option value="brand.php">Eacstasy</option>
-												<option value="brand.php">Aarong</option>
-												<option value="brand.php">Yellow</option>
+												<option value="product_by_category.php?catagory=Brand">Brand</option>
+												<option value="product_by_category.php?catagory=Eacstasy">Eacstasy</option>
+												<option value="product_by_category.php?catagory=Aarong">Aarong</option>
+												<option value="product_by_category.php?catagory=Yellow">Yellow</option>
 											</select>
 										</td>
 									</tr>
@@ -237,109 +247,49 @@
 									</tr>
 									<tr>
 										<td width="800">
-											<table align="center"   width="100%" bgcolor="white">
+											<table align="center" width="100%" bgcolor="white">
+											<?php $count=0; ?>
+											
+											<?php  for($p=1;$p<=(count($products)/3);$p++) { ?>
 												<tr>
-													<td align="center" bgcolor="PaleGreen " height="300">
-														<a href="details.php"><img src="resources/tshirt1.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
+												<?php for($q=1;$q<=3;$q++) { ?>
+													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?>  <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?>  <?php if($q==3) {?> bgcolor="SkyBlue"  <?php } ?>  >
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<br/><?= $products[$count]['Name'] ?><br/>
+														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
 													</td>
-													<td align="center" bgcolor="DarkSalmon" height="300">
-														<a href="details.php"><img src="resources/tshirt2.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="SkyBlue" height="300">
-														<a href="details.php"><img src="resources/tshirt3.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
+													<?php $count++; } ?>
+												</tr>
+											<?php } ?>
+												
+												
+											<?php if(((count($products)%3)==1)|| count($products)==1) {?>
+												<tr>
+													<td align="center" height="300" width="33%" bgcolor="PaleGreen">
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<br/><?= $products[$count]['Name'] ?><br/>
+														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
 													</td>
 												</tr>
+											<?php } ?>
+												
+												
+											<?php if(((count($products)%3)==2)||count($products)==2) {?>
 												<tr>
-													<td align="center" bgcolor="PaleGreen " height="300">
-														<a href="details.php"><img src="resources/tshirt4.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
+													<?php for($q=1;$q<=2;$q++) { ?>
+													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?> <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?> >
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<br/><?= $products[$count]['Name'] ?><br/>
+														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
 													</td>
-													<td align="center" bgcolor="DarkSalmon" height="300">
-														<a href="details.php"><img src="resources/tshirt5.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="SkyBlue" height="300">
-														<a href="details.php"><img src="resources/tshirt6.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
+													<?php $count++; } ?>
 												</tr>
-												<tr>
-													<td align="center" bgcolor="PaleGreen " height="300">
-														<a href="details.php"><img src="resources/tshirt4.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="DarkSalmon" height="300">
-														<a href="details.php"><img src="resources/tshirt5.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="SkyBlue" height="300">
-														<a href="details.php"><img src="resources/tshirt6.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-												</tr>
-												<tr>
-													<td align="center" bgcolor="PaleGreen " height="300">
-														<a href="details.php"><img src="resources/tshirt4.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="DarkSalmon" height="300">
-														<a href="details.php"><img src="resources/tshirt5.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="SkyBlue" height="300">
-														<a href="details.php"><img src="resources/tshirt6.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-												<tr>
-													<td align="center" bgcolor="PaleGreen " height="300">
-														<a href="details.php"><img src="resources/tshirt4.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="DarkSalmon" height="300">
-														<a href="details.php"><img src="resources/tshirt5.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													<td align="center" bgcolor="SkyBlue" height="300">
-														<a href="details.php"><img src="resources/tshirt6.jpg" height="200"/></a>
-														<br/>Kakashi T-Shirt<br/>
-														<b>Tk 390</b>
-														
-													</td>
-													
-													
-												</tr>
-											</tr>
+												<?php } ?>
+												
+												
 											</table>
 										</td>
 										

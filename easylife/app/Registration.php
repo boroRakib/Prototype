@@ -3,23 +3,25 @@
 		<title>Registration</title>
 	</head>
 	<body>
-		<table border="1" width="100%">
-			<tr>
+		<table   width="100%" bgcolor="Gainsboro" >
+			<tr height="20">
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
 				<td align="center"><a href="howToBuy.php">How To Buy</a></td>
 				
 			</tr>
-			<tr>
+			<tr height="80">
 				<td align="center" colspan="3">
-					<table border="1" width="100%">
+					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
-							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
-							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
-							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+
+							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
+							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
+
+							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
-								<table border="1">
+								<table  >
 									<tr rowspan="2">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										<td><a href="Registration.php">Registartion</a></td>
@@ -37,71 +39,43 @@
 			</tr>
 			<tr height="600">
 				<td colspan="3" align="center">
-					<table border="1">
+				<h2>REGISTER</h2><hr/>
+					<table height="800" width="70%" bgcolor="white">
+						
 						<tr>
-							<td colspan=>Name </td>
-							<td colspan="2"><input name="name"/></td>
+							<td>Name </td>
+							<td colspan="2"><input name="name" size="50"/></td>
 						</tr>
 						<tr>
 							<td >Email </td>
-							<td colspan="2"><input name="email"/></td>
+							<td colspan="2"><input name="email" size="50"/></td>
 						</tr>
-						<tr>
-							<td >User Name </td>
-							<td colspan="2"><input name="uname"/></td>
-						</tr>
-						<tr>
-							<td colspan="3">
-							<fieldset>
-					<legend>Gender</legend>
-						<input type="radio" name="gender" Value="m">Male
-						<input type="radio" name="gender" Value="f">Female
-						<input type="radio" name="gender" Value="o">Other
-					</fieldset>
-						</td>
-						</tr>
-						<td colspan="3">
-							<fieldset>
-						<legend>Date of Birth</legend>
-						<table>
-							<tr>
-								<td><input name="d"/><br></td>
-								<td>/</td>
-								<td><input name="m"/></td>
-								<td>/</td>
-								<td><input name="y"/><i>(dd/mm/yyyy)</i></td>
-							</tr>
-						</table>
-					</fieldset>
-						</td>
-						</tr>
+			
 						<tr>
 							<td >Address </td>
-							<td colspan="2"><textarea>Enter text here...</textarea></td>
+							<td colspan="2"><textarea >Enter text here...</textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2">Password </td>
-							<td><input type="password" name="pass"/></td>
+							<td><input type="password" name="pass" size="50"/></td>
 						</tr>
 						<tr>
 							<td colspan="2">Retype Password </td>
-							<td><input type="password" name="rpass"/></td>
+							<td><input type="password" name="rpass" size="50"/></td>
 						</tr>
 						<tr>
 							<td colspan="2">Profile picture</td>
 							<td><image src="resources/contact.jpg"></image></br><input type="file"/></td>
 						</tr>
 						
-						<tr>
-							<td colspan="2"><a href="personalInfo.php">Register</a></td>
-							<td ><a href="home.php">Back</a></td>
-							
+						<tr bgcolor="YellowGreen  ">
+							<td colspan="3" align="center"><a href="personalInfo.php">Register</a></td>
 						</tr>
 					
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr bgcolor="WhiteSmoke ">
 				<td colspan="3" align="center">
 					<table>
 						<tr>

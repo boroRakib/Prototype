@@ -74,7 +74,7 @@
 					<table width="50%" height="300" bgcolor="white">
 						<tr>
 						<td colspan="2" align="center">
-							<?php
+				<?php
 							 if($_SERVER['REQUEST_METHOD']=="POST")
 							 {
 								$members=getAllMembersFromDB();
@@ -87,6 +87,9 @@
 										{
 											if($member['Password']==$pass)
 											{
+												// session_start();
+												// $_SESSION['easylife_email'] = $email;
+												
 												if($member['Type']==1)
 												{
 													echo "<script>				
@@ -109,7 +112,7 @@
 								}
 								if($v==false){echo "<div><font color=red>"."Login was unsuccessful.<br/>Customer account not found!!!"."</font></div>";}
 							 }
-							?>
+				?>
 						
 						
 						</td>
