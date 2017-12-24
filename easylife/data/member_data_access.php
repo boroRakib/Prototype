@@ -2,14 +2,14 @@
 <?php
 	function addMemberToDB($member)
 	{
-        $sql = "INSERT INTO member(Member_ID, User_Name, Password, Name, Email, Type, Status) VALUES ('$member[Member_ID]', '$member[User_Name]', '$member[Password]', '$member[Name]', '$member[Email]', '$member[Type]', '$member[Status]')";
+        $sql = "INSERT INTO member(Member_ID, Password, Name, Email, Type, Status) VALUES ('$member[Member_ID]', '$member[Password]', '$member[Name]', '$member[Email]', '$member[Type]', '$member[Status]')";
         $result = executeSQL($sql);
         return $result;
     }
 
 	function editMemberToDb($member)
 	{
-        $sql = "UPDATE member SET User_Name='$member[User_Name]',Password='$member[Password]',Name='$member[Name]',Email='$member[Email]',Type='$member[Type]',Image='$member[Image]',Status='$member[Status]',Member_Since='$member[Member_Since]',Last_Logged_in='$member[Last_Logged_in]',Total_Purchase='$member[Total_Purchase] WHERE Member_ID='$member[Member_ID]'";
+        $sql = "UPDATE member SET Password='$member[Password]',Name='$member[Name]',Email='$member[Email]',Type='$member[Type]',Status='$member[Status]',Member_Since='$member[Member_Since]',Last_Logged_in='$member[Last_Logged_in]',Total_Purchase='$member[Total_Purchase] WHERE Member_ID='$member[Member_ID]'";
         $result = executeSQL($sql);
         return $result;
     }

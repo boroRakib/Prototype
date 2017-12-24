@@ -1,7 +1,7 @@
 <?php require_once "../data/member_data_access.php"; ?>
 <?php
     function addMember($member){
-        return addMemberToDb($member);
+        return addMemberToDB($member);
     }
     
     function editMember($member){
