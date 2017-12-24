@@ -3,6 +3,100 @@
 <?php
 	$name=$email=$password=$cpassword=$gender=$dob="";
 ?>
+
+<?php
+    if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		$name=trim($_POST['name']);
+        $email=trim($_POST['email']);
+		$password=trim($_POST['password']);
+		$cpassword=trim($_POST['cpassword']);
+		
+		$isValid = true;
+        if(empty($email)){
+            $isValid = false;
+            $emailErr = "*";
+			echo "1";
+        }
+        else if(isValidEmail($email)==false){
+            $isValid = false;
+            $emailErr = "Invalid email format";
+			echo "2";
+        }
+		
+		if(empty($name)){
+            $isValid = false;
+            $nameErr = "*";
+			echo "3";
+        }
+        else if(isValidPersonName($name)==false){
+            $isValid = false;
+            $nameErr = "At least two words required, Only letters and white space allowed";
+			echo "4";
+        }
+		
+		
+		
+		else if(empty($password)){
+            $isValid = false;
+            $nameErr = "*";
+			echo "7";
+        }
+		
+		else if(isValidPassword($password)==false){
+            $isValid = false;
+            $nameErr = "Invalid Password";
+			echo "8";
+        }
+		
+		if (isset($_POST['Blocked']))
+		{
+			$Status="Blocked";
+		}
+		else
+		{
+			$Status="Active";
+		}
+		
+		if (isset($_POST['Type']))
+		{
+			$Type=$_POST['Type'];
+		}
+		else
+		{
+			$isValid = false;
+			$nameErr = "Invalid Type";
+			echo "9";
+		}
+		
+		if($isValid==true){
+			$id=getLastMemberIDFromDB()['MAX(Member_ID)'];
+			$member['Member_ID']=$id+1;
+			$member['Password']=$password;
+			$member['Name']=$name;
+			$member['Email']=$email;
+			$member['Type']=$Type;
+			$member['Status']=$Status;
+			
+			if(addMemberToDB($member)==true){
+                echo "<script>
+                        alert('Record Added');
+                        document.location='a_success.php';
+                     </script>";
+                die();
+            }
+            else{
+                echo "Internal Error<hr/>";
+            }
+		
+		}
+		else
+		{
+			 echo "Error<hr/>";
+		}
+    }
+?>
+
 <form method="post">
 	<fieldset>
 		<legend><b>Add Member</b></legend>
@@ -73,10 +167,10 @@
 					<td>Type</td>
 					<td>:</td>
 					<td>   
-						<input name="Type" type="radio" value="Admin">Admin
-						<input name="Type" type="radio" value="Stock Executive">Stock Executive
-						<input name="Type" type="radio" value="Order Executive">Order Executive
-						<input name="Type" type="radio" value="User">User
+						<input name="Type" type="radio" value="1">Admin
+						<input name="Type" type="radio" value="2">Stock Executive
+						<input name="Type" type="radio" value="3">Order Executive
+						<input name="Type" type="radio" value="4">User
 					</td>
 					<td></td>
 				</tr>	
@@ -104,90 +198,3 @@
 	</fieldset>
 </form>
 
-<?php
-    if($_SERVER['REQUEST_METHOD']=="POST")
-	{
-		$name=trim($_POST['name']);
-        $email=trim($_POST['email']);
-		$password=trim($_POST['password']);
-		$cpassword=trim($_POST['cpassword']);
-		
-		$isValid = true;
-        if(empty($email)){
-            $isValid = false;
-            $emailErr = "*";
-        }
-        else if(isValidEmail($email)==false){
-            $isValid = false;
-            $emailErr = "Invalid email format";
-        }
-		
-		if(empty($name)){
-            $isValid = false;
-            $nameErr = "*";
-        }
-        else if(isValidPersonName($name)==false){
-            $isValid = false;
-            $nameErr = "At least two words required, Only letters and white space allowed";
-        }
-		
-		else if(empty($uname)){
-            $isValid = false;
-            $nameErr = "*";
-        }
-		
-		else if(isValidPersonUserName($uname)==false){
-            $isValid = false;
-            $nameErr = "At least two words required, Only letters and white space allowed";
-        }
-		
-		else if(empty($password)){
-            $isValid = false;
-            $nameErr = "*";
-        }
-		
-		else if(isValidPassword($password)==false){
-            $isValid = false;
-            $nameErr = "Invalid Password";
-        }
-		
-		if (isset($_POST['Blocked']))
-		{
-			$Status="Blocked";
-		}
-		else
-		{
-			$Status="Active";
-		}
-		
-		if (isset($_POST['Type']))
-		{
-			$Type=$_POST['Type'];
-		}
-		else
-		{
-			$isValid = false;
-		}
-		
-		if($isValid==true){
-			$id=getLastMemberIDFromDB()['Member_ID'];
-			$member['Member_ID']=$id+1;
-			$member['Password']=$password;
-			$member['Name']=$name;
-			$member['Email']=$email;
-			$member['Type']=$Type;
-			$member['Status']=$Status;
-			
-			if(addMemberToDB($member)==true){
-                echo "<script>
-                        alert('Record Added');
-                        document.location='a_success.php';
-                     </script>";
-                die();
-            }
-            else{
-                echo "Internal Error<hr/>";
-            }
-		
-		}
-    }
