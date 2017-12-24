@@ -170,6 +170,7 @@
 								
 								<a href="order.php">Orders</a></br>
 								<a href="shoppingCart.php">Shopping Cart</a></br>
+								<a href="report.php">Report</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>
