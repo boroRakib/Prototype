@@ -32,17 +32,6 @@
         return getMembersByNameOrEmailFromDb($key);
     }
     
-    function isUniqueMemberEmail($memberEmail){
-        $members  = getAllMembers();
-        $isUnique = true;
-        foreach($members as $member){
-            if($member['email']==$memberEmail){
-                $isUnique = false;
-                break;
-            }
-        }
-        return $isUnique;
-    }
     
     function isUniqueMemberEmailForUpdate($memberId, $memberEmail){
         $members  = getAllMembers();
