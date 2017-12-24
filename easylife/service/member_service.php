@@ -8,8 +8,8 @@
         return editMemberToDb($member);
     }
     
-    function removeMember($memberId){
-        return removeMemberFromDb($memberId);
+    function deleteMember($memberId){
+        return deleteMemberFromDb($memberId);
     }
     
     function getAllMembers(){
