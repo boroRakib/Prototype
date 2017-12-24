@@ -3,7 +3,7 @@
 		<title>Terms Of Use</title>
 	</head>
 	<body>
-		<table border="1" width="100%">
+		<table  width="100%" bgcolor="Gainsboro">
 			<tr>
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
@@ -12,14 +12,14 @@
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<table border="1" width="100%">
+					<table  width="100%" bgcolor="WhiteSmoke" height="80" >
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
 							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
-								<table border="1">
+								<table >
 									<tr rowspan="2">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										<td><a href="Registration.php">Registartion</a></td>
@@ -39,85 +39,8 @@
 				<td colspan="3" align="center">
 					<table>
 						<tr>
-							<td>
-								<table border="1" height="800">
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Winter Collection</option>
-												<option value="men.php">Gents Winter Collection</option>
-												<option value="women.php">Ladies Winter Collection</option>
-												<option value="kid.php">Kids Winter Collection</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Womens Clothing</option>
-												<option value="women.php">Hijab And Dupatta</option>
-												<option value="women.php">Saree</option>
-												<option value="women.php">Three Piece</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Mens Clothing</option>
-												<option value="men.php">Shirt</option>
-												<option value="men.php">Panjabi</option>
-												<option value="men.php">Pant</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Kids Clothing</option>
-												<option value="kid.php">T-Shirt</option>
-												<option value="kid.php">Trouser</option>
-												<option value="kid.php">Cap</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Accessories</option>
-												<option value="accessories.php">Ear Rings</option>
-												<option value="accessories.php">Money Bag</option>
-												<option value="accessories.php">Watch</option>
-												<option value="accessories.php">Necklace</option>
-												<option value="accessories.php">Sunglass</option>
-												<option value="accessories.php">Bag</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Footwear</option>
-												<option value="footWear.php">Mens Footwear</option>
-												<option value="footWear.php">Womens Footwear</option>
-												<option value="footWear.php">Kids Footwear</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Brand</option>
-												<option value="brand.php">Eacstasy</option>
-												<option value="brand.php">Aarong</option>
-												<option value="brand.php">Yellow</option>
-											</select>
-										</td>
-									</tr>
-								</table>
-								
-							</td>
-							<td width="800">			
+							
+							<td width="800" height="400">			
 								<p align="justify">
 									
 
@@ -151,7 +74,7 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr bgcolor="WhiteSmoke ">
 				<td colspan="3" align="center">
 					<table>
 						<tr>
