@@ -179,7 +179,7 @@
 		
 		if($isValid==true){
 			$id=getLastMemberIDFromDB()['Member_ID'];
-			$member['Member_ID']=$id;
+			$member['Member_ID']=$id+1;
 			$member['User_Name']=$uname;
 			$member['Password']=$password;
 			$member['Name']=$name;
