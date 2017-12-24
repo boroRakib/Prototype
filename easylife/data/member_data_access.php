@@ -63,9 +63,7 @@
         
         return $member;
     }
-	SELECT MAX(column_name)
-FROM table_name
-WHERE condition;
+
 	function getMembersByNameFromDB($Name)
 	{
         $sql = "SELECT * FROM member WHERE Name LIKE '%$Name%'";
