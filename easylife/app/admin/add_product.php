@@ -1,4 +1,94 @@
-
+<?php require_once "../../service/validation_service.php"; ?>
+<?php require_once "../../data/product_data_access.php"; ?>
+<?php
+	$name=$price=$size=$Quantity=$Product_Feature=$brand=$catagory="";
+	$nameErr=$sizeErr=$brandErr=$CategoryErr=$QuantityErr=$priceErr="";
+?>
+<?php
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		$name=$_POST['name'];
+		$price=$_POST['price'];
+		$size=$_POST['size'];
+		$Quantity=$_POST['Quantity'];
+		$Product_Feature=$_POST['Product_Feature'];
+		$brand=$_POST['brand'];
+		$catagory=$_POST['catagory'];
+		
+		$isValid=true;
+		
+		if(empty($name)){
+            $isValid = false;
+            $nameErr = "*";
+			echo "1";
+        }
+		
+		if(empty($size)){
+            $isValid = false;
+            $sizeErr = "*";
+			echo "2";
+        }
+		
+		if(empty($brand)){
+            $isValid = false;
+            $brandErr = "*";
+			echo "3";
+        }
+		
+		if(empty($catagory)){
+            $isValid = false;
+            $CategoryErr= "*";
+			echo "4";
+        }
+		
+		if(empty($Quantity)){
+            $isValid = false;
+            $QuantityErr = "*";
+			echo "5";
+        }
+		// else if(isValidPersonNum($Quantity)==false)
+		// {
+			// $isValid = false;
+            // $QuantityErr = "Invalid Quantity";
+		// }
+		
+		if(empty($price)){
+            $isValid = false;
+            $priceErr = "*";
+			echo "6";
+        }
+		
+		// else if(isValidPersonNum($price)==false)
+		// {
+			// $isValid = false;
+            // $priceErr = "Invalid price";
+		// }
+		
+		if($isValid==true)
+		{
+			$id=7;//getLastProductCodeFromDB()['MAX(Product_Code)'];
+			$product['Product_Code']=$id+1;
+			$product['Name']=$name;
+			$product['Quantity']=$Quantity;
+			$product['Price']=$price;
+			$product['Catagory']=$catagory;
+			$product['Brand']=$brand;
+			$product['Size']=$size;
+			$product['Description']=$Product_Feature;
+			
+			if(addProductToDB($product)==true){
+                echo "<script>
+                        document.location='successproduct.php?';
+                     </script>";
+                 die();
+            }
+            else{
+                echo "Internal Error<hr/>";
+            }
+		}
+	}		
+?>
+<form method="post">
 <fieldset>
     <legend><b>Add Product</b></legend>
         <br/>
@@ -15,96 +105,88 @@
             <tr>
                 <td>Product Name</td>
                 <td>:</td>
-                <td><input name="name" type="text"></td>
-                <td></td>
-            </tr>		
-            <tr><td colspan="4"><hr/></td></tr>
-            <tr>
-                <td>Product code</td>
-                <td>:</td>
-                <td>
-                    <input name="email" type="text">
-                </td>
-                <td></td>
-            </tr>		
+                <td><input name="name" type="text" value="<?=$name?>" /></td>
+                <td><font color="red"><?=$nameErr?></td>
+            </tr>				
             <tr><td colspan="4"><hr/></td></tr>
             <tr>
                 <td>Price</td>
                 <td>:</td>
-                <td><input name="userName" type="text">Tk</td>
-                <td></td>
+                <td><input name="price" type="text"value="<?=$price?>">Tk</td>
+                <td><font color="red"><?=$priceErr?></td>
             </tr>		
             <tr><td colspan="4"><hr/></td></tr>
             <tr>
                 <td>Size</td>
                 <td>:</td>
-                <td><input name="text" type="text"></td>
-                <td></td>
+                <td><input name="size" type="text"value="<?=$size?>"></td>
+                <td><font color="red"><?=$sizeErr?></td>
             </tr>		
             <tr><td colspan="4"><hr/></td></tr>
             <tr>
                 <td>Quantity</td>
                 <td>:</td>
-                <td><input name="Quantity"></td>
-                <td></td>
+                <td><input name="Quantity"value="<?=$Quantity?>"></td>
+                <td><font color="red"><?=$QuantityErr?></td>
             </tr>	
 			<tr><td colspan="4"><hr/></td></tr>
             <tr>
                 <td>Brand</td>
                 <td>:</td>
                 <td>
-					<select>
+					<select name="brand">
 					<option></option>
-					<option>Local</option>
-					<option>Easy</option>
-					<option>Eacstasy</option>
-					<option>Yellow</option>
-					<option>Aarong</option>
+					<option value="Local">Local</option>
+					<option  value="Easy">Easy</option>
+					<option  value="Eacstasy">Eacstasy</option>
+					<option  value="Yellow">Yellow</option>
+					<option  value="Aarong">Aarong</option>
 					</select>
                 </td>
-                <td></td>
+                <td><font color="red"><?=$brandErr?></td>
             </tr>
 			<tr><td colspan="4"><hr/></td></tr>
             <tr>
                 <td>Category</td>
                 <td>:</td>
                 <td>
-					<select>
-					<option>Winter Collection</option>
-					<option>Gents Winter Collection</option>
-					<option>Ladies Winter Collection</option>
-					<option>Kids Winter Collection</option>
-					<option>Womens Clothing</option>
-					<option>Hijab And Dupatta</option>
-					<option>Saree</option>
-					<option>Three Piece</option>
-					<option>Mens Clothing</option>
-					<option>Shirt</option>
-					<option>Panjabi</option>
-					<option>Kids Clothing</option>
-					<option>T-Shirt</option>
-					<option>Trouser</option>
-					<option>Cap</option>
-					<option>Accessories</option>
-					<option>Ear Rings</option>
-					<option>Money Bag</option>
-					<option>Watch</option>
-					<option>Necklace</option>
-					<option>Sunglass</option>
-					<option>Bag</option>
-					<option>Footwear</option>
-					<option>Mens Footwear</option>
-					<option>Womens Footwear</option>
-					<option>Kids Footwear</option>
+					<select name="catagory">
+					<option></option>
+					<option  value="Winter Collection">Winter Collection</option>
+					<option  value="">Gents Winter Collection</option>
+					<option  value="">Ladies Winter Collection</option>
+					<option  value="">Kids Winter Collection</option>
+					<option  value="">Womens Clothing</option>
+					<option  value="">Hijab And Dupatta</option>
+					<option  value="">Saree</option>
+					<option  value="">Three Piece</option>
+					<option  value="">Mens Clothing</option>
+					<option  value="">Shirt</option>
+					<option  value="">Panjabi</option>
+					<option  value="">Kids Clothing</option>
+					<option  value="">T-Shirt</option>
+					<option  value="">Trouser</option>
+					<option  value="">Cap</option>
+					<option  value="">Accessories</option>
+					<option  value="">Ear Rings</option>
+					<option  value="">Money Bag</option>
+					<option  value="">Watch</option>
+					<option  value="">Necklace</option>
+					<option  value="">Sunglass</option>
+					<option  value="">Bag</option>
+					<option  value="">Footwear</option>
+					<option  value="">Mens Footwear</option>
+					<option  value="">Womens Footwear</option>
+					<option  value="">Kids Footwear</option>
 					</select>
                 </td>
-                <td></td>
+                <td><font color="red"><?=$CategoryErr?></td>
             </tr>
             <tr><td colspan="4"><hr/></td></tr>
             <tr>
                 <td>Product Feature</td>
                 <td>:</td>
-                <td><input name="Product_Feature"></td>
+                <td><input name="Product_Feature" value="<?=$Product_Feature?>"></td>
                 <td></td>
             </tr>		
            
@@ -119,6 +201,7 @@
 								</tr>
 								</table>
         <hr/>
-        <a href="successproduct.php?a=uedit"><button>Add</button></a> 
-        <input type="reset">
+        <input type="submit" value="Add"/>
+        <input type="reset"/>
 </fieldset>
+</form>

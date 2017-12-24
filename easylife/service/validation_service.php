@@ -13,8 +13,20 @@
 					
     }
 	
+	function isValidPersonNum($num){
+		$parts=str_word_count($num);
+		$isValid = false;
+		 if($parts==1){
+            if(preg_match("/^[1-9][0-9]*$/",$num)){
+                $isValid = true;
+            }
+        }
+        return $isValid;
+		
+    }
+	
     function isValidPersonUserName($uname){
-		$parts=str_word_count($name);
+		$parts=str_word_count($uname);
 		$isValid = false;
 		 if($parts==1){
             if(preg_match("/[a-zA-Z ]@$/",$uname)){
