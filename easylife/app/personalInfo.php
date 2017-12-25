@@ -5,6 +5,9 @@
 	$memberId=$_GET['memberID'];
 	$member=getMemberByIdFromDB($memberId)
 ?>
+<?php 
+
+?>
 <html>
 	<head>
 		<title>Personal Information</title>
@@ -68,9 +71,9 @@
 						
 						
 						<tr>
-							<td ><a href="personalInfoChange.php">Edit</a></td>
-							<td ><a href="changePassword.php">Change Password</a></td>
-							<td><a href="home.php">Back</a></td>
+							<td ><a href="personalInfoChange.php?memberID=<?=$member['Member_ID']?>"><button>Edit</button></a></td>
+							<td ><a href="changePassword.php?memberID=<?=$member['Member_ID']?>"><button>Change Password</button></a></td>
+							<td ><a href="home.php?memberID=<?=$member['Member_ID']?>"><button>Back</button></a></td>
 						</tr>
 					
 					</table>
@@ -139,3 +142,4 @@
 	</body>
 
 </html>
+

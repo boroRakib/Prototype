@@ -1,6 +1,8 @@
+<?php require_once "../data/member_data_access.php"; ?>
 <?php
 	$memberID=$_GET['memberID'];
-	var_dump($memberID);
+	//var_dump($memberID);
+	updateLastActiveToDB($memberID);
 ?>
 
 <html>

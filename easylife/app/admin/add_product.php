@@ -61,7 +61,7 @@
 		if($isValid==true)
 		{
 			$id=getLastProductCodeFromDB()['MAX(`Product _Code`)'];
-			$product['Product_Code']=$id+1;
+			$product['Product _Code']=$id+1;
 			$product['Name']=$name;
 			$product['Quantity']=(int)$Quantity;
 			$product['Price']=(int)$price;
@@ -72,7 +72,7 @@
 			var_dump($product);
 			if(addProductToDB($product)==true){
                 echo "<script>
-                        document.location='successproduct?ProductCode=$product['Product_Code'].php?';
+                        document.location='successproduct.php?ProductCode=".$product['Product_Code']."';
                      </script>";
                  die();
             }

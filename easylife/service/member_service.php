@@ -55,6 +55,7 @@
             }
         }
         return $isUnique;
+	 }
     
     function isUniqueMemberEmailForUpdate($memberId, $memberEmail){
         $members  = getAllMembers();

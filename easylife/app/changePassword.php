@@ -1,9 +1,69 @@
 <?php require_once "../service/validation_service.php"; ?>
 <?php require_once "../data/member_data_access.php"; ?>
 <?php
-	$name=$email=$password=$cpassword="";
-	$nameErr=$emailErr=$passErr=$cpassErr=$typeErr=$gErr="";
-?>
+	
+	$memberId=$_GET['memberID'];
+	$member=getMemberByIdFromDB($memberId)
+	?>
+	
+<?php
+	$cpass=$npass=$rpass="";
+	$cpassErr=$npassErr=$rpassErr="";
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		$cpass=$_POST['cpass'];
+		$npass=$_POST['npass'];
+		$rpass=$_POST['rpass'];
+		
+		
+		$isValid = true;
+       
+		if(empty($cpass)){
+            $isValid = false;
+            $cpassErr = "*";
+        }
+		
+		else if($cpass!=$member['Password']){
+            $isValid = false;
+            $cpassErr = "Wrong Password";
+        }
+		
+		if(empty($npass)){
+            $isValid = false;
+            $npassErr = "*";
+        }
+		
+		else if(isValidPassword($npass)==false){
+            $isValid = false;
+            $npassErr = "Minimum length 2";
+        }
+		
+		if(empty($rpass)){
+            $isValid = false;
+            $rpassErr = "*";
+        }
+		
+		else if($npass!=$rpass)
+		{
+			$isValid = false;
+            $rpassErr = "Doesn't Match";
+		}
+		
+		if($isValid==true){
+		
+			if(changeMemberPasswordToDB($npass,$member['Member_ID'])==true){
+                echo "<script>
+                        document.location='personalInfo.php?memberID=".$member['Member_ID']."';
+                     </script>";
+                die();
+            }
+            else{
+                echo "Internal Error<hr/>";
+            }
+		}
+	}
+?>	
+<form method="post">
 <html>
 	<head>
 		<title>Change Password</title>
@@ -46,18 +106,22 @@
 					<table >
 						<tr>
 							<td colspan="2">Old Password </td>
-							<td><input type="password" name="name"/></td>
+							<td><input type="password" name="cpass"/></td>
+							<td><font color="red"><?=$cpassErr?></font></td>
 						</tr>
 						<tr>
 							<td colspan="2">New Password </td>
-							<td><input type="password" name="name"/></td>
+							<td><input type="password" name="npass"/></td>
+							<td><font color="red"><?=$npassErr?></font></td>
 						</tr>
 						<tr>
 							<td colspan="2">Retype New Password </td>
-							<td><input type="password" name="name"/></td>
+							<td><input type="password" name="rpass"/></td>
+							<td><font color="red"><?=$rpassErr?></font></td>
 						</tr>
 						<tr>
-							<td colspan="2"><a href="personalInfo.php">Change</a></td>
+							<td colspan="2"><input type="submit" value="Change"/></td>
+							<td><a href="personalInfo.php?memberID=<?=$member['Member_ID']?>"><button>Back</button></a></td>
 							
 							<td><a href="personalInfo.php">Back</a></td>
 							
@@ -129,3 +193,4 @@
 	</body>
 
 </html>
+</form>
