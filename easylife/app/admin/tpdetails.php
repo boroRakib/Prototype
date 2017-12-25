@@ -51,5 +51,4 @@
 					</fieldset>
 	
 	<br>
-	<a href="dashboard.php"><button>Back</button></a>
 </html>
