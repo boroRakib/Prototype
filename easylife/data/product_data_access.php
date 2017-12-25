@@ -45,7 +45,7 @@
     }
 	
 	function getProductByCodeFromDB($Product_code){
-        $sql = "SELECT * FROM product WHERE Product_code='$Product_code'";        
+        $sql = "SELECT * FROM product WHERE `Product _Code`='$Product_code'";        
         $result = executeSQL($sql);
         
         $product = mysqli_fetch_assoc($result);

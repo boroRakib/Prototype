@@ -78,7 +78,7 @@
 			var_dump($product);
 			if(addProductToDB($product)==true){
                 echo "<script>
-                        document.location='successproduct.php?';
+                        document.location='successproduct?ProductCode=$product['Product_Code'].php?';
                      </script>";
                  die();
             }
