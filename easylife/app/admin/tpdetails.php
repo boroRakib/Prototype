@@ -1,3 +1,5 @@
+<?php require_once "../../data/product_data_access.php"; ?>
+
 <html>
 	<table >
 			<tr >
@@ -27,39 +29,24 @@
 										<th>Last Purchase</th>
 										<th>Remaining Quantity</th>
 									</tr>
-									<tr>
-										<td>S-1-895</td>
-										<td>Kakashi T-Shirt</td>
-										<td>10</td>
-										<td>390</td>
-										<td>3d ago</td>
-										<td>200</td>
-										<td><a href="pdetails.php">View</td>
-										<td><a href="pedit.php">edit</td>
-										<td><a href="deleteproduct.php">delete</td>
-									</tr>
-									<tr>
-										<td>S-1-895</td>
-										<td>Kakashi T-Shirt</td>
-										<td>10</td>
-										<td>390</td>
-										<td>3d ago</td>
-										<td>200</td>
-										<td><a href="pdetails.php">View</td>
-										<td><a href="pedit.php">edit</td>
-										<td><a href="deleteproduct.php">delete</td>
-									</tr>
-									<tr>
-										<td>S-1-895</td>
-										<td>Kakashi T-Shirt</td>
-										<td>10</td>
-										<td>390</td>
-										<td>3d ago</td>
-										<td>200</td>
-										<td><a href="pdetails.php">View</td>
-										<td><a href="pedit.php">edit</td>
-										<td><a href="deleteproduct.php">delete</td>
-									</tr>
+							<?php
+									$products=getAllProductsFromDB();
+									foreach($products as $product)
+									
+									
+							echo	"<tr>
+										<td>".$product['Product _Code']."</td>
+										<td>".$product['Name']."</td>
+										<td>".$product['Total_Sells']."</td>
+										<td>".$product['Price']."</td>
+										<td>".$product['Last_Sold']."</td>
+										<td>".$product['Quantity']."</td>
+										<td><a href=\"pdetails.php?ProductCode=".$product['Product _Code']."\">View</td>
+										<td><a href=\"pedit.php\">edit</td>
+										<td><a href=\"deleteproduct.php\">delete</td>
+									</tr>";
+							?>
+									
 								</table>
 					</fieldset>
 	
