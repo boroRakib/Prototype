@@ -1,7 +1,7 @@
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
-	$catagory=$_GET['catagory'];
-	$products=getProductsByCatagory($catagory);
+	$search=$_GET['search'];
+	$products=getProductsByName($search);
 
 ?>
 
@@ -49,79 +49,79 @@
 							<td width="20%" valign="top">
 								<table height="400" width="100%" valign="top" bgcolor="LightCoral    ">
 								<tr height="50">
-									<td><h2><?=$catagory?></h2><hr/></td>
+									<td><h2>CATEGORIES</h2><hr/></td>
 								</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;" >
-												<option value="home.php" <?php if($catagory=="Winter Collection"){ ?> selected <?php } ?>>Winter Collection</option>
-												<option value="product_by_category.php?catagory=Gents Winter Collection" <?php if($catagory=="Gents Winter Collection"){ ?> selected <?php } ?>>Gents Winter Collection</option>
-												<option value="product_by_category.php?catagory=Ladies Winter Collection" <?php if($catagory=="Ladies Winter Collection"){ ?> selected <?php } ?>>Ladies Winter Collection</option>
-												<option value="product_by_category.php?catagory=Kids Winter Collection" <?php if($catagory=="Kids Winter Collection"){ ?> selected <?php } ?>>Kids Winter Collection</option>
+												<option value="home.php">Winter Collection</option>
+												<option value="product_by_category.php?catagory=Gents Winter Collection">Gents Winter Collection</option>
+												<option value="product_by_category.php?catagory=Ladies Winter Collection">Ladies Winter Collection</option>
+												<option value="product_by_category.php?catagory=Kids Winter Collection">Kids Winter Collection</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="product_by_category.php?catagory=Womens Clothing" <?php if($catagory=="Womens Clothing"){ ?> selected <?php } ?>>Womens Clothing</option>
-												<option value="product_by_category.php?catagory=Hijab And Dupatta" <?php if($catagory=="Hijab And Dupatta"){ ?> selected <?php } ?>>Hijab And Dupatta</option>
-												<option value="product_by_category.php?catagory=Saree" <?php if($catagory=="Saree"){ ?> selected <?php } ?>>Saree</option>
-												<option value="product_by_category.php?catagory=Three Piece" <?php if($catagory=="Three Piece"){ ?> selected <?php } ?>>Three Piece</option>
+												<option value="product_by_category.php?catagory=Womens Clothing">Womens Clothing</option>
+												<option value="product_by_category.php?catagory=Hijab And Dupatta">Hijab And Dupatta</option>
+												<option value="product_by_category.php?catagory=Saree">Saree</option>
+												<option value="product_by_category.php?catagory=Three Piece">Three Piece</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="product_by_category.php?catagory=Mens Clothing" <?php if($catagory=="Mens Clothing"){ ?> selected <?php } ?>>Mens Clothing</option>
-												<option value="product_by_category.php?catagory=Shirt" <?php if($catagory=="Shirt"){ ?> selected <?php } ?>>Shirt</option>
-												<option value="product_by_category.php?catagory=Panjabi" <?php if($catagory=="Panjabi"){ ?> selected <?php } ?>>Panjabi</option>
-												<option value="product_by_category.php?catagory=Pant" <?php if($catagory=="Pant"){ ?> selected <?php } ?>>Pant</option>
+												<option value="product_by_category.php?catagory=Mens Clothing">Mens Clothing</option>
+												<option value="product_by_category.php?catagory=Shirt">Shirt</option>
+												<option value="product_by_category.php?catagory=Panjabi">Panjabi</option>
+												<option value="product_by_category.php?catagory=Pant">Pant</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="product_by_category.php?catagory=T-Shirt" <?php if($catagory=="T-Shirt"){ ?> selected <?php } ?>>T-Shirt</option>
-												<option value="product_by_category.php?catagory=T-Shirt" <?php if($catagory=="Three Piece"){ ?> selected <?php } ?>>T-Shirt</option>
-												<option value="product_by_category.php?catagory=Trouser" <?php if($catagory=="Trouser"){ ?> selected <?php } ?>>Trouser</option>
-												<option value="product_by_category.php?catagory=Cap" <?php if($catagory=="Cap"){ ?> selected <?php } ?>>Cap</option>
+												<option value="product_by_category.php?catagory=T-Shirt">T-Shirt</option>
+												<option value="product_by_category.php?catagory=T-Shirt">T-Shirt</option>
+												<option value="product_by_category.php?catagory=Trouser">Trouser</option>
+												<option value="product_by_category.php?catagory=Cap">Cap</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="product_by_category.php?catagory=Accessories" <?php if($catagory=="Accessories"){ ?> selected <?php } ?>>Accessories</option>
-												<option value="product_by_category.php?catagory=Ear Rings" <?php if($catagory=="Ear Rings"){ ?> selected <?php } ?>>Ear Rings</option>
-												<option value="product_by_category.php?catagory=Money Bag" <?php if($catagory=="Money Bag"){ ?> selected <?php } ?>>Money Bag</option>
-												<option value="product_by_category.php?catagory=Watch" <?php if($catagory=="Watch"){ ?> selected <?php } ?>>Watch</option>
-												<option value="product_by_category.php?catagory=Necklace" <?php if($catagory=="Necklace"){ ?> selected <?php } ?>>Necklace</option>
-												<option value="product_by_category.php?catagory=Sunglass" <?php if($catagory=="Sunglass"){ ?> selected <?php } ?>>Sunglass</option>
-												<option value="product_by_category.php?catagory=Bag" <?php if($catagory=="Bag"){ ?> selected <?php } ?>>Bag</option>
+												<option value="product_by_category.php?catagory=Accessories">Accessories</option>
+												<option value="product_by_category.php?catagory=Ear Rings">Ear Rings</option>
+												<option value="product_by_category.php?catagory=Money Bag">Money Bag</option>
+												<option value="product_by_category.php?catagory=Watch">Watch</option>
+												<option value="product_by_category.php?catagory=Necklace">Necklace</option>
+												<option value="product_by_category.php?catagory=Sunglass">Sunglass</option>
+												<option value="product_by_category.php?catagory=Bag">Bag</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="product_by_category.php?catagory=Footwear" <?php if($catagory=="Footwear"){ ?> selected <?php } ?>>Footwear</option>
-												<option value="product_by_category.php?catagory=Mens Footwear" <?php if($catagory=="Mens Footwear"){ ?> selected <?php } ?>>Mens Footwear</option>
-												<option value="product_by_category.php?catagory=Womens Footwear" <?php if($catagory=="Womens Footwear"){ ?> selected <?php } ?>>Womens Footwear</option>
-												<option value="product_by_category.php?catagory=Kids Footwear" <?php if($catagory=="Kids Footwear"){ ?> selected <?php } ?>>Kids Footwear</option>
+												<option value="product_by_category.php?catagory=Footwear">Footwear</option>
+												<option value="product_by_category.php?catagory=Mens Footwear">Mens Footwear</option>
+												<option value="product_by_category.php?catagory=Womens Footwear">Womens Footwear</option>
+												<option value="product_by_category.php?catagory=Kids Footwear">Kids Footwear</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="product_by_brand.php?brand=Brand">Brand</option>
+												<option value="product_by_brand.php?brand=Brand" >Brand</option>
 												<option value="product_by_brand.php?brand=Easy" >Easy</option>
 												<option value="product_by_brand.php?brand=Eacstasy" >Eacstasy</option>
-												<option value="product_by_brand.php?brand=Aarong" >Aarong</option>
-												<option value="product_by_brand.php?brand=Yellow">Yellow</option>
+												<option value="product_by_brand.php?brand=Aarong">Aarong</option>
+												<option value="product_by_brand.php?brand=Yellow" >Yellow</option>
 											</select>
 										</td>
 									</tr>
@@ -183,7 +183,7 @@
 											<?php if((count($products))==0){?>
 												<tr>
 													<td align="center" height="300" width="33%">
-														<h2>Sorry!!!There has no product in this section.</h2>
+														<h2>Sorry!!!No product found.</h2>
 														
 													</td>
 												</tr>

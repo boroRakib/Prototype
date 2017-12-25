@@ -88,4 +88,16 @@
         
         return $products;
     }
+	
+	function getProductsByBrandFromDB($Brand){
+        $sql = "SELECT * FROM product WHERE Brand='$Brand'";
+        $result = executeSQL($sql);
+        
+        $products = array();
+        for($i=0; $row = mysqli_fetch_assoc($result); $i++){
+            $products[$i] = $row;
+        }
+        
+        return $products;
+    }
 ?>

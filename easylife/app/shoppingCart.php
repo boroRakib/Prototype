@@ -39,7 +39,7 @@
 					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
-							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
+							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
 							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
