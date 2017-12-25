@@ -6,7 +6,7 @@
 ?>
 <?php
 	$name=$email="";
-	
+	$nameErr=$emailErr="";
 ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST")
@@ -69,6 +69,7 @@
 										<tr>
 											<td width="125">Name</td>
 											<td><input name="name" type="text" value="<?=$member['Name']?>"></td>
+											<td><font color="red"><?=$nameErr?></font></td>
 										</tr>
 									</table>
 									<hr>
@@ -76,6 +77,7 @@
 										<tr>
 											<td width="125">Email</td>
 											<td><input name="email" type="text" value="<?=$member['Email']?>"></td>
+											<td><font color="red"><?=$emailErr?></font></td>
 										</tr>
 									</table>
 									

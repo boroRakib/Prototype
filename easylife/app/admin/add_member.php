@@ -10,8 +10,8 @@
 	{
 		$name=trim($_POST['name']);
         $email=trim($_POST['email']);
-		$password=trim($_POST['password']);
-		$cpassword=trim($_POST['cpassword']);
+		$password=$_POST['password'];
+		$cpassword=$_POST['cpassword'];
 		
 		$isValid = true;
         if(empty($email)){

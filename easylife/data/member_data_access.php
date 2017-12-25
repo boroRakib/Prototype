@@ -21,6 +21,13 @@
         return $result;
     }
 	
+	function updateLastActiveToDB($id)
+	{
+        $sql = "UPDATE member SET Last_Logged_in=GETDATE() WHERE Member_ID='$id'";
+        $result = executeSQL($sql);
+        return $result;
+    }
+	
 	function deleteMemberFromDB($member)
 	{
         $sql = "DELETE FROM member WHERE Member_ID='$member[Member_ID]'";
