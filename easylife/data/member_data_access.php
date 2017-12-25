@@ -23,14 +23,14 @@
 	
 	function updateLastActiveToDB($id)
 	{
-        $sql = "UPDATE member SET Last_Logged_in=GETDATE() WHERE Member_ID='$id'";
+        $sql = "UPDATE member SET Last_Logged_in=CURRENT_TIMESTAMP WHERE Member_ID='$id'";
         $result = executeSQL($sql);
         return $result;
     }
 	
-	function deleteMemberFromDB($member)
+	function deleteMemberFromDB($memberID)
 	{
-        $sql = "DELETE FROM member WHERE Member_ID='$member[Member_ID]'";
+        $sql = "DELETE FROM member WHERE Member_ID='$memberID'";
         $result = executeSQL($sql);
         return $result;
     }

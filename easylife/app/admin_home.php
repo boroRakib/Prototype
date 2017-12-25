@@ -1,7 +1,6 @@
 <?php require_once "../data/member_data_access.php"; ?>
 <?php
 	$memberID=$_GET['memberID'];
-	//var_dump($memberID);
 	updateLastActiveToDB($memberID);
 ?>
 
@@ -15,7 +14,7 @@
 				<td align="center" colspan="3">
 					<table  width="100%" bgcolor="Gainsboro " >
 						<tr>
-							<td><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
+							<td><a href="admin_home.php?memberID=<?=$memberID?>"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td >
 								<table  width="100%">
 									<tr>
@@ -24,11 +23,9 @@
 											<table >
 												<tr rowspan="2">
 													<td><img src="resources/m.jpg" height="30" width="30"/></td>
-													<td><a href="Registration.php">Registartion</a></td>
 												</tr>
 												<tr>
 													<td><a href="home.php">Log Out</a></td>
-													<td><a href="logIn.php">Log In</a></td>
 												</tr>
 												
 											</table>
