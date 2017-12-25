@@ -23,6 +23,10 @@
 	{
 		return getProductsByNameFromDB($Name);
 	}
+	function getProductsByFullName($Name)
+	{
+		return getProductsByFullNameFromDB($Name);
+	}
 	function getProductsByPrice($Price)
 	{
 		return getProductsByPriceFromDB($Price);

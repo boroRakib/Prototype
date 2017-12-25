@@ -64,6 +64,17 @@
         
         return $products;
     }
+	function getProductsByFullNameFromDB($Name){
+        $sql = "SELECT * FROM product WHERE Name='$Name'";
+        $result = executeSQL($sql);
+        
+        // $products = array();
+        // for($i=0; $row = mysqli_fetch_assoc($result); ++$i){
+            // $products[$i] = $row;
+        // }
+        
+        return mysqli_fetch_assoc($result);
+    }
 	
 	function getProductsByPriceFromDB($Price){
         $sql = "SELECT * FROM product WHERE Price='$Price'";

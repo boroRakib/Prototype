@@ -1,22 +1,19 @@
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
-	$product_name=$_GET['product_name'];
-	$product=getProductsByName($product_name);
-	//var_dump($product);
-	// if(!isset($_COOKIE['easylife_cart']))
-	// {
-		 // $cookie_name = "easylife_cart[0]";
-		 // $cookie_value = $product[0]['Name'];
-		 // setcookie($cookie_name,$cookie_value,time() + 3600,"/");
-	// }
-	// else
-	// {
-		 // $i=count($_COOKIE['easylife_cart']);
-		 // $cookie_name = "easylife_cart[$i]";
-		 // $cookie_value = $product[0]['Name'];
-		 // setcookie($cookie_name,$cookie_value,time() + 3600,"/");
-	// }
-	//setcookie("easylife_cart","",time() - 3600,"/");
+
+	//setcookie("easylife_cart[3]","",time() - 3600,"/");
+	if(isset($_COOKIE['easylife_cart']))
+	{
+		foreach($_COOKIE['easylife_cart'] as $c)
+		{
+			$cart[]=getProductsByFullName($c);
+		}
+		var_dump($cart);
+	}
+	
+	
+	
+	
 	var_dump($_COOKIE);
 	
 	
@@ -70,74 +67,75 @@
 								</tr>
 									<tr>
 										<td height="50">
-											<select onchange="location = this.value;" 
+											<select onchange="location = this.value;" >
 												<option value="home.php">Winter Collection</option>
-												<option value="men.php">Gents Winter Collection</option>
-												<option value="women.php">Ladies Winter Collection</option>
-												<option value="kid.php">Kids Winter Collection</option>
+												<option value="product_by_category.php?catagory=Gents Winter Collection">Gents Winter Collection</option>
+												<option value="product_by_category.php?catagory=Ladies Winter Collection">Ladies Winter Collection</option>
+												<option value="product_by_category.php?catagory=Kids Winter Collection">Kids Winter Collection</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Womens Clothing</option>
-												<option value="women.php">Hijab And Dupatta</option>
-												<option value="women.php">Saree</option>
-												<option value="women.php">Three Piece</option>
+												<option value="product_by_category.php?catagory=Womens Clothing">Womens Clothing</option>
+												<option value="product_by_category.php?catagory=Hijab And Dupatta">Hijab And Dupatta</option>
+												<option value="product_by_category.php?catagory=Saree">Saree</option>
+												<option value="product_by_category.php?catagory=Three Piece">Three Piece</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Mens Clothing</option>
-												<option value="men.php">Shirt</option>
-												<option value="men.php">Panjabi</option>
-												<option value="men.php">Pant</option>
+												<option value="product_by_category.php?catagory=Mens Clothing">Mens Clothing</option>
+												<option value="product_by_category.php?catagory=Shirt">Shirt</option>
+												<option value="product_by_category.php?catagory=Panjabi">Panjabi</option>
+												<option value="product_by_category.php?catagory=Pant">Pant</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Kids Clothing</option>
-												<option value="kid.php">T-Shirt</option>
-												<option value="kid.php">Trouser</option>
-												<option value="kid.php">Cap</option>
+												<option value="product_by_category.php?catagory=T-Shirt">T-Shirt</option>
+												<option value="product_by_category.php?catagory=T-Shirt">T-Shirt</option>
+												<option value="product_by_category.php?catagory=Trouser">Trouser</option>
+												<option value="product_by_category.php?catagory=Cap">Cap</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Accessories</option>
-												<option value="accessories.php">Ear Rings</option>
-												<option value="accessories.php">Money Bag</option>
-												<option value="accessories.php">Watch</option>
-												<option value="accessories.php">Necklace</option>
-												<option value="accessories.php">Sunglass</option>
-												<option value="accessories.php">Bag</option>
+												<option value="product_by_category.php?catagory=Accessories">Accessories</option>
+												<option value="product_by_category.php?catagory=Ear Rings">Ear Rings</option>
+												<option value="product_by_category.php?catagory=Money Bag">Money Bag</option>
+												<option value="product_by_category.php?catagory=Watch">Watch</option>
+												<option value="product_by_category.php?catagory=Necklace">Necklace</option>
+												<option value="product_by_category.php?catagory=Sunglass">Sunglass</option>
+												<option value="product_by_category.php?catagory=Bag">Bag</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Footwear</option>
-												<option value="footWear.php">Mens Footwear</option>
-												<option value="footWear.php">Womens Footwear</option>
-												<option value="footWear.php">Kids Footwear</option>
+												<option value="product_by_category.php?catagory=Footwear">Footwear</option>
+												<option value="product_by_category.php?catagory=Mens Footwear">Mens Footwear</option>
+												<option value="product_by_category.php?catagory=Womens Footwear">Womens Footwear</option>
+												<option value="product_by_category.php?catagory=Kids Footwear">Kids Footwear</option>
 											</select>
 										</td>
 									</tr>
 									<tr>
 										<td height="50">
 											<select onchange="location = this.value;">
-												<option value="home.php">Brand</option>
-												<option value="brand.php">Eacstasy</option>
-												<option value="brand.php">Aarong</option>
-												<option value="brand.php">Yellow</option>
+												<option value="product_by_brand.php?brand=Brand">Brand</option>
+												<option value="product_by_brand.php?brand=Easy" >Easy</option>
+												<option value="product_by_brand.php?brand=Eacstasy">Eacstasy</option>
+												<option value="product_by_brand.php?brand=Aarong">Aarong</option>
+												<option value="product_by_brand.php?brand=Yellow">Yellow</option>
 											</select>
 										</td>
 									</tr>
@@ -157,21 +155,15 @@
 													<th>Price</th>
 													<th>Preview</th>
 												</tr>
-												
+												<?php foreach($cart as $c) {?>
 												<tr>
 													<td align="center"><a href=""><img src="resources/remove.jpg" height="25" width="25" /></a></td>
-													<td>Kakashi T-Shirt</td>
+													<td><?= $c['Name'] ?></td>
 													<td width="10%"><input value="1"/></td>
-													<td align="center">2000 Tk</td>
-													<td align="center"><img src="resources/tshirt4.jpg" height="200"/></td>
+													<td align="center"><?= $c['Price'] ?> Tk</td>
+													<td align="center"><img src="resources/<?= $c['Name'] ?>.jpg" height="200"/></td>
 												</tr>
-												<tr>
-													<td align="center"><a href=""><img src="resources/remove.jpg" height="25" width="25" /></a></td>
-													<td>Gabadin Pant</td>
-													<td><input value="1"/></td>
-													<td align="center">2000 Tk</td>
-													<td align="center"><img src="resources/pant1.jpg" height="200"/></td>
-												</tr>
+												<?php } ?>
 												
 												
 												

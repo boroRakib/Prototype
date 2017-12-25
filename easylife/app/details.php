@@ -147,17 +147,26 @@
 										{
 											var db_qty= <?php echo $product[0]['Quantity']; ?>;
 											var user_qty=document.getElementById("qty");
+											
 											if(db_qty<user_qty.value)
 											{
 												alert('The maximum quantity allowed for purchase is '+ db_qty);
 											
 												return false;
 											}
+											if(user_qty.value<0)
+											{
+												alert('Quantity should be positive');
+												return false;
+											}
+											
 											
 										}
+										
+										
 									</script>
 									
-										<table bgcolor="YellowGreen "><tr height="30" width="50%"><td align="center"><a href="shoppingCart.php?product_name=<?=$product[0]['Name']?>" onclick="return check_quantity();"><h2>Buy Now</h2></a></td></tr></table>
+										<table bgcolor="YellowGreen "><tr height="30" width="50%"><td align="center"><a href="addToCart.php?product_name=<?=$product[0]['Name']?>" onclick="return check_quantity();"><h2>Buy Now</h2></a></td></tr></table>
 										
 										
 										</td>
