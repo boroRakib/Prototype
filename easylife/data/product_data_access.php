@@ -2,7 +2,9 @@
 <?php
 	function addProductToDB($product)
 	{
-        $sql = "INSERT INTO product (Product_Code,Name,Quantity,Total_Sells,Price,Last_Sold,Catagory,Brand,Size,Description) VALUES ('$product[Product_Code]', '$product[Name]', '$product[Quantity]', 0, '$product[Price]', NULL, '$product[Catagory]', '$product[Brand]', '$product[Size]', '$product[Description]')";
+        var_dump($product);
+	   // INSERT INTO `product`(`Product _Code`, `Name`, `Quantity`, `Price`, `Catagory`, `Brand`, `Size`, `Description`) VALUES (5,"Shirt",100,123,"Winter Collection","Easy","L","Normal Tshirt")
+		$sql = "INSERT INTO `product`(`Product _Code`, `Name`, `Quantity`, `Price`, `Catagory`, `Brand`, `Size`, `Description`) VALUES ('$product[Product_Code]', '$product[Name]', '$product[Quantity]', '$product[Price]','$product[Catagory]', '$product[Brand]', '$product[Size]', '$product[Description]')";
         $result = executeSQL($sql);
         return $result;
     }
@@ -34,7 +36,7 @@
 	
 	function getLastProductCodeFromDB()
 	{
-        $sql = "SELECT MAX(Product_Code) FROM product";        
+        $sql = "SELECT MAX(`Product _Code`) FROM `product`";        
         $result = executeSQL($sql);
         //var_dump($result);
         $product = mysqli_fetch_assoc($result);

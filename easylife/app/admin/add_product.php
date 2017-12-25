@@ -66,16 +66,16 @@
 		
 		if($isValid==true)
 		{
-			$id=7;//getLastProductCodeFromDB()['MAX(Product_Code)'];
+			$id=getLastProductCodeFromDB()['MAX(`Product _Code`)'];
 			$product['Product_Code']=$id+1;
 			$product['Name']=$name;
-			$product['Quantity']=$Quantity;
-			$product['Price']=$price;
+			$product['Quantity']=(int)$Quantity;
+			$product['Price']=(int)$price;
 			$product['Catagory']=$catagory;
 			$product['Brand']=$brand;
 			$product['Size']=$size;
 			$product['Description']=$Product_Feature;
-			
+			var_dump($product);
 			if(addProductToDB($product)==true){
                 echo "<script>
                         document.location='successproduct.php?';
