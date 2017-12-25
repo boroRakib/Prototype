@@ -1,6 +1,8 @@
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 
+	// setcookie("user_qty[1]","",time() - 3600,"/");
+	// setcookie("easylife_cart[1]","",time() - 3600,"/");
 	// setcookie("user_qty[2]","",time() - 3600,"/");
 	// setcookie("easylife_cart[2]","",time() - 3600,"/");
 	// setcookie("user_qty[0]","",time() - 3600,"/");
@@ -17,7 +19,7 @@
 		
 	}
 	
-//	var_dump($_COOKIE);
+	//var_dump($_COOKIE);
 	if(isset($_COOKIE['user_qty']))
 	{
 		$qty=$_COOKIE['user_qty'];
@@ -187,9 +189,11 @@
 												<?php if(count($cart)!=0) {?>
 												<tr>
 													<th></th>
-													<td colspan="4" align="center">
-														<table   width="80%">
-															<tr bgcolor="LightSteelBlue ">
+													<th></th>
+													
+													<td colspan="4" align="right">
+														<table   width="50%">
+															<tr bgcolor="LightSkyBlue ">
 												
 																<td width="41%">Sub-Total: </td>
 																<td ><?=$tolal?> Tk</td>
@@ -199,13 +203,13 @@
 																<td width="41%">Shipping: </td>
 																<td>60 Tk</td>
 															</tr>
-															<tr bgcolor="RosyBrown">
+															<tr bgcolor="LightSkyBlue">
 														
-																<td width="41%"><h3>Total: </h3></td>
-																<td><?=$tolal+60?>Tk</td>
+																<td width="41%"><h2><font color="red">Total: </font></h2></td>
+																<td><h2><font color="red"><?=$tolal+60?>Tk</font></h2></td>
 															</tr>
 															<tr>
-																<td colspan="2" align="center" bgcolor="YellowGreen  "><a href="LogIn_Cart.php"><h2>Confirm Order</h2></a></td>
+																<td colspan="2" align="center" bgcolor="LightCoral"><a href="LogIn_Cart.php"><h2>Confirm Order</h2></a></td>
 															</tr>
 														</table>
 															
