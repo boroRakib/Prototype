@@ -1,3 +1,7 @@
+<?php require_once "../../data/member_data_access.php"; ?>
+<?php
+	$memberID=$_GET['memberID'];
+?>
 <html>
 	<table >
 		<tr >
@@ -25,30 +29,52 @@
 					<th>Email</th>
 					<th>Last Active</th>
 				</tr>
-				<tr>
-					<td>15-29750-2</td>
-					<td>Efti</td>
-					<td>macefti276@gmail.com</td>
-					<td>1d ago</td>
-					<td><a href="aedit.php">edit</a></td>
-					<td><a href="deleteadmin.php">delete</a></td>
-				</tr>
-				<tr>
-					<td>15-29774-2</td>
-					<td>Rajesh</td>
-					<td>rajesh@gmail.com</td>
-					<td>1d ago</td>
-					<td><a href="aedit.php">edit</a></td>
-					<td><a href="deleteadmin.php">delete</a></td>
-				</tr>
-				<tr>
-					<td>15-29521-2</td>
-					<td>Rakib</td>
-					<td>rakib@gmail.com</td>
-					<td>1d ago</td>
-					<td><a href="aedit.php">edit</a></td>
-					<td><a href="deleteadmin.php">delete</a></td>
-				</tr>
+				<?php
+					$members=getAllMembersFromDB();
+					$cy=(int)date("Y");
+					$cm=(int)date("m");
+					$cd=(int)date("d");
+					foreach($members as $member)
+					{
+						$y=(int)explode("-",$member['Last_Logged_in'])[0];
+						$m=(int)explode("-",$member['Last_Logged_in'])[1];
+						$d=(int)explode("-",$member['Last_Logged_in'])[2];
+						
+						if($cy=$y)
+						{
+							if($cm=$m)
+							{
+								if($cd=$d)
+								{
+									$log="Today";
+								}
+								else
+								{
+									$log=($cd-$d)." day(s) ago";
+								}
+							}
+							else
+							{
+								$log=($cm-$m)." month(s) ago";
+							}
+						}
+						else
+						{
+							$log=($cy-$y)." year(s) ago";
+						}
+						
+						echo	"<tr>
+									<td>".$member['Member_ID']."</td>
+									<td>".$member['Name']."</td>
+									<td>".$member['Email']."</td>
+									<td>".$log."</td>
+									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">edit</a></td>";
+						if($member['Member_ID']!=$memberID)
+							{
+								echo	"<td><a href=\"deleteadmin.php\">delete</a></td></tr>";
+							}
+					}
+					?>
 			</table>
 	</fieldset>
 	<br>
