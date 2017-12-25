@@ -1,3 +1,87 @@
+<?php require_once "../service/validation_service.php"; ?>
+<?php require_once "../data/member_data_access.php"; ?>
+<?php
+	$name=$email=$password=$cpassword="";
+	$nameErr=$emailErr=$passErr=$cpassErr=$typeErr=$gErr="";
+?>
+
+<?php
+    if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		$name=trim($_POST['name']);
+        $email=trim($_POST['email']);
+		$password=trim($_POST['password']);
+		$cpassword=trim($_POST['cpassword']);
+		
+		$isValid = true;
+        if(empty($email)){
+            $isValid = false;
+            $emailErr = "*";
+        }
+        else if(isValidEmail($email)==false){
+            $isValid = false;
+            $emailErr = "Invalid email format";
+        }
+		
+		if(empty($name)){
+            $isValid = false;
+            $nameErr = "*";
+        }
+        else if(isValidPersonName($name)==false){
+            $isValid = false;
+            $nameErr = "At least two words required, Only letters and white space allowed";
+        }
+		
+		
+		
+		if(empty($password)){
+            $isValid = false;
+            $passErr = "*";
+        }
+		
+		else if(isValidPassword($password)==false){
+            $isValid = false;
+            $passErr = "Minimum length 2";
+        }
+		
+		if(empty($cpassword)){
+            $isValid = false;
+            $cpassErr = "*";
+        }
+		
+		else if($password!=$cpassword){
+            $isValid = false;
+            $cpassErr = "Password doesn't match";
+        }
+		
+		
+		if($isValid==true){
+			$id=getLastMemberIDFromDB()['MAX(Member_ID)'];
+			$member['Member_ID']=$id+1;
+			$member['Password']=$password;
+			$member['Name']=$name;
+			$member['Email']=$email;
+			$member['Type']=4;
+			$member['Status']='Active';
+			
+			if(addMemberToDB($member)==true){
+				echo"done";
+                echo "<script>
+                        document.location='personalInfo.php?memberID=".$member['Member_ID']."';
+                     </script>";
+                die();
+            }
+            else{
+                echo "Internal Error<hr/>";
+            }
+		
+		}
+		
+    }
+?>
+
+
+<form method="post">
 <html>
 	<head>
 		<title>Registration</title>
@@ -40,39 +124,56 @@
 			<tr height="600">
 				<td colspan="3" align="center">
 				<h2>REGISTER</h2><hr/>
-					<table height="800" width="70%" bgcolor="white">
-						
-						<tr>
-							<td>Name </td>
-							<td colspan="2"><input name="name" size="50"/></td>
-						</tr>
-						<tr>
-							<td >Email </td>
-							<td colspan="2"><input name="email" size="50"/></td>
-						</tr>
+					<table>
+			<tr>
+			<td>
+			<table width="100%" >
+				<tr>
+					<td width="130"></td>
+					<td width="10"></td>
+					<td width="230"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td>:</td>
+					<td><input name="name" type="text"  value="<?=$name?>"></td>
+					<td><font color="red"><?=$nameErr?></font></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td>Email</td>
+					<td>:</td>
+					<td>
+						<input name="email" type="text"  value="<?=$email?>"/>
+						<abbr title="hint: sample@example.com"><b>i</b></abbr>
+					</td>
+					<td><font color="red"><?=$emailErr?></font></td>
+				</tr>	
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td>Password</td>
+					<td>:</td>
+					<td><input name="password" type="password" value="<?=$password?>" /></td>
+					<td><font color="red"><?=$passErr?></font></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr>
+					<td>Confirm Password</td>
+					<td>:</td>
+					<td><input name="cpassword" type="password" value="<?=$cpassword?>"/></td>
+					<td><font color="red"><?=$cpassErr?></font></td>
+				</tr>		
+				<tr><td colspan="4"><hr/></td></tr>
+				<tr><td colspan="4" align="center"><input type="submit" value="Register"></td></tr>
+				
+			</table>
+			</td>
+			<td>
 			
-						<tr>
-							<td >Address </td>
-							<td colspan="2"><textarea >Enter text here...</textarea></td>
-						</tr>
-						<tr>
-							<td colspan="2">Password </td>
-							<td><input type="password" name="pass" size="50"/></td>
-						</tr>
-						<tr>
-							<td colspan="2">Retype Password </td>
-							<td><input type="password" name="rpass" size="50"/></td>
-						</tr>
-						<tr>
-							<td colspan="2">Profile picture</td>
-							<td><image src="resources/contact.jpg"></image></br><input type="file"/></td>
-						</tr>
-						
-						<tr bgcolor="YellowGreen  ">
-							<td colspan="3" align="center"><a href="personalInfo.php">Register</a></td>
-						</tr>
-					
-					</table>
+									</td>
+									</tr>
+									</table>
 				</td>
 			</tr>
 			<tr bgcolor="WhiteSmoke ">
@@ -137,3 +238,4 @@
 	</body>
 
 </html>
+</form>

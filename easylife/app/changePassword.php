@@ -1,3 +1,9 @@
+<?php require_once "../service/validation_service.php"; ?>
+<?php require_once "../data/member_data_access.php"; ?>
+<?php
+	$name=$email=$password=$cpassword="";
+	$nameErr=$emailErr=$passErr=$cpassErr=$typeErr=$gErr="";
+?>
 <html>
 	<head>
 		<title>Change Password</title>
