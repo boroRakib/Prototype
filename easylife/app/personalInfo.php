@@ -1,3 +1,10 @@
+<?php require_once "../service/validation_service.php"; ?>
+<?php require_once "../data/member_data_access.php"; ?>
+
+<?php
+	$memberId=$_GET['memberID'];
+	$member=getMemberByIdFromDB($memberId)
+?>
 <html>
 	<head>
 		<title>Personal Information</title>
@@ -43,28 +50,23 @@
 					<table height="500">
 						<tr>
 							<td >Name </td>
-							<td colspan="2"> <label> Rakibul Hossain</label> </td>
+							<td colspan="2"> <label> <?=$member['Name']?></label> </td>
 						</tr>
+						
 						<tr>
 							<td >Email </td>
-							<td colspan="2"> <label>rakib@gmail.com</label> </td>
+							<td colspan="2"> <label><?=$member['Email']?></label> </td>
 						</tr>
 						<tr>
-							<td >Gender</td>
-							<td colspan="2"> <label>Male</label> </td>
+							<td >Status </td>
+							<td colspan="2"> <label><?=$member['Status']?></label> </td>
 						</tr>
 						<tr>
-							<td >Date Of Birth</td>
-							<td colspan="2"><label>14/08/1994</label> </td>
+							<td >Registered </td>
+							<td colspan="2"> <label><?=explode(" ",$member['Member_Since'])[0]?></label> </td>
 						</tr>
-						<tr>
-							<td >Address</td>
-							<td colspan="2"> <label>Dhaka,Bangladesh</label> </td>
-						</tr>
-						<tr>
-							<td>Profile picture</td>
-							<td colspan="2"><image src="resources/contact.jpg"></image></td>
-						</tr>
+						
+						
 						<tr>
 							<td ><a href="personalInfoChange.php">Edit</a></td>
 							<td ><a href="changePassword.php">Change Password</a></td>
