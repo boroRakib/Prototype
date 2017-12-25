@@ -1,3 +1,7 @@
+<?php
+	$memberID=$_GET['memberID'];
+?>
+
 <html>
 	<head>
 		<title>Admin Home</title>
@@ -56,7 +60,7 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/uedetails.php" target="contentFrame" >View profile</a>
+											<a href="admin/uedetails.php?memberID=<?=$memberID?>" target="contentFrame" >View profile</a>
 										</td>
 									</tr>
 									<tr height="10" >
