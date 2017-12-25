@@ -1,4 +1,62 @@
+<?php require_once "../../service/validation_service.php"; ?>
+<?php require_once "../../data/member_data_access.php"; ?>
+<?php
+	$memberID=$_GET['memberID'];
+	$member=getMemberByIDFromDB($memberID);
+?>
+<?php
+	$name=$email="";
+	
+?>
+<?php
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		$name=trim($_POST['name']);
+        $email=trim($_POST['email']);
+		
+		$isValid = true;
+        if(empty($email)){
+            $isValid = false;
+            $emailErr = "*";
+        }
+        else if(isValidEmail($email)==false){
+            $isValid = false;
+            $emailErr = "Invalid email format";
+        }
+		
+		if(empty($name)){
+            $isValid = false;
+            $nameErr = "*";
+        }
+        else if(isValidPersonName($name)==false){
+            $isValid = false;
+            $nameErr = "At least two words required, Only letters and white space allowed";
+        }
+		
+		if($isValid==true){
+			$member1['Member_ID']=$member['Member_ID'];
+			$member1['Password']=$member['Password'];
+			$member1['Name']=$name;
+			$member1['Email']=$email;
+			$member1['Type']=$member['Type'];
+			$member1['Status']=$member['Status'];
+			
+			if(editMemberToDB($member1)==true){
+                echo "<script>
+                        document.location='a_success.php?memberID=".$member1['Member_ID']."';
+                     </script>";
+                die();
+            }
+            else{
+                echo "Internal Error<hr/>";
+            }
+		}
+	}
+?>
+
+
 <html>
+<form method="post">
 	<fieldset >
 		<legend><h3>Edit Profile</h3></legend>
 			<table>
@@ -10,42 +68,19 @@
 									<table>
 										<tr>
 											<td width="125">Name</td>
-											<td><input type="text" value="Efti"></td>
+											<td><input name="name" type="text" value="<?=$member['Name']?>"></td>
 										</tr>
 									</table>
 									<hr>
 									<table>
 										<tr>
 											<td width="125">Email</td>
-											<td><input type="text" value="macefti276@gmail.com"></td>
-										</tr>
-									</table>
-									<hr>
-									<table>
-										<tr>
-											<td width="125">Gender</td>
-											<td><input name="gender" type="radio" checked="checked"/>Male
-												<input name="gender" type="radio"/>Female
-												<input name="gender" type="radio"/>Other</td>
-										</tr>
-									</table>
-									<hr>
-									<table>
-										<tr>
-											<td width="125">Date of birth</td>
-											<td><input type="text" value="01/01/1997"></td>
-										</tr>
-									</table>
-									<hr>
-									<table>
-										<tr>
-											<td width="125">Address</td>
-											<td><input type="text" value="Mirpur,Dhaka,Bangladesh"></td>
+											<td><input name="email" type="text" value="<?=$member['Email']?>"></td>
 										</tr>
 									</table>
 									
 									<hr>
-										<a href="successonly.php?a=uedit"><button>Submit</button></a>
+										<input type="submit" value="Submit"/>
 			<!--						<input type="Submit" name="Submit" value="Submit">-->
 								</td>
 							</tr>
@@ -61,4 +96,5 @@
 								</tr>
 			</table>
 	</fieldset>
-<html>
+</form>
+</html>
