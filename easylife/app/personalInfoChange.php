@@ -1,3 +1,59 @@
+<?php require_once "../service/validation_service.php"; ?>
+<?php require_once "../data/member_data_access.php"; ?>
+<?php
+	
+	$memberId=$_GET['memberID'];
+	$member=getMemberByIdFromDB($memberId)?>
+<?php
+	$name=$email="";
+	
+?>
+<?php
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		$name=trim($_POST['name']);
+        $email=trim($_POST['email']);
+		
+		$isValid = true;
+        if(empty($email)){
+            $isValid = false;
+            $emailErr = "*";
+        }
+        else if(isValidEmail($email)==false){
+            $isValid = false;
+            $emailErr = "Invalid email format";
+        }
+		
+		if(empty($name)){
+            $isValid = false;
+            $nameErr = "*";
+        }
+        else if(isValidPersonName($name)==false){
+            $isValid = false;
+            $nameErr = "At least two words required, Only letters and white space allowed";
+        }
+		
+		if($isValid==true){
+			$member1['Member_ID']=$member['Member_ID'];
+			$member1['Password']=$member['Password'];
+			$member1['Name']=$name;
+			$member1['Email']=$email;
+			$member1['Type']=$member['Type'];
+			$member1['Status']=$member['Status'];
+			
+			if(editMemberToDB($member1)==true){
+                echo "<script>
+                        document.location='personalInfo.php?memberID=".$member1['Member_ID']."';
+                     </script>";
+                die();
+            }
+            else{
+                echo "Internal Error<hr/>";
+            }
+		}
+	}
+?>
+<form method="post">
 <html>
 	<head>
 		<title>Personal Information</title>
@@ -43,50 +99,17 @@
 					<table  width="80%" height="500">
 						<tr>
 							<td><b>Name</b></td>
-							<td colspan="2"> <input name="name" value="Rakibul Hossain"/></td>
+							<td colspan="2"> <input name="name" value="<?=$member['Name']?>"/></td>
 						</tr>
 						<tr>
 							<td ><b>Email </b></td>
-							<td colspan="2"><input name="email" value="rakib@gmail.com"/></td>
-						</tr>
-						<tr>
-							<td colspan="3">
-							<fieldset>
-								<legend><b>Gender</b></legend>
-								<input type="radio" name="gender" Value="m" checked="checked">Male
-								<input type="radio" name="gender" Value="f">Female
-								<input type="radio" name="gender" Value="o">Other
-							</fieldset>
-						</td>
-						</tr>
-						<td colspan="3">
-							<fieldset>
-						<legend><b>Date of Birth</b></legend>
-						<table>
-							<tr>
-								<td><input name="d" value="14"/><br></td>
-								<td>/</td>
-								<td><input name="m" value="08"/></td>
-								<td>/</td>
-								<td><input name="y" value="1994"/><i>(dd/mm/yyyy)</i></td>
-							</tr>
-						</table>
-					</fieldset>
-						</td>
-						</tr>
-						<tr>
-							<td ><b>Address</b> </td>
-							<td colspan="2"> <textarea>Dhaka,Bangladesh</textarea></td>
-						</tr>
-						<tr>
-							<td colspan="2">Profile picture</td>
-							<td><image src="resources/contact.jpg"></image></br><input type="file"/></td>
+							<td colspan="2"><input name="email" value="<?=$member['Email']?>"/></td>
 						</tr>
 						
 						<tr>
-							<td ><a href="personalInfo.php">Save</a></td>
+							<td ><input type="submit" value="Save" ></td>
 							
-							<td colspan="2"><a href="personalInfo.php">Back</a></td>
+							<td colspan="2"><a href="personalInfo.php?memberID=<?=$member['Member_ID']?>"><button>Back</button></a></td>
 						</tr>
 					
 					</table>
@@ -155,3 +178,4 @@
 	</body>
 
 </html>
+</form>
