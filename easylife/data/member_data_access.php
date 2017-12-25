@@ -14,6 +14,13 @@
         return $result;
     }
 	
+	function changeMemberPasswordToDB($pass,$id)
+	{
+        $sql = "UPDATE member SET Password='$pass' WHERE Member_ID='$id'";
+        $result = executeSQL($sql);
+        return $result;
+    }
+	
 	function deleteMemberFromDB($member)
 	{
         $sql = "DELETE FROM member WHERE Member_ID='$member[Member_ID]'";
