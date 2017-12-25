@@ -7,7 +7,16 @@
 		// $easylife_user=$_SESSION['easylife_email'];
 	// }
 	// var_dump($_SESSION);
-// ?>
+	
+	if(isset($_COOKIE['user_qty']))
+	{
+		$noOfProduct=count($_COOKIE['user_qty']);
+	}
+	else
+	{
+		$noOfProduct=0;
+	}
+?>
 
 <head>
 		<title>Home</title>
@@ -28,7 +37,7 @@
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
 							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
 
-							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
 								<table  >

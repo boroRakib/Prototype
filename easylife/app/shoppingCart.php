@@ -1,21 +1,33 @@
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 
-	//setcookie("easylife_cart[3]","",time() - 3600,"/");
+	// setcookie("user_qty[2]","",time() - 3600,"/");
+	// setcookie("easylife_cart[2]","",time() - 3600,"/");
+	// setcookie("user_qty[0]","",time() - 3600,"/");
+	// setcookie("easylife_cart[0]","",time() - 3600,"/");
+
+
 	if(isset($_COOKIE['easylife_cart']))
 	{
 		foreach($_COOKIE['easylife_cart'] as $c)
 		{
 			$cart[]=getProductsByFullName($c);
 		}
-		var_dump($cart);
+		//var_dump($cart);
+		
 	}
 	
-	
-	
-	
-	var_dump($_COOKIE);
-	
+//	var_dump($_COOKIE);
+	if(isset($_COOKIE['user_qty']))
+	{
+		$qty=$_COOKIE['user_qty'];
+		$noOfProduct=count($_COOKIE['user_qty']);
+	}
+	else
+	{
+		$noOfProduct=0;
+	}
+
 	
 ?>
 
@@ -37,7 +49,7 @@
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
 							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
-							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
 								<table  >
@@ -61,7 +73,7 @@
 					<table width="100%">
 						<tr>
 							<td width="20%" valign="top">
-								<table height="400" width="100%" valign="top" bgcolor="RosyBrown    ">
+								<table height="400" width="100%" valign="top" bgcolor="LightCoral">
 								<tr height="50">
 									<td><h2>CATEGORIES</h2><hr/></td>
 								</tr>
@@ -142,32 +154,37 @@
 								</table>
 								
 							</td>
-							<td align="center" width="80%">
+							<td align="center" width="80%" valign="top">
 							
-											<table   width="100%" bgcolor="white">
+											<table   width="100%" bgcolor="white" >
+									<?php if(isset($_COOKIE['easylife_cart'])) {?>
 												<tr>
-													<th colspan="5" bgcolor="DodgerBlue "><h3>In your Cart</h3></th>
+													<th colspan="6" bgcolor="DodgerBlue " ><h3>In your Cart</h3></th>
 												</tr>
 												<tr bgcolor="Silver ">
 													<th>Remove</th>
+													<th>Preview</th>
 													<th>Products</th>
 													<th>Quantity</th>
 													<th>Price</th>
-													<th>Preview</th>
+													<th>Total</th>
 												</tr>
-												<?php foreach($cart as $c) {?>
-												<tr>
-													<td align="center"><a href=""><img src="resources/remove.jpg" height="25" width="25" /></a></td>
-													<td><?= $c['Name'] ?></td>
-													<td width="10%"><input value="1"/></td>
+											
+												<?php $tolal=0; $count=0; foreach($cart as $c) {?>
+												<tr height="50">
+													<td align="center" width="10%"><a href="removeFromCart.php?id=<?=$count?>"><img src="resources/remove.jpg" height="20" width="20" /></a></td>
+													<td align="center"><img src="resources/<?= $c['Name'] ?>.jpg" height="50"/></td>
+													<td width="40%" align="center"><?= $c['Name'] ?></td>
+													<td width="10%"><input value="<?=$qty[$count]?>"/></td>
 													<td align="center"><?= $c['Price'] ?> Tk</td>
-													<td align="center"><img src="resources/<?= $c['Name'] ?>.jpg" height="200"/></td>
+													<td align="center"><?= $qty[$count]*$c['Price'] ?> Tk</td>
 												</tr>
-												<?php } ?>
+												<?php $tolal=$tolal+$qty[$count]*$c['Price']; $count++; } ?>
 												
 												
 												
 												
+												<?php if(count($cart)!=0) {?>
 												<tr>
 													<th></th>
 													<td colspan="4" align="center">
@@ -175,7 +192,7 @@
 															<tr bgcolor="LightSteelBlue ">
 												
 																<td width="41%">Sub-Total: </td>
-																<td >4000 Tk</td>
+																<td ><?=$tolal?> Tk</td>
 															</tr>
 															<tr bgcolor="LightSkyBlue">
 												
@@ -185,7 +202,7 @@
 															<tr bgcolor="RosyBrown">
 														
 																<td width="41%"><h3>Total: </h3></td>
-																<td>4060Tk</td>
+																<td><?=$tolal+60?>Tk</td>
 															</tr>
 															<tr>
 																<td colspan="2" align="center" bgcolor="YellowGreen  "><a href="LogIn_Cart.php"><h2>Confirm Order</h2></a></td>
@@ -193,8 +210,14 @@
 														</table>
 															
 													</td>
+												</tr>
+											<?php } ?>
+									<?php } ?>	
+										<?php if(!isset($_COOKIE['easylife_cart'])) {?>
 												<tr>
-											
+													<td colspan="6">Your Shopping Cart is empty!</td>
+												</tr>
+										<?php } ?>
 											</table>
 							</td>
 								
