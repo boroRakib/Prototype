@@ -1,3 +1,8 @@
+<?php
+	$memberID=$_GET['memberID'];
+	var_dump($memberID);
+?>
+
 <html>
 	<head>
 		<title>Admin Home</title>
@@ -46,22 +51,22 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/dashboard.php" target="contentFrame">Dashboard</a>
+											<a href="admin/dashboard.php?memberID=<?=$memberID?>" target="contentFrame">Dashboard</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/Editprofile.php" target="contentFrame" >Edit profile</a>
+											<a href="admin/Editprofile.php?memberID=<?=$memberID?>" target="contentFrame" >Edit profile</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/uedetails.php" target="contentFrame" >View profile</a>
+											<a href="admin/uedetails.php?memberID=<?=$memberID?>" target="contentFrame" >View profile</a>
 										</td>
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/changepass.php" target="contentFrame" >Change password</a>
+											<a href="admin/changepass.php?memberID=<?=$memberID?>" target="contentFrame" >Change password</a>
 										</td>
 									</tr>
 									<tr height="10" >
@@ -86,7 +91,7 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="admin/tadmindetails.php" target="contentFrame" >View Admins</a>
+											<a href="admin/tadmindetails.php?memberID=<?=$memberID?>" target="contentFrame" >View Admins</a>
 										</td>
 									</tr>
 									<tr height="10" >
@@ -126,7 +131,7 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
-											<a href="DataBase/DataBase.php" target="contentFrame" >Database</a>
+											<a href="DataBase/DataBase.html" target="contentFrame" >Database</a>
 										</td>
 									</tr>
 								</table>
@@ -137,7 +142,7 @@
 							
 									<tr>
 										<td width="800" valign="top">
-											<iframe name="contentFrame" frameborder="0" width="100%" height="790" src="admin/dashboard.php"></iframe>
+											<iframe name="contentFrame" frameborder="0" width="100%" height="790" src="admin/dashboard.php?memberID=<?=$memberID?>"></iframe>
 										</td>
 									</tr>
 								</table>

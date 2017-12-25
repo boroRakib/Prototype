@@ -20,31 +20,26 @@
 		if(empty($name)){
             $isValid = false;
             $nameErr = "*";
-			echo "1";
         }
 		
 		if(empty($size)){
             $isValid = false;
             $sizeErr = "*";
-			echo "2";
         }
 		
 		if(empty($brand)){
             $isValid = false;
             $brandErr = "*";
-			echo "3";
         }
 		
 		if(empty($catagory)){
             $isValid = false;
             $CategoryErr= "*";
-			echo "4";
         }
 		
 		if(empty($Quantity)){
             $isValid = false;
             $QuantityErr = "*";
-			echo "5";
         }
 		// else if(isValidPersonNum($Quantity)==false)
 		// {
@@ -55,7 +50,6 @@
 		if(empty($price)){
             $isValid = false;
             $priceErr = "*";
-			echo "6";
         }
 		
 		// else if(isValidPersonNum($price)==false)
@@ -78,7 +72,7 @@
 			var_dump($product);
 			if(addProductToDB($product)==true){
                 echo "<script>
-                        document.location='successproduct.php?';
+                        document.location='successproduct?ProductCode=$product['Product_Code'].php?';
                      </script>";
                  die();
             }

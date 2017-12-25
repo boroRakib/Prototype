@@ -16,10 +16,7 @@
         return getAllMembersFromDB();
     }
     
-	function getLastMemberID()
-	{
-		return getLastMemberIDFromDB();
-	}
+	
 	
     function getMemberById($memberId){
         return getMemberByIdFromDB($memberId);
@@ -48,6 +45,16 @@
         }
         return $isUnique;
     }
+	 function changePassword($memberId){
+        $members  = getAllMembers();
+        $isChange = true;
+        foreach($members as $member){
+            if($member['pas']==$memberEmail){
+                $isUnique = false;
+                break;
+            }
+        }
+        return $isUnique;
     
     function isUniqueMemberEmailForUpdate($memberId, $memberEmail){
         $members  = getAllMembers();

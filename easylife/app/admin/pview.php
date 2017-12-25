@@ -1,12 +1,19 @@
+<?php require_once "../../data/product_data_access.php"; ?>
+<?php
+	$Product_Code=$_GET['ProductCode'];
+	
+	$product=getProductByCodeFromDB($Product_Code);
+	
+?>
 <html>
 <table border="1" width="100%">
 									<tr>
 										<td align="center" colspan="2"><img src="../resources/tshirt1.jpg" height="400"/></td>
 										<td>
-										<h2>Kakashi T-Shirt</h2>
-										<h3>Product Code: S-1-895</h3>
-										<h3>Tk 390</h3>
-										<h3>Quantity: 100</h3>
+										<h2><?=$product['Name']?></h2>
+										<h3>Product Code: <?=$product['Product _Code']?></h3>
+										<h3>Tk <?=$product['Price']?></h3>
+										<h3>Quantity: <?=$product['Quantity']?></h3>
 										</td>
 									</tr>
 					
@@ -15,7 +22,7 @@
 											</tr>
 											<tr>
 												
-												<td width="500" colspan="3"><p align="justify">High Quality Fabric: 150-180 GSM.Anti-Wrinkle.<br/>Fully Export Quality. <br/>High Quality Rubber Print.<br/>Long Lasting color.Nicely Sewed.</td>
+												<td width="500" colspan="3"><p align="justify"><?=$product['Description']?></td>
 											</tr>
 										</table>
 </html>
