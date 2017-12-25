@@ -23,7 +23,7 @@
 					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
-							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
+							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
 							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
@@ -139,9 +139,25 @@
 										<p>Review : <input type="radio"/><input type="radio"/><input type="radio"/><input type="radio"/><input type="radio"/></p>
 										<h3>Tk <?=$product[0]['Price']?></h3>
 										<p>Size : <input type="radio">XL</input><input type="radio"/>L</input><input type="radio"/>M</input><input type="radio"/>S</input></p>
-										<p>Quantity: <input value="1"/></p>
+										<p>Quantity: <input id="qty" value="1"/></p>
 										
-										<table bgcolor="YellowGreen "><tr height="30" width="50%"><td align="center"><a href="shoppingCart.php?product_name=<?=$product[0]['Name']?>"><h2>Buy Now</h2></a></td></tr></table>
+										
+									<script>
+										function check_quantity()
+										{
+											var db_qty= <?php echo $product[0]['Quantity']; ?>;
+											var user_qty=document.getElementById("qty");
+											if(db_qty<user_qty.value)
+											{
+												alert('The maximum quantity allowed for purchase is '+ db_qty);
+											
+												return false;
+											}
+											
+										}
+									</script>
+									
+										<table bgcolor="YellowGreen "><tr height="30" width="50%"><td align="center"><a href="shoppingCart.php?product_name=<?=$product[0]['Name']?>" onclick="return check_quantity();"><h2>Buy Now</h2></a></td></tr></table>
 										
 										
 										</td>

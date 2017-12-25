@@ -31,4 +31,8 @@
 	{
 		return getProductsByCatagoryFromDB($Catagory);
 	}
+	function getProductsByBrand($Brand)
+	{
+		return getProductsByBrandFromDB($Brand);
+	}
 ?>
