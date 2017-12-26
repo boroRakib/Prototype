@@ -123,7 +123,7 @@
 							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
 
 							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
-							<td align="center"><a href="trackProduct.php">Track Product</a></td>
+							<td align="center"><a href="trackProductSearch.php"><button>Track Product</button></td>
 							<td align="center">
 								<table  >
 									<tr>

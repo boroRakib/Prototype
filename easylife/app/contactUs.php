@@ -17,7 +17,7 @@
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
 							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
 							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
-							<td align="center"><a href="trackProduct.php">Track Product</a></td>
+							<td align="center"><a href="trackProductSearch.php"><button>Track Product</button></td>
 							<td align="center">
 								<table >
 									<tr rowspan="2">
