@@ -1,4 +1,8 @@
-<?php require_once "../../data/member_data_access.php"; ?>
+<?php require_once "../../service/validation_service.php"; ?>
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/member_service.php"; 
+?>
 <?php
 	$memberID=$_GET['memberID'];
 ?>
@@ -30,7 +34,7 @@
 					<th>Last Active</th>
 				</tr>
 				<?php
-					$members=getAllMembersFromDB();
+					$members=getAllAdmins();
 					$cy=(int)date("Y");
 					$cm=(int)date("m");
 					$cd=(int)date("d");

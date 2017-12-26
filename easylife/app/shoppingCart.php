@@ -2,12 +2,12 @@
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 
-	// setcookie("user_qty[1]","",time() - 3600,"/");
-	// setcookie("easylife_cart[1]","",time() - 3600,"/");
-	// setcookie("user_qty[2]","",time() - 3600,"/");
-	// setcookie("easylife_cart[2]","",time() - 3600,"/");
-	// setcookie("user_qty[0]","",time() - 3600,"/");
-	// setcookie("easylife_cart[0]","",time() - 3600,"/");
+	// setcookie("user_qty[1]","",time() - 86400,"/");
+	// setcookie("easylife_cart[1]","",time() - 86400,"/");
+	// setcookie("user_qty[2]","",time() - 86400,"/");
+	// setcookie("easylife_cart[2]","",time() - 86400,"/");
+	// setcookie("user_qty[0]","",time() - 86400,"/");
+	// setcookie("easylife_cart[0]","",time() - 86400,"/");
 
 
 	if(isset($_COOKIE['easylife_cart']))
@@ -221,6 +221,7 @@
 																<td width="41%">Sub-Total: </td>
 																<td ><?=$tolal?> Tk</td>
 															</tr>
+															<?php $_SESSION['Sub-Total']=$tolal ?>
 															<tr bgcolor="LightSkyBlue">
 												
 																<td width="41%">Shipping: </td>

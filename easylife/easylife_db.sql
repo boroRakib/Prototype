@@ -120,7 +120,18 @@ INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Pric
 ('6', 'Linen Frok', 5, 0, 500, NULL, 'Frok', 'Eacstasy', 'M', 'High Quality Fabric: 150-180\r\nStitch\r\n100% Cotton'),
 ('7', 'Scythe T-Shirt', 5, 0, 400, NULL, 'T-Shirt', 'Aarong', 'L', 'High Quality Fabric: 150-180\r\nStitch\r\n100% Cotton'),
 ('8', 'Hijab', 4, 0, 150, NULL, 'Hijab And Dupatta', 'Yellow', 'S', 'Balck Colored Hijab\r\nPure Cotton.'),
-('9', 'Saree', 3, 0, 1000, NULL, 'Saree', 'Aarong', 'L', 'Pure Cotton Saree');
+('9', 'Saree', 3, 0, 1000, NULL, 'Saree', 'Aarong', 'L', 'Pure Cotton Saree'),
+('24', 'Emporio Watch', 3, 0, 1400, NULL, '', 'Watch', 'Eacstasy', 'S', 'Exclusive Emporio Armani Watch.'),
+('25', 'Digital Watch', 6, 0, 1100, NULL, '', 'Watch', 'Yellow', 'S', 'Exclusive digital Watch.'),
+('26', 'MVMT Watch', 3, 0, 1300, NULL, '', 'Watch', 'Easy', 'S', 'EXclusive MVMT watch.'),
+('27', 'Diamond Necklace', 1, 0, 5000, NULL, '', 'Necklace', 'Aarong', 'M', 'Artificial diamond necklace.'),
+('28', 'Heart Necklace', 3, 0, 2000, NULL, '', 'Necklace', 'Eacstasy', 'S', 'Imported heart shaped necklace.'),
+('29', 'MK Bag', 3, 0, 1800, NULL, '', 'Bag', 'Eacstasy', 'M', 'Exclusive import quality MK bag.'),
+('30', 'Sport Trouser', 5, 0, 400, NULL, '', 'Trouser', 'Easy', 'M', 'High quality cotton trouser.'),
+('31', 'Nike Cap', 7, 0, 250, NULL, '', 'Cap', 'Easy', 'S', 'High quality imported cap.'),
+('32', 'Kids Shoes', 8, 0, 1250, NULL, '', 'Kids Footwear', 'Eacstasy', 'S', 'High quality imported shoes for kids.');
+
+
 
 -- --------------------------------------------------------
 

@@ -146,6 +146,6 @@
 			</table>
 	</fieldset>
 	<br>
-	<a href="tpdetails.php"><button>Back</button></a>
+	
 </form>
 </html>

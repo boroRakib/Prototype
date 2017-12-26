@@ -22,7 +22,7 @@
                if(deleteProduct($product)==true)
 				{
 					echo "<script>
-							document.location='p_success2.php?';
+							document.location='successonly.php?';
 						 </script>";
 					die();
 				}
@@ -41,8 +41,6 @@
 	<iframe frameborder="0" width="100%" height="580" src="pview.php?ProductCode=<?=$productCode?>"></iframe>
 	<input type="submit" name="button" value="Yes"/>
 	<input type="submit" name="button" value="No"/>
-	<a href="p_success2.php"><button>Yes</button></a>
-	<a href="tpdetails.php"><button>No</button></a>
 </form>
 </html>
 	

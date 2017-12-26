@@ -1,4 +1,7 @@
-<?php require_once "../../data/product_data_access.php"; ?>
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/product_serviec.php"; 
+?>
 
 <html>
 	<table >
@@ -30,7 +33,7 @@
 										<th>Remaining Quantity</th>
 									</tr>
 							<?php
-									$products=getAllProductsFromDB();
+									$products=getAllProducts();
 									foreach($products as $product)
 									
 									
@@ -43,7 +46,7 @@
 										<td>".$product['Quantity']."</td>
 										<td><a href=\"pdetails.php?ProductCode=".$product['Product _Code']."\">View</td>
 										<td><a href=\"pedit.php?productCode=".$product['Product _Code']."\">edit</td>
-										<td><a href=\"deleteproduct.php\">delete</td>
+										<td><a href=\"deleteproduct.php?productCode=".$product['Product _Code']."\">delete</td>
 									</tr>";
 							?>
 									

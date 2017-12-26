@@ -95,7 +95,7 @@
 					<td>".$log."</td>
 					<td>".$s."</td>
 					<td><a href=\"reportview.php?reportCode=".$code."\">view</a></td>
-					<td><a href=\"deletereport.php\">delete</a></td>
+					<td><a href=\"deletereport.php?reportCode=".$code."\">delete</a></td>
 				</tr>";
 					}
 				?>
