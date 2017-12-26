@@ -36,7 +36,7 @@
 			$address_err="*Address is required.";
 			$v=false;
 		}
-		if(!(isset($_POST['delivery_zone'])))
+		if(empty($delivery_zone))
 		{
 			$delivery_zone_err="*Delivery zone is required.";
 			$v=false;
@@ -206,7 +206,7 @@
 											<td>Delivery Zone :</td>
 											<td  colspan="2">
 												<select name="delivery_zone">
-													<option value=""></option>
+													<option ></option>
 													<option value="1" <?php if($delivery_zone=="1")echo "Selected";?>>Banani</option>
 													<option value="2" <?php if($delivery_zone=="2")echo "Selected";?>>Baridhara</option>
 													<option value="3" <?php if($delivery_zone=="3")echo "Selected";?>>Gulshan</option>
