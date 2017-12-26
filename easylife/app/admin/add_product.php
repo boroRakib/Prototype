@@ -1,5 +1,8 @@
 <?php require_once "../../service/validation_service.php"; ?>
-<?php require_once "../../data/product_data_access.php"; ?>
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/product_serviec.php"; 
+?>
 <?php
 	$name=$price=$size=$Quantity=$Product_Feature=$brand=$catagory="";
 	$nameErr=$sizeErr=$brandErr=$CategoryErr=$QuantityErr=$priceErr="";
@@ -21,6 +24,12 @@
             $isValid = false;
             $nameErr = "*";
         }
+		
+		else if(!(isUniqueProductName($name)))
+ 		{
+ 			$isValid = false;
+             $nameErr = "Product Already Exist";
+ 		}
 		
 		if(empty($size)){
             $isValid = false;
@@ -60,7 +69,15 @@
 		
 		if($isValid==true)
 		{
-			$id=getLastProductCodeFromDB()['MAX(`Product _Code`)'];
+			$products=getAllProducts();
+			$id=0;
+			foreach($products as $p)
+			{
+				if($id<((int)$p['Product _Code']))
+				{
+					$id=(int)$p['Product _Code'];
+				}
+			}
 			$product['Product_Code']=$id+1;
 			$product['Name']=$name;
 			$product['Quantity']=(int)$Quantity;
