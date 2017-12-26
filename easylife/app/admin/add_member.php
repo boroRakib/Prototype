@@ -1,8 +1,5 @@
 <?php require_once "../../service/validation_service.php"; ?>
-<?php 
-	$admin="admin";
-	require_once "../../service/member_service.php"; 
-?>
+<?php require_once "../../data/member_data_access.php"; ?>
 <?php
 	$name=$email=$password=$cpassword=$gender=$dob="";
 	$nameErr=$emailErr=$passErr=$cpassErr=$typeErr=$gErr="";
@@ -25,13 +22,6 @@
             $isValid = false;
             $emailErr = "Invalid email format";
         }
-		else if(!(isUniqueMemberEmail($email)))
-		{
-			$isValid = false;
-            $emailErr = "Email already in use";
-		}
-		
-		
 		
 		if(empty($name)){
             $isValid = false;

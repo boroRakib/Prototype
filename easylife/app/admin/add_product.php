@@ -1,8 +1,5 @@
 <?php require_once "../../service/validation_service.php"; ?>
-<?php 
-	$admin="admin";
-	require_once "../../service/product_serviec.php"; 
-?>
+<?php require_once "../../data/product_data_access.php"; ?>
 <?php
 	$name=$price=$size=$Quantity=$Product_Feature=$brand=$catagory="";
 	$nameErr=$sizeErr=$brandErr=$CategoryErr=$QuantityErr=$priceErr="";
@@ -24,11 +21,6 @@
             $isValid = false;
             $nameErr = "*";
         }
-		else if(!(isUniqueProductName($name)))
-		{
-			$isValid = false;
-            $nameErr = "Product Already Exist";
-		}
 		
 		if(empty($size)){
             $isValid = false;

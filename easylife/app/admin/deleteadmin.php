@@ -4,7 +4,7 @@
 	$id=$_GET['id'];
 ?>
 <?php
-	 if($_SERVER['REQUEST_METHOD']=="POST")
+	if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		if($_POST['button']=="No")
 		{

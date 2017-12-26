@@ -17,7 +17,8 @@
 	
 	function deleteProductFromDB($product)
 	{
-		$sql = "DELETE FROM product WHERE Product_Code='$product[Product_Code]'";        
+		$p=$product['Product _Code'];
+		$sql = "DELETE FROM product WHERE `Product _Code`='$p'";        
         $result = executeSQL($sql);
         return $result;
 	}
