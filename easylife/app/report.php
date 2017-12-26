@@ -46,7 +46,7 @@
 			$code=getLastReportCodeFromDB()['MAX(Report_Code)'];
 			$report['Report_Code']=$code+1;
 			$report['Report_Title']=$tit;
-			$report['Member_ID']=1;
+			$report['Member_ID']=$memberID;
 			$report['Description']=$repo;
 			if(addReportToDB($report)==true){
                 echo "<script>
