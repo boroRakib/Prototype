@@ -1,7 +1,19 @@
 <?php require_once "../data/member_data_access.php"; ?>
+<?php require_once "../data/report_data_access.php"; ?>
 <?php
 	$memberID=$_GET['memberID'];
-	updateLastActiveToDB($memberID);
+	updateLastActiveToDB($memberID);	
+	$reports=getAllReportsFromDB();	
+	if($noOfReports=count($reports)>0)
+	{
+		$noOfReports=count($reports);
+	}
+	else
+	{
+		$noOfReports=0;
+	}
+
+	
 ?>
 
 <html>
@@ -18,7 +30,7 @@
 							<td >
 								<table  width="100%">
 									<tr>
-										<td align="center">(3)reports<a href="admin/treports.php" target="contentFrame"><img src="resources/report.png" height="30" width="30"/></a></td>
+										<td align="center">(<?=$noOfReports?>)Reports<a href="admin/treports.php?trep=<?=$reports?>" target="contentFrame"><img src="resources/report.png" height="30" width="30"/></a></td>
 										<td align="right">
 											<table >
 												<tr rowspan="2">

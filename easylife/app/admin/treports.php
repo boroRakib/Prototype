@@ -1,3 +1,17 @@
+<?php require_once "../../data/member_data_access.php"; ?>
+<?php require_once "../../data/report_data_access.php"; ?>
+
+<?php
+$reports=getAllReportsFromDB();
+$member=
+
+foreach ($reports as $report)
+{	
+	$code=$report['Report_Code'];
+	$title=$report['Report_Title'];
+}
+?>
+
 <html>
 	<table >
 		<tr >
@@ -19,6 +33,8 @@
 	<br>
 	<fieldset>
 		<legend>All Reports</legend>
+		
+	
 			<table border=1 width=100%>
 				<tr>
 					<th>Report ID</th>
@@ -26,9 +42,9 @@
 					<th>Reported By</th>
 					<th>Report Time</th>
 					<th>Status</th>
-				</tr>
+				</tr>	
 				<tr>
-					<td>15-2</td>
+					<td><?=$code?></td>
 					<td>Defect Product</td>
 					<td><a href="udetails.php">Efti</a></td>
 					<td>1d ago</td>
@@ -37,7 +53,7 @@
 					<td><a href="deletereport.php">delete</a></td>
 				</tr>
 				<tr>
-					<td>15-3</td>
+					<td>121</td>
 					<td>Return Product</td>
 					<td><a href="udetails.php">Rajesh</a></td>
 					<td>2d ago</td>
@@ -45,15 +61,7 @@
 					<td><a href="reportview.php">view</a></td>
 					<td><a href="deletereport.php">delete</a></td>
 				</tr>
-				<tr>
-					<td>15-4</td>
-					<td>Poor Delivery</td>
-					<td><a href="udetails.php">Rakib</a></td>
-					<td>3d ago</td>
-					<td>Seen</td>
-					<td><a href="reportview.php">view</a></td>
-					<td><a href="deletereport.php">delete</a></td>
-				</tr>
+				
 			</table>
 	</fieldset>
 	<br>
