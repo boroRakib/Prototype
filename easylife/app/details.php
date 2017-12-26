@@ -279,11 +279,11 @@
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								<a href="<?php if($memberID!="") { ?>personalInfo.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Personal Info</a></br>
 								
 								<a href="order.php">Orders</a></br>
 								<a href="shoppingCart.php">Shopping Cart</a></br>
-								<a href="report.php">Report</a></br>
+								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>

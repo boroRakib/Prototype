@@ -1,9 +1,20 @@
+<?php session_start(); ?>
 <?php require_once "../service/validation_service.php"; ?>
 <?php require_once "../data/member_data_access.php"; ?>
 <?php
 	
 	$memberId=$_GET['memberID'];
-	$member=getMemberByIdFromDB($memberId)
+	$member=getMemberByIdFromDB($memberId);
+	$memberName=$member['Name'];
+	
+	if(isset($_COOKIE['user_qty']))
+	{
+		$noOfProduct=count($_COOKIE['user_qty']);
+	}
+	else
+	{
+		$noOfProduct=0;
+	}
 	?>
 	
 <?php
@@ -81,18 +92,30 @@
 					<table  width="100%" bgcolor="WhiteSmoke" height="80" >
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
-							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
-							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
+							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
 								<table >
-									<tr rowspan="2">
-										<td><img src="resources/m.jpg" height="30" width="30"/></td>
-										<td><a href="Registration.php">Registartion</a></td>
-									</tr>
 									<tr>
-										<td><a href="home.php">Log Out</a></td>
-										<td><a href="logIn.php">Log In</a></td>
+										<td><img src="resources/m.jpg" height="30" width="30"/></td>
+										
+										<?php if($memberId=="") { ?>
+										<td><a href="Registration.php">Registartion</a></td>
+										<?php } ?>
+										<?php if($memberId!="") { ?>
+										<td><a href="personalInfo.php"><?=$memberName?></a></td>
+										<?php } ?>
+										
+									</tr>
+									<tr align="right">
+										<?php if($memberId!="") { ?>
+										<td colspan="2"><a href="LogOut.php">Log Out</a></td>
+										<?php } ?>
+										
+										<?php if($memberId=="") { ?>
+										<td colspan="2"><a href="logIn.php">Log In</a></td>
+										<?php } ?>
 									</tr>
 									
 								</table>
@@ -102,29 +125,29 @@
 				</td>
 			</tr>
 			<tr height="600">
-				<td colspan="3" align="center">
-					<table >
+				<td colspan="3" align="center" valign="top">
+				<h2>Change Password<hr/></h2>
+					<table bgcolor="white" height="300" width="50%">
 						<tr>
 							<td colspan="2">Old Password </td>
-							<td><input type="password" name="cpass"/></td>
+							<td><input type="password" name="cpass" size="40"/></td>
 							<td><font color="red"><?=$cpassErr?></font></td>
 						</tr>
 						<tr>
 							<td colspan="2">New Password </td>
-							<td><input type="password" name="npass"/></td>
+							<td><input type="password" name="npass" size="40"/></td>
 							<td><font color="red"><?=$npassErr?></font></td>
 						</tr>
 						<tr>
 							<td colspan="2">Retype New Password </td>
-							<td><input type="password" name="rpass"/></td>
+							<td><input type="password" name="rpass" size="40"/></td>
 							<td><font color="red"><?=$rpassErr?></font></td>
 						</tr>
 						<tr>
-							<td colspan="2"><input type="submit" value="Change"/></td>
-							<td><a href="personalInfo.php?memberID=<?=$member['Member_ID']?>"><button>Back</button></a></td>
-							
-							<td><a href="personalInfo.php">Back</a></td>
-							
+							<td colspan="3"><hr/></td>
+						</tr>
+						<tr>
+							<td colspan="3" align="center" bgcolor="RoyalBlue"><input type="submit" value="Change"/></td>
 						</tr>
 					
 					</table>
@@ -161,11 +184,11 @@
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								<a href="<?php if($memberId!="") { ?>personalInfo.php<?php } ?><?php if($memberId=="") { ?>login.php<?php } ?>">Personal Info</a></br>
 								
 								<a href="order.php">Orders</a></br>
 								<a href="shoppingCart.php">Shopping Cart</a></br>
-								<a href="report.php">Report</a></br>
+								<a href="<?php if($memberId!="") { ?>report.php<?php } ?><?php if($memberId=="") { ?>login.php<?php } ?>">Report</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>

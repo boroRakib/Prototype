@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 	$search=$_GET['search'];

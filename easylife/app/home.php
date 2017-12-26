@@ -1,17 +1,13 @@
 <?php session_start(); ?>
 <?php require_once "../service/product_serviec.php"; ?>
-<?php require_once "../data/member_data_access.php"; ?>
 <?php require_once "../service/member_service.php"; ?>
 <?php
 
-	if(isset($_GET['memberID']))
+	if(isset($_SESSION['member_name']))
 	{
-		$memberID=$_GET['memberID'];
-		updateLastActiveToDB($memberID);
-		$memberName=getMemberById($memberID)['Name'];
-		
-		$_SESSION['member_id']=$memberID;
-		$_SESSION['member_name']=$memberName;
+		$memberID=$_SESSION['member_id'];
+		$memberName=$_SESSION['member_name'];
+
 	}
 	else
 	{
@@ -375,10 +371,14 @@
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								
+								<a href="<?php if($memberID!="") { ?>personalInfo.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Personal Info</a></br>
+								
+								
 								
 								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br> <a href="report.php">Report</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br> 
+								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
 								 
 							</td>
 							<td align="center">

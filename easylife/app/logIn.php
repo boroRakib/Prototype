@@ -132,8 +132,10 @@
 												}
 												if($member['Type']==4)
 												{
+													$_SESSION['member_id']=$member['Member_ID'];
+														$_SESSION['member_name']=$member['Name'];
 													echo "<script>				
-															document.location='home.php?memberID=".$member['Member_ID']."';
+															document.location='home.php';
 														 </script>";
 												}
 												
@@ -205,10 +207,11 @@
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								<a href="<?php if($memberID!="") { ?>personalInfo.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Personal Info</a></br>
 								
 								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br> <a href="report.php">Report</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br> 
+								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>
