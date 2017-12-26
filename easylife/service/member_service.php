@@ -24,6 +24,15 @@
     function getAllMembers(){
         return getAllMembersFromDB();
     }
+	
+	function getAllAdmins(){
+		return getAllAdminsFromDB();
+	}
+	
+	function getAllUsers(){
+		return getAllUsersFromDB();
+	}
+	
     
 	
 	

@@ -1,4 +1,8 @@
-<?php require_once "../../data/member_data_access.php"; ?>
+<?php require_once "../../service/validation_service.php"; ?>
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/member_service.php"; 
+?>
 <?php
 	$memberID=$_GET['memberID'];
 	$id=$_GET['id'];
@@ -15,7 +19,7 @@
         }
 		else if($_POST['button']=="Yes")
 			{
-               if(deleteMemberFromDB($memberID)==true)
+               if(deleteMember($memberID)==true)
 				{
 					echo "<script>
 							document.location='a_success2.php?memberID=".$id."';

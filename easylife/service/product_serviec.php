@@ -38,7 +38,7 @@
      }
     
      function getProductByCode($Product_Code){
-        return getProductByCodeFromDBFromDB($Product_Code);
+        return getProductByCodeFromDB($Product_Code);
 	 }
 
 	function getProductsByName($Name)
