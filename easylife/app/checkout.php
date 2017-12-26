@@ -20,27 +20,31 @@
 <?php
     if($_SERVER['REQUEST_METHOD']=="POST")
 	{
-		$name=trim($_POST['name']);
-        $address=trim($_POST['address']);
-		$delivery_zone=trim($_POST['delivery_zone']);
-		$phone=trim($_POST['phone']);
+		$name=$_POST['name'];
+        $address=$_POST['address'];
+		$delivery_zone=$_POST['delivery_zone'];
+		$phone=$_POST['phone'];
 		
-		
-		if($name=="")
+		$v=true;
+		if(empty($name))
 		{
 			$name_err="*Name is required";
+			$v=false;
 		}
-		else if($address=="")
+		else if(empty($address))
 		{
 			$address_err="*Address is required.";
+			$v=false;
 		}
-		else if($delivery_zone=="")
+		else if(empty($delivery_zone))
 		{
 			$delivery_zone_err="*Delivery zone is required.";
+			$v=false;
 		}
-		else if($phone=="")
+		else if(empty($phone))
 		{
 			$phone_err="*Phone is required.";
+			$v=false;
 		}
 		
 		
@@ -183,7 +187,7 @@
 							</td>
 							<td align="center"  width="60%" valign="top" >
 								<fieldset>
-								
+								<form method="post">
 								
 								<legend><b>Enter SHIPPING ADDRESS</b></legend>
 									<table  height="300" width="100%" bgcolor="white">
@@ -240,7 +244,7 @@
 											<td><input name="payMethod" type="radio"/><b>Online Payment (Debit or Credit Card)</b></td>
 										</tr>
 										<tr>
-											<form method="POST"><td align="center" bgcolor="YellowGreen " colspan="2"><input type="submit" value="confirm"/></td></form>
+											<td align="center" bgcolor="YellowGreen " colspan="2"><input type="submit" value="confirm"/></td></form>
 										</tr>
 									</table>
 									</fieldset>
