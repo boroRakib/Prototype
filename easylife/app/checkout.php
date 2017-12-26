@@ -12,17 +12,28 @@
 			document.location='LogIn_Cart.php';
 		 </script>";
 	}
+	
+	if(isset($_COOKIE['user_qty']))
+	{
+		$qty=$_COOKIE['user_qty'];
+		$noOfProduct=count($_COOKIE['user_qty']);
+	}
+	else
+	{
+		echo "<script>				
+			document.location='home.php';
+		 </script>";
+	}
 ?>
 <?php
-	$name=$address=$delivery_zone=$phone="";
-	$name_err=$address_err=$delivery_zone_err=$phone_err="";
+	$name=$address=$phone="";
+	$name_err=$address_err=$phone_err="";
 ?>
 <?php
     if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$name=$_POST['name'];
         $address=$_POST['address'];
-		$delivery_zone=$_POST['delivery_zone'];
 		$phone=$_POST['phone'];
 		
 		$v=true;
@@ -36,16 +47,22 @@
 			$address_err="*Address is required.";
 			$v=false;
 		}
-		if(empty($delivery_zone))
-		{
-			$delivery_zone_err="*Delivery zone is required.";
-			$v=false;
-		}
+		
 		if(empty($phone))
 		{
 			$phone_err="*Phone is required.";
 			$v=false;
 		}
+		
+		if($v==true)
+		{
+			
+			
+			echo "<script>				
+			document.location='order.php';
+		 </script>";
+		}
+			
 		
 		
     }
@@ -67,8 +84,8 @@
 					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
 							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
-							<td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td>
-							<td align="center">(2)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
+							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
 								<table  >
@@ -203,17 +220,7 @@
 											</td>
 										</tr>
 										
-											<td>Delivery Zone :</td>
-											<td  colspan="2">
-												<select name="delivery_zone">
-													<option ></option>
-													<option value="1" <?php if($delivery_zone=="1")echo "Selected";?>>Banani</option>
-													<option value="2" <?php if($delivery_zone=="2")echo "Selected";?>>Baridhara</option>
-													<option value="3" <?php if($delivery_zone=="3")echo "Selected";?>>Gulshan</option>
-													<option value="4" <?php if($delivery_zone=="4")echo "Selected";?>>Badda</option><span id="delivery_zonemsg"><font color="red"><?=$delivery_zone_err?></font></span>
-												<select>
-											</td>
-										</tr>
+											
 										<tr>
 											<td>Phone:</td>
 											<td colspan="2"><input id="phone" name="phone" value="<?=$phone?>"/><span id="phonemsg"><font color="red"><?=$phone_err?></font></span></td>
@@ -255,7 +262,7 @@
 									<tr>
 						
 										<td width="41%">Sub-Total: </td>
-										<td >4000 Tk</td>
+										<td ><?=$_SESSION['Sub-Total'] ?> Tk</td>
 									</tr>
 									<tr>
 						
@@ -266,7 +273,7 @@
 									<tr>
 								
 										<td width="41%"><font color="red"><h2>Total: </h2></td>
-										<td><font color="red"><h2>4060Tk</h2></td>
+										<td><font color="red"><h2><?=$_SESSION['Sub-Total']+60 ?> Tk</h2></td>
 									</tr>
 									
 								</table>
@@ -313,7 +320,6 @@
 								<a href="order.php">Orders</a></br>
 								<a href="shoppingCart.php">Shopping Cart</a></br>
 								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
-							
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>

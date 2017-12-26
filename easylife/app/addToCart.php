@@ -32,7 +32,7 @@
 		{
 		 $cookie_name = "easylife_cart[0]";
 		 $cookie_value = $product;
-		 setcookie($cookie_name,$cookie_value,time() + 3600,"/");
+		 setcookie($cookie_name,$cookie_value,time() + 86400,"/");
 		}
 		
 	}
@@ -43,7 +43,7 @@
 		 $i=count($_COOKIE['easylife_cart']);
 		 $cookie_name = "easylife_cart[$i]";
 		 $cookie_value = $product;
-		 setcookie($cookie_name,$cookie_value,time() + 3600,"/");
+		 setcookie($cookie_name,$cookie_value,time() + 86400,"/");
 		}
 	}
 	
@@ -54,7 +54,7 @@
 		{
 		 $cookie_name = "user_qty[0]";
 		 $cookie_value = $user_qty;
-		 setcookie($cookie_name,$cookie_value,time() + 3600,"/");
+		 setcookie($cookie_name,$cookie_value,time() + 86400,"/");
 		}
 	}
 	else
@@ -64,7 +64,7 @@
 		 $i=count($_COOKIE['user_qty']);
 		 $cookie_name = "user_qty[$i]";
 		 $cookie_value = $user_qty;
-		 setcookie($cookie_name,$cookie_value,time() + 3600,"/");
+		 setcookie($cookie_name,$cookie_value,time() + 86400,"/");
 		}
 	}
 	
