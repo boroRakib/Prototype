@@ -13,6 +13,15 @@
 	{
 		$noOfProduct=0;
 	}
+	if(isset($_SESSION['member_name']))
+	{
+		$memberName=$_SESSION['member_name'];
+		$memberID=$_SESSION['member_id'];
+	}
+	else
+	{
+		$memberID="";
+	}
 ?>
 
 <html>
@@ -37,13 +46,25 @@
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
 								<table  >
-									<tr rowspan="2">
-										<td><img src="resources/m.jpg" height="30" width="30"/></td>
-										<td><a href="Registration.php">Registartion</a></td>
-									</tr>
 									<tr>
-										<td><a href="home.php">Log Out</a></td>
-										<td><a href="logIn.php">Log In</a></td>
+										<td><img src="resources/m.jpg" height="30" width="30"/></td>
+										
+										<?php if($memberID=="") { ?>
+										<td><a href="Registration.php">Registartion</a></td>
+										<?php } ?>
+										<?php if($memberID!="") { ?>
+										<td><a href="personalInfo.php?memberID=<?=$memberID?>"><?=$memberName?></a></td>
+										<?php } ?>
+										
+									</tr>
+									<tr align="right">
+										<?php if($memberID!="") { ?>
+										<td colspan="2"><a href="LogOut.php">Log Out</a></td>
+										<?php } ?>
+										
+										<?php if($memberID=="") { ?>
+										<td colspan="2"><a href="logIn.php">Log In</a></td>
+										<?php } ?>
 									</tr>
 									
 								</table>
@@ -240,10 +261,11 @@
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								<a href="<?php if($memberID!="") { ?>personalInfo.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Personal Info</a></br>
 								
 								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br> <a href="report.php">Report</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br>
+								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>
