@@ -31,17 +31,17 @@
 			$name_err="*Name is required";
 			$v=false;
 		}
-		else if(empty($address))
+		if(empty($address))
 		{
 			$address_err="*Address is required.";
 			$v=false;
 		}
-		else if(empty($delivery_zone))
+		if(!(isset($_POST['delivery_zone'])))
 		{
 			$delivery_zone_err="*Delivery zone is required.";
 			$v=false;
 		}
-		else if(empty($phone))
+		if(empty($phone))
 		{
 			$phone_err="*Phone is required.";
 			$v=false;
@@ -197,7 +197,7 @@
 										</tr>
 										<tr>
 											<td>Address :</td>
-											<td><textarea name="address" id="address" value="<?=$address?>"></textarea><span id="addressmsg"><font color="red"></font></span></td>
+											<td><textarea name="address" id="address" value="<?=$address?>"></textarea><span id="addressmsg"><font color="red"><?=$address_err?></font></span></td>
 											<td>
 												<button>Use Billing Address</button>
 											</td>
@@ -206,17 +206,17 @@
 											<td>Delivery Zone :</td>
 											<td  colspan="2">
 												<select name="delivery_zone">
-													<option></option>
-													<option>Banani</option>
-													<option>Baridhara</option>
-													<option>Gulshan</option>
-													<option>Badda</option><span id="delivery_zonemsg"><font color="red"></font></span>
+													<option value=""></option>
+													<option value="1" <?php if($delivery_zone=="1")echo "Selected";?>>Banani</option>
+													<option value="2" <?php if($delivery_zone=="2")echo "Selected";?>>Baridhara</option>
+													<option value="3" <?php if($delivery_zone=="3")echo "Selected";?>>Gulshan</option>
+													<option value="4" <?php if($delivery_zone=="4")echo "Selected";?>>Badda</option><span id="delivery_zonemsg"><font color="red"><?=$delivery_zone_err?></font></span>
 												<select>
 											</td>
 										</tr>
 										<tr>
 											<td>Phone:</td>
-											<td colspan="2"><input id="phone" name="phone" value="<?=$phone?>"/><span id="phonemsg"><font color="red"></font></span></td>
+											<td colspan="2"><input id="phone" name="phone" value="<?=$phone?>"/><span id="phonemsg"><font color="red"><?=$phone_err?></font></span></td>
 										</tr>
 										
 									</table>

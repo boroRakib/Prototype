@@ -1,8 +1,19 @@
+<?php 
+	$admin="admin";
+	require_once "../../service/report_serviec.php"; 
+	require_once "../../service/member_service.php"; 
+?>
+<?php
+	$reportCode=$_GET['reportCode'];
+	$report=getReportByCode($reportCode);
+	
+?>
+
 <html>
 	<table>
 		<tr >
 			<td width="20%">Report ID :</td>
-			<td>15-2</td>
+			<td><?=$report['Report_Code']?></td>
 		</tr>
 		<tr>
 			<td>Report Title :</td>
