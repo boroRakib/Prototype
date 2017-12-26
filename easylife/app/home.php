@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once "../service/product_serviec.php"; ?>
 <?php require_once "../data/member_data_access.php"; ?>
 <?php require_once "../service/member_service.php"; ?>
@@ -8,6 +9,9 @@
 		$memberID=$_GET['memberID'];
 		updateLastActiveToDB($memberID);
 		$memberName=getMemberById($memberID)['Name'];
+		
+		$_SESSION['member_id']=$memberID;
+		$_SESSION['member_name']=$memberName;
 	}
 	else
 	{
@@ -292,7 +296,7 @@
 												<tr>
 												<?php for($q=1;$q<=3;$q++) { ?>
 													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?>  <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?>  <?php if($q==3) {?> bgcolor="SkyBlue"  <?php } ?>  >
-														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
@@ -305,7 +309,7 @@
 											<?php if(((count($products)%3)==1)|| count($products)==1) {?>
 												<tr>
 													<td align="center" height="300" width="33%" bgcolor="PaleGreen">
-														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
@@ -318,8 +322,7 @@
 												<tr>
 													<?php for($q=1;$q<=2;$q++) { ?>
 													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?> <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?> >
-														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
-														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
 														

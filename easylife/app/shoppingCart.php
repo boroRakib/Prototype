@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 
@@ -30,6 +31,16 @@
 		$noOfProduct=0;
 	}
 
+
+	if(isset($_SESSION['member_name']))
+	{
+		$memberName=$_SESSION['member_name'];
+		$memberID=$_SESSION['member_id'];
+	}
+	else
+	{
+		$memberID="";
+	}
 	
 ?>
 
@@ -55,13 +66,25 @@
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
 								<table  >
-									<tr rowspan="2">
-										<td><img src="resources/m.jpg" height="30" width="30"/></td>
-										<td><a href="Registration.php">Registartion</a></td>
-									</tr>
 									<tr>
-										<td><a href="home.php">Log Out</a></td>
-										<td><a href="logIn.php">Log In</a></td>
+										<td><img src="resources/m.jpg" height="30" width="30"/></td>
+										
+										<?php if($memberID=="") { ?>
+										<td><a href="Registration.php">Registartion</a></td>
+										<?php } ?>
+										<?php if($memberID!="") { ?>
+										<td><a href="personalInfo.php?memberID=<?=$memberID?>"><?=$memberName?></a></td>
+										<?php } ?>
+										
+									</tr>
+									<tr align="right">
+										<?php if($memberID!="") { ?>
+										<td colspan="2"><a href="LogOut.php">Log Out</a></td>
+										<?php } ?>
+										
+										<?php if($memberID=="") { ?>
+										<td colspan="2"><a href="logIn.php">Log In</a></td>
+										<?php } ?>
 									</tr>
 									
 								</table>
@@ -209,7 +232,12 @@
 																<td><h2><font color="red"><?=$tolal+60?>Tk</font></h2></td>
 															</tr>
 															<tr>
-																<td colspan="2" align="center" bgcolor="LightCoral"><a href="LogIn_Cart.php"><h2>Confirm Order</h2></a></td>
+																<td colspan="2" align="center" bgcolor="LightCoral"><a href="
+																<?php if($memberID=="") { ?>
+																LogIn_Cart.php <?php }?>
+																<?php if($memberID!="") { ?>
+																checkout.php <?php }?>
+																"><h2>Confirm Order</h2></a></td>
 															</tr>
 														</table>
 															

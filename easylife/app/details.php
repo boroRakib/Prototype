@@ -1,4 +1,3 @@
-<?php require_once "../service/member_service.php"; ?>
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 	$product_name=$_GET['product_name'];
@@ -26,10 +25,12 @@
 		$noOfProduct=0;
 	}
 	
-	if($_GET['memberID']!="")
+
+	session_start();
+	if(isset($_SESSION['member_name']))
 	{
-		$memberID=$_GET['memberID'];
-		$memberName=getMemberById($memberID)['Name'];
+		$memberName=$_SESSION['member_name'];
+		$memberID=$_SESSION['member_id'];
 	}
 	else
 	{
