@@ -25,10 +25,16 @@
 		$memberID="";
 	}
 
-	$email=$_GET['email'];
-	var_dump($email);
+	
 ?>
-<form method="post">
+<?php 
+$email=$_GET['email'];
+	
+
+
+
+
+?>
 	<html>
 		<head>
 			<title>User Report</title>
@@ -177,4 +183,3 @@
 		</body>
 
 	</html>
-</form>
