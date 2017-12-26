@@ -109,7 +109,7 @@
 												if($member['Type']==4)
 												{
 													echo "<script>				
-															document.location='home.php';
+															document.location='home.php?memberID=".$member['Member_ID']."';
 														 </script>";
 												}
 												

@@ -1,5 +1,21 @@
 <?php require_once "../service/product_serviec.php"; ?>
+<?php require_once "../data/member_data_access.php"; ?>
+<?php require_once "../service/member_service.php"; ?>
 <?php
+
+	if(isset($_GET['memberID']))
+	{
+		$memberID=$_GET['memberID'];
+		updateLastActiveToDB($memberID);
+		$memberName=getMemberById($memberID)['Name'];
+	}
+	else
+	{
+		$memberID="";
+	}
+	
+
+
 	$products=getAllProducts();
 	// session_start();
 	// if(isset($_SESSION['easylife_email']))
@@ -41,13 +57,25 @@
 							<td align="center"><a href="trackProduct.php">Track Product</a></td>
 							<td align="center">
 								<table  >
-									<tr rowspan="2">
-										<td><img src="resources/m.jpg" height="30" width="30"/></td>
-										<td><a href="Registration.php">Registartion</a></td>
-									</tr>
 									<tr>
-										<td><a href="home.php">Log Out</a></td>
-										<td><a href="logIn.php">Log In</a></td>
+										<td><img src="resources/m.jpg" height="30" width="30"/></td>
+										
+										<?php if($memberID=="") { ?>
+										<td><a href="Registration.php">Registartion</a></td>
+										<?php } ?>
+										<?php if($memberID!="") { ?>
+										<td><a href="personalInfo.php?memberID=<?=$memberID?>"><?=$memberName?></a></td>
+										<?php } ?>
+										
+									</tr>
+									<tr align="right">
+										<?php if($memberID!="") { ?>
+										<td colspan="2"><a href="LogOut.php">Log Out</a></td>
+										<?php } ?>
+										
+										<?php if($memberID=="") { ?>
+										<td colspan="2"><a href="logIn.php">Log In</a></td>
+										<?php } ?>
 									</tr>
 									
 								</table>
@@ -264,7 +292,7 @@
 												<tr>
 												<?php for($q=1;$q<=3;$q++) { ?>
 													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?>  <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?>  <?php if($q==3) {?> bgcolor="SkyBlue"  <?php } ?>  >
-														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
@@ -277,7 +305,7 @@
 											<?php if(((count($products)%3)==1)|| count($products)==1) {?>
 												<tr>
 													<td align="center" height="300" width="33%" bgcolor="PaleGreen">
-														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
@@ -290,7 +318,8 @@
 												<tr>
 													<?php for($q=1;$q<=2;$q++) { ?>
 													<td align="center" height="300" width="33%" <?php if($q==1) {?> bgcolor="PaleGreen"  <?php } ?> <?php if($q==2) {?> bgcolor="DarkSalmon"  <?php } ?> >
-														<a href="details.php?product_name=<?=$products[$count]['Name']?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
+														<a href="details.php?product_name=<?=$products[$count]['Name']?>&memberID=<?=$memberID?>"><img src="resources/<?= $products[$count]['Name'] ?>.jpg" height="200"/></a>
 														<br/><?= $products[$count]['Name'] ?><br/>
 														<b>Tk <?= $products[$count]['Price'] ?></b>
 														
