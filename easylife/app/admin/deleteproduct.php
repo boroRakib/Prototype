@@ -22,7 +22,7 @@
                if(deleteProduct($product)==true)
 				{
 					echo "<script>
-							document.location='p_success2.php?';
+							document.location='successonly.php?';
 						 </script>";
 					die();
 				}

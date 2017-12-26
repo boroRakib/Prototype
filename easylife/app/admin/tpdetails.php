@@ -1,4 +1,7 @@
-<?php require_once "../../data/product_data_access.php"; ?>
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/product_serviec.php"; 
+?>
 
 <html>
 	<table >
@@ -30,7 +33,7 @@
 										<th>Remaining Quantity</th>
 									</tr>
 							<?php
-									$products=getAllProductsFromDB();
+									$products=getAllProducts();
 									foreach($products as $product)
 									
 									

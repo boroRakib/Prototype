@@ -1,3 +1,8 @@
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/product_serviec.php"; 
+?>
+
 <html>
 	<table >
 			<tr >
@@ -25,33 +30,24 @@
 										<th>Price</th>
 										<th>Remaining Quantity</th>
 									</tr>
-									<tr>
-										<td>S-1-895</td>
-										<td>Kakashi T-Shirt</td>
-										<td>390</td>
-										<td>200</td>
-										<td><a href="pedit.php">Update</td>
-										<td><a href="deleteproduct.php">delete</td>
-									</tr>
-									<tr>
-										<td>S-1-895</td>
-										<td>Kakashi T-Shirt</td>
-										<td>390</td>
-										<td>200</td>
-										<td><a href="pedit.php">Update</td>
-										<td><a href="deleteproduct.php">delete</td>
-									</tr>
-									<tr>
-										<td>S-1-895</td>
-										<td>Kakashi T-Shirt</td>
-										<td>390</td>
-										<td>200</td>
-										<td><a href="pedit.php">Update</td>
-										<td><a href="deleteproduct.php">delete</td>
-									</tr>
+							<?php
+									$products=getAllProducts();
+									foreach($products as $product)
+									
+									
+							echo	"<tr>
+										<td>".$product['Product _Code']."</td>
+										<td>".$product['Name']."</td>
+										<td>".$product['Price']."</td>
+										<td>".$product['Quantity']."</td>
+										<td><a href=\"pedit.php?productCode=".$product['Product _Code']."\">edit</td>
+										<td><a href=\"deleteproduct.php?productCode=".$product['Product _Code']."\">delete</td>
+									</tr>";
+							?>
+									
 								</table>
 					</fieldset>
 	
 	<br>
-	<a href="dashboard.php"><button>Back</button></a>
 </html>
+
