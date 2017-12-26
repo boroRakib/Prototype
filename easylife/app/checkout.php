@@ -17,7 +17,36 @@
 	$name=$address=$delivery_zone=$phone="";
 	$name_err=$address_err=$delivery_zone_err=$phone_err="";
 ?>
-
+<?php
+    if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		$name=trim($_POST['name']);
+        $address=trim($_POST['address']);
+		$delivery_zone=trim($_POST['delivery_zone']);
+		$phone=trim($_POST['phone']);
+		
+		
+		if($name=="")
+		{
+			$name_err="*Name is required";
+		}
+		else if($address=="")
+		{
+			$address_err="*Address is required.";
+		}
+		else if($delivery_zone=="")
+		{
+			$delivery_zone_err="*Delivery zone is required.";
+		}
+		else if($phone=="")
+		{
+			$phone_err="*Phone is required.";
+		}
+		
+		
+    }
+	
+?>
 	<head>
 		<title>Checkout</title>
 	</head>
@@ -160,11 +189,11 @@
 									<table  height="300" width="100%" bgcolor="white">
 										<tr>
 											<td>Name :</td>
-											<td colspan="2"><input id="name" name="name" value="$name"/><span id="namemsg"></span><font color="red"></font></td>
+											<td colspan="2"><input id="name" name="name" value="<?=$name?>"/><span id="namemsg"></span><font color="red"><?=$name_err?></font></td>
 										</tr>
 										<tr>
 											<td>Address :</td>
-											<td><textarea name="address" id="address" value="$address"></textarea><span id="addressmsg"><font color="red"></font></span></td>
+											<td><textarea name="address" id="address" value="<?=$address?>"></textarea><span id="addressmsg"><font color="red"></font></span></td>
 											<td>
 												<button>Use Billing Address</button>
 											</td>
@@ -172,7 +201,7 @@
 										
 											<td>Delivery Zone :</td>
 											<td  colspan="2">
-												<select name="delivery_zone" id="delivery_zone">
+												<select name="delivery_zone">
 													<option></option>
 													<option>Banani</option>
 													<option>Baridhara</option>
@@ -183,7 +212,7 @@
 										</tr>
 										<tr>
 											<td>Phone:</td>
-											<td colspan="2"><input id="phone" name="phone" value="$phone"/><span id="phonemsg"><font color="red"></font></span></td>
+											<td colspan="2"><input id="phone" name="phone" value="<?=$phone?>"/><span id="phonemsg"><font color="red"></font></span></td>
 										</tr>
 										
 									</table>
@@ -308,15 +337,3 @@
 	</body>
 
 </html>
-<?php
-    if($_SERVER['REQUEST_METHOD']=="POST")
-	{
-		$name=trim($_POST['name']);
-        $email=trim($_POST['email']);
-		$password=trim($_POST['password']);
-		$cpassword=trim($_POST['cpassword']);
-		
-		
-    }
-	
-?>
