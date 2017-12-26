@@ -20,6 +20,8 @@
 		echo "<script>				
 		document.location='shoppingCart.php';
 	 </script>";
+	 
+
 
 	
 ?>
