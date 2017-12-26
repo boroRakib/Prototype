@@ -26,9 +26,9 @@
 			$report['Report_Title']=$tit;
 			$report['Member_ID']=1;
 			$report['Description']=$repo;
-			if(addReportToDB($member)==true){
+			if(addReportToDB($report)==true){
                 echo "<script>
-                        document.location='reportSuccess.php';
+                        document.location='successReport.php';
                      </script>";
                 die();
             }

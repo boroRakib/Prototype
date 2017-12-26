@@ -1,13 +1,4 @@
-<?php 
-	if(empty($admin))
-	{
-		require_once "../data/member_data_access.php";
-	}
-	else
-	{
-		require_once "../../data/member_data_access.php";
-	}
-?>
+<?php require_once "../data/member_data_access.php"; ?>
 <?php
     function addMember($member){
         return addMemberToDB($member);
@@ -47,7 +38,7 @@
         $members  = getAllMembers();
         $isUnique = true;
         foreach($members as $member){
-            if($member['Email']==$memberEmail){
+            if($member['email']==$memberEmail){
                 $isUnique = false;
                 break;
             }
