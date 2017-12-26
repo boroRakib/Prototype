@@ -46,7 +46,7 @@
 	
 	function getInvoiceByMemberFromDB($Member_ID)
 	{
-        $sql = "SELECT * FROM invoice WHERE Member_ID='$invoice[Member_ID]'";        
+        $sql = "SELECT * FROM invoice WHERE Member_ID='$Member_ID'";        
         $result = executeSQL($sql);
 		
 		$invoice = mysqli_fetch_assoc($result);
