@@ -69,7 +69,7 @@
 		if($isValid==true)
 		{
 			$id=getLastProductCodeFromDB()['MAX(`Product _Code`)'];
-			$product['Product _Code']=$id+1;
+			$product['Product_Code']=$id+1;
 			$product['Name']=$name;
 			$product['Quantity']=(int)$Quantity;
 			$product['Price']=(int)$price;

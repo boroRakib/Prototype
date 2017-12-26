@@ -1,4 +1,3 @@
-<?php require_once "../service/member_service.php"; ?>
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 	$product_name=$_GET['product_name'];
