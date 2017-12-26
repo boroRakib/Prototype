@@ -1,5 +1,8 @@
 <?php require_once "../../service/validation_service.php"; ?>
-<?php require_once "../../data/member_data_access.php"; ?>
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/member_service.php"; 
+?>
 <?php
 	$name=$email=$password=$cpassword=$gender=$dob="";
 	$nameErr=$emailErr=$passErr=$cpassErr=$typeErr=$gErr="";
@@ -22,6 +25,12 @@
             $isValid = false;
             $emailErr = "Invalid email format";
         }
+		
+		else if(!(isUniqueMemberEmail($email)))
+ 		{
+ 			$isValid = false;
+             $emailErr = "Email already in use";
+ 		}
 		
 		if(empty($name)){
             $isValid = false;
@@ -79,14 +88,23 @@
 		}
 		
 		if($isValid==true){
-			$id=getLastMemberIDFromDB()['MAX(Member_ID)'];
+			
+			$members=getAllMembers();
+			$id=0;
+			foreach($members as $m)
+			{
+				if($id<((int)$m['Member_ID']))
+				{
+					$id=(int)$m['Member_ID'];
+				}
+			}
 			$member['Member_ID']=$id+1;
 			$member['Password']=$password;
 			$member['Name']=$name;
 			$member['Email']=$email;
 			$member['Type']=$Type;
 			$member['Status']=$Status;
-			
+			var_dump($member);
 			if(addMemberToDB($member)==true){
                 echo "<script>
                         document.location='a_success.php?memberID=".$member['Member_ID']."';
