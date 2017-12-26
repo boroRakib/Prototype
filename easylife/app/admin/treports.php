@@ -3,7 +3,7 @@
 
 <?php
 $reports=getAllReportsFromDB();
-$member=
+
 
 foreach ($reports as $report)
 {	
