@@ -50,7 +50,16 @@
 						$title=$report['Report_Title'];
 						$status=$report['Status'];
 						$des=$report['Description'];
+						$s="";
 						$member=getMemberById($report['Member_ID']);
+						if($status=="0")
+						{
+							$s="Not Seen";
+						}
+						else
+						{
+							$s="Seen";
+						}
 						
 						$y=(int)explode("-",explode(" ",$report['Date'])[0])[0];
 						$m=(int)explode("-",explode(" ",$report['Date'])[0])[1];
@@ -84,7 +93,7 @@
 					<td>".$title."</td>
 					<td><a href=\"uview.php?memberID=".$report['Member_ID']."\">".$member['Name']."</a></td>
 					<td>".$log."</td>
-					<td>Seen</td>
+					<td>".$s."</td>
 					<td><a href=\"reportview.php\">view</a></td>
 					<td><a href=\"deletereport.php\">delete</a></td>
 				</tr>";
