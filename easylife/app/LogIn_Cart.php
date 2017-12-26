@@ -133,8 +133,8 @@
 												if($member['Type']==4)
 												{
 													
-														$_SESSION[member_id]=$member[Member_ID];
-														$_SESSION[member_name]=$member[Name];
+														$_SESSION['member_id']=$member['Member_ID'];
+														$_SESSION['member_name']=$member['Name'];
 													
 													echo "<script>				
 															document.location='checkout.php';
