@@ -40,11 +40,11 @@
 						$m=(int)explode("-",$member['Last_Logged_in'])[1];
 						$d=(int)explode("-",$member['Last_Logged_in'])[2];
 						
-						if($cy=$y)
+						if($cy==$y)
 						{
-							if($cm=$m)
+							if($cm==$m)
 							{
-								if($cd=$d)
+								if(($cd==$d)||($cd<$d))
 								{
 									$log="Today";
 								}
@@ -71,12 +71,11 @@
 									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">edit</a></td>";
 						if($member['Member_ID']!=$memberID)
 							{
-								echo	"<td><a href=\"deleteadmin.php\">delete</a></td></tr>";
+								echo	"<td><a href=\"deleteadmin.php?memberID=".$member['Member_ID']."&id=".$memberID."\">delete</a></td></tr>";
 							}
 					}
 					?>
 			</table>
 	</fieldset>
 	<br>
-	<a href="dashboard.php"><button>Back</button></a>
 </html>

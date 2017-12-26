@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2017 at 06:07 PM
+-- Generation Time: Dec 25, 2017 at 07:09 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -63,7 +63,10 @@ INSERT INTO `member` (`Member_ID`, `Password`, `Name`, `Email`, `Type`, `Status`
 ('1', '123', 'Rajesh saha', 'rajesh@gmail.com', 1, 'Active', '2017-12-23 16:01:03', '2017-12-23 16:01:03', 0),
 ('2', '123', 'Robi Ullah', 'robi@gmail.com', 4, 'Active', '2017-12-23 16:01:50', '2017-12-23 16:01:50', 0),
 ('3', '123', 'Efti Chowdhury', 'efti@gmail.com', 1, 'Active', '2017-12-24 11:46:51', '2017-12-24 11:46:51', 0),
-('4', '123', 'Rakibul Hossain', 'rakib@gmail.com', 1, 'Active', '2017-12-24 11:48:07', '2017-12-24 11:48:07', 0);
+('4', '123', 'Rakibul Hossain', 'rakib@gmail.com', 1, 'Active', '2017-12-24 11:48:07', '2017-12-24 11:48:07', 0),
+('7', '123', 'sayeed sazzad', 'sazzad@gmail.com', 4, 'Active', '2017-12-25 08:41:54', '2017-12-25 08:41:54', 0),
+('8', '123', 'Reza Karim', 'reza@gmail.com', 4, 'Active', '2017-12-25 11:20:51', '2017-12-25 11:20:51', 0),
+('9', '123', 'E C', 'e@gmail.com', 4, 'Active', '2017-12-25 12:21:40', '2017-12-25 12:21:40', 0);
 
 -- --------------------------------------------------------
 
@@ -91,7 +94,6 @@ CREATE TABLE `product` (
   `Total_Sells` int(8) NOT NULL DEFAULT '0',
   `Price` float NOT NULL,
   `Last_Sold` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `Image` varchar(8) NOT NULL,
   `Catagory` varchar(30) NOT NULL,
   `Brand` varchar(30) NOT NULL,
   `Size` varchar(10) NOT NULL,
@@ -102,37 +104,23 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Price`, `Last_Sold`, `Image`, `Catagory`, `Brand`, `Size`, `Description`) VALUES
-('1', 'Woolen Jacket', 1, 0, 300, NULL, 'p.jpg', 'Gents Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nTwo layer woolen Jacket '),
-('10', 'Women Hoody', 5, 0, 1200, NULL, 'ww1.jpg', 'Ladies Winter Collection', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
-('11', 'Kids Sweater', 5, 0, 400, NULL, 'kw1.jpg', 'Kids Winter Collection', 'Aarong', 'M', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nSweater'),
-('12', 'Gavading pant', 6, 0, 750, NULL, 's.jpg', 'Pant', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nSweater'),
-('13', 'Moyur Ear Rings', 3, 0, 320, NULL, 'er3.jpg', 'Ear Rings', 'Aarong', 'L', 'Designable Moyur Ear Rings\r\nDesi Materials'),
-('14', 'Leather Wallet', 3, 0, 1500, NULL, 'mb2.jpg', 'Money Bag', 'Eacstasy', 'L', 'Full Leather MoneyBag'),
-('15', 'Men Shoes', 3, 0, 4000, NULL, 'ms1.jpg', 'Mens Footwear', 'Yellow', 'L', 'Comfort Leather Shoes\r\nEasy to Wear'),
-('16', 'Women Purple Shoe', 4, 0, 3400, NULL, 'ws4.jpg', 'Womens Footwear', 'Eacstasy', 'M', 'Comfort Leather Shoes\r\nEasy to Wear\r\nElegance,Go with Every Outfit'),
-('2', 'Woolen Jacket', 5, 0, 500, NULL, 'p.jpg', 'Gents Winter Collection', 'Eacstasy', 'S', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nTwo layer woolen Jacket '),
-('3', 'Leather Jacket', 33, 0, 123, NULL, 'r.jpg', 'Gents Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nOriginal Leather'),
-('4', 'Kakashi T-shirt', 1, 0, 350, NULL, '1.jpg', 'Shirt', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
-('5', 'One Piece T-Shirt', 5, 0, 350, NULL, '2.jpg', 'Shirt', 'Yellow', 'S', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
-('6', 'Linen Frok', 5, 0, 500, NULL, 'f1.jpg', 'Frok', 'Eacstasy', 'M', 'High Quality Fabric: 150-180\r\nStitch\r\n100% Cotton'),
-('7', 'Scythe T-Shirt', 5, 0, 400, NULL, '3.jpg', 'T-Shirt', 'Aarong', 'L', 'High Quality Fabric: 150-180\r\nStitch\r\n100% Cotton'),
-('8', 'Hijab', 4, 0, 150, NULL, 'wh1.jpg', 'Hijab And Dupatta', 'Yellow', 'S', 'Balck Colored Hijab\r\nPure Cotton.'),
-('9', 'Saree', 3, 0, 1000, NULL, 'ws3.jpg', 'Saree', 'Aarong', 'L', 'Pure Cotton Saree');
-('17', 'Women Black Jacket', 3, 0, 1500, NULL, 'wbj.jpg', 'Ladies Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle. Fully Export Quality. High Quality Rubber Print. Long Lasting color.Nicely Sewed.'),
-
-('18', 'Women Long Coat', 2, 0, 1700, NULL, 'wlc.jpg', 'Ladies Winter Collection', 'Yellow', 'M', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle. Fully Export Quality. High Quality Rubber Print. Long Lasting color.Nicely Sewed.'),
-
-('19', 'Kids Jacket', 4, 0, 600, NULL, '', 'Kids Winter Collection', 'Eacstasy', 'S', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle. Fully Export Quality. High Quality Rubber Print. Sweater'),
-('20', 'Kameez', 6, 0, 1200, NULL, '', 'Three Piece', 'Aarong', 'M', 'Pure Cotton Three Piece'),
-
-('21', 'Panjabi', 5, 0, 1100, NULL, '', 'Panjabi', 'Aarong', 'L', 'High quality hand stiched panjabi.'),
-
-('22', 'Fasttrack Sunglass', 5, 0, 200, NULL, '', 'Sunglass', 'Eacstasy', 'S', 'High quality imported sunglass'),
-
-('23', 'Rayban Sunglass', 4, 0, 300, NULL, '', 'Sunglass', 'Easy', 'S', 'High quality imported sunglass'),
-
-
+INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Price`, `Last_Sold`, `Catagory`, `Brand`, `Size`, `Description`) VALUES
+('1', 'Woolen Jacket', 1, 0, 300, NULL, 'Gents Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nTwo layer woolen Jacket '),
+('10', 'Women Hoody', 5, 0, 1200, NULL, 'Ladies Winter Collection', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
+('11', 'Kids Sweater', 5, 0, 400, NULL, 'Kids Winter Collection', 'Aarong', 'M', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nSweater'),
+('12', 'Gavading pant', 6, 0, 750, NULL, 'Pant', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nSweater'),
+('13', 'Moyur Ear Rings', 3, 0, 320, NULL, 'Ear Rings', 'Aarong', 'L', 'Designable Moyur Ear Rings\r\nDesi Materials'),
+('14', 'Leather Wallet', 3, 0, 1500, NULL, 'Money Bag', 'Eacstasy', 'L', 'Full Leather MoneyBag'),
+('15', 'Men Shoes', 3, 0, 4000, NULL, 'Mens Footwear', 'Yellow', 'L', 'Comfort Leather Shoes\r\nEasy to Wear'),
+('16', 'Women Purple Shoe', 4, 0, 3400, NULL, 'Womens Footwear', 'Eacstasy', 'M', 'Comfort Leather Shoes\r\nEasy to Wear\r\nElegance,Go with Every Outfit'),
+('2', 'Woolen Jacket', 5, 0, 500, NULL, 'Gents Winter Collection', 'Eacstasy', 'S', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nTwo layer woolen Jacket '),
+('3', 'Leather Jacket', 33, 0, 123, NULL, 'Gents Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nOriginal Leather'),
+('4', 'Kakashi T-shirt', 1, 0, 350, NULL, 'Shirt', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
+('5', 'One Piece T-Shirt', 5, 0, 350, NULL, 'Shirt', 'Yellow', 'S', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
+('6', 'Linen Frok', 5, 0, 500, NULL, 'Frok', 'Eacstasy', 'M', 'High Quality Fabric: 150-180\r\nStitch\r\n100% Cotton'),
+('7', 'Scythe T-Shirt', 5, 0, 400, NULL, 'T-Shirt', 'Aarong', 'L', 'High Quality Fabric: 150-180\r\nStitch\r\n100% Cotton'),
+('8', 'Hijab', 4, 0, 150, NULL, 'Hijab And Dupatta', 'Yellow', 'S', 'Balck Colored Hijab\r\nPure Cotton.'),
+('9', 'Saree', 3, 0, 1000, NULL, 'Saree', 'Aarong', 'L', 'Pure Cotton Saree');
 
 -- --------------------------------------------------------
 

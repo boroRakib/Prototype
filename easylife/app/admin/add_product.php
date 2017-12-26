@@ -147,31 +147,31 @@
 					<select name="catagory">
 					<option></option>
 					<option  value="Winter Collection">Winter Collection</option>
-					<option  value="">Gents Winter Collection</option>
-					<option  value="">Ladies Winter Collection</option>
-					<option  value="">Kids Winter Collection</option>
-					<option  value="">Womens Clothing</option>
-					<option  value="">Hijab And Dupatta</option>
-					<option  value="">Saree</option>
-					<option  value="">Three Piece</option>
-					<option  value="">Mens Clothing</option>
-					<option  value="">Shirt</option>
-					<option  value="">Panjabi</option>
-					<option  value="">Kids Clothing</option>
-					<option  value="">T-Shirt</option>
-					<option  value="">Trouser</option>
-					<option  value="">Cap</option>
-					<option  value="">Accessories</option>
-					<option  value="">Ear Rings</option>
-					<option  value="">Money Bag</option>
-					<option  value="">Watch</option>
-					<option  value="">Necklace</option>
-					<option  value="">Sunglass</option>
-					<option  value="">Bag</option>
-					<option  value="">Footwear</option>
-					<option  value="">Mens Footwear</option>
-					<option  value="">Womens Footwear</option>
-					<option  value="">Kids Footwear</option>
+					<option  value="Gents Winter Collection">Gents Winter Collection</option>
+					<option  value="Ladies Winter Collection">Ladies Winter Collection</option>
+					<option  value="Kids Winter Collection">Kids Winter Collection</option>
+					<option  value="Womens Clothing">Womens Clothing</option>
+					<option  value="Hijab And Dupatta">Hijab And Dupatta</option>
+					<option  value="Saree">Saree</option>
+					<option  value="Three Piece">Three Piece</option>
+					<option  value="Mens Clothing">Mens Clothing</option>
+					<option  value="Shirt">Shirt</option>
+					<option  value="Panjabi">Panjabi</option>
+					<option  value="Kids Clothing">Kids Clothing</option>
+					<option  value="T-Shirt">T-Shirt</option>
+					<option  value="Trouser">Trouser</option>
+					<option  value="Cap">Cap</option>
+					<option  value="Accessories">Accessories</option>
+					<option  value="Ear Rings">Ear Rings</option>
+					<option  value="Money Bag">Money Bag</option>
+					<option  value="Watch">Watch</option>
+					<option  value="Necklace">Necklace</option>
+					<option  value="Sunglass">Sunglass</option>
+					<option  value="Bag">Bag</option>
+					<option  value="Footwear">Footwear</option>
+					<option  value="Mens Footwear">Mens Footwear</option>
+					<option  value="Womens Footwear">Womens Footwear</option>
+					<option  value="Kids Footwear">Kids Footwear</option>
 					</select>
                 </td>
                 <td><font color="red"><?=$CategoryErr?></td>

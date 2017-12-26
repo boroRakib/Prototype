@@ -13,11 +13,11 @@
 	$m=(int)explode("-",$member['Last_Logged_in'])[1];
 	$d=(int)explode("-",$member['Last_Logged_in'])[2];
 	
-	if($cy=$y)
+	if($cy==$y)
 	{
-		if($cm=$m)
+		if($cm==$m)
 		{
-			if($cd=$d)
+			if(($cd==$d)||($cd<$d))
 			{
 				$log="Today";
 			}
