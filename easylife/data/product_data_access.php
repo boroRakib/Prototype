@@ -2,7 +2,7 @@
 <?php
 	function addProductToDB($product)
 	{
-        var_dump($product);
+       // var_dump($product);
 	   // INSERT INTO `product`(`Product _Code`, `Name`, `Quantity`, `Price`, `Catagory`, `Brand`, `Size`, `Description`) VALUES (5,"Shirt",100,123,"Winter Collection","Easy","L","Normal Tshirt")
 		$sql = "INSERT INTO `product`(`Product _Code`, `Name`, `Quantity`, `Price`, `Catagory`, `Brand`, `Size`, `Description`) VALUES ('$product[Product_Code]', '$product[Name]', '$product[Quantity]', '$product[Price]','$product[Catagory]', '$product[Brand]', '$product[Size]', '$product[Description]')";
         $result = executeSQL($sql);
@@ -10,7 +10,7 @@
     }
 	
 	function editProductToDb($product){
-        $sql = "UPDATE product SET Name='$product[Name]',Quantity='$product[Quantity]',Total_Sells='$product[Total_Sells]',Price='$product[Price]',Last_Sold='$product[Last_Sold]',Image='$product[Image]',Catagory='$product[Catagory]',Brand='$product[Brand]',Size='$product[Size]',Description='$product[Description]' WHERE Product_Code='$product[Product_Code]'";
+        $sql = "UPDATE product SET Last_Sold='$product[Last_Sold]',Name='$product[Name]',Quantity='$product[Quantity]',Total_Sells='$product[Total_Sells]',Price='$product[Price]',Catagory='$product[Catagory]',Brand='$product[Brand]',Size='$product[Size]',Description='$product[Description]' WHERE `Product _Code`='$product[Product_Code]'";
         $result = executeSQL($sql);
         return $result;
     }
@@ -40,7 +40,7 @@
         $result = executeSQL($sql);
         //var_dump($result);
         $product = mysqli_fetch_assoc($result);
-        
+        var_dump($product);
         return $product;
     }
 	
