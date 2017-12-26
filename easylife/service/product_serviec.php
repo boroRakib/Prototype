@@ -16,14 +16,10 @@
         return getAllProductsFromDb();
     }
     
-<<<<<<< HEAD
      function getProductByCode($Product_Code){
         return getProductByCodeFromDBFromDb($Product_Code);
-=======
-    function getProductByCode($Product_Code){
-        return getProductByCodeFromDB($Product_Code);
->>>>>>> 906520fe74d30e3e662aac584349aaaa69a61959
-    }
+	 }
+
 	function getProductsByName($Name)
 	{
 		return getProductsByNameFromDB($Name);
