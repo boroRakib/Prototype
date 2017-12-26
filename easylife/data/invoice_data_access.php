@@ -36,7 +36,7 @@
 	
 	function getInvoiceByCodeFromDB($Invoice_Code)
 	{
-        $sql = "SELECT * FROM invoice WHERE Invoice_Code='$invoice[Invoice_Code]'";        
+        $sql = "SELECT * FROM invoice WHERE Invoice_Code='$Invoice_Code'";        
         $result = executeSQL($sql);
 		
 		$invoice = mysqli_fetch_assoc($result);

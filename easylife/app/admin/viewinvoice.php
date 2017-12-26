@@ -1,22 +1,61 @@
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/invoice_serviece.php";
+	require_once "../../service/member_service.php";
+	require_once "../../service/order_product-serviec.php";
+	require_once "../../service/product_serviec.php";
+	$page="delete";
+	if(empty($_GET['page']))
+	{
+		$page=(explode(".",(explode("/",$_SERVER['SCRIPT_FILENAME'])[8]))[0]);
+	}
+	$invoiceCode=$_GET['invoiceCode'];
+	$invoice=getInvoiceByCode($invoiceCode);
+	$member=getMemberById($invoice['Member_ID']);
+	$orders=getOrdersByInvoice($invoiceCode);
+	$p=0;
+	foreach($orders as $order)
+	{
+		$p=$p+(((int)$order['Quantity'])*((int)getProductByCode($order['Product_Code'])['Price']));
+	}
+	
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		if($_POST['button']=="Paid")
+		{
+            $invoice['Payment_Status']="Paid";
+        }
+		else if($_POST['button']=="Delivered")
+		{
+			 $invoice['Status']="Delivered";
+		}
+		editInvoice($invoice);
+		
+       
+	}
+	
+?>
+
 <html>
+<form method="post">
 	<table  width="100%" height="600">
 						<tr>
 							<th colspan="5"><h2>Order Information<h2></th>
 						<tr>
 						<tr>
-							<td><b>ORDER #12867</b><br>Order Date: Tuesday, December 19, 2017<br>Order Status: Pending<br>Order Total: Tk 1840</td>
+							<td><b>ORDER #<?=$invoiceCode?></b><br>Order Date: <?=explode(" ",$invoice['Date'])[0]?><br>Order Status: <?=$invoice['Status']?><br>Order Total: Tk <?=$p?></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td><b>BILLING ADDRESS</b>
-								<br>Efti
-								<br>Email: macefti276@gmail.com
+								<br><?=$member['Name']?>
+								<br>Email: <?=$member['Email']?>
 								<br>Phone: 01912311234
 								<br>Mirpur
 								<br>Dhaka</td>
 							<td><b>SHIPPING ADDRESS</b>
-								<br>Efti
-								<br>Email: macefti276@gmail.com
+								<br><?=$member['Name']?>
+								<br>Email: <?=$member['Email']?>
 								<br>Phone: 01912311234
 								<br>Mirpur
 								<br>Dhaka</td>
@@ -24,11 +63,10 @@
 						</tr>
 						<tr>
 							<td><b>PAYMENT</b>
-								<br>Payment Method: Cash On Delivery (COD)
-								<br>Payment Status: Pending</td>
+								<br>Payment Method: <?=$invoice['Payment_Method']?>
+								<br>Payment Status: <?=$invoice['Payment_Status']?> <?php if(($invoice['Payment_Status']=="Not Paid")&&($page=="viewinvoice")){?><input name="button" type="submit" value="Paid"/><?php }?></td>
 							<td><b>SHIPPING</b>
-								<br>Shipping Method:
-								<br>Shipping Status: Not yet shipped</td>
+								<br>Shipping Status: <?=$invoice['Status']?> <?php if(($invoice['Status']=="Pending")&&($page=="viewinvoice")){?><input name="button" type="submit" value="Delivered"/><?php }?></td>
 							
 						</tr>
 						<tr >
@@ -37,39 +75,32 @@
 								<tr>
 									<td></td>
 									<td><b>Price</b></td>
-									<td><b>Quality</b></td>
+									<td><b>Quantity</b></td>
 									<td><b>Total</b></td>
 								</tr>
-								<tr >
-									<td width="800">
+								<?php
+								foreach($orders as $order)
+								{
+									$product=getProductByCode($order["Product_Code"]);
+									echo
+								"<tr >
+									<td width=\"800\">
 										<table >
 										<tr>
-											<td width="50">
-												<img src="resources/tshirt1.jpg" height="40" width="40"/>
+											<td width=\"50\">
+												<img src=\"resources/".$product['Name'].".jpg\" height=\"40\" width=\"40\"/>
 											</td>
-											<td><a href="pdetails.php">"Kakashi T-Shirt" Product Code: S-1-895</a></td>
+											<td><a href=\"pview.php?ProductCode=".$order["Product_Code"]."\">\"".$product['Name']."\"</a> Product Code: ".$order["Product_Code"]."</td>
 										</tr>
 										</table>
 									</td>
-									<td>600 Tk</td>
-									<td>1</td>
-									<td>600 Tk</td>
-								</tr>
-								<tr >
-									<td width="800">
-										<table  >
-										<tr>
-											<td width="50">
-												<img src="resources/tshirt2.jpg" height="40" width="40"/>
-											</td>
-											<td><a href="pdetails.php">"Kakashi T-Shirt" Product Code: S-1-895</a></td>
-										</tr>
-										</table>
-									</td>
-									<td>600 Tk</td>
-									<td>2</td>
-									<td>1200 Tk</td>
-								</tr>
+									<td>".$product['Price']." Tk</td>
+									<td>".$order['Quantity']."</td>
+									<td>".(((int)$order['Quantity'])*((int)$product['Price']))." Tk</td>
+								</tr>";
+								}
+								?>
+								
 								<tr height="50">
 									<td></td>
 									<td></td>
@@ -80,14 +111,20 @@
 									<td></td>
 									<td></td>
 									<td><b>Net Total</b></td>
-									<td><b>1840 tk</b></td>
+									<td><b><?=((int)$p+40)?> tk</b></td>
 								</tr>
 							</table>
 							</td>
 						</tr>
+						<?php if($page=="viewinvoice")
+						{?>
 						<tr>
 							<th colspan="2"><a href="tinvoice.php">Back</a></th>
 						<tr>
+						<?php
+						}
+						?>
 					
 					</table>
+					</form>
 </html>

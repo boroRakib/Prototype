@@ -40,7 +40,7 @@
 										<td>".$product['Name']."</td>
 										<td>".$product['Price']."</td>
 										<td>".$product['Quantity']."</td>
-										<td><a href=\"pedit.php?productCode=".$product['Product _Code']."\">edit</td>
+										<td><a href=\"pedit.php?productCode=".$product['Product _Code']."\">update</td>
 										<td><a href=\"deleteproduct.php?productCode=".$product['Product _Code']."\">delete</td>
 									</tr>";
 							?>

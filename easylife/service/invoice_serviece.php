@@ -1,19 +1,28 @@
-<?php require_once "../data/member_data_access.php"; ?>
+<?php 
+ 	if(empty($admin))
+ 	{
+ 		require_once "../data/invoice_data_access.php";
+ 	}
+ 	else
+ 	{
+ 		require_once "../../data/invoice_data_access.php";
+ 	}
+?>
 <?php
     function addInvoice($invoice){
-        return addInvoiceToDb($invoice);
+        return addInvoiceToDB($invoice);
     }
     
-    function addInvoice($invoice){
-        return addInvoiceToDb($invoice);
-    }
-    
+    function editInvoice($invoice){
+		return editInvoiceToDB($invoice);
+	}
+	
     function deleteInvoice($invoice){
-        return deleteInvoiceFromDb($invoice);
+        return deleteInvoiceFromDB($invoice);
     }
     
     function getAllInvoices(){
-        return getAllInvoicesFromDb();
+        return getAllInvoicesFromDB();
     }
     
     function getInvoiceByCode($Invoice_Code){
