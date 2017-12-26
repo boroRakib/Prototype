@@ -9,11 +9,11 @@
     }
     
     function deleteProduct($productId){
-        return deleteProductFromDb($productId);
+        return deleteProductFromDB($productId);
     }
     
     function getAllProducts(){
-        return getAllProductsFromDb();
+        return getAllProductsFromDB();
     }
     
      function getProductByCode($Product_Code){
