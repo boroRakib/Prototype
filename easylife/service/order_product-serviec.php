@@ -4,10 +4,6 @@
         return addOrderToDb($order);
     }
     
-    function addOrder($order){
-        return addOrderToDb($order);
-    }
-    
     function deleteOrder($order){
         return deleteOrderFromDb($order);
     }
