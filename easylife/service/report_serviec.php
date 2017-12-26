@@ -1,4 +1,4 @@
-<?php require_once "../data/member_data_access.php"; ?>
+<?php require_once "../data/report_data_access.php"; ?>
 <?php
     function addReport($report){
         return addReportToDb($report);

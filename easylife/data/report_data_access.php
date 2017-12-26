@@ -95,6 +95,15 @@
         
         return $reports;
     }
+	function getLastReportCodeFromDB()
+	{
+        $sql = "SELECT MAX(Report_Code) FROM report";        
+        $result = executeSQL($sql);
+        
+        $report = mysqli_fetch_assoc($result);
+        
+        return $report;
+    }
 ?>
 	
 	
