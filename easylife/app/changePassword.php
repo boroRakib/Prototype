@@ -31,7 +31,7 @@
        
 		if(empty($cpass)){
             $isValid = false;
-            $cpassErr = "*";
+            $cpassErr = "Password is requiered";
         }
 		
 		else if($cpass!=$member['Password']){
@@ -41,7 +41,7 @@
 		
 		if(empty($npass)){
             $isValid = false;
-            $npassErr = "*";
+            $npassErr = "New password is required";
         }
 		
 		else if(isValidPassword($npass)==false){
@@ -51,7 +51,7 @@
 		
 		if(empty($rpass)){
             $isValid = false;
-            $rpassErr = "*";
+            $rpassErr = "Retype new Password";
         }
 		
 		else if($npass!=$rpass)
@@ -147,7 +147,7 @@
 							<td colspan="3"><hr/></td>
 						</tr>
 						<tr>
-							<td colspan="3" align="center" bgcolor="RoyalBlue"><input type="submit" value="Change"/></td>
+							<td colspan="4" align="center" bgcolor="RoyalBlue"><input type="submit" value="Change"/></td>
 						</tr>
 					
 					</table>

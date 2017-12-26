@@ -7,14 +7,14 @@
         return $result;
     }
 	
-	function editReportToDb($report)
+	function editReportToDB($report)
 	{
         $sql = "UPDATE report SET Report_Title='$report[Report_Title]',Member_ID='$report[Member_ID]',Date='$report[Date]',Status='$report[Status]',Description='$report[Description]' WHERE Report_Code='$report[Report_Code]'";
         $result = executeSQL($sql);
         return $result;
     }
 	
-	function deleteReportFromDb($report)
+	function deleteReportFromDB($report)
 	{
         $sql = "DELETE FROM report WHERE Report_Code='$report[Report_Code]'";
         $result = executeSQL($sql);

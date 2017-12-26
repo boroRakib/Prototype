@@ -30,7 +30,7 @@
 							<td >
 								<table  width="100%">
 									<tr>
-										<td align="center">(<?=$noOfReports?>)Reports<a href="admin/treports.php?trep=<?=$reports?>" target="contentFrame"><img src="resources/report.png" height="30" width="30"/></a></td>
+										<td align="center">(<?=$noOfReports?>)Reports<a href="admin/treports.php" target="contentFrame"><img src="resources/report.png" height="30" width="30"/></a></td>
 										<td align="right">
 											<table >
 												<tr rowspan="2">

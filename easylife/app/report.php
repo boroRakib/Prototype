@@ -34,19 +34,19 @@
 		$isValid = true;
         if(empty($tit)){
             $isValid = false;
-            $titleErr = "*";
+            $titleErr = "Give a short title";
         }
    
 		if(empty($repo)){
             $isValid = false;
-            $reportErr = "*";
+            $reportErr = "Describe your problem in a brief";
         }
        
 		if($isValid==true){
 			$code=getLastReportCodeFromDB()['MAX(Report_Code)'];
 			$report['Report_Code']=$code+1;
 			$report['Report_Title']=$tit;
-			$report['Member_ID']=1;
+			$report['Member_ID']=$memberID;
 			$report['Description']=$repo;
 			if(addReportToDB($report)==true){
                 echo "<script>
