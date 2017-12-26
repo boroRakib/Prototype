@@ -45,7 +45,7 @@
             $isValid = false;
             $emailErr = "Invalid email format";
         }
-		elseif(getMemberByEmailFromDB($email)!=$email)
+		else if(isUniqueMemberEmail($email))
 		{
 			$isValid = false;
             $emailErr = "Email Not found";

@@ -31,7 +31,7 @@
 										<th>Remaining Quantity</th>
 									</tr>
 							<?php
-									$products=getAllProducts();
+									$products=getAllProductsQuantityDesc();
 									foreach($products as $product)
 									
 									

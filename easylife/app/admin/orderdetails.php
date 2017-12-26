@@ -1,3 +1,7 @@
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/order_product-serviec.php"; 
+?>
 <html>
 	<table >
 			<tr >

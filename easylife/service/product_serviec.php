@@ -25,6 +25,10 @@
         return getAllProductsFromDB();
     }
 	
+	function getAllProductsQuantityDesc(){
+		return getAllProductsQuantityDescFromDB();
+	}
+	
 	function isUniqueProductName($name){
          $products  = getAllProducts();
          $isUnique = true;

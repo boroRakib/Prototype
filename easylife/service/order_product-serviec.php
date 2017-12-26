@@ -1,4 +1,13 @@
-<?php require_once "../data/member_data_access.php"; ?>
+<?php 
+ 	if(empty($admin))
+ 	{
+ 		require_once "../data/order_product_data_access.php";
+ 	}
+ 	else
+ 	{
+ 		require_once "../../data/order_product_data_access.php";
+ 	}
+?>
 <?php
     function addOrder($order){
         return addOrderToDb($order);
