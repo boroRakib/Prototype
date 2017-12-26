@@ -1,19 +1,25 @@
-<?php require_once "../data/report_data_access.php"; ?>
+<?php 
+ 	if(empty($admin))
+ 	{
+ 		require_once "../data/report_data_access.php";
+ 	}
+ 	else
+ 	{
+ 		require_once "../../data/report_data_access.php";
+ 	}
+?>
 <?php
-    function addReport($report){
-        return addReportToDb($report);
-    }
     
     function addReport($report){
-        return addReportToDb($report);
+        return addReportToDB($report);
     }
     
     function deleteReport($report){
-        return deleteReportFromDb($report);
+        return deleteReportFromDB($report);
     }
     
     function getAllReports(){
-        return getAllReportsFromDb();
+        return getAllReportsFromDB();
     }
     
     function getReportByCode($Report_Code){
