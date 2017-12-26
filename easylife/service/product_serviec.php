@@ -1,0 +1,47 @@
+<?php require_once "../data/product_data_access.php"; ?>
+<?php
+    function addProduct($product){
+        return addProductToDb($product);
+    }
+    
+    function editProduct($product){
+        return editProductToDb($product);
+    }
+    
+    function deleteProduct($productId){
+        return deleteProductFromDb($productId);
+    }
+    
+    function getAllProducts(){
+        return getAllProductsFromDb();
+    }
+    
+<<<<<<< HEAD
+     function getProductByCode($Product_Code){
+        return getProductByCodeFromDBFromDb($Product_Code);
+=======
+    function getProductByCode($Product_Code){
+        return getProductByCodeFromDB($Product_Code);
+>>>>>>> 906520fe74d30e3e662aac584349aaaa69a61959
+    }
+	function getProductsByName($Name)
+	{
+		return getProductsByNameFromDB($Name);
+	}
+	function getProductsByFullName($Name)
+	{
+		return getProductsByFullNameFromDB($Name);
+	}
+	function getProductsByPrice($Price)
+	{
+		return getProductsByPriceFromDB($Price);
+	}
+	function getProductsByCatagory($Catagory)
+	{
+		return getProductsByCatagoryFromDB($Catagory);
+	}
+	function getProductsByBrand($Brand)
+	{
+		return getProductsByBrandFromDB($Brand);
+	}
+?>
