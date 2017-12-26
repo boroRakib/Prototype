@@ -17,6 +17,10 @@
     function deleteReport($report){
         return deleteReportFromDB($report);
     }
+	
+	function editReport($report){
+		return editReportToDB($report);
+	}
     
     function getAllReports(){
         return getAllReportsFromDB();
