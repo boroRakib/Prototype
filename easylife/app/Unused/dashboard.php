@@ -85,16 +85,6 @@
 			
 			<tr>
 				<td align="center" width="33%">
-				
-				</td>
-				
-			</tr>
-			
-		</table>
-		<table  width="100%">
-			<tr>
-				<tr>
-				<td align="center" width="33%">
 				<fieldset>
 					<legend>Top 5 User</legend>
 					<table>
@@ -116,6 +106,50 @@
 							
 					</tr>
 					</table>
+				</fieldset>
+				</td>
+				<td align="center" width="33%">
+				<fieldset>
+					<legend>Most selling products</legend>
+					<table>
+					<tr><td>
+						<ul>
+							<li><a href="pview.php">Kakashi T-Shirt</a></li>
+							<li><a href="pview.php">Polo T-Shirt</a></li>
+							<li><a href="pview.php">Full sleeve T-Shirt</a></li>
+							<li><a href="pview.php">Kakashi T-Shirt</a></li>
+							<li><a href="pview.php">Easy T-Shirt</a></li>
+						</ul>
+						</td></tr>
+					</table>
+				</fieldset>
+				</td>
+				<td align="center" width="33%">
+				<fieldset>
+					<legend>5 star rating products</legend>
+					<table>
+					<tr><td>
+						<ul>
+							<li><a href="pview.php">Kakashi T-Shirt</a></li>
+							<li><a href="pview.php">Polo T-Shirt</a></li>
+							<li><a href="pview.php">Full sleeve T-Shirt</a></li>
+							<li><a href="pview.php">Kakashi T-Shirt</a></li>
+							<li><a href="pview.php">Easy T-Shirt</a></li>
+						</ul>
+						</td></tr>
+					</table>
+				</fieldset>
+				</td>
+			</tr>
+			
+		</table>
+		<table  width="100%">
+			<tr>
+				<tr>
+				<td align="center" width="33%">
+				<fieldset>
+					<legend>Total Visits</legend>
+					<h2>200000</h2><br><br>
 				</fieldset>
 				</td>
 				

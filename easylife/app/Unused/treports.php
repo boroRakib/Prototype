@@ -12,7 +12,22 @@
 ?>
 
 <html>
-	
+	<table >
+		<tr >
+			<td width="40%">
+				<p>Search by:<p><select>
+					<option>ID</option>
+					<option>Title</option>
+					<option>User ID</option>
+					<option>Status</option>
+				</select>
+				
+			</td>
+			<td>
+				<input type="text"/><input type="submit" value="Search Report"/>
+			</td>
+		</tr>
+	</table>
 	<br>
 	<br>
 	<fieldset>
