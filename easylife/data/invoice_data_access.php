@@ -75,7 +75,7 @@
 	
 	function getInvoicesByStatusFromDB($Status)
 	{
-        $sql = "SELECT * FROM invoice WHERE Status=$Status";        
+        $sql = "SELECT * FROM invoice WHERE Status='$Status'";        
         $result = executeSQL($sql);
         
         $invoices = array();
@@ -88,7 +88,7 @@
 	
 	function getInvoicesByPaymentFromDB($Payment_Status)
 	{
-        $sql = "SELECT * FROM invoice WHERE Payment_Status=$Payment_Status";        
+        $sql = "SELECT * FROM invoice WHERE Payment_Status='$Payment_Status'";        
         $result = executeSQL($sql);
         
         $invoices = array();

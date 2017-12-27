@@ -3,23 +3,43 @@
  	require_once "../../service/invoice_serviece.php";
 	require_once "../../service/member_service.php";
 	$invoices=getAllInvoices();
+	if($_SERVER['REQUEST_METHOD']=="POST")
+		{
+			if($_POST['searchby']=="0")
+			{
+				$invoice=getInvoiceByCode($_POST['p']);
+				$invoices=array($invoice);
+				if(empty($invoice))
+					$invoices=array();
+			}
+			else if($_POST['searchby']=="1")
+			{
+				$invoices=getInvoicesByPayment($_POST['p']);
+			}
+			else if($_POST['searchby']=="2")
+			{
+				$invoices=getInvoicesByStatus($_POST['p']);
+			}
+			
+		}
 	
 ?>
 <html>
 	<table >
 			<tr >
+				<form method="post">
 				<td width="40%">
-					<p>Search by:<p><select>
-						<option>Invoice Code</option>
-						<option>Date</option>
-						<option>Payment Status</option>
-						<option>Invoice Status</option>
+					<p>Search by:<p><select name="searchby">
+						<option value="0" selected>Invoice Code</option>
+						<option value="1">Payment Status</option>
+						<option value="2">Invoice Status</option>
 					</select>
 					
 				</td>
 				<td>
-					<input type="text"/><input type="submit" value="Search Invoice"/>
+					<input name="p" type="text"/><input type="submit" value="Search Invoice"/>
 				</td>
+				</form>
 			</tr>
 		</table>
 		<br>
