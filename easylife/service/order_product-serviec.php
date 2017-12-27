@@ -28,10 +28,7 @@
     
     function getOrderByCode($Order_Code){
         return getOrderByCodeFromDB($Order_Code);
-    }
-	 function getOrderByEmail($Email){
-        return getOrderByCodeFromDB($Email);
-    }
+   }
     
     function getOrderByProduct($Product_Code){
         return getOrderByProductFromDB($Product_Code);

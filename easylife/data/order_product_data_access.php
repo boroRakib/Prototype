@@ -53,15 +53,7 @@
         
         return $order;
     }
-	function getOrderByEmailFromDB($Email)
-	{
-        $sql = "SELECT * FROM order_product WHERE Customer_Email like $Email";        
-        $result = executeSQL($sql);
-        
-        $order = mysqli_fetch_assoc($result);
-        
-        return $order;
-    }
+
 	
 	function getOrdersByInvoiceFromDB($Invoice_Code)
 	{
