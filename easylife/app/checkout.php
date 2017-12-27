@@ -103,11 +103,11 @@
 					$order['Invoice_Code']=$id+1;
 					$q++;
 					//var_dump($order);
-					// $product=getProductsByName($productName);
-					// $product['Quantity']=(int)$product['Quantity']-(int)$qty[$q];
-					// var_dump($product);
-					// var_dump($product['Quantity']);
-					// editProduct($product);
+					$product=getProductsByName($productName);
+					$product[0]['Quantity']=(int)$product[0]['Quantity']-(int)$qty[$q];
+					//var_dump($product);
+					//var_dump($product['Quantity']);
+					editProduct($product);
 					if(addOrder($order)==false)
 					{
 						$cc=false;
