@@ -122,17 +122,11 @@ INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Pric
 ('8', 'Hijab', 4, 0, 150, NULL, 'Hijab And Dupatta', 'Yellow', 'S', 'Balck Colored Hijab\r\nPure Cotton.'),
 ('9', 'Saree', 3, 0, 1000, NULL, 'Saree', 'Aarong', 'L', 'Pure Cotton Saree'),
 ('17', 'Women Black Jacket', 3, 0, 1500, NULL, 'wbj.jpg', 'Ladies Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle. Fully Export Quality. High Quality Rubber Print. Long Lasting color.Nicely Sewed.'),
-
 ('18', 'Women Long Coat', 2, 0, 1700, NULL, 'wlc.jpg', 'Ladies Winter Collection', 'Yellow', 'M', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle. Fully Export Quality. High Quality Rubber Print. Long Lasting color.Nicely Sewed.'),
-
 ('19', 'Kids Jacket', 4, 0, 600, NULL, '', 'Kids Winter Collection', 'Eacstasy', 'S', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle. Fully Export Quality. High Quality Rubber Print. Sweater'),
-
 ('20', 'Kameez', 6, 0, 1200, NULL, '', 'Three Piece', 'Aarong', 'M', 'Pure Cotton Three Piece'),
-
 ('21', 'Panjabi', 5, 0, 1100, NULL, '', 'Panjabi', 'Aarong', 'L', 'High quality hand stiched panjabi.'),
-
 ('22', 'Fasttrack Sunglass', 5, 0, 200, NULL, '', 'Sunglass', 'Eacstasy', 'S', 'High quality imported sunglass'),
-
 ('23', 'Rayban Sunglass', 4, 0, 300, NULL, '', 'Sunglass', 'Easy', 'S', 'High quality imported sunglass'),
 ('24', 'Emporio Watch', 3, 0, 1400, NULL, '', 'Watch', 'Eacstasy', 'S', 'Exclusive Emporio Armani Watch.'),
 ('25', 'Digital Watch', 6, 0, 1100, NULL, '', 'Watch', 'Yellow', 'S', 'Exclusive digital Watch.'),
