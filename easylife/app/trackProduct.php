@@ -28,10 +28,8 @@
 	
 ?>
 <?php 
-$email=$_GET['email'];
-	
-
-
+$pcode=$_GET['email'];
+$order=getOrderByEmailFromDB($pcode);
 
 
 ?>
