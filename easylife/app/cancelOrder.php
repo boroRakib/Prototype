@@ -4,11 +4,17 @@
 
 <?php
 	$icode=$_GET['del'];
-	var_dump($icode);
 	$invoice=getInvoiceByCodeFromDB($icode);
-	var_dump($invoice);
-	$order=getOrdersByInvoice($icode);
-	var_dump($order);
+	$orders=getOrdersByInvoice($icode);
+	foreach($orders as $order)
+	{
+		deleteOrder($order);
+	}
+	deleteInvoice($invoice);
+	echo "<script>				
+			document.location='../index.php';
+		 </script>";
+	
 
 	
 ?>
