@@ -137,7 +137,7 @@
 								</td>
 								<td>
 								<table>
-									<tr><td><img align="top" src="../resources/tshirt1.jpg" width="167"/></td></tr>
+									<tr><td><img align="top" src="../resources/<?=$product['Name']?>.jpg" width="167"/></td></tr>
 									<tr><td><input type="file" name="propic" accept="image/*"/>
 						</td></tr>
 								</table>

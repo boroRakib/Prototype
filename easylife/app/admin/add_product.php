@@ -71,7 +71,7 @@
 			// $isValid = false;
             // $priceErr = "Invalid price";
 		// }
-		if($_FILES["propic"]["tmp_name"]=="")
+		if($_FILES["propic"]["tmp_name"]=="" )
 		{
 			$isValid = false;
 			$product_picErr="Image is required.";
@@ -110,15 +110,13 @@
 			
 		}
 		
-		if($uploadOk != 0)
-		{
-			move_uploaded_file($_FILES["propic"]["tmp_name"], $target_dir);
-		}
+		
+		
 		
 			
 		
 		
-		if($isValid==true)
+		if($isValid==true && $uploadOk != 0)
 		{
 			
 			
@@ -141,7 +139,10 @@
 			$product['Size']=$size;
 			$product['Description']=$Product_Feature;
 			//var_dump($product);
-			if(addProductToDB($product)==true){
+			if(addProduct($product)==true)
+			{
+				move_uploaded_file($_FILES["propic"]["tmp_name"], $target_dir);
+				
                 echo "<script>
                         document.location='successproduct.php?ProductCode=".$product['Product_Code']."';
                      </script>";

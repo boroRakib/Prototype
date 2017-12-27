@@ -178,7 +178,7 @@
 								
 								<table bgcolor="white">
 								<tr>
-								<td>
+								<td >
 									<script>
 												function next(){
 													var img = document.getElementById("im");
@@ -260,7 +260,7 @@
 								</tr>
 								</table>
 							</td>
-							<td align="center" width="80%">
+							<td align="center" width="80%" valign="top">
 								<table   width="100%">
 									<tr>
 										<td align="center" colspan="3"> 

@@ -8,7 +8,7 @@
 <html>
 <table border="1" width="100%">
 									<tr>
-										<td align="center" colspan="2"><img src="../resources/tshirt1.jpg" height="400"/></td>
+										<td align="center" colspan="2"><img src="../resources/<?=$product['Name']?>.jpg" height="400"/></td>
 										<td>
 										<h2><?=$product['Name']?></h2>
 										<h3>Product Code: <?=$product['Product _Code']?></h3>
