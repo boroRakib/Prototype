@@ -2,21 +2,46 @@
 <?php 
  	$admin="admin";
  	require_once "../../service/member_service.php"; 
+	$members=getAllUsers();
+		if($_SERVER['REQUEST_METHOD']=="POST")
+		{
+			if($_POST['searchby']=="0")
+			{
+				$member=getUserById($_POST['p']);
+				$members=array($member);
+				if(empty($member))
+					$members=array();
+			}
+			else if($_POST['searchby']=="1")
+			{
+				$members=getMembersByName($_POST['p']);
+			}
+			else if($_POST['searchby']=="2")
+			{
+				$member=getUserByEmail($_POST['p']);
+				
+				$members=array($member);
+				if(empty($member))
+					$members=array();
+			}
+			
+		}
 ?>
 <html>
 	<table >
-		<tr >
+		<tr ><form method="post">
 			<td width="40%">
-				<p>Search by:<p><select>
-					<option>ID</option>
-					<option>Name</option>
-					<option>Email</option>
+				<p>Search by:<p><select name="searchby">
+					<option value="0"  selected>ID</option>
+					<option value="1">Name</option>
+					<option value="2">Email</option>
 				</select>
 				
 			</td>
 			<td>
-				<input type="text"/><input type="submit" value="Search Admin"/>
+				<input name="p" type="text"/><input type="submit" value="Search Admin"/>
 			</td>
+			</form>
 		</tr>
 	</table>
 	<br>
@@ -33,7 +58,7 @@
 					<th>Status</th>
 				</tr>
 				<?php
-					$members=getAllUsers();
+					
 					$cy=(int)date("Y");
 					$cm=(int)date("m");
 					$cd=(int)date("d");

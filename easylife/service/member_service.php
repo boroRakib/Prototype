@@ -12,6 +12,11 @@
     function addMember($member){
         return addMemberToDB($member);
     }
+	
+	function getAllUsersByAciveDSC()
+	{
+		return getAllUsersByAciveDSCFromDB();
+	}
     
     function editMember($member){
         return editMemberToDB($member);
@@ -43,13 +48,31 @@
     function getMemberById($memberId){
         return getMemberByIdFromDB($memberId);
     }
+	
+	function getAdminById($memberId){
+        return getAdminByIdFromDB($memberId);
+    }
+	
+	function getUserById($memberId){
+        return getUserByIdFromDB($memberId);
+    }
     
     function getMembersByName($memberName){
         return getMembersByNameFromDB($memberName);
     }
+	
+	
     
     function getMembersByEmail($memberEmail){
-        return getMembersByEmailFromDB($memberEmail);
+        return getMemberByEmailFromDB($memberEmail);
+    }
+	
+	function getAdminByEmail($memberEmail){
+        return getAdminByEmailFromDB($memberEmail);
+    }
+	
+	function getUserByEmail($memberEmail){
+        return getUserByEmailFromDB($memberEmail);
     }
     
     function getMembersByNameOrEmail($key){
