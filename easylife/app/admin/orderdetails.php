@@ -1,7 +1,11 @@
 <?php 
  	$admin="admin";
  	require_once "../../service/order_product-serviec.php"; 
+ 	require_once "../../service/invoice_serviece.php";
+	require_once "../../service/product_serviec.php";
+	$orders=getAllOrders();
 ?>
+
 <html>
 	<table >
 			<tr >
@@ -33,39 +37,25 @@
 										<th>Order Status</th>
 										<th>Payment Status</th>
 									</tr>
-									<tr>
-										<td>O-1-297</td>
-										<td>S-1-895</td>
-										<td>I-1-297</td>
-										<td>18/12/2017</td>
-										<td>Kakashi T-Shirt</td>
-										<td><input type="radio" name="status" checked="checked">Pending
-											<input type="radio"  name="status">Delivered</td>
-										<td>Not Paid</td>
-									</tr>
-									<tr>
-										<td>O-1-297</td>
-										<td>S-1-895</td>
-										<td>I-1-297</td>
-										<td>18/12/2017</td>
-										<td>Kakashi T-Shirt</td>
-										<td><input type="radio" name="status1" >Pending
-											<input type="radio"  name="status1" checked="checked">Delivered</td>
-										<td>Paid</td>	
-									</tr>
-									<tr>
-										<td>O-1-297</td>
-										<td>S-1-895</td>
-										<td>I-1-297</td>
-										<td>18/12/2017</td>
-										<td>Kakashi T-Shirt</td>
-										<td><input type="radio" name="status2" checked="checked">Pending
-											<input type="radio"  name="status2">Delivered</td>	
-										<td>Paid</td>
-									</tr>
+									<?php
+									foreach($orders as $order)
+									{
+										$invoice=getInvoiceByCode($order['Invoice_Code']);
+										$product=getProductByCode($order['Product_Code']);
+										echo
+									"<tr>
+										<td>".$order['Order_Code']."</td>
+										<td><a href=\"pview.php?ProductCode=".$order['Product_Code']."\">".$order['Product_Code']."</a></td>
+										<td><a href=\"viewinvoice.php?invoiceCode=".$order['Invoice_Code']."\">".$order['Invoice_Code']."</a></td>
+										<td>".explode(" ",$invoice['Date'])[0]."</td>
+										<td>".$product['Name']."</td>
+										<td>".$invoice['Status']."</td>
+										<td>".$invoice['Payment_Status']."</td>
+									</tr>";
+									}
+									?>
 								</table>
 					</fieldset>
-					<br>
-	<a href="dashboard.php"><button>Back</button></a>
+					
 					
 </html>

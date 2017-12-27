@@ -1,23 +1,54 @@
+<?php 
+ 	$admin="admin";
+ 	require_once "../../service/invoice_serviece.php";
+	require_once "../../service/member_service.php";
+	require_once "../../service/order_product-serviec.php";
+	require_once "../../service/product_serviec.php";
+	require_once "../../service/report_serviec.php";
+	$memberID=$_GET['memberID'];
+	$admins=getAllAdmins();
+	$users=getAllUsers();
+	$products=getAllProducts();
+	$orders=getAllOrders();
+	$invoices=getAllInvoices();
+	$activeUser=0;
+	$monthlyOrders=0;
+	$cm=(int)date("m")-1;
+	foreach($users as $user)
+	{
+		if(((int)explode("-",explode(" ",$user['Last_Logged_in'])[0])[1])>$cm)
+			$activeUser++;
+	}
+	foreach($orders as $order)
+	{
+		// var_dump($order['Invoice_Code']);
+		// var_dump(getInvoiceByCode("1"));
+		// $d=(int)getInvoiceByOrderCode($order['Invoice_Code'])['Date'];
+		// if((explode("-",explode(" ",$d)[0])[1])>$cm)
+			// $monthlyOrders++;
+	}
+	
+?>
 <html>
 		<table  width=100%>			
 			<tr>
 				<td align="center" width="33%">
 				<fieldset>
 					<legend>Total User</legend>
-					<h2>200</h2><br><a href="tudetails.php">Details
+					<h2><?=count($users)?></h2><br><a href="tudetails.php">Details
 				</fieldset>
 				</td>
 				
 				<td width="33%" align="center">
 				<fieldset>
 					<legend>Total Admin</legend>
-					<h2>5</h2><br><a href="tadmindetails.php">Details
+					<h2><?=count($admins)?></h2><br><a href="tadmindetails.php?memberID=<?=$memberID?>">Details
 				</fieldset>
 				</td>
 				<td width="33%" align="center">
 				<fieldset>
 					<legend>Total Product</legend>
-					<h2>500</h2><br><a href="tpdetails.php">Details
+					<h2><?=count($products)?></h2><br><a href="tpdetails.php">Details
 				</fieldset>
 				</td>
 			</tr>
@@ -26,20 +57,20 @@
 				<td align="center" width="33%">
 				<fieldset>
 					<legend>Total Active Users Last Month</legend>
-					<h2>200</h2><br><a href="tudetails.php">Details
+					<h2><?=$activeUser?></h2><br><a href="tudetails.php">Details
 				</fieldset>
 				</td>
 				
 				<td width="33%" align="center">
 				<fieldset>
 					<legend>Total Orders</legend>
-					<h2>5</h2><br><a href="orderdetails.php">Details
+					<h2><?=count($invoices)?></h2><br><a href="orderdetails.php">Details
 				</fieldset>
 				</td>
 				<td width="33%" align="center">
 				<fieldset>
 					<legend>Sold Product Last Month</legend>
-					<h2>500</h2><br><a href="tpdetails.php">Details
+					<h2><?=$monthlyOrders?></h2><br><a href="tpdetails.php">Details
 				</fieldset>
 				</td>
 			</tr>
@@ -52,13 +83,21 @@
 					<tr>
 						<td>
 						<ul>
-							<li><a href="udetails.php">Rajesh</a></li>
-							<li><a href="udetails.php">Rakib</a></li>
-							<li><a href="udetails.php">Efti</a></li>
-							<li><a href="udetails.php">Robi</a></li>
-							<li><a href="udetails.php">Reza</a></li>
-						</ul>
+						<?php
+						// $activeAdmins=getAllAdminsByAciveDSC();
+						// var_dump($activeAdmins);
+						// $aa=0;
+						// foreach($activeAdmins as $activeAdmin)
+						// {
+							// echo "
+							// <li><a href=\"uview.php?memberID=".$activeAdmin['Member_ID']."\">".$activeAdmin['Name']."</a></li>";
+							// $aa++;
+							// if($aa>=5)
+								// break;
+						// }
+						?>
 						</td>
+							
 					</tr>
 					</table>
 				</fieldset>

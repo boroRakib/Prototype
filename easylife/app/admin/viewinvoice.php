@@ -116,14 +116,7 @@
 							</table>
 							</td>
 						</tr>
-						<?php if($page=="viewinvoice")
-						{?>
-						<tr>
-							<th colspan="2"><a href="tinvoice.php">Back</a></th>
-						<tr>
-						<?php
-						}
-						?>
+						
 					
 					</table>
 					</form>

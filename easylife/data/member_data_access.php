@@ -61,6 +61,19 @@
         return $members;
     }
 	
+	function getAllAdminsByAciveDSCFromDB()
+	{
+		$sql = "SELECT * FROM member WHERE Type=1 ORDER BY `Last_Logged_in` DESC";        
+        $result = executeSQL($sql);
+        
+        $members = array();
+        for($i=0; $row=mysqli_fetch_assoc($result); ++$i){
+            $members[$i] = $row;
+        }
+       // var_dump($members);
+        return $members;
+	}
+	
 	function getAllUsersFromDB()
 	{
         $sql = "SELECT * FROM member WHERE Type=4";        

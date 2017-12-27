@@ -29,6 +29,10 @@
 		return getAllAdminsFromDB();
 	}
 	
+	function getAllAdminsByAciveDSC(){
+		return getAllAdminsByAciveDSCFromDB();
+	}
+	
 	function getAllUsers(){
 		return getAllUsersFromDB();
 	}
