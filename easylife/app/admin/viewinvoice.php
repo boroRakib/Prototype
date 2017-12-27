@@ -88,7 +88,7 @@
 										<table >
 										<tr>
 											<td width=\"50\">
-												<img src=\"resources/".$product['Name'].".jpg\" height=\"40\" width=\"40\"/>
+												<img src=\"../resources/".$product['Name'].".jpg\" height=\"40\" width=\"40\"/>
 											</td>
 											<td><a href=\"pview.php?ProductCode=".$order["Product_Code"]."\">\"".$product['Name']."\"</a> Product Code: ".$order["Product_Code"]."</td>
 										</tr>
