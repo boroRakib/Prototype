@@ -81,24 +81,33 @@
 			$invoice['Billing_Address']=$address;
 			$orders=getAllOrders();
 			$code="Product _Code";
+			$q=0;
+			$oid=0;
+			foreach($orders as $p)
+				{
+					if($oid<((int)$p['Order_Code']))
+					{
+						$oid=(int)$p['Order_Code'];
+					}
+				}
 			 if(addInvoice($invoice)==true){
 				 foreach($productNames as $productName)
 				 {
-					//$product=getProductsByName($productName);
+					
 					//var_dump($product);
-					$q=0;
-					$oid=0;
-						foreach($orders as $p)
-						{
-							if($oid<((int)$p['Order_Code']))
-							{
-								$oid=(int)$p['Order_Code'];
-							}
-						}
-					$order['Order_Code']=$oid+1;
+					
+					
+					$order['Order_Code']=(++$oid);
 					$order['Product_Code']=getProductCodeByName($productName)['p'];
 					$order['Quantity']=$qty[$q];
 					$order['Invoice_Code']=$id+1;
+					$q++;
+					//var_dump($order);
+					// $product=getProductsByName($productName);
+					// $product['Quantity']=(int)$product['Quantity']-(int)$qty[$q];
+					// var_dump($product);
+					// var_dump($product['Quantity']);
+					// editProduct($product);
 					if(addOrder($order)==false)
 					{
 						$cc=false;

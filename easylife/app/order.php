@@ -29,7 +29,6 @@
 	{
 		$noOfProduct=0;
 	}
-	$invoiceCode=$_GET['invoiceCode'];
 	$invoice=getInvoiceByCode($invoiceCode);
 	$member=getMemberById($invoice['Member_ID']);
 	$orders=getOrdersByInvoice($invoiceCode);
