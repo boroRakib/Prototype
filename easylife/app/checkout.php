@@ -1,4 +1,8 @@
 <?php session_start(); ?>
+<?php require_once "../service/invoice_serviece.php";
+	require_once "../service/product_serviec.php";
+	require_once "../service/order_product-serviec.php";?>
+
 <?php
 	if($_SESSION['member_name']!="")
 	{
@@ -16,7 +20,10 @@
 	if(isset($_COOKIE['user_qty']))
 	{
 		$qty=$_COOKIE['user_qty'];
+		$productNames=$_COOKIE['easylife_cart'];
 		$noOfProduct=count($_COOKIE['user_qty']);
+		
+		
 	}
 	else
 	{
@@ -35,7 +42,8 @@
 		$name=$_POST['name'];
         $address=$_POST['address'];
 		$phone=$_POST['phone'];
-		
+		$payMethod=$_POST['payMethod'];
+		$cc=true;
 		$v=true;
 		if(empty($name))
 		{
@@ -56,11 +64,61 @@
 		
 		if($v==true)
 		{
-			
-			
-			echo "<script>				
-			document.location='order.php';
-		 </script>";
+			$invoices=getAllInvoices();
+			$id=0;
+			foreach($invoices as $p)
+			{
+				if($id<((int)$p['Invoice_Code']))
+				{
+					$id=(int)$p['Invoice_Code'];
+				}
+			}
+			$invoice['Invoice_Code']=$id+1;
+			$invoice['Member_ID']=$memberID;
+			$invoice['Phone']=$phone;
+			$invoice['Payment_Method']=$payMethod;
+			$invoice['Shipping_Address']=$address;
+			$invoice['Billing_Address']=$address;
+			$orders=getAllOrders();
+			$code="Product _Code";
+			 if(addInvoice($invoice)==true){
+				 foreach($productNames as $productName)
+				 {
+					//$product=getProductsByName($productName);
+					//var_dump($product);
+					$q=0;
+					$oid=0;
+						foreach($orders as $p)
+						{
+							if($oid<((int)$p['Order_Code']))
+							{
+								$oid=(int)$p['Order_Code'];
+							}
+						}
+					$order['Order_Code']=$oid+1;
+					$order['Product_Code']=getProductCodeByName($productName)['p'];
+					$order['Quantity']=$qty[$q];
+					$order['Invoice_Code']=$id+1;
+					if(addOrder($order)==false)
+					{
+						$cc=false;
+						break;
+					}
+				
+				}
+				
+				
+				if($cc==true)
+				{
+                echo "<script>				
+						document.location='order.php?invoiceCode=".($id+1)."';
+					 </script>";
+                die();
+				}
+            }
+            else{
+                echo "Internal Error<hr/>";
+            }
 		}
 			
 		
@@ -236,19 +294,19 @@
 									<table  width="100%" bgcolor="WhiteSmoke">
 										<tr>
 											<td width="20%"><img src="resources/COD.jpg" height="40" width="100" /></td>
-											<td><input name="payMethod" type="radio" checked="checked" /><b>Cash On Delivery (COD)</b></td>
+											<td><input name="payMethod" type="radio" checked="checked" value="Cash On Delivery" /><b>Cash On Delivery (COD)</b></td>
 										</tr>
 										<tr>
 											<td width="20%"><img src="resources/bkash.jpg" height="40" width="100" /></td>
-											<td><input name="payMethod" type="radio"/><b>bkash</b></td>
+											<td><input name="payMethod" type="radio" value="bkash"/><b>bkash</b></td>
 										</tr>
 										<tr>
 											<td width="20%"><img src="resources/rocket.jpg" height="40" width="100" /></td>
-											<td><input name="payMethod" type="radio"/><b>rocket</b></td>
+											<td><input name="payMethod" type="radio" value="rocket"/><b>rocket</b></td>
 										</tr>
 										<tr>
 											<td width="20%"><img src="resources/credit card.jpg" height="40" width="100" /></td>
-											<td><input name="payMethod" type="radio"/><b>Online Payment (Debit or Credit Card)</b></td>
+											<td><input name="payMethod" type="radio" value="Online Payment"/><b>Online Payment (Debit or Credit Card)</b></td>
 										</tr>
 										<tr height="50">
 											<td align="center" bgcolor="YellowGreen " colspan="2"><input type="submit" value="CONFIRM"/></td></form>

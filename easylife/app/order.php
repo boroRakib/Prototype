@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start();
+	require_once "../service/invoice_serviece.php";
+	require_once "../service/member_service.php";
+	require_once "../service/order_product-serviec.php";
+	require_once "../service/product_serviec.php";
+	?>
 <?php
 	if($_SESSION['member_name']!="")
 	{
@@ -12,16 +17,29 @@
 			document.location='LogIn_Cart.php';
 		 </script>";
 	}
+	$invoiceCode=$_GET['invoiceCode'];
 	
 	if(isset($_COOKIE['user_qty']))
 	{
 		$qty=$_COOKIE['user_qty'];
+		$productName=$_COOKIE['easylife_cart'];
 		$noOfProduct=count($_COOKIE['user_qty']);
 	}
 	else
 	{
 		$noOfProduct=0;
 	}
+	$invoiceCode=$_GET['invoiceCode'];
+	$invoice=getInvoiceByCode($invoiceCode);
+	$member=getMemberById($invoice['Member_ID']);
+	$orders=getOrdersByInvoice($invoiceCode);
+	$p=0;
+	foreach($orders as $order)
+	{
+		$p=$p+(((int)$order['Quantity'])*((int)getProductByCode($order['Product_Code'])['Price']));
+	}
+	
+	
 ?>
 <html>
 	<head>
@@ -79,19 +97,19 @@
 							<th colspan="5"><h2>Order Information<h2></th>
 						<tr>
 						<tr>
-							<td><b>ORDER #12867</b><br>Order Date: Tuesday, December 19, 2017<br>Order Status: Pending<br>Order Total: Tk 1840</td>
+							<td><b>ORDER #<?=$invoiceCode?></b><br>Order Date: <?=explode(" ",$invoice['Date'])[0]?><br>Order Status: <?=$invoice['Status']?><br>Order Total: Tk <?=$p?></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td><b>BILLING ADDRESS</b>
-								<br>Efti
-								<br>Email: macefti276@gmail.com
+								<br><?=$member['Name']?>
+								<br>Email: <?=$member['Email']?>
 								<br>Phone: 01912311234
 								<br>Mirpur
 								<br>Dhaka</td>
 							<td><b>SHIPPING ADDRESS</b>
-								<br>Efti
-								<br>Email: macefti276@gmail.com
+								<br><?=$member['Name']?>
+								<br>Email: <?=$member['Email']?>
 								<br>Phone: 01912311234
 								<br>Mirpur
 								<br>Dhaka</td>
@@ -99,11 +117,10 @@
 						</tr>
 						<tr>
 							<td><b>PAYMENT</b>
-								<br>Payment Method: Cash On Delivery (COD)
-								<br>Payment Status: Pending</td>
+								<br>Payment Method: <?=$invoice['Payment_Method']?>
+								<br>Payment Status: <?=$invoice['Payment_Status']?></td>
 							<td><b>SHIPPING</b>
-								<br>Shipping Method:
-								<br>Shipping Status: Not yet shipped</td>
+								<br>Shipping Status: <?=$invoice['Status']?></td>
 							
 						</tr>
 						<tr >
@@ -112,39 +129,32 @@
 								<tr>
 									<td></td>
 									<td><b>Price</b></td>
-									<td><b>Quality</b></td>
+									<td><b>Quantity</b></td>
 									<td><b>Total</b></td>
 								</tr>
-								<tr >
-									<td width="800">
+								<?php
+								foreach($orders as $order)
+								{
+									$product=getProductByCode($order["Product_Code"]);
+									echo
+								"<tr >
+									<td width=\"800\">
 										<table >
 										<tr>
-											<td width="50">
-												<img src="resources/tshirt1.jpg" height="40" width="40"/>
+											<td width=\"50\">
+												<img src=\"resources/".$product['Name'].".jpg\" height=\"40\" width=\"40\"/>
 											</td>
-											<td>"Kakashi T-Shirt" Product Code: S-1-895</td>
+											<td>".$product['Name']." Product Code: ".$order["Product_Code"]."</td>
 										</tr>
 										</table>
 									</td>
-									<td>600 Tk</td>
-									<td>1</td>
-									<td>600 Tk</td>
-								</tr>
-								<tr >
-									<td width="800">
-										<table  >
-										<tr>
-											<td width="50">
-												<img src="resources/tshirt2.jpg" height="40" width="40"/>
-											</td>
-											<td>"Kakashi T-Shirt" Product Code: S-1-895</td>
-										</tr>
-										</table>
-									</td>
-									<td>600 Tk</td>
-									<td>2</td>
-									<td>1200 Tk</td>
-								</tr>
+									<td>".$product['Price']." Tk</td>
+									<td>".$order['Quantity']."</td>
+									<td>".(((int)$order['Quantity'])*((int)$product['Price']))." Tk</td>
+								</tr>";
+								}
+								?>
+								
 								<tr height="50">
 									<td></td>
 									<td></td>
@@ -155,14 +165,12 @@
 									<td></td>
 									<td></td>
 									<td><b>Net Total</b></td>
-									<td><b>1840 tk</b></td>
+									<td><b><?=((int)$p+40)?> tk</b></td>
 								</tr>
 							</table>
 							</td>
 						</tr>
-						<tr>
-							<th colspan="2"><a href="home.php">Back</a></th>
-						<tr>
+						
 					
 					</table>
 				</td>

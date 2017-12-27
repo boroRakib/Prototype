@@ -20,6 +20,11 @@
     function deleteProduct($productId){
         return deleteProductFromDB($productId);
     }
+	
+	function getProductCodeByName($Product)
+	{
+		return getProductCodeByNameFromDB($Product);
+	}
     
     function getAllProducts(){
         return getAllProductsFromDB();
