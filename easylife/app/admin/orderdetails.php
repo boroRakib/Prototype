@@ -4,23 +4,37 @@
  	require_once "../../service/invoice_serviece.php";
 	require_once "../../service/product_serviec.php";
 	$orders=getAllOrders();
+	if($_SERVER['REQUEST_METHOD']=="POST")
+		{
+			if($_POST['searchby']=="0")
+			{
+				$order=getOrderByCode($_POST['p']);
+				$orders=array($order);
+				if(empty($order))
+					$orders=array();
+			}
+			else if($_POST['searchby']=="1")
+			{
+				$orders=getOrdersByInvoice($_POST['p']);
+			}
+		}
 ?>
 
 <html>
 	<table >
 			<tr >
+			<form method="post">
 				<td width="40%">
-					<p>Search by:<p><select>
-						<option>Product Code</option>
-						<option>Name</option>
-						<option>Buyer</option>
-						<option>Order Status</option>
+					<p>Search by:<p><select name="searchby">
+						<option value="0">Order Code</option>
+						<option value="1">Invoice Code</option>
 					</select>
 					
 				</td>
 				<td>
-					<input type="text"/><input type="submit" value="Search Order"/>
+					<input name="p" type="text"/><input type="submit" value="Search Order"/>
 				</td>
+				</form>
 			</tr>
 		</table>
 		<br>

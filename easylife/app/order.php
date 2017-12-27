@@ -106,14 +106,12 @@
 								<br><?=$member['Name']?>
 								<br>Email: <?=$member['Email']?>
 								<br>Phone: 01912311234
-								<br>Mirpur
-								<br>Dhaka</td>
+								<br><?=$invoice['Billing_Address']?></td>
 							<td><hr/><b>SHIPPING ADDRESS</b>
 								<br><?=$member['Name']?>
 								<br>Email: <?=$member['Email']?>
-								<br>Phone: 01912311234
-								<br>Mirpur
-								<br>Dhaka</td>
+								<br>Phone: <?=$invoice['Phone']?>
+								<br><?=$invoice['Shipping_Address']?></td>
 							
 						</tr>
 						<tr>

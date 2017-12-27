@@ -46,7 +46,7 @@
 	
 	function getOrderByProductFromDB($Product_Code)
 	{
-        $sql = "SELECT * FROM order_product WHERE Product_Code=$Product_Code";        
+        $sql = "SELECT * FROM order_product WHERE `Product_Code`='$Product_Code'";        
         $result = executeSQL($sql);
         
         $order = mysqli_fetch_assoc($result);
