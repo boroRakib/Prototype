@@ -161,6 +161,11 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
+											<a href="admin/advertisement.php?memberID=<?=$memberID?>" target="contentFrame" >Advertisement</a>
+										</td>
+									</tr>
+									<tr height="10" >
+										<td align="center">
 											<a href="DataBase/DataBase.html" target="contentFrame" >Database</a>
 										</td>
 									</tr>

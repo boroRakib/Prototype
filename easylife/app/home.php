@@ -185,7 +185,7 @@
 													
 													lastPos=img.src.length;
 													src=img.src.substr(lastPos-5,lastPos-4);
-													
+													//alert(src);
 													if(src=="1.jpg")
 													document.getElementById('im').src='resources/2.jpg';
 													
@@ -266,7 +266,7 @@
 										<td align="center" colspan="3"> 
 
 											<script>
-												var images= ["resources/slider2.jpg","resources/slider3.jpg","resources/slider1.jpg"];
+												var images= ["resources/adv/slider2.jpg","resources/adv/slider3.jpg","resources/adv/slider1.jpg"];
 												var counter=1;
 												function next(){
 													var img = document.getElementById("imgholder");
