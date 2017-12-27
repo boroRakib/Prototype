@@ -64,7 +64,7 @@
 		if($isValid==true){
 			echo"done";
                 echo "<script>
-                        document.location='trackProduct.php?email=".$pcode."';
+                        document.location='trackProduct.php?email=".$email."';
                      </script>";
                 die();
             }
