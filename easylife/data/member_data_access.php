@@ -74,6 +74,19 @@
         return $members;
 	}
 	
+	function getAllUsersByAciveDSCFromDB()
+	{
+		$sql = "SELECT * FROM member WHERE Type=4 ORDER BY `Last_Logged_in` DESC";        
+        $result = executeSQL($sql);
+        
+        $members = array();
+        for($i=0; $row=mysqli_fetch_assoc($result); ++$i){
+            $members[$i] = $row;
+        }
+       // var_dump($members);
+        return $members;
+	}
+	
 	function getAllDescFromDB(){
         $sql = "SELECT * FROM member order by Last_Logged_in DESC";        
         $result = executeSQL($sql);
@@ -119,6 +132,28 @@
         return $member;
     }
 	
+	function getAdminByIDFromDB($Member_ID)
+	{
+        $sql = "SELECT * FROM member WHERE Member_ID=$Member_ID and Type=1";        
+        $result = executeSQL($sql);
+        
+        $member = mysqli_fetch_assoc($result);
+        
+        return $member;
+    }
+	
+	function getUserByIDFromDB($Member_ID)
+	{
+        $sql = "SELECT * FROM member WHERE Member_ID=$Member_ID and Type=4";        
+        $result = executeSQL($sql);
+        
+        $member = mysqli_fetch_assoc($result);
+        
+        return $member;
+    }
+	
+	
+	
 	function getMemberByUserNameFromDB($User_Name)
 	{
         $sql = "SELECT * FROM member WHERE User_Name=$User_Name";        
@@ -131,7 +166,7 @@
 
 	function getMembersByNameFromDB($Name)
 	{
-        $sql = "SELECT * FROM member WHERE Name LIKE '%$Name%'";
+        $sql = "SELECT * FROM member WHERE `Name` LIKE '%$Name%'";
         $result = executeSQL($sql);
         
         $members = array();
@@ -144,7 +179,27 @@
 	
 	function getMemberByEmailFromDB($Email)
 	{
-        $sql = "SELECT * FROM member WHERE Email=$Email";        
+        $sql = "SELECT * FROM member WHERE Email='".$Email."'";        
+        $result = executeSQL($sql);
+        
+        $member = mysqli_fetch_assoc($result);
+        
+        return $member;
+    }
+	
+	function getAdminByEmailFromDB($Email)
+	{
+        $sql = "SELECT * FROM member WHERE Email='".$Email."' and Type=1";        
+        $result = executeSQL($sql);
+        
+        $member = mysqli_fetch_assoc($result);
+        
+        return $member;
+    }
+	
+	function getUserByEmailFromDB($Email)
+	{
+        $sql = "SELECT * FROM member WHERE Email='".$Email."' and Type=4";        
         $result = executeSQL($sql);
         
         $member = mysqli_fetch_assoc($result);

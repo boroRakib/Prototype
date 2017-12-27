@@ -5,7 +5,7 @@
  	require_once "../../service/invoice_serviece.php";
 	require_once "../../service/product_serviec.php";
 	require_once "../../service/report_serviec.php";
-	$activeAdmins=getAllAdminsByAciveDSC();
+	$activeUsers=getAllUsersByAciveDSC();
 	$memberID=$_GET['memberID'];
 	$reports=getAllReports();
 	$admins=getAllAdmins();
@@ -93,10 +93,10 @@
 						<ul>
 						<?php
 						$aa=0;
-						foreach($activeAdmins as $activeAdmin)
+						foreach($activeUsers as $activeUser)
 						{
 							echo "
-							<li><a href=\"uview.php?memberID=".$activeAdmin['Member_ID']."\">".$activeAdmin['Name']."</a></li>";
+							<li><a href=\"uview.php?memberID=".$activeUser['Member_ID']."\">".$activeUser['Name']."</a></li>";
 							$aa++;
 							if($aa>=5)
 								break;

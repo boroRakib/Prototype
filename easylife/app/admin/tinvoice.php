@@ -2,6 +2,7 @@
  	$admin="admin";
  	require_once "../../service/invoice_serviece.php";
 	require_once "../../service/member_service.php";
+	$invoices=getAllInvoices();
 	
 ?>
 <html>
@@ -11,7 +12,7 @@
 					<p>Search by:<p><select>
 						<option>Invoice Code</option>
 						<option>Date</option>
-						<option>Buyer</option>
+						<option>Payment Status</option>
 						<option>Invoice Status</option>
 					</select>
 					
@@ -34,7 +35,7 @@
 										<th>Payment Status</th>
 									</tr>
 									<?php
-									$invoices=getAllInvoices();
+									
 									$cy=(int)date("Y");
 									$cm=(int)date("m");
 									$cd=(int)date("d");
