@@ -1,3 +1,25 @@
+<?php session_start(); 
+if(isset($_COOKIE['user_qty']))
+	{
+		$qty=$_COOKIE['user_qty'];
+		$noOfProduct=count($_COOKIE['user_qty']);
+	}
+	else
+	{
+		$noOfProduct=0;
+	}
+
+
+	if(isset($_SESSION['member_name']))
+	{
+		$memberName=$_SESSION['member_name'];
+		$memberID=$_SESSION['member_id'];
+	}
+	else
+	{
+		$memberID="";
+	}
+?>
 <html>
 	<head>
 		<title>Privacy Policy</title>
@@ -14,19 +36,31 @@
 				<td align="center" colspan="3">
 					<table  width="100%" bgcolor="WhiteSmoke" height="80" >
 						<tr>
-							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
-							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
-							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
+							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
+							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProductSearch.php"><button>Track Product</button></td>
 							<td align="center">
 								<table >
-									<tr rowspan="2">
-										<td><img src="resources/m.jpg" height="30" width="30"/></td>
-										<td><a href="Registration.php">Registartion</a></td>
-									</tr>
 									<tr>
-										<td><a href="home.php">Log Out</a></td>
-										<td><a href="logIn.php">Log In</a></td>
+										<td><img src="resources/m.jpg" height="30" width="30"/></td>
+										
+										<?php if($memberID=="") { ?>
+										<td><a href="Registration.php">Registartion</a></td>
+										<?php } ?>
+										<?php if($memberID!="") { ?>
+										<td><a href="personalInfo.php?memberID=<?=$memberID?>"><?=$memberName?></a></td>
+										<?php } ?>
+										
+									</tr>
+									<tr align="right">
+										<?php if($memberID!="") { ?>
+										<td colspan="2"><a href="LogOut.php">Log Out</a></td>
+										<?php } ?>
+										
+										<?php if($memberID=="") { ?>
+										<td colspan="2"><a href="logIn.php">Log In</a></td>
+										<?php } ?>
 									</tr>
 									
 								</table>
@@ -40,19 +74,19 @@
 					<table>
 						<tr>
 							
-							<td width="800" height="400">			
+							<td width="800" height="400" valign="top">			
 								<p align="justify">
 									
 
 								
 
-								This privacy policy sets out how easylife.com uses and protects any information that you give here when you use this website. We view protection of your privacy as a very important principle. We are committed to ensuring your privacy here. Your information will only be used in accordance with this privacy statement whenever we ask you to provide any information by which you can be identified while using this website.
+								<font size="5" color="SlateGray  ">This privacy policy sets out how <b>easylife</b> uses and protects any information that you give here when you use this website. We view protection of your privacy as a very important principle. We are committed to ensuring your privacy here. Your information will only be used in accordance with this privacy statement whenever we ask you to provide any information by which you can be identified while using this website.
 
-								You will be required to enter a valid phone number while signing up and placing an order on easylife. By registering your phone number with us, you consent to be contacted by us via phone calls and/or SMS, in case of any order or delivery related updates. easylife will not use your "personal information to initiate any promotional phone call or SMS. We store and process your information in computers that are protected by physical as well as reasonable technological security measures.
+								You will be required to enter a valid phone number while signing up and placing an order on <b>easylife</b>. By registering your phone number with us, you consent to be contacted by us via phone calls and/or SMS, in case of any order or delivery related updates. <b>easylife</b> will not use your "personal information to initiate any promotional phone call or SMS. We store and process your information in computers that are protected by physical as well as reasonable technological security measures.
 
-								easylife may change this privacy policy from time to time if needed by updating this page. Please check this page periodically to ensure that you are happy with our privacy policy.
+								<b>easylife</b> may change this privacy policy from time to time if needed by updating this page. Please check this page periodically to ensure that you are happy with our privacy policy.
 
-								</p>
+							</font></p>
 								
 								
 								
@@ -98,10 +132,11 @@
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								<a href="<?php if($memberID!="") { ?>personalInfo.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Personal Info</a></br>
 								
 								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br> <a href="report.php">Report</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br>
+								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>

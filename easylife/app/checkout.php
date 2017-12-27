@@ -72,7 +72,7 @@
 		<title>Checkout</title>
 	</head>
 	<body>
-		<table   width="100%" bgcolor="Gainsboro" >
+		<table   width="100%" bgcolor="white" >
 			<tr height="20">
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
@@ -207,14 +207,14 @@
 								<form method="post">
 								
 								<legend><b>Enter SHIPPING ADDRESS</b></legend>
-									<table  height="300" width="100%" bgcolor="white">
+									<table  height="300" width="100%" bgcolor="WhiteSmoke">
 										<tr>
 											<td>Name :</td>
-											<td colspan="2"><input id="name" name="name" value="<?=$name?>"/><span id="namemsg"></span><font color="red"><?=$name_err?></font></td>
+											<td colspan="2"><input size="48" name="name" value="<?=$name?>"/><span id="namemsg"></span><font color="red"><?=$name_err?></font></td>
 										</tr>
 										<tr>
 											<td>Address :</td>
-											<td><textarea name="address" id="address" value="<?=$address?>"></textarea><span id="addressmsg"><font color="red"><?=$address_err?></font></span></td>
+											<td><textarea name="address" rows="10" cols="50" value="<?=$address?>"></textarea><span id="addressmsg"><font color="red"><?=$address_err?></font></span></td>
 											<td>
 												<button>Use Billing Address</button>
 											</td>
@@ -223,7 +223,7 @@
 											
 										<tr>
 											<td>Phone:</td>
-											<td colspan="2"><input id="phone" name="phone" value="<?=$phone?>"/><span id="phonemsg"><font color="red"><?=$phone_err?></font></span></td>
+											<td colspan="2"><input size="48" name="phone" value="<?=$phone?>"/><span id="phonemsg"><font color="red"><?=$phone_err?></font></span></td>
 										</tr>
 										
 									</table>
@@ -233,7 +233,7 @@
 								<fieldset bgcolor="white">
 								<legend><b>Choose Payment Method</b></legend>	
 									
-									<table  width="100%" bgcolor="white">
+									<table  width="100%" bgcolor="WhiteSmoke">
 										<tr>
 											<td width="20%"><img src="resources/COD.jpg" height="40" width="100" /></td>
 											<td><input name="payMethod" type="radio" checked="checked" /><b>Cash On Delivery (COD)</b></td>
@@ -250,15 +250,15 @@
 											<td width="20%"><img src="resources/credit card.jpg" height="40" width="100" /></td>
 											<td><input name="payMethod" type="radio"/><b>Online Payment (Debit or Credit Card)</b></td>
 										</tr>
-										<tr>
-											<td align="center" bgcolor="YellowGreen " colspan="2"><input type="submit" value="confirm"/></td></form>
+										<tr height="50">
+											<td align="center" bgcolor="YellowGreen " colspan="2"><input type="submit" value="CONFIRM"/></td></form>
 										</tr>
 									</table>
 									</fieldset>
 							</td>
 							<td valign="top">
 							<br/>
-								<table width="80%" bgcolor="white">
+								<table width="80%" bgcolor="WhiteSmoke">
 									<tr>
 						
 										<td width="41%">Sub-Total: </td>

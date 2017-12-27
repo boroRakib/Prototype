@@ -1,9 +1,31 @@
+<?php session_start(); 
+if(isset($_COOKIE['user_qty']))
+	{
+		$qty=$_COOKIE['user_qty'];
+		$noOfProduct=count($_COOKIE['user_qty']);
+	}
+	else
+	{
+		$noOfProduct=0;
+	}
+
+
+	if(isset($_SESSION['member_name']))
+	{
+		$memberName=$_SESSION['member_name'];
+		$memberID=$_SESSION['member_id'];
+	}
+	else
+	{
+		$memberID="";
+	}
+?>
 <html>
 	<head>
 		<title>How To Buy</title>
 	</head>
 	<body>
-		<table border="1" width="100%">
+		<table  width="100%"  bgcolor="Gainsboro">
 			<tr>
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>
@@ -12,21 +34,33 @@
 			</tr>
 			<tr>
 				<td align="center" colspan="3">
-					<table border="1" width="100%">
+					<table  width="100%" bgcolor="WhiteSmoke" height="80" >
 						<tr>
-							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
-							<td align="center"><input type="text"/><input type="submit" value="Search Here"/></td>
-							<td align="center">(0)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
+							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
+							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
+							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
 							<td align="center"><a href="trackProductSearch.php"><button>Track Product</button></td>
 							<td align="center">
-								<table border="1">
-									<tr rowspan="2">
-										<td><img src="resources/m.jpg" height="30" width="30"/></td>
-										<td><a href="Registration.php">Registartion</a></td>
-									</tr>
+								<table >
 									<tr>
-										<td><a href="home.php">Log Out</a></td>
-										<td><a href="logIn.php">Log In</a></td>
+										<td><img src="resources/m.jpg" height="30" width="30"/></td>
+										
+										<?php if($memberID=="") { ?>
+										<td><a href="Registration.php">Registartion</a></td>
+										<?php } ?>
+										<?php if($memberID!="") { ?>
+										<td><a href="personalInfo.php?memberID=<?=$memberID?>"><?=$memberName?></a></td>
+										<?php } ?>
+										
+									</tr>
+									<tr align="right">
+										<?php if($memberID!="") { ?>
+										<td colspan="2"><a href="LogOut.php">Log Out</a></td>
+										<?php } ?>
+										
+										<?php if($memberID=="") { ?>
+										<td colspan="2"><a href="logIn.php">Log In</a></td>
+										<?php } ?>
 									</tr>
 									
 								</table>
@@ -40,81 +74,6 @@
 					<table>
 						<tr>
 							<td>
-								<table border="1" height="800">
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Winter Collection</option>
-												<option value="men.php">Gents Winter Collection</option>
-												<option value="women.php">Ladies Winter Collection</option>
-												<option value="kid.php">Kids Winter Collection</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Womens Clothing</option>
-												<option value="women.php">Hijab And Dupatta</option>
-												<option value="women.php">Saree</option>
-												<option value="women.php">Three Piece</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Mens Clothing</option>
-												<option value="men.php">Shirt</option>
-												<option value="men.php">Panjabi</option>
-												<option value="men.php">Pant</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Kids Clothing</option>
-												<option value="kid.php">T-Shirt</option>
-												<option value="kid.php">Trouser</option>
-												<option value="kid.php">Cap</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Accessories</option>
-												<option value="accessories.php">Ear Rings</option>
-												<option value="accessories.php">Money Bag</option>
-												<option value="accessories.php">Watch</option>
-												<option value="accessories.php">Necklace</option>
-												<option value="accessories.php">Sunglass</option>
-												<option value="accessories.php">Bag</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Footwear</option>
-												<option value="footWear.php">Mens Footwear</option>
-												<option value="footWear.php">Womens Footwear</option>
-												<option value="footWear.php">Kids Footwear</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<select onchange="location = this.value;">
-												<option value="home.php">Brand</option>
-												<option value="brand.php">Eacstasy</option>
-												<option value="brand.php">Aarong</option>
-												<option value="brand.php">Yellow</option>
-											</select>
-										</td>
-									</tr>
-								</table>
 								
 							</td>
 							<td width="800">
@@ -157,7 +116,7 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr bgcolor="WhiteSmoke ">
 				<td colspan="3" align="center">
 					<table>
 						<tr>
@@ -188,10 +147,11 @@
 							</td>
 							<td align="center">
 								<p><b>My Account</b></p>
-								<a href="personalInfo.php">Personal Info</a></br>
+								<a href="<?php if($memberID!="") { ?>personalInfo.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Personal Info</a></br>
 								
 								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br> <a href="report.php">Report</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br>
+								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
 							</td>
 							<td align="center">
 								<p><b>Visit Us</b></p>

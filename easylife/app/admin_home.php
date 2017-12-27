@@ -1,9 +1,21 @@
 <?php require_once "../data/member_data_access.php"; ?>
 <?php require_once "../data/report_data_access.php"; ?>
 <?php
-	$memberID=$_GET['memberID'];
-	updateLastActiveToDB($memberID);	
-	$reports=getAllReportsFromDB();	
+	if(isset($_GET['memberID']))
+	{
+		$memberID=$_GET['memberID'];
+		$memberName=getMemberByIDFromDB($memberID)['Name'];
+		updateLastActiveToDB($memberID);	
+		$reports=getAllReportsFromDB();	
+	}
+	else
+	{
+		echo "<script>				
+				document.location='logIn.php';
+				</script>";
+	}
+	
+	
 	if($noOfReports=count($reports)>0)
 	{
 		$noOfReports=count($reports);
@@ -26,18 +38,25 @@
 				<td align="center" colspan="3">
 					<table  width="100%" bgcolor="Gainsboro " >
 						<tr>
-							<td><a href="admin_home.php?memberID=<?=$memberID?>"><img src="resources/e.jpg" height="60" width="120" /></a></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td align="left"><a href="admin_home.php?memberID=<?=$memberID?>"><img src="resources/e.jpg" height="60" width="150" /></a></td>
+							
 							<td >
 								<table  width="100%">
 									<tr>
 										<td align="center">(<?=$noOfReports?>)Reports<a href="admin/treports.php" target="contentFrame"><img src="resources/report.png" height="30" width="30"/></a></td>
 										<td align="right">
 											<table >
-												<tr rowspan="2">
-													<td><img src="resources/m.jpg" height="30" width="30"/></td>
-												</tr>
 												<tr>
-													<td><a href="home.php">Log Out</a></td>
+													<td><img src="resources/m.jpg" height="30" width="30"/></td>
+													<?php if($memberID!="") { ?>
+													<td><a href="admin/uedetails.php?memberID=<?=$memberID?>" target="contentFrame"><?=$memberName?></a></td>
+													<?php } ?>
+												</tr>
+												<tr align="right">
+													<td colspan="2"><a href="home.php">Log Out</a></td>
 												</tr>
 												
 											</table>

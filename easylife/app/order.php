@@ -28,7 +28,7 @@
 		<title>Order</title>
 	</head>
 	<body>
-		<table  width="100%" bgcolor="Gainsboro">
+		<table  width="100%" bgcolor="white">
 			<tr>
 				<td align="center">Trusted Online Shopping Site In Bangladesh</td>
 				<td align="center"><img src="resources/contact.jpg" height="30" width="30"/>01851-851405,01759-833364(10am-10pm)</td>

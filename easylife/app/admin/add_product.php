@@ -5,7 +5,8 @@
 ?>
 <?php
 	$name=$price=$size=$Quantity=$Product_Feature=$brand=$catagory="";
-	$nameErr=$sizeErr=$brandErr=$CategoryErr=$QuantityErr=$priceErr="";
+	$nameErr=$sizeErr=$brandErr=$CategoryErr=$QuantityErr=$priceErr=$product_picErr="";
+	$product_pic="Image1";
 ?>
 <?php
 	if($_SERVER['REQUEST_METHOD']=="POST")
@@ -17,6 +18,10 @@
 		$Product_Feature=$_POST['Product_Feature'];
 		$brand=$_POST['brand'];
 		$catagory=$_POST['catagory'];
+		if(isset($_POST['propic']))
+		{
+			$productpic=$_POST['propic'];
+		}
 		
 		$isValid=true;
 		
@@ -24,7 +29,7 @@
             $isValid = false;
             $nameErr = "*";
         }
-		
+
 		else if(!(isUniqueProductName($name)))
  		{
  			$isValid = false;
@@ -66,9 +71,53 @@
 			// $isValid = false;
             // $priceErr = "Invalid price";
 		// }
+		// if(empty($productpic))
+		// {
+			// $isValid = false;
+			// $product_picErr="Image is required.";
+		// }
+		else
+		{
+			$product_pic=$name;
+			$target_dir = "../resources/$product_pic.jpg";
+			$target_file = $target_dir . basename($_FILES["propic"]["name"]);
+			$uploadOk = 1;
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+			
+			if(isset($_POST["submit"])) 
+			{
+				$check = getimagesize($_FILES["propic"]["tmp_name"]);
+				if($check !== false) {
+					//echo "File is an image - " . $check["mime"] . ".";
+					$uploadOk = 1;
+				} 
+				else 
+				{
+					$product_picErr= "File is not an image.";
+					$uploadOk = 0;$isValid = false;
+				}
+			}
+			if (file_exists($target_file))
+			{
+				$product_picErr= "file already exists.";
+				$uploadOk = 0;$isValid = false;
+			}
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" )
+			{
+				$product_picErr= "only JPG, JPEG, PNG & GIF files are allowed.";
+				$uploadOk = 0;$isValid = false;
+			}
+			
+		}
+		
+		
 		
 		if($isValid==true)
 		{
+			move_uploaded_file($_FILES["propic"]["tmp_name"], $target_dir);
+			
+			
+			
 			$products=getAllProducts();
 			$id=0;
 			foreach($products as $p)
@@ -99,7 +148,7 @@
 		}
 	}		
 ?>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 <fieldset>
     <legend><b>Add Product</b></legend>
         <br/>
@@ -205,14 +254,16 @@
 		</td>
 		<td>
 		<table>
-									<tr><td><img align="bottom" src="../resources/Image1.JPG" width="167"/></td></tr>
-									<tr><td><input type="file" name="propic" accept="image/*"/></td></tr>
-								</table>
+			<tr><td><img align="bottom" src="../resources/<?=$product_pic?>.JPG" width="167" height="200" /></td></tr>
+			<tr><td><input type="file" name="propic" accept="image/*"/></td>
+				<td><font color="red"><?=$product_picErr?></td>
+			</tr>
+		</table>
 								</td>
 								</tr>
 								</table>
         <hr/>
-        <input type="submit" value="Add"/>
+        <input type="submit" value="Add" name="submit"/>
         <input type="reset"/>
 </fieldset>
 </form>
