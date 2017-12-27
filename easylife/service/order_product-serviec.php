@@ -28,7 +28,7 @@
     
     function getOrderByCode($Order_Code){
         return getOrderByCodeFromDB($Order_Code);
-    }
+   }
     
     function getOrderByProduct($Product_Code){
         return getOrderByProductFromDB($Product_Code);
