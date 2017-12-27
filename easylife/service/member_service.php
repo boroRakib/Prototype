@@ -42,7 +42,10 @@
 		return getAllUsersFromDB();
 	}
 	
-    
+    function updataTotalPurchase($id,$purchase)
+	{
+		return updataTotalPurchaseToDB($id,$purchase);
+	}
 	
 	
     function getMemberById($memberId){

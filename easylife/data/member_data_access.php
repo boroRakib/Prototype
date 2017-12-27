@@ -23,7 +23,17 @@
 	
 	function updateLastActiveToDB($id)
 	{
-        $sql = "UPDATE member SET Last_Logged_in=CURRENT_TIMESTAMP WHERE Member_ID='$id'";
+		
+		$sql = "UPDATE member SET Last_Logged_in=CURRENT_TIMESTAMP WHERE Member_ID='$id'";
+       
+        $result = executeSQL($sql);
+        return $result;
+    }
+	
+	function updataTotalPurchaseToDB($id,$purchase)
+	{
+		$purchase=getMemberByIDFromDB($id)['Total_Purchase']+$purchase;
+         $sql = "UPDATE member SET Total_Purchase='$purchase' WHERE Member_ID='$id'";
         $result = executeSQL($sql);
         return $result;
     }

@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <?php require_once "../service/invoice_serviece.php";
 	require_once "../service/product_serviec.php";
+	require_once "../service/member_service.php";
 	require_once "../service/order_product-serviec.php";?>
 
 <?php
@@ -123,11 +124,14 @@
 				{
 					unset($_COOKIE['user_qty']);
 					unset($_COOKIE['easylife_cart']);
+					
+					updataTotalPurchase($memberID,$_SESSION['Sub-Total']+60);
+					
                 echo "<script>				
 						document.location='cartEmpty.php?invoiceCode=".($id+1)."';
 					 </script>";
                 die();
-				}
+				 }
             }
             else{
                 echo "Internal Error<hr/>";
@@ -286,9 +290,7 @@
 										<tr>
 											<td>Address :</td>
 											<td><textarea name="address" rows="10" cols="50" value="<?=$address?>"></textarea><span id="addressmsg"><font color="red"><?=$address_err?></font></span></td>
-											<td>
-												<button>Use Billing Address</button>
-											</td>
+											
 										</tr>
 										
 											
