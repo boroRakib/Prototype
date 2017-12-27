@@ -10,7 +10,7 @@
 ?>
 <?php
     function addProduct($product){
-        return addProductToDb($product);
+        return addProductToDB($product);
     }
     
     function editProduct($product){

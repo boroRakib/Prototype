@@ -71,50 +71,55 @@
 			// $isValid = false;
             // $priceErr = "Invalid price";
 		// }
-		// if(empty($productpic))
-		// {
-			// $isValid = false;
-			// $product_picErr="Image is required.";
-		// }
-		// else
-		// {
-			// $product_pic=$name;
-			// $target_dir = "../resources/$product_pic.jpg";
-			// $target_file = $target_dir . basename($_FILES["propic"]["name"]);
-			// $uploadOk = 1;
-			// $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		if($_FILES["propic"]["tmp_name"]=="")
+		{
+			$isValid = false;
+			$product_picErr="Image is required.";
+			$uploadOk = 0;
+		}
+		else
+		{
+			$product_pic=$name;
+			$target_dir = "../resources/$product_pic.jpg";
+			$target_file = $target_dir . basename($_FILES["propic"]["name"]);
+			$uploadOk = 1;
+			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 			
-			// if(isset($_POST["submit"])) 
-			// {
-				// $check = getimagesize($_FILES["propic"]["tmp_name"]);
-				// if($check !== false) {
-					//echo "File is an image - " . $check["mime"] . ".";
-					// $uploadOk = 1;
-				// } 
-				// else 
-				// {
-					// $product_picErr= "File is not an image.";
-					// $uploadOk = 0;$isValid = false;
-				// }
-			// }
-			// if (file_exists($target_file))
-			// {
-				// $product_picErr= "file already exists.";
-				// $uploadOk = 0;$isValid = false;
-			// }
-			// if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" )
-			// {
-				// $product_picErr= "only JPG, JPEG, PNG & GIF files are allowed.";
-				// $uploadOk = 0;$isValid = false;
-			// }
+			if(isset($_POST["submit"])&& $_FILES["propic"]["tmp_name"]!="") 
+			{
+				$check = getimagesize($_FILES["propic"]["tmp_name"]);
+				if($check !== false) {
+					$uploadOk = 1;
+				} 
+				else 
+				{
+					$product_picErr= "File is not an image.";
+					$uploadOk = 0;$isValid = false;
+				}
+			}
+			if (file_exists($target_file))
+			{
+				$product_picErr= "file already exists.";
+				$uploadOk = 0;$isValid = false;
+			}
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" )
+			{
+				$product_picErr= "only JPG, JPEG, PNG & GIF files are allowed.";
+				$uploadOk = 0;$isValid = false;
+			}
 			
-		// }
+		}
 		
+		if($uploadOk != 0)
+		{
+			move_uploaded_file($_FILES["propic"]["tmp_name"], $target_dir);
+		}
+		
+			
 		
 		
 		if($isValid==true)
 		{
-			//move_uploaded_file($_FILES["propic"]["tmp_name"], $target_dir);
 			
 			
 			
@@ -135,7 +140,7 @@
 			$product['Brand']=$brand;
 			$product['Size']=$size;
 			$product['Description']=$Product_Feature;
-			var_dump($product);
+			//var_dump($product);
 			if(addProductToDB($product)==true){
                 echo "<script>
                         document.location='successproduct.php?ProductCode=".$product['Product_Code']."';
