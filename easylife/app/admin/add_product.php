@@ -76,45 +76,45 @@
 			// $isValid = false;
 			// $product_picErr="Image is required.";
 		// }
-		else
-		{
-			$product_pic=$name;
-			$target_dir = "../resources/$product_pic.jpg";
-			$target_file = $target_dir . basename($_FILES["propic"]["name"]);
-			$uploadOk = 1;
-			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		// else
+		// {
+			// $product_pic=$name;
+			// $target_dir = "../resources/$product_pic.jpg";
+			// $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+			// $uploadOk = 1;
+			// $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 			
-			if(isset($_POST["submit"])) 
-			{
-				$check = getimagesize($_FILES["propic"]["tmp_name"]);
-				if($check !== false) {
+			// if(isset($_POST["submit"])) 
+			// {
+				// $check = getimagesize($_FILES["propic"]["tmp_name"]);
+				// if($check !== false) {
 					//echo "File is an image - " . $check["mime"] . ".";
-					$uploadOk = 1;
-				} 
-				else 
-				{
-					$product_picErr= "File is not an image.";
-					$uploadOk = 0;$isValid = false;
-				}
-			}
-			if (file_exists($target_file))
-			{
-				$product_picErr= "file already exists.";
-				$uploadOk = 0;$isValid = false;
-			}
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" )
-			{
-				$product_picErr= "only JPG, JPEG, PNG & GIF files are allowed.";
-				$uploadOk = 0;$isValid = false;
-			}
+					// $uploadOk = 1;
+				// } 
+				// else 
+				// {
+					// $product_picErr= "File is not an image.";
+					// $uploadOk = 0;$isValid = false;
+				// }
+			// }
+			// if (file_exists($target_file))
+			// {
+				// $product_picErr= "file already exists.";
+				// $uploadOk = 0;$isValid = false;
+			// }
+			// if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" )
+			// {
+				// $product_picErr= "only JPG, JPEG, PNG & GIF files are allowed.";
+				// $uploadOk = 0;$isValid = false;
+			// }
 			
-		}
+		// }
 		
 		
 		
 		if($isValid==true)
 		{
-			move_uploaded_file($_FILES["propic"]["tmp_name"], $target_dir);
+			//move_uploaded_file($_FILES["propic"]["tmp_name"], $target_dir);
 			
 			
 			
