@@ -29,13 +29,13 @@
 ?>
 <?php 
 $email=$_GET['email'];
-$order=getOrdersByMemberEmail($email);
+$orders=getOrdersByMemberEmail($email);
 
 
 ?>
 	<html>
 		<head>
-			<title>User Report</title>
+			<title>Track Product</title>
 		</head>
 		<body>
 			<table   width="100%" bgcolor="Gainsboro" >
