@@ -29,12 +29,12 @@
 ?>
 	
 <?php
-	$pcode=$email="";
-	$emailErr=$pcodeErr="";
+	$icode=$email="";
+	$emailErr=$icodeErr="";
     if($_SERVER['REQUEST_METHOD']=="POST")
 	{
 		$email=trim($_POST['email']);
-		$pcode=trim($_POST['pcode']);
+		$icode=trim($_POST['icode']);
 		
 		$isValid = true;
         if(empty($email)){
@@ -51,11 +51,11 @@
             $emailErr = "Email Not found";
 		}
 		
-		if(empty($pcode)){
+		if(empty($icode)){
             $isValid = false;
-            $pcodeErr = "Insert a Product code";
+            $icodeErr = "Insert a Invoice code";
         }
-		elseif(getOrderByProductFromDB($pcode)!=true)
+		elseif(getInvoiceByCodeFromDB($icode)!=true)
 		{
 			$isValid = false;
             $emailErr = "Product Not found";
@@ -64,7 +64,7 @@
 		if($isValid==true){
 			echo"done";
                 echo "<script>
-                        document.location='trackProduct.php?email=".$email."';
+                        document.location='trackProduct.php?email=".$icode."';
                      </script>";
                 die();
             }
@@ -143,8 +143,8 @@
 												</tr>
 												<tr>
 													<td>Product Code</td>
-													<td><input type="text" name="pcode" value="<?=$pcode?>"/></td>
-													<td><font color="red"><?=$pcodeErr?></font></td>
+													<td><input type="text" name="icode" value="<?=$icode?>"/></td>
+													<td><font color="red"><?=$icodeErr?></font></td>
 												</tr>
 												<tr>
 													<td></td>
