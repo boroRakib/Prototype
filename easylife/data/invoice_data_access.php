@@ -20,6 +20,12 @@
         $result = executeSQL($sql);
         return $result;
     }
+	function deleteInvoiceByCodeFromDB($invoice_code)
+	{
+        $sql = "DELETE FROM invoice WHERE Invoice_Code='$invoice_code";
+        $result = executeSQL($sql);
+        return $result;
+    }
 	
 	function getAllInvoicesFromDB()
 	{

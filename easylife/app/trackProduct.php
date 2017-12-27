@@ -28,9 +28,8 @@
 
 	
 ?>
-<?php
-	$ocode=$pcode=$oq=$icode="";
-?>
+
+
 
 	<html>
 		<head>
@@ -94,7 +93,7 @@
 									$icode=$_GET['icode'];
 									$cy=(int)date("Y");
 									$cm=(int)date("m");
-									$cd=(int)date("d");									
+									$cd=(int)date("d");
 									$invoice=getInvoiceByCodeFromDB($icode);
 									$y=(int)explode("-",explode(" ",$invoice['Date'])[0])[0];
 									$m=(int)explode("-",explode(" ",$invoice['Date'])[0])[1];
@@ -133,7 +132,7 @@
 									?>		
 						<tr>
 							<th colspan="2"><a href="order.php"><input type="submit" value="Order Details"></a></th>
-							<th colspan="2"><a href="shoppingCart.php"><input type="submit" value="Cancel Order"></a></th>
+							<th colspan="2"><a href="cancelOrder.php?del=<?=$invoice['Invoice_Code']?>"><input type="submit" value="Cancel Order" name="cancel"></a></th>
 						</tr>
 												
 												
