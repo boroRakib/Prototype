@@ -43,12 +43,20 @@
         }
        
 		if($isValid==true){
-			$code=getLastReportCodeFromDB()['MAX(Report_Code)'];
-			$report['Report_Code']=$code+1;
-			$report['Report_Title']=$tit;
-			$report['Member_ID']=$memberID;
-			$report['Description']=$repo;
-			if(addReportToDB($report)==true){
+			$reports=getAllReportsFromDB();
+			$id=0;
+			foreach($reports as $m)
+			{
+				if($id<((int)$m['Report_Code']))
+				{
+					$id=(int)$m['Report_Code'];
+				}
+			}
+			$report1['Report_Code']=$id+1;
+			$report1['Report_Title']=$tit;
+			$report1['Member_ID']=$memberID;
+			$report1['Description']=$repo;
+			if(addReportToDB($report1)==true){
                 echo "<script>
                         document.location='successReport.php';
                      </script>";
