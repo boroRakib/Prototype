@@ -20,6 +20,9 @@
     function deleteInvoice($invoice){
         return deleteInvoiceFromDB($invoice);
     }
+	function deleteInvoiceByCode($invoice_code){
+        return deleteInvoiceByCodeFromDB($invoice_code);
+    }
     
     function getAllInvoices(){
         return getAllInvoicesFromDB();

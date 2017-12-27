@@ -2,7 +2,7 @@
 <?php
 	function addInvoiceToDB($invoice)
 	{
-        $sql = "INSERT INTO invoice (Invoice_Code, Member_ID, Payment_Method, Shipping_Address, Billing_Address) VALUES ('$invoice[Invoice_Code]','$invoice[Member_ID]','$invoice[Payment_Method]','$invoice[Shipping_Address]','$invoice[Billing_Address]')";
+        $sql = "INSERT INTO invoice (Invoice_Code, Member_ID, Phone, Payment_Method, Shipping_Address, Billing_Address) VALUES ('$invoice[Invoice_Code]','$invoice[Member_ID]','$invoice[Phone]','$invoice[Payment_Method]','$invoice[Shipping_Address]','$invoice[Billing_Address]')";
         $result = executeSQL($sql);
         return $result;
     }
@@ -17,6 +17,12 @@
 	function deleteInvoiceFromDB($invoice)
 	{
         $sql = "DELETE FROM invoice WHERE Invoice_Code='$invoice[Invoice_Code]'";
+        $result = executeSQL($sql);
+        return $result;
+    }
+	function deleteInvoiceByCodeFromDB($invoice_code)
+	{
+        $sql = "DELETE FROM invoice WHERE Invoice_Code='$invoice_code";
         $result = executeSQL($sql);
         return $result;
     }

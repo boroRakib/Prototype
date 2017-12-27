@@ -66,6 +66,15 @@
         return $product;
     }
 	
+	function getProductCodeByNameFromDB($Product){
+        $sql = "SELECT `Product _Code` as `p` FROM product WHERE `Name`='$Product'";        
+        $result = executeSQL($sql);
+        
+        $product = mysqli_fetch_assoc($result);
+        
+        return $product;
+    }
+	
 	function getProductsByNameFromDB($Name){
         $sql = "SELECT * FROM product WHERE Name LIKE '%$Name%'";
         $result = executeSQL($sql);
