@@ -1,7 +1,8 @@
 <?php session_start(); ?>
 <?php require_once "../service/validation_service.php"; ?>
 <?php require_once "../service/member_service.php"; ?>
-<?php require_once "../service/order_product-serviec.php"; ?>
+<?php require_once "../service/invoice_serviece.php"; ?>
+
 <?php
 		
 	if(isset($_COOKIE['user_qty']))
@@ -27,12 +28,10 @@
 
 	
 ?>
-<?php 
-$email=$_GET['email'];
-$orders=getOrdersByMemberEmail($email);
-
-
+<?php
+	$ocode=$pcode=$oq=$icode="";
 ?>
+
 	<html>
 		<head>
 			<title>Track Product</title>
@@ -84,36 +83,64 @@ $orders=getOrdersByMemberEmail($email);
 				</tr>
 				<tr>
 					<td colspan="3" align="center">
-						<table width="100%" height="400">
-							<tr>
-								
-								<td align="center" width="80%">
+						<table width="40%" height="400">								
+									<tr>
+										<th>Invoice Code</th>
+										<th>Date</th>
+										<th>Order Status</th>
+										<th>Payment Status</th>
+									</tr>
+									<?php
+									$invoices=getAllInvoices();
+									$cy=(int)date("Y");
+									$cm=(int)date("m");
+									$cd=(int)date("d");
+									foreach($invoices as $invoice)
+									{
+									$member=getMemberById($invoice['Invoice_Code']);
+									$y=(int)explode("-",explode(" ",$invoice['Date'])[0])[0];
+									$m=(int)explode("-",explode(" ",$invoice['Date'])[0])[1];
+									$d=(int)explode("-",explode(" ",$invoice['Date'])[0])[2];
 									
-											<table  width="600">
-												<tr>
-													<td>Email Id</td>
-													<td><input type="text" name="email" value="<?=$email?>"/></td>
-													<td><font color="red"><?=$emailErr?></font></td>
-												</tr>
-												<tr>
-													<td>Product Code</td>
-													<td><input type="text" name="pcode" value="<?=$pcode?>"/></td>
-													<td><font color="red"><?=$pcodeErr?></font></td>
-												</tr>
-												<tr>
-													<td></td>
-													<td><input type="submit" Value="Track"/></td>
-												</tr>
+									if($cy==$y)
+									{
+										if($cm==$m)
+										{
+											if(($cd==$d)||($cd<$d))
+											{
+												$log="Today";
+											}
+											else
+											{
+												$log=($cd-$d)." day(s) ago";
+											}
+										}
+										else
+										{
+											$log=($cm-$m)." month(s) ago";
+										}
+									}
+									else
+									{
+										$log=($cy-$y)." year(s) ago";
+									}
+									echo
+									"<tr bgcolor='whitesmoke'>
+										<td  align='center' >".$invoice['Invoice_Code']."</td>
+										<td  align='center'>".$log."</td>
+										<td  align='center'>".$invoice['Status']."</td>
+										<td  align='center'>".$invoice['Payment_Status']."</td>
+									</tr>";
+									}
+									?>		
+						<tr>
+							<th colspan="2"><a href="order.php"><input type="submit" value="Order Details"></a></th>
+							<th colspan="2"><a href="shoppingCart.php"><input type="submit" value="Cancel Order"></a></th>
+						</tr>
 												
 												
-											</table>	
-										<table/>	
-											</td>
-										</tr>
-									</table>						
-								</td>
-							</tr>
-						</table>
+							</table>
+
 					</td>
 				</tr>
 							
