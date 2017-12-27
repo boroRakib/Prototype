@@ -2,23 +2,44 @@
  	$admin="admin";
  	require_once "../../service/product_serviec.php"; 
 ?>
+<?php
 
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		if($_REQUEST['search']=="name")
+		{
+			$products=getProductsByName($_REQUEST['name']);
+		}
+		if($_REQUEST['search']=="pcode")
+		{
+			$product=getProductByCode($_REQUEST['name']);
+			$products=array($product);
+		}
+		
+	}
+	else
+		{
+			$products=getAllProducts();
+		}
+?>
 <html>
+	<form method="post">
 	<table >
 			<tr >
 				<td width="40%">
-					<p>Search by:<p><select>
-						<option>Product Code</option>
-						<option>Name</option>
-						<option>Price</option>
+					<p>Search by:<p>
+					<select name="search">
+						<option value="name">Name</option>
+						<option value="pcode">Product Code</option>
 					</select>
 					
 				</td>
 				<td>
-					<input type="text"/><input type="submit" value="Search Product"/>
+					<input type="text" name="name"/><input type="submit" value="Search Product"/>
 				</td>
 			</tr>
 		</table>
+</form>	
 		<br>
 		<br>
 	<fieldset >
@@ -33,7 +54,7 @@
 										<th>Remaining Quantity</th>
 									</tr>
 							<?php
-									$products=getAllProducts();
+		
 									foreach($products as $product)
 									
 									

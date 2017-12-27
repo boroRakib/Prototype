@@ -185,11 +185,27 @@
 										<h2><?=$product[0]['Name']?></h2>
 										
 										<h3>Product Code: <?=$product[0]['Product _Code']?></h3>
-										<p>Review : <input type="radio"/><input type="radio"/><input type="radio"/><input type="radio"/><input type="radio"/></p>
+										<p>Review : 
+											<select id="review" onchange="review()">
+											<option value=""></option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											</select>
+									<script>
+										function review()
+										{
+											 var x = document.getElementById("review");
+											 alert("hello");
+										}
+									</script>
+										</p>
 										<h3>Tk <?=$product[0]['Price']?></h3>
-										<p>Size : <input type="radio">XL</input><input type="radio"/>L</input><input type="radio"/>M</input><input type="radio"/>S</input></p>
+										<p>Size : <input type="radio" name="size">XL</input><input type="radio" name="size"/>L</input><input type="radio" name="size"/>M</input><input type="radio" name="size"/>S</input></p>
 										<p>Quantity: <input id="qty" name="user_qty" value="1"/></p>
-										
+									
 										
 									<script>
 										function check_quantity()

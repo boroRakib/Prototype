@@ -185,11 +185,7 @@
 			</table>
 			</td>
 			<td>
-			<table>
-					<tr  align="right"><td><img align="top" src="../resources/Image1.JPG" width="167"/></td></tr>
-					<tr><td><input type="file" name="propic" accept="image/*"/>
-							</td></tr>
-			</table>
+			
 									</td>
 									</tr>
 									</table>
