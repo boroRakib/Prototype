@@ -131,7 +131,7 @@
 									
 									?>		
 						<tr>
-							<th colspan="2"><a href="order.php"><input type="submit" value="Order Details"></a></th>
+							<th colspan="2"><a href="order.php?invoiceCode=<?=$icode?>"><input type="submit" value="Order Details"></a></th>
 							<th colspan="2"><a href="cancelOrder.php?del=<?=$invoice['Invoice_Code']?>"><input type="submit" value="Cancel Order" name="cancel"></a></th>
 						</tr>
 												

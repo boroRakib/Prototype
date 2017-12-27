@@ -1,8 +1,8 @@
+<?php session_start(); ?>
 <?php require_once "../service/product_serviec.php"; ?>
 <?php
 	$product_name=$_GET['product_name'];
 	$product=getProductsByName($product_name);	
-
 	if(!isset($_COOKIE['product_name']))
 	{
 		 $cookie_name = "product_name";
@@ -26,7 +26,7 @@
 	}
 	
 
-	session_start();
+	
 	if(isset($_SESSION['member_name']))
 	{
 		$memberName=$_SESSION['member_name'];
@@ -36,6 +36,10 @@
 	{
 		$memberID="";
 	}
+?>
+<?php
+	$suggetions=getProductsByCatagory($product[0]['Catagory']);
+	//var_dump($suggetions);
 ?>
 
 <html>
@@ -229,10 +233,20 @@
 												<td colspan="3"><h3>Suggested Products</h3></td>
 											</tr>
 											<tr>
+											<?php if(count($suggetions)>4) {?>
+													<?php $count=0; foreach($suggetions as $s) { ?>
+													
+														<?php if($s['Name']!=$product_name) {?>
+															<?php if($count<3) {?>
+															<td align="center" ><a href="details.php?product_name=<?=$s['Name']?>"><img src="resources/<?=$s['Name']?>.jpg" height="200"/></a><br/>Tk 390</td>
+															<?php }?>
+														<?php $count++;
+															if($count==3){break;}
+														}?>
+													<?php }?>
+												<?php }?>
 												
-												<td align="center" ><a href="details.php"><img src="resources/tshirt5.jpg" height="200"/></a><br/>Tk 390</td>
-												<td align="center"><a href="details.php"><img src="resources/tshirt4.jpg" height="200"/></a><br/>Tk 390</td>
-												<td align="center"><a href="details.php"><img src="resources/tshirt3.jpg" height="200"/></a><br/>Tk 390</td>
+												
 												
 											</tr>
 											

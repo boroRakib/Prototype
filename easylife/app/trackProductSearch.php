@@ -68,9 +68,9 @@
                      </script>";
                 die();
             }
-            else{
-                echo "Internal Error<hr/>";
-            }
+            // else{
+                // echo "Internal Error<hr/>";
+            // }
 			
 			
 		}
@@ -142,7 +142,7 @@
 													<td><font color="red"><?=$emailErr?></font></td>
 												</tr>
 												<tr>
-													<td>Product Code</td>
+													<td>Order Code</td>
 													<td><input type="text" name="icode" value="<?=$icode?>"/></td>
 													<td><font color="red"><?=$icodeErr?></font></td>
 												</tr>

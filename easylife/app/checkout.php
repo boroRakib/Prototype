@@ -121,8 +121,10 @@
 				
 				if($cc==true)
 				{
+					unset($_COOKIE['user_qty']);
+					unset($_COOKIE['easylife_cart']);
                 echo "<script>				
-						document.location='order.php?invoiceCode=".($id+1)."';
+						document.location='cartEmpty.php?invoiceCode=".($id+1)."';
 					 </script>";
                 die();
 				}

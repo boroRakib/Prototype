@@ -52,16 +52,18 @@
 				<td align="center"><a href="howToBuy.php">How To Buy</a></td>
 				
 			</tr>
-			<tr>
+<tr height="80">
 				<td align="center" colspan="3">
-					<table  width="100%">
+					<table   width="100%" bgcolor="WhiteSmoke " height="80">
 						<tr>
-							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="120" /></a></td>
+
+							<td align="center"><a href="home.php"><img src="resources/e.jpg" height="60" width="150" /></a></td>
 							<form action="product_by_search.php"><td align="center"><input size="40" name="search" placeholder="Search products"/><input type="submit" value="Search"/></td></form>
+
 							<td align="center">(<?=$noOfProduct?>)items<a href="shoppingCart.php"><img src="resources/c.jpg" height="30" width="30"/></a></td>
-							<td align="center"><a href="trackProductSearch.php"><button>Track Product</button></td>
+							<td align="center"><a href="trackProductSearch.php"><button>Track Product</button></a></td>
 							<td align="center">
-								<table border="1">
+								<table  >
 									<tr>
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										
@@ -93,20 +95,20 @@
 				<td colspan="3" align="center">
 					<table  width="100%" height="600">
 						<tr>
-							<th colspan="5"><h2>Order Information<h2></th>
+							<th colspan="5"><hr/><h2>Order Information<h2><hr/></th>
 						<tr>
 						<tr>
 							<td><b>ORDER #<?=$invoiceCode?></b><br>Order Date: <?=explode(" ",$invoice['Date'])[0]?><br>Order Status: <?=$invoice['Status']?><br>Order Total: Tk <?=$p?></td>
 							<td></td>
 						</tr>
 						<tr>
-							<td><b>BILLING ADDRESS</b>
+							<td><hr/><b>BILLING ADDRESS</b>
 								<br><?=$member['Name']?>
 								<br>Email: <?=$member['Email']?>
 								<br>Phone: 01912311234
 								<br>Mirpur
 								<br>Dhaka</td>
-							<td><b>SHIPPING ADDRESS</b>
+							<td><hr/><b>SHIPPING ADDRESS</b>
 								<br><?=$member['Name']?>
 								<br>Email: <?=$member['Email']?>
 								<br>Phone: 01912311234
@@ -119,7 +121,7 @@
 								<br>Payment Method: <?=$invoice['Payment_Method']?>
 								<br>Payment Status: <?=$invoice['Payment_Status']?></td>
 							<td><b>SHIPPING</b>
-								<br>Shipping Status: <?=$invoice['Status']?></td>
+								<br>Shipping Status: <?=$invoice['Status']?><br/></td>
 							
 						</tr>
 						<tr >
@@ -166,6 +168,9 @@
 									<td><b>Net Total</b></td>
 									<td><b><?=((int)$p+40)?> tk</b></td>
 								</tr>
+								<tr >
+									<td colspan="4" bgcolor="red" align="center"><a href="cancelOrder.php?del=<?=$invoiceCode?>"><input type="submit" value="Cancel Order" name="cancel"></td>
+								</tr>
 							</table>
 							</td>
 						</tr>
@@ -174,7 +179,7 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
+			<tr bgcolor="WhiteSmoke ">
 				<td colspan="3" align="center">
 					<table>
 						<tr>
