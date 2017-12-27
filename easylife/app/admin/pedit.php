@@ -138,8 +138,7 @@
 								<td>
 								<table>
 									<tr><td><img align="top" src="../resources/<?=$product['Name']?>.jpg" width="167"/></td></tr>
-									<tr><td><input type="file" name="propic" accept="image/*"/>
-						</td></tr>
+									<tr><td><a href="product_pic_change.php?productCode=<?=$productCode?>">Change picture</a></td></tr>
 								</table>
 								</td>
 								</tr>

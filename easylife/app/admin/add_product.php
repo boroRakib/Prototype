@@ -262,7 +262,7 @@
 		<table>
 			<tr><td><img align="bottom" src="../resources/<?=$product_pic?>.JPG" width="167" height="200" /></td></tr>
 			<tr><td><input type="file" name="propic" accept="image/*"/></td>
-				<td><font color="red"><?=$product_picErr?></td>
+				<td><font color="red"><?=$product_picErr?></font></td>
 			</tr>
 		</table>
 								</td>
