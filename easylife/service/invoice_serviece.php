@@ -26,8 +26,8 @@
     }
     
 	
-	function getInvoiceByOrderCode($Invoice_Code){
-        return getInvoiceByCodeFromDB($Invoice_Code);
+	function getInvoiceByCode($invoice){
+        return getInvoiceByCodeFromDB($invoice);
     }
     
     function getInvoiceByMember($Member_ID){

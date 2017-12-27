@@ -74,6 +74,18 @@
         return $members;
 	}
 	
+	function getAllDescFromDB(){
+        $sql = "SELECT * FROM member order by Last_Logged_in DESC";        
+        $result = executeSQL($sql);
+        
+        $products = array();
+        for($i=0; $row=mysqli_fetch_assoc($result); ++$i){
+            $products[$i] = $row;
+        }
+        
+        return $products;
+    }
+	
 	function getAllUsersFromDB()
 	{
         $sql = "SELECT * FROM member WHERE Type=4";        

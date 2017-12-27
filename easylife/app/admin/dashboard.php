@@ -1,11 +1,13 @@
 <?php 
  	$admin="admin";
- 	require_once "../../service/invoice_serviece.php";
 	require_once "../../service/member_service.php";
-	require_once "../../service/order_product-serviec.php";
+	require_once "../../service/order_product-serviec.php"; 
+ 	require_once "../../service/invoice_serviece.php";
 	require_once "../../service/product_serviec.php";
 	require_once "../../service/report_serviec.php";
+	$activeAdmins=getAllAdminsByAciveDSC();
 	$memberID=$_GET['memberID'];
+	$reports=getAllReports();
 	$admins=getAllAdmins();
 	$users=getAllUsers();
 	$products=getAllProducts();
@@ -14,18 +16,24 @@
 	$activeUser=0;
 	$monthlyOrders=0;
 	$cm=(int)date("m")-1;
+	
 	foreach($users as $user)
 	{
 		if(((int)explode("-",explode(" ",$user['Last_Logged_in'])[0])[1])>$cm)
 			$activeUser++;
 	}
+	
+	
 	foreach($orders as $order)
 	{
-		// var_dump($order['Invoice_Code']);
-		// var_dump(getInvoiceByCode("1"));
-		// $d=(int)getInvoiceByOrderCode($order['Invoice_Code'])['Date'];
-		// if((explode("-",explode(" ",$d)[0])[1])>$cm)
-			// $monthlyOrders++;
+		foreach($invoices as $invoice)
+		{
+			if($order['Invoice_Code']==$invoice['Invoice_Code'])
+			{
+				if(explode("-",explode(" ",$invoice['Date'])[0])[1]>$cm)
+					$monthlyOrders++;
+			}
+		}
 	}
 	
 ?>
@@ -84,17 +92,15 @@
 						<td>
 						<ul>
 						<?php
-						// $activeAdmins=getAllAdminsByAciveDSC();
-						// var_dump($activeAdmins);
-						// $aa=0;
-						// foreach($activeAdmins as $activeAdmin)
-						// {
-							// echo "
-							// <li><a href=\"uview.php?memberID=".$activeAdmin['Member_ID']."\">".$activeAdmin['Name']."</a></li>";
-							// $aa++;
-							// if($aa>=5)
-								// break;
-						// }
+						$aa=0;
+						foreach($activeAdmins as $activeAdmin)
+						{
+							echo "
+							<li><a href=\"uview.php?memberID=".$activeAdmin['Member_ID']."\">".$activeAdmin['Name']."</a></li>";
+							$aa++;
+							if($aa>=5)
+								break;
+						}
 						?>
 						</td>
 							
@@ -150,7 +156,7 @@
 				<td width="33%" align="center">
 				<fieldset>
 					<legend>Reports</legend>
-					<h2>5</h2><br><a href="treports.php">Details
+					<h2><?=count($reports)?></h2><br><a href="treports.php">Details
 				</fieldset>
 				</td>
 			</tr>
