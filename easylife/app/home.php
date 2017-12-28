@@ -258,11 +258,11 @@
 
 
 
-											<a href="details.php"><img id="im" src="resources/1.jpg" height="300" width="100%" ></a>
+											<img id="im" src="resources/1.jpg" height="300" width="100%" >
 											</br>
-											<a href="details.php"><img id="im1" src="resources/2.jpg" height="300" width="100%" ></a>
+											<img id="im1" src="resources/2.jpg" height="300" width="100%" >
 											</br>
-											<a href="details.php"><img id="im2" src="resources/3.jpg" height="300" width="100%"></a>
+											<img id="im2" src="resources/3.jpg" height="300" width="100%">
 											</br>
 
 
