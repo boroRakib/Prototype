@@ -55,9 +55,12 @@
         $sql = "SELECT * FROM invoice WHERE Member_ID='$Member_ID'";        
         $result = executeSQL($sql);
 		
-		$invoice = mysqli_fetch_assoc($result);
+		$invoices = array();
+        for($i=0; $row=mysqli_fetch_assoc($result); ++$i){
+            $invoices[$i] = $row;
+        }
 		
-		return $invoice;
+		return $invoices;
 	}
 	
 	function getInvoicesByDateFromDB($Date)

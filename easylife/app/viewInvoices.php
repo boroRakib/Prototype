@@ -1,7 +1,8 @@
 <?php session_start(); ?>
 <?php require_once "../service/validation_service.php"; ?>
 <?php require_once "../service/member_service.php"; ?>
-<?php require_once "../service/order_product-serviec.php"; ?>
+<?php require_once "../service/invoice_serviece.php"; ?>
+
 <?php
 		
 	if(isset($_COOKIE['user_qty']))
@@ -15,73 +16,27 @@
 	}
 
 
-	if(isset($_SESSION['member_name']))
+	if($_SESSION['member_name']!="")
 	{
 		$memberName=$_SESSION['member_name'];
 		$memberID=$_SESSION['member_id'];
 	}
 	else
 	{
-		$memberID="";
+		echo "<script>				
+						document.location='logIn.php';
+					 </script>";
+                die();
 	}
 
 	
 ?>
-	
-<?php
-	$icode=$email="";
-	$emailErr=$icodeErr="";
-    if($_SERVER['REQUEST_METHOD']=="POST")
-	{
-		$email=trim($_POST['email']);
-		$icode=trim($_POST['icode']);
-		
-		$isValid = true;
-        if(empty($email)){
-            $isValid = false;
-            $emaileErr = "Inser a email";
-        }
-		else if(isValidEmail($email)==false){
-            $isValid = false;
-            $emailErr = "Invalid email format";
-        }
-		else if(isUniqueMemberEmail($email))
-		{
-			$isValid = false;
-            $emailErr = "Email Not found";
-		}
-		
-		if(empty($icode)){
-            $isValid = false;
-            $icodeErr = "Insert a Invoice code";
-        }
-		elseif(getInvoiceByCodeFromDB($icode)!=true)
-		{
-			$isValid = false;
-            $emailErr = "Order Not found!!!";
-		}
-       
-		if($isValid==true){
-			echo"done";
-                echo "<script>
-                        document.location='trackProduct.php?icode=".$icode."';
-                     </script>";
-                die();
-            }
-            // else{
-                // echo "Internal Error<hr/>";
-            // }
-			
-			
-		}
-		
-    
-?>
 
-<form method="post">
+
+
 	<html>
 		<head>
-			<title>User Report</title>
+			<title>Track Product</title>
 		</head>
 		<body>
 			<table   width="100%" bgcolor="Gainsboro" >
@@ -129,37 +84,68 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="3" align="center">
-						<table width="100%" height="400">
-							<tr>
-								
-								<td align="center" width="80%">
+					<td colspan="3" align="center" height="400" valign="top">
+						<table width="60%">								
+									<tr height="50">
+										<th>Invoice Code</th>
+										<th>Date</th>
+										<th>Order Status</th>
+										<th>Payment Status</th>
+										<th>Order Details</th>
+										<th></th>
+										<th>Order Cancel</th>
+									</tr>
+									<?php
 									
-											<table  width="600">
-												<tr>
-													<td>Email Id</td>
-													<td><input type="text" name="email" value="<?=$email?>"/></td>
-													<td><font color="red"><?=$emailErr?></font></td>
-												</tr>
-												<tr>
-													<td>Order Code</td>
-													<td><input type="text" name="icode" value="<?=$icode?>"/></td>
-													<td><font color="red"><?=$icodeErr?></font></td>
-												</tr>
-												<tr>
-													<td></td>
-													<td><input type="submit" Value="Track"/></td>
-												</tr>
+									$cy=(int)date("Y");
+									$cm=(int)date("m");
+									$cd=(int)date("d");
+									$invoices=getInvoiceByMember($memberID);
+									foreach($invoices as $invoice)
+									{
+									$y=(int)explode("-",explode(" ",$invoice['Date'])[0])[0];
+									$m=(int)explode("-",explode(" ",$invoice['Date'])[0])[1];
+									$d=(int)explode("-",explode(" ",$invoice['Date'])[0])[2];
+									
+									if($cy==$y)
+									{
+										if($cm==$m)
+										{
+											if(($cd==$d)||($cd<$d))
+											{
+												$log="Today";
+											}
+											else
+											{
+												$log=($cd-$d)." day(s) ago";
+											}
+										}
+										else
+										{
+											$log=($cm-$m)." month(s) ago";
+										}
+									}
+									else
+									{
+										$log=($cy-$y)." year(s) ago";
+									}
+									echo
+									"<tr height='50' bgcolor='whitesmoke'>
+										<td  align='center' >".$invoice['Invoice_Code']."</td>
+										<td  align='center'>".$log."</td>
+										<td  align='center'>".$invoice['Status']."</td>
+										<td  align='center'>".$invoice['Payment_Status']."</td>
+									";
+									
+									?>		
+						
+							<td colspan="2" align="center"><a href="order.php?invoiceCode=<?=$invoice['Invoice_Code']?>"><input type="submit" value="Order Details"></a></td>
+							<td colspan="2" align="center"><a href="cancelOrder.php?del=<?=$invoice['Invoice_Code']?>"><input type="submit" value="Cancel Order" name="cancel"></a></td>
+						</tr>
+									<?php } ?>			
 												
-												
-											</table>	
-										<table/>	
-											</td>
-										</tr>
-									</table>						
-								</td>
-							</tr>
-						</table>
+							</table>
+
 					</td>
 				</tr>
 							
@@ -228,4 +214,3 @@
 		</body>
 
 	</html>
-</form>

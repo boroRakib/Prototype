@@ -391,8 +391,9 @@
 								
 								
 								
-								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br> 
+								
+								<a href="viewInvoices.php">Invoices</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br>  
 								<a href="<?php if($memberID!="") { ?>report.php<?php } ?><?php if($memberID=="") { ?>login.php<?php } ?>">Report</a></br>
 								 
 							</td>

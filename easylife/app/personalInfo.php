@@ -145,8 +145,9 @@
 								<p><b>My Account</b></p>
 								<a href="<?php if($memberId!="") { ?>personalInfo.php<?php } ?><?php if($memberId=="") { ?>login.php<?php } ?>">Personal Info</a></br>
 								
-								<a href="order.php">Orders</a></br>
-								<a href="shoppingCart.php">Shopping Cart</a></br> 
+								
+								<a href="viewInvoices.php">Invoices</a></br>
+								<a href="shoppingCart.php">Shopping Cart</a></br>  
 								<a href="<?php if($memberId!="") { ?>report.php<?php } ?><?php if($memberId=="") { ?>login.php<?php } ?>">Report</a></br>
 							
 							</td>
