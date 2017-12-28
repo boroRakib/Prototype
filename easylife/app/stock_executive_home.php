@@ -56,6 +56,9 @@
 													<?php } ?>
 												</tr>
 												<tr align="right">
+													<td align="right" colspan="2"><font color="LightSeaGreen">Stock Executive</font></td>
+												</tr>
+												<tr align="right">
 													<td colspan="2"><a href="home.php">Log Out</a></td>
 												</tr>
 												

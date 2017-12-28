@@ -16,16 +16,9 @@
 	}
 	
 	
-	if(count($reports)>0)
+	if($noOfReports=count($reports)>0)
 	{
-		$noOfReports=0;
-		foreach($reports as $r)
-		{
-			if($r['Status']==0)
-			{
-				$noOfReports++;
-			}
-		}
+		$noOfReports=count($reports);
 	}
 	else
 	{
@@ -61,6 +54,9 @@
 													<?php if($memberID!="") { ?>
 													<td><a href="admin/uedetails.php?memberID=<?=$memberID?>" target="contentFrame"><?=$memberName?></a></td>
 													<?php } ?>
+												</tr>
+												<tr align="right">
+													<td align="right" colspan="2"><font color="LightSeaGreen">Admin</font></td>
 												</tr>
 												<tr align="right">
 													<td colspan="2"><a href="home.php">Log Out</a></td>
