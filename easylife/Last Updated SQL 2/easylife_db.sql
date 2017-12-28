@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2017 at 09:19 AM
+-- Generation Time: Dec 28, 2017 at 11:24 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -44,7 +44,8 @@ CREATE TABLE `invoice` (
 
 INSERT INTO `invoice` (`Invoice_Code`, `Member_ID`, `Phone`, `Date`, `Status`, `Payment_Status`, `Payment_Method`, `Shipping_Address`, `Billing_Address`) VALUES
 ('1', '2', 'sadd', '2017-12-27 19:49:08', 'Pending', 'Not Paid', 'Cash On Delivery', 'sadasd', 'sadasd'),
-('2', '8', '01680900987', '2017-12-28 08:05:14', 'Delivered', 'Paid', 'rocket', 'dhaka', 'dhaka');
+('2', '8', '01680900987', '2017-12-28 08:05:14', 'Delivered', 'Paid', 'rocket', 'dhaka', 'dhaka'),
+('3', '8', '09876543212', '2017-12-28 09:07:00', 'Pending', 'Not Paid', 'Cash On Delivery', 'khilgaon', 'khilgaon');
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`Member_ID`, `Password`, `Name`, `Email`, `Type`, `Status`, `Member_Since`, `Last_Logged_in`, `Total_Purchase`) VALUES
-('1', '123', 'Rajesh saha', 'rajesh@gmail.com', 1, 'Active', '2017-12-23 16:01:03', '2017-12-28 08:16:48', 0),
+('1', '123', 'Rajesh saha', 'rajesh@gmail.com', 1, 'Active', '2017-12-23 16:01:03', '2017-12-28 08:29:19', 0),
 ('10', '123', 'desh alam', 'desh@efti.com', 4, 'Active', '2017-12-28 05:33:06', '2017-12-28 05:33:06', 0),
 ('11', '123', 'rakib hossain', 'rak@gmail.com', 4, 'Active', '2017-12-28 05:42:10', '2017-12-28 05:42:10', 0),
 ('12', '123', 'Rajesh saha', 'rajesh2@gmail.com', 2, 'Active', '2017-12-28 07:10:17', '2017-12-28 07:10:17', 0),
@@ -77,7 +78,7 @@ INSERT INTO `member` (`Member_ID`, `Password`, `Name`, `Email`, `Type`, `Status`
 ('3', '123', 'Efti Chowdhury', 'efti@gmail.com', 1, 'Active', '2017-12-24 11:46:51', '2017-12-27 19:53:47', 0),
 ('4', '123', 'Rakibul Hossain', 'rakib@gmail.com', 1, 'Active', '2017-12-24 11:48:07', '2017-12-27 14:15:27', 0),
 ('7', '123', 'sayeed sazzad', 'sazzad@gmail.com', 4, 'Active', '2017-12-25 08:41:54', '2017-12-25 08:41:54', 0),
-('8', '123', 'Reza Karim', 'reza@gmail.com', 4, 'Active', '2017-12-25 11:20:51', '2017-12-25 11:20:51', 5010),
+('8', '123', 'Reza Karim', 'reza@gmail.com', 4, 'Active', '2017-12-25 11:20:51', '2017-12-25 11:20:51', 7920),
 ('9', '123', 'toma begum', 'toma@efti.com', 4, 'Active', '2017-12-28 05:31:38', '2017-12-28 05:31:38', 0);
 
 -- --------------------------------------------------------
@@ -103,7 +104,9 @@ INSERT INTO `order_product` (`Order_Code`, `Product_Code`, `Quantity`, `Invoice_
 ('2', '10', 1, '2', ''),
 ('3', '100', 1, '2', ''),
 ('4', '20', 1, '2', ''),
-('5', '43', 1, '2', '');
+('5', '43', 1, '2', ''),
+('6', '103', 1, '3', ''),
+('7', '46', 1, '3', '');
 
 -- --------------------------------------------------------
 
@@ -130,34 +133,34 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Price`, `Date`, `Last_Sold`, `Catagory`, `Brand`, `Size`, `Description`) VALUES
-('1', 'Woolen Jacket', 10, 0, 300, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Gents Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.Fully Export Quality. Two layer woolen Jacket '),
-('10', 'Women Hoody', 3, 0, 1200, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Ladies Winter Collection', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
+('1', 'Woolen Jacket', 10, 0, 300, '2017-10-28 06:18:44', '2017-12-28 10:19:53', 'Gents Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.Fully Export Quality. Two layer woolen Jacket '),
+('10', 'Women Hoody', 3, 0, 1200, '2017-10-28 06:18:44', '2017-12-28 10:19:53', 'Ladies Winter Collection', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
 ('100', 'bag4', 10, 0, 250, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Money Bag', 'Eacstasy', 'L', 'Original leather'),
-('101', 'bag6', 12, 0, 250, '2017-12-28 06:18:44', NULL, 'Money Bag', 'Yellow', 'L', 'Original leather'),
-('102', 'bag7', 12, 0, 250, '2017-12-28 06:18:44', NULL, 'Money Bag', 'Yellow', 'L', 'Original leather'),
-('103', 'bag8', 12, 0, 250, '2017-12-28 06:18:44', NULL, 'Money Bag', 'Eacstasy', 'L', 'Original leather'),
-('104', 'shoe1', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('105', 'shoe11', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Footwear', 'Eacstasy', 'L', 'Original leather'),
-('106', 'shoe2', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Footwear', 'Eacstasy', 'L', 'Original leather'),
-('107', 'shoe22', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('108', 'shoe3', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('101', 'bag6', 12, 0, 250, '2017-10-28 06:18:44', NULL, 'Money Bag', 'Yellow', 'L', 'Original leather'),
+('102', 'bag7', 12, 0, 250, '2017-10-28 06:18:44', NULL, 'Money Bag', 'Yellow', 'L', 'Original leather'),
+('103', 'bag8', 11, 0, 250, '2017-10-28 06:18:44', '2017-12-28 10:19:53', 'Money Bag', 'Eacstasy', 'L', 'Original leather'),
+('104', 'shoe1', 12, 0, 2500, '2017-10-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('105', 'shoe11', 12, 0, 2500, '2017-10-28 06:18:44', NULL, 'Footwear', 'Eacstasy', 'L', 'Original leather'),
+('106', 'shoe2', 12, 0, 2500, '2017-10-28 06:18:44', NULL, 'Footwear', 'Eacstasy', 'L', 'Original leather'),
+('107', 'shoe22', 12, 0, 2500, '2017-10-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('108', 'shoe3', 12, 0, 2500, '2017-10-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
 ('109', 'shoe33', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Footwear', 'Eacstasy', 'L', 'Original leather'),
 ('11', 'Kids Sweater', 5, 0, 400, '2017-12-28 06:18:44', NULL, 'Kids Winter Collection', 'Aarong', 'M', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nSweater'),
-('110', 'shoe34', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('111', 'shoe24', 12, 0, 2500, '2017-12-28 06:18:44', NULL, 'Footwear', 'Eacstasy', 'L', 'Original leather'),
-('112', 'shoe4', 12, 0, 2400, '2017-12-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('113', 'shoe5', 12, 0, 2400, '2017-12-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('114', 'shoe6', 12, 0, 2400, '2017-12-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('115', 'shoe66', 12, 0, 2400, '2017-12-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('116', 'shoe67', 12, 0, 2400, '2017-12-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('117', 'shoe68', 12, 0, 2400, '2017-12-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
-('118', 'shoe9', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Kids Footwear', 'Easy', 'L', 'Original leather'),
-('119', 'shoe10', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Footwear', 'Easy', 'L', 'Original leather'),
+('110', 'shoe34', 12, 0, 2500, '2017-10-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('111', 'shoe24', 12, 0, 2500, '2017-10-28 06:18:44', NULL, 'Footwear', 'Eacstasy', 'L', 'Original leather'),
+('112', 'shoe4', 12, 0, 2400, '2017-10-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('113', 'shoe5', 12, 0, 2400, '2017-10-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('114', 'shoe6', 12, 0, 2400, '2017-10-28 06:18:44', NULL, 'Mens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('115', 'shoe66', 12, 0, 2400, '2017-10-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('116', 'shoe67', 12, 0, 2400, '2017-10-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('117', 'shoe68', 12, 0, 2400, '2017-10-28 06:18:44', NULL, 'Womens Footwear', 'Eacstasy', 'L', 'Original leather'),
+('118', 'shoe9', 12, 0, 1200, '2017-10-28 06:18:44', NULL, 'Kids Footwear', 'Easy', 'L', 'Original leather'),
+('119', 'shoe10', 12, 0, 1200, '2017-10-28 06:18:44', NULL, 'Footwear', 'Easy', 'L', 'Original leather'),
 ('12', 'Gavading pant', 6, 0, 750, '2017-12-28 06:18:44', NULL, 'Pant', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nSweater'),
-('120', 'shoe101', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Footwear', 'Easy', 'L', 'Original leather'),
-('121', 'shoe111', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Kids Footwear', 'Easy', 'L', 'Original leather'),
-('122', 'shoe13', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Kids Footwear', 'Easy', 'L', 'Original leather'),
-('123', 'shoe31', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Kids Footwear', 'Yellow', 'L', 'Original leather'),
+('120', 'shoe101', 12, 0, 1200, '2017-10-28 06:18:44', NULL, 'Footwear', 'Easy', 'L', 'Original leather'),
+('121', 'shoe111', 12, 0, 1200, '2017-10-28 06:18:44', NULL, 'Kids Footwear', 'Easy', 'L', 'Original leather'),
+('122', 'shoe13', 12, 0, 1200, '2017-10-28 06:18:44', NULL, 'Kids Footwear', 'Easy', 'L', 'Original leather'),
+('123', 'shoe31', 12, 0, 1200, '2017-10-28 06:18:44', NULL, 'Kids Footwear', 'Yellow', 'L', 'Original leather'),
 ('124', 'shoe32', 12, 0, 500, '2017-12-28 06:18:44', NULL, 'Kids Footwear', 'Yellow', 'L', 'Original leather'),
 ('125', 'shoe3323', 12, 0, 500, '2017-12-28 06:18:44', NULL, 'Kids Footwear', 'Eacstasy', 'L', 'Original leather'),
 ('13', 'Moyur Ear Rings', 3, 0, 320, '2017-12-28 06:18:44', NULL, 'Ear Rings', 'Aarong', 'L', 'Designable Moyur Ear Rings\r\nDesi Materials'),
@@ -194,7 +197,7 @@ INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Pric
 ('43', 'Red Panjabi', 1, 0, 2500, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Panjabi', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),
 ('44', 'White Panjabi', 30, 0, 1200, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Yellow', 'L', 'Smooth Finishing And 100% cotton'),
 ('45', 'Blue Pnajabi', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Shirt', 'Local', 'L', 'Smooth Finishing And 100% cotton'),
-('46', 'Embrodari panjabi', 2, 0, 2600, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),
+('46', 'Embrodari panjabi', 1, 0, 2600, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Panjabi', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),
 ('47', 'blue panjabi', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),
 ('48', 'Panjabi', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Yellow', 'L', 'Smooth Finishing And 100% cotton'),
 ('49', 'shirt 1', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Mens Clothing', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),

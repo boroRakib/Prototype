@@ -293,7 +293,7 @@
 												window.setInterval(next,2000);
 											</script>
 
-											<img id= "imgholder" src="resources/slider1.jpg" width=100% height=412>
+											<img id= "imgholder" src="resources/adv/slider1.jpg" width=100% height=412>
 										</td>
 											
 										
