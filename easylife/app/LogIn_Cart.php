@@ -130,6 +130,18 @@
 															document.location='admin_home.php?memberID=".$member['Member_ID']."';
 														 </script>";
 												}
+												if($member['Type']==2)
+												{
+													echo "<script>				
+															document.location='stock_executive_home.php?memberID=".$member['Member_ID']."';
+														 </script>";
+												}
+												if($member['Type']==3)
+												{
+													echo "<script>				
+															document.location='order_executive_home.php?memberID=".$member['Member_ID']."';
+														 </script>";
+												}
 												if($member['Type']==4)
 												{
 													
