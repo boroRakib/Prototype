@@ -67,7 +67,15 @@
 		
 		
 		if($isValid==true){
-			$id=getLastMemberIDFromDB()['MAX(Member_ID)'];
+			$members=getAllMembersFromDB();
+			$id=0;
+			foreach($members as $m)
+			{
+				if($id<((int)$m['Member_ID']))
+				{
+					$id=(int)$m['Member_ID'];
+				}
+			}
 			$member['Member_ID']=$id+1;
 			$member['Password']=$password;
 			$member['Name']=$name;

@@ -3,7 +3,16 @@
 <?php require_once "../data/member_data_access.php"; ?>
 
 <?php
-	$memberId=$_SESSION['member_id'];;
+	if(isset($_GET['memberID']))
+	{
+		$memberId=$_GET['memberID'];
+	}
+	else
+	{
+		$memberId=$_SESSION['member_id'];
+	}
+	
+	
 	$member=getMemberByIdFromDB($memberId);
 	$memberName=$member['Name'];
 	
