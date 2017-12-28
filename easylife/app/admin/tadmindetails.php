@@ -5,7 +5,7 @@
 ?>
 <?php
 	$memberID=$_GET['memberID'];
-	$members=getAllAdmins();
+	
 	// $g="e@gmail.com";
 	// var_dump(getMembersByEmail($g));
 	if($_SERVER['REQUEST_METHOD']=="POST")
@@ -17,10 +17,10 @@
 			if(empty($member))
 				$members=array();
 		}
-		else if($_POST['searchby']=="1")
-		{
-			$members=getMembersByName($_POST['p']);
-		}
+		// else if($_POST['searchby']=="1")
+		// {
+			// $members=getMembersByName($_POST['p']);
+		// }
 		else if($_POST['searchby']=="2")
 		{
 			$member=getAdminByEmail($_POST['p']);
@@ -31,6 +31,10 @@
 		}
 		
 	}
+	else
+	{
+		$members=getAllAdmins();
+	}
 	
 ?>
 <html>
@@ -39,7 +43,7 @@
 			<td width="40%">
 				<p>Search by:<p><select name="searchby">
 					<option value="0"  selected>ID</option>
-					<option value="1">Name</option>
+			
 					<option value="2">Email</option>
 				</select>
 				
