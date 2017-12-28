@@ -116,10 +116,7 @@
 								</table>
 								</td>
 								<td>
-								<table>
-									<tr><td><img align="bottom" src="../resources/Image1.JPG" width="167"/></td></tr>
-									<tr><td></td></tr>
-								</table>
+								
 								</td>
 								</tr>
 							</table>

@@ -16,9 +16,18 @@
 	}
 	
 	
-	if($noOfReports=count($reports)>0)
+	if(count($reports)>0)
 	{
-		$noOfReports=count($reports);
+		$noOfReports=0;
+		foreach($reports as $r)
+		{
+			if($r['Status']==0)
+			{
+				$noOfReports++;
+			}
+		}
+		
+		
 	}
 	else
 	{
