@@ -124,6 +124,12 @@
 												// session_start();
 												// $_SESSION['easylife_email'] = $email;
 												
+												if($member['Status']=="Blocked")
+												{
+													echo "<div><font color=red>"."Login was unsuccessful.<br/>This Member is Blocked!!!"."</font></div>";
+												}
+												else
+												{
 												if($member['Type']==1)
 												{
 													echo "<script>				
@@ -150,6 +156,7 @@
 													echo "<script>				
 															document.location='home.php';
 														 </script>";
+												}
 												}
 												
 											}

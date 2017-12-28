@@ -32,6 +32,11 @@
             $isValid = false;
             $nameErr = "At least two words required, Only letters and white space allowed";
         }
+		$block="Active";
+		if(isset($_POST['block']))
+		{
+			$block="Blocked";
+		}
 		
 		if($isValid==true){
 			$member1['Member_ID']=$member['Member_ID'];
@@ -39,7 +44,7 @@
 			$member1['Name']=$name;
 			$member1['Email']=$email;
 			$member1['Type']=$member['Type'];
-			$member1['Status']=$member['Status'];
+			$member1['Status']=$block;
 			
 			if(editMemberToDB($member1)==true){
                 echo "<script>
@@ -78,6 +83,14 @@
 											<td width="125">Email</td>
 											<td><input name="email" type="text" value="<?=$member['Email']?>"></td>
 											<td><font color="red"><?=$emailErr?></font></td>
+										</tr>
+									</table>
+									<hr>
+									<table>
+										<tr>
+											
+											<td><input name="block" type="checkbox" <?php if($member['Status']=="Blocked")echo "checked";?>> Blocked</td>
+											
 										</tr>
 									</table>
 									

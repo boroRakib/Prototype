@@ -124,6 +124,12 @@
 												// session_start();
 												// $_SESSION['easylife_email'] = $email;
 												
+												if($member['Status']=="Blocked")
+												{
+													echo "<div><font color=red>"."Login was unsuccessful.<br/>This Member is Blocked!!!"."</font></div>";
+												}
+												else
+												{
 												if($member['Type']==1)
 												{
 													echo "<script>				
@@ -142,15 +148,15 @@
 															document.location='order_executive_home.php?memberID=".$member['Member_ID']."';
 														 </script>";
 												}
+												
 												if($member['Type']==4)
 												{
-													
-														$_SESSION['member_id']=$member['Member_ID'];
+													$_SESSION['member_id']=$member['Member_ID'];
 														$_SESSION['member_name']=$member['Name'];
-													
 													echo "<script>				
-															document.location='checkout.php';
+															document.location='home.php';
 														 </script>";
+												}
 												}
 												
 											}
