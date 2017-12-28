@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2017 at 08:02 AM
+-- Generation Time: Dec 28, 2017 at 09:19 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -43,7 +43,8 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`Invoice_Code`, `Member_ID`, `Phone`, `Date`, `Status`, `Payment_Status`, `Payment_Method`, `Shipping_Address`, `Billing_Address`) VALUES
-('1', '2', 'sadd', '2017-12-27 19:49:08', 'Pending', 'Not Paid', 'Cash On Delivery', 'sadasd', 'sadasd');
+('1', '2', 'sadd', '2017-12-27 19:49:08', 'Pending', 'Not Paid', 'Cash On Delivery', 'sadasd', 'sadasd'),
+('2', '8', '01680900987', '2017-12-28 08:05:14', 'Delivered', 'Paid', 'rocket', 'dhaka', 'dhaka');
 
 -- --------------------------------------------------------
 
@@ -68,14 +69,15 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`Member_ID`, `Password`, `Name`, `Email`, `Type`, `Status`, `Member_Since`, `Last_Logged_in`, `Total_Purchase`) VALUES
-('1', '123', 'Rajesh saha', 'rajesh@gmail.com', 1, 'Active', '2017-12-23 16:01:03', '2017-12-28 06:54:52', 0),
+('1', '123', 'Rajesh saha', 'rajesh@gmail.com', 1, 'Active', '2017-12-23 16:01:03', '2017-12-28 08:16:48', 0),
 ('10', '123', 'desh alam', 'desh@efti.com', 4, 'Active', '2017-12-28 05:33:06', '2017-12-28 05:33:06', 0),
 ('11', '123', 'rakib hossain', 'rak@gmail.com', 4, 'Active', '2017-12-28 05:42:10', '2017-12-28 05:42:10', 0),
-('2', '123', 'Robi Ullah', 'robi@gmail.com', 4, 'Active', '2017-12-23 16:01:50', '2017-12-23 16:01:50', 1870),
+('12', '123', 'Rajesh saha', 'rajesh2@gmail.com', 2, 'Active', '2017-12-28 07:10:17', '2017-12-28 07:10:17', 0),
+('2', '123', 'Robi Ullah', 'robi@gmail.com', 4, 'Blocked', '2017-12-23 16:01:50', '2017-12-23 16:01:50', 1870),
 ('3', '123', 'Efti Chowdhury', 'efti@gmail.com', 1, 'Active', '2017-12-24 11:46:51', '2017-12-27 19:53:47', 0),
 ('4', '123', 'Rakibul Hossain', 'rakib@gmail.com', 1, 'Active', '2017-12-24 11:48:07', '2017-12-27 14:15:27', 0),
 ('7', '123', 'sayeed sazzad', 'sazzad@gmail.com', 4, 'Active', '2017-12-25 08:41:54', '2017-12-25 08:41:54', 0),
-('8', '123', 'Reza Karim', 'reza@gmail.com', 4, 'Active', '2017-12-25 11:20:51', '2017-12-25 11:20:51', 0),
+('8', '123', 'Reza Karim', 'reza@gmail.com', 4, 'Active', '2017-12-25 11:20:51', '2017-12-25 11:20:51', 5010),
 ('9', '123', 'toma begum', 'toma@efti.com', 4, 'Active', '2017-12-28 05:31:38', '2017-12-28 05:31:38', 0);
 
 -- --------------------------------------------------------
@@ -97,7 +99,11 @@ CREATE TABLE `order_product` (
 --
 
 INSERT INTO `order_product` (`Order_Code`, `Product_Code`, `Quantity`, `Invoice_Code`, `Customer_Email`) VALUES
-('1', '1', 1, '1', '');
+('1', '1', 1, '1', ''),
+('2', '10', 1, '2', ''),
+('3', '100', 1, '2', ''),
+('4', '20', 1, '2', ''),
+('5', '43', 1, '2', '');
 
 -- --------------------------------------------------------
 
@@ -125,8 +131,8 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Price`, `Date`, `Last_Sold`, `Catagory`, `Brand`, `Size`, `Description`) VALUES
 ('1', 'Woolen Jacket', 10, 0, 300, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Gents Winter Collection', 'Eacstasy', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.Fully Export Quality. Two layer woolen Jacket '),
-('10', 'Women Hoody', 4, 0, 1200, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Ladies Winter Collection', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
-('100', 'bag4', 11, 0, 250, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Money Bag', 'Eacstasy', 'L', 'Original leather'),
+('10', 'Women Hoody', 3, 0, 1200, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Ladies Winter Collection', 'Yellow', 'L', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nHigh Quality Rubber Print.\r\nLong Lasting color.Nicely Sewed.'),
+('100', 'bag4', 10, 0, 250, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Money Bag', 'Eacstasy', 'L', 'Original leather'),
 ('101', 'bag6', 12, 0, 250, '2017-12-28 06:18:44', NULL, 'Money Bag', 'Yellow', 'L', 'Original leather'),
 ('102', 'bag7', 12, 0, 250, '2017-12-28 06:18:44', NULL, 'Money Bag', 'Yellow', 'L', 'Original leather'),
 ('103', 'bag8', 12, 0, 250, '2017-12-28 06:18:44', NULL, 'Money Bag', 'Eacstasy', 'L', 'Original leather'),
@@ -161,7 +167,7 @@ INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Pric
 ('17', 'Full Sleeve Tshirt', 12, 0, 350, '2017-12-28 06:18:44', NULL, 'Gents Winter Collection', 'Easy', 'L', 'Stitch T shirt'),
 ('19', 'Full Sleeve T-shirt', 15, 0, 350, '2017-12-28 06:18:44', NULL, 'Gents Winter Collection', 'Easy', 'M', 'Comfortable and 100% cotton.'),
 ('2', 'Woolen Jacket', 5, 0, 500, '2017-12-28 06:18:44', NULL, 'Gents Winter Collection', 'Eacstasy', 'S', 'High Quality Fabric: 150-180 GSM.Anti-Wrinkle.\r\nFully Export Quality. \r\nTwo layer woolen Jacket '),
-('20', 'Long Tunik', 12, 0, 1000, '2017-12-28 06:18:44', NULL, 'Ladies Winter Collection', 'Aarong', 'S', 'Woolen and Unstitch'),
+('20', 'Long Tunik', 11, 0, 1000, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Ladies Winter Collection', 'Aarong', 'S', 'Woolen and Unstitch'),
 ('21', 'Long Tunic', 12, 0, 1000, '2017-12-28 06:18:44', NULL, 'Ladies Winter Collection', 'Easy', 'S', 'Unstitch and Light weight'),
 ('22', 'Fluffy Jacket', 12, 0, 500, '2017-12-28 06:18:44', NULL, 'Ladies Winter Collection', 'Easy', 'S', 'Comfortable and Smooth Fabrics'),
 ('23', 'Jacket', 12, 0, 234, '2017-12-28 06:18:44', NULL, 'Ladies Winter Collection', 'Local', 'S', 'Unstitch and heavy duty. Easy to wash'),
@@ -185,7 +191,7 @@ INSERT INTO `product` (`Product _Code`, `Name`, `Quantity`, `Total_Sells`, `Pric
 ('40', 'Red Shirt', 12, 0, 2300, '2017-12-28 06:18:44', NULL, 'Shirt', 'Yellow', 'L', 'Smooth Finishing And 100% cotton'),
 ('41', 'Shirt 3', 12, 0, 1234, '2017-12-28 06:18:44', NULL, 'Shirt', 'Eacstasy', 'M', 'Smooth Finishing And 100% cotton'),
 ('42', 'Panjabi 1', 15, 0, 1200, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Eacstasy', 'M', 'Smooth Finishing And 100% cotton'),
-('43', 'Red Panjabi', 2, 0, 2500, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),
+('43', 'Red Panjabi', 1, 0, 2500, '2017-12-28 06:18:44', '0000-00-00 00:00:00', 'Panjabi', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),
 ('44', 'White Panjabi', 30, 0, 1200, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Yellow', 'L', 'Smooth Finishing And 100% cotton'),
 ('45', 'Blue Pnajabi', 12, 0, 1200, '2017-12-28 06:18:44', NULL, 'Shirt', 'Local', 'L', 'Smooth Finishing And 100% cotton'),
 ('46', 'Embrodari panjabi', 2, 0, 2600, '2017-12-28 06:18:44', NULL, 'Panjabi', 'Eacstasy', 'L', 'Smooth Finishing And 100% cotton'),
@@ -268,7 +274,8 @@ CREATE TABLE `report` (
 INSERT INTO `report` (`Report_Code`, `Report_Title`, `Member_ID`, `Date`, `Status`, `Description`) VALUES
 ('1', 'Faulty Cloth', '1', '2017-12-25 18:00:00', 0, 'Faulty Cloth...'),
 ('2', 'Bad Quality', '1', '2017-12-26 11:51:48', 0, 'Not satisfied about the quality'),
-('3', 'Good Serviece', '7', '2017-12-26 16:40:32', 0, 'Satisfied with your serviece');
+('3', 'Good Serviece', '7', '2017-12-26 16:40:32', 1, 'Satisfied with your serviece'),
+('4', 'Bad Product', '8', '2017-12-28 07:28:03', 1, 'My product is too bad.\r\nproduct code=1');
 
 --
 -- Indexes for dumped tables
