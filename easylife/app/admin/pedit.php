@@ -103,7 +103,7 @@
 									<table>
 										<tr>
 											<td width="125">Name</td>
-											<td><input name="name" type="text" value="<?=$product['Name']?>"></td>
+											<td><label><?=$product['Name']?></label></td>
 										</tr>
 									</table>
 									<hr>
@@ -130,7 +130,7 @@
 									
 									<hr>
 										<a href="p_success.php?a=uedit"><button>Submit</button></a>
-			<!--						<input type="Submit" name="Submit" value="Submit">-->
+			<!--						<input type="Submit" name="Submit" value="Submit">
 								</td>
 							</tr>
 							</table>
