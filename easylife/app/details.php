@@ -39,6 +39,17 @@
 ?>
 <?php
 	$suggetions=getProductsByCatagory($product[0]['Catagory']);
+	$month=date("m");
+	$products1=getAllProducts();
+	$newArrival=array();
+	foreach($products1 as $p)
+	{
+		$dop=explode("-",explode(" ",$p['Date'])[0])[1];
+		if($month==$dop){
+			$newArrival[]=$p;
+		}
+	}
+	//var_dump($newArrival);
 	//var_dump($suggetions);
 ?>
 
@@ -245,12 +256,33 @@
 												<td width="500" colspan="3"><p align="justify"><?=$product[0]['Description']?></td>
 											</tr>
 						
-											<tr>
-												<td colspan="3"><h3>Suggested Products</h3></td>
+											<tr bgcolor="#cccccc">
+												<td colspan="3"><h3>Related Products</h3></td>
 											</tr>
 											<tr>
 											<?php if(count($suggetions)>4) {?>
 													<?php $count=0; foreach($suggetions as $s) { ?>
+													
+														<?php if($s['Name']!=$product_name) {?>
+															<?php if($count<3) {?>
+															<td align="center" ><a href="details.php?product_name=<?=$s['Name']?>"><img src="resources/<?=$s['Name']?>.jpg" height="200"/></a><br/>Tk 390</td>
+															<?php }?>
+														<?php $count++;
+															if($count==3){break;}
+														}?>
+													<?php }?>
+												<?php }?>
+												
+												
+												
+											</tr>
+											
+											<tr bgcolor="#cccccc">
+												<td colspan="3"><h3>New Arrival</h3></td>
+											</tr>
+											<tr>
+											<?php if(count($newArrival)>4) {?>
+													<?php $count=0; foreach($newArrival as $s) { ?>
 													
 														<?php if($s['Name']!=$product_name) {?>
 															<?php if($count<3) {?>

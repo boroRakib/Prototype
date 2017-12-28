@@ -8,7 +8,11 @@
 		$memberID=$_SESSION['member_id'];
 		$memberName=$_SESSION['member_name'];
 		
-
+		if($memberID!="")
+		{
+		$Total_Purchase=getMemberById($memberID)['Total_Purchase'];
+		//var_dump($Total_Purchase);
+		}
 	}
 	else
 	{
@@ -62,7 +66,7 @@
 							<td align="center"><a href="trackProductSearch.php"><button>Track Product</button></a></td>
 							<td align="center">
 								<table  >
-									<tr>
+									<tr align="right">
 										<td><img src="resources/m.jpg" height="30" width="30"/></td>
 										
 										<?php if($memberID=="") { ?>
@@ -72,6 +76,12 @@
 										<td><a href="personalInfo.php?memberID=<?=$memberID?>"><?=$memberName?></a></td>
 										<?php } ?>
 										
+									</tr >
+										
+									<tr align="right">
+										<?php if($memberID!="") { ?>
+										<td colspan="2"><font color="LightSeaGreen" size=2>Total Purchase:<?=$Total_Purchase ?>Tk</font></td>
+										<?php } ?>
 									</tr>
 									<tr align="right">
 										<?php if($memberID!="") { ?>
