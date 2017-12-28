@@ -4,7 +4,9 @@
 	require_once "../../service/member_service.php";
 	require_once "../../service/order_product-serviec.php";
 	require_once "../../service/product_serviec.php";
-	$page=(explode(".",(explode("/",$_SERVER['SCRIPT_FILENAME'])[8]))[0]);
+	
+	$abc=explode("/",$_SERVER['SCRIPT_FILENAME']);
+	$page=(explode(".",(explode("/",$_SERVER['SCRIPT_FILENAME'])[count($abc)-1]))[0]);
 	$invoiceCode=$_GET['invoiceCode'];
 	$invoice=getInvoiceByCode($invoiceCode);
 	$orders=getOrdersByInvoice($invoiceCode);
@@ -34,7 +36,7 @@
 	<input type="submit" name="button" value="Yes"/>
 	<input type="submit" name="button" value="No"/>	
 	<br>
-	<iframe frameborder="0" width="100%" height="380" src="viewinvoice.php?invoiceCode=<?=$invoiceCode?>&page=delete"></iframe>
+	<iframe frameborder="0" width="100%" height="680" src="viewinvoice.php?invoiceCode=<?=$invoiceCode?>&page=delete"></iframe>
 					
 	<br>
 </form>

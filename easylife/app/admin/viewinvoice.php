@@ -7,7 +7,10 @@
 	$page="delete";
 	if(empty($_GET['page']))
 	{
-		$page=(explode(".",(explode("/",$_SERVER['SCRIPT_FILENAME'])[8]))[0]);
+		$abc=explode("/",$_SERVER['SCRIPT_FILENAME']);
+		//var_dump($abc);
+		$page=(explode(".",(explode("/",$_SERVER['SCRIPT_FILENAME'])[count($abc)-1]))[0]);
+		//var_dump($_SERVER['SCRIPT_FILENAME']);
 	}
 	$invoiceCode=$_GET['invoiceCode'];
 	$invoice=getInvoiceByCode($invoiceCode);
