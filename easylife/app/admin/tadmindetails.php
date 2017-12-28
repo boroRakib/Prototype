@@ -49,7 +49,7 @@
 				
 			</td>
 			<td>
-				<input name="p" type="text"/><input type="submit" value="Search Admin"/>
+				<input name="p" type="text"/><input type="submit" value="Search"/>
 			</td>
 			</form>
 		</tr>
@@ -57,7 +57,7 @@
 	<br>
 	<br>
 	<fieldset>
-		<legend>All Admins</legend>
+		<legend>Admins</legend>
 			<table border=1 width=100%>
 				<tr>
 					<th>ID</th>

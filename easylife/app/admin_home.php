@@ -126,6 +126,16 @@
 									</tr>
 									<tr height="10" >
 										<td align="center">
+											<a href="admin/tstockexecutive.php?memberID=<?=$memberID?>" target="contentFrame" >View Stock Executives</a>
+										</td>
+									</tr>
+									<tr height="10" >
+										<td align="center">
+											<a href="admin/torderexecutive.php?memberID=<?=$memberID?>" target="contentFrame" >View Order Executives</a>
+										</td>
+									</tr>
+									<tr height="10" >
+										<td align="center">
 											<a href="admin/tpdetails.php" target="contentFrame" >View Product</a>
 										</td>
 									</tr>

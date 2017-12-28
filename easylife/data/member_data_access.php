@@ -71,6 +71,19 @@
         return $members;
     }
 	
+	function getAllExsFromDB($t)
+	{
+        $sql = "SELECT * FROM member WHERE Type=".$t."";        
+        $result = executeSQL($sql);
+        
+        $members = array();
+        for($i=0; $row=mysqli_fetch_assoc($result); ++$i){
+            $members[$i] = $row;
+        }
+       // var_dump($members);
+        return $members;
+    }
+	
 	function getAllAdminsByAciveDSCFromDB()
 	{
 		$sql = "SELECT * FROM member WHERE Type=1 ORDER BY `Last_Logged_in` DESC";        
@@ -152,6 +165,16 @@
         return $member;
     }
 	
+	function getExecutiveByIDFromDB($Member_ID,$t)
+	{
+        $sql = "SELECT * FROM member WHERE Member_ID=$Member_ID and Type=".$t."";        
+        $result = executeSQL($sql);
+        
+        $member = mysqli_fetch_assoc($result);
+        
+        return $member;
+    }
+	
 	function getUserByIDFromDB($Member_ID)
 	{
         $sql = "SELECT * FROM member WHERE Member_ID=$Member_ID and Type=4";        
@@ -200,6 +223,16 @@
 	function getAdminByEmailFromDB($Email)
 	{
         $sql = "SELECT * FROM member WHERE Email='".$Email."' and Type=1";        
+        $result = executeSQL($sql);
+        
+        $member = mysqli_fetch_assoc($result);
+        
+        return $member;
+    }
+	
+	function getExecuiveByEmailFromDB($Email,$t)
+	{
+        $sql = "SELECT * FROM member WHERE Email='".$Email."' and Type=".$t."";        
         $result = executeSQL($sql);
         
         $member = mysqli_fetch_assoc($result);

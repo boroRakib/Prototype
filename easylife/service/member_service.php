@@ -42,6 +42,11 @@
 		return getAllUsersFromDB();
 	}
 	
+	function getAllExs($t)
+	{
+		return getAllExsFromDB($t);
+	}
+	
     function updataTotalPurchase($id,$purchase)
 	{
 		return updataTotalPurchaseToDB($id,$purchase);
@@ -56,6 +61,11 @@
         return getAdminByIdFromDB($memberId);
     }
 	
+	function getExecutiveByID($Member_ID,$t)
+	{
+		return getExecutiveByIDFromDB($Member_ID,$t);
+	}
+	
 	function getUserById($memberId){
         return getUserByIdFromDB($memberId);
     }
@@ -64,7 +74,10 @@
         return getMembersByNameFromDB($memberName);
     }
 	
-	
+	function getExecuiveByEmail($Email,$t)
+	{
+		return getExecuiveByEmailFromDB($Email,$t);
+	}
     
     function getMembersByEmail($memberEmail){
         return getMemberByEmailFromDB($memberEmail);

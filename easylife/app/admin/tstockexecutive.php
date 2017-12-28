@@ -12,7 +12,7 @@
 	{
 		if($_POST['searchby']=="0")
 		{
-			$member=getAdminById($_POST['p']);
+			$member=getExecutiveByID($_POST['p'],2);
 			$members=array($member);
 			if(empty($member))
 				$members=array();
@@ -23,7 +23,7 @@
 		// }
 		else if($_POST['searchby']=="2")
 		{
-			$member=getAdminByEmail($_POST['p']);
+			$member=getExecuiveByEmail($_POST['p'],2);
 			
 			$members=array($member);
 			if(empty($member))
@@ -33,7 +33,7 @@
 	}
 	else
 	{
-		$members=getAllAdmins();
+		$members=getAllExs(2);
 	}
 	
 ?>
@@ -49,7 +49,7 @@
 				
 			</td>
 			<td>
-				<input name="p" type="text"/><input type="submit" value="Search Admin"/>
+				<input name="p" type="text"/><input type="submit" value="Search"/>
 			</td>
 			</form>
 		</tr>
@@ -57,7 +57,7 @@
 	<br>
 	<br>
 	<fieldset>
-		<legend>All Admins</legend>
+		<legend>Stock Executives</legend>
 			<table border=1 width=100%>
 				<tr>
 					<th>ID</th>

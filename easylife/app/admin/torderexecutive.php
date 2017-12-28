@@ -2,30 +2,40 @@
 <?php 
  	$admin="admin";
  	require_once "../../service/member_service.php"; 
-	$members=getAllUsers();
-		if($_SERVER['REQUEST_METHOD']=="POST")
+?>
+<?php
+	$memberID=$_GET['memberID'];
+	
+	// $g="e@gmail.com";
+	// var_dump(getMembersByEmail($g));
+	if($_SERVER['REQUEST_METHOD']=="POST")
+	{
+		if($_POST['searchby']=="0")
 		{
-			if($_POST['searchby']=="0")
-			{
-				$member=getUserById($_POST['p']);
-				$members=array($member);
-				if(empty($member))
-					$members=array();
-			}
-			// else if($_POST['searchby']=="1")
-			// {
-				// $members=getMembersByName($_POST['p']);
-			// }
-			else if($_POST['searchby']=="2")
-			{
-				$member=getUserByEmail($_POST['p']);
-				
-				$members=array($member);
-				if(empty($member))
-					$members=array();
-			}
-			
+			$member=getExecutiveByID($_POST['p'],3);
+			$members=array($member);
+			if(empty($member))
+				$members=array();
 		}
+		// else if($_POST['searchby']=="1")
+		// {
+			// $members=getMembersByName($_POST['p']);
+		// }
+		else if($_POST['searchby']=="2")
+		{
+			$member=getExecuiveByEmail($_POST['p'],3);
+			
+			$members=array($member);
+			if(empty($member))
+				$members=array();
+		}
+		
+	}
+	else
+	{
+		$members=getAllExs(3);
+	}
+	
 ?>
 <html>
 	<table >
@@ -33,7 +43,7 @@
 			<td width="40%">
 				<p>Search by:<p><select name="searchby">
 					<option value="0"  selected>ID</option>
-					
+			
 					<option value="2">Email</option>
 				</select>
 				
@@ -47,15 +57,13 @@
 	<br>
 	<br>
 	<fieldset>
-		<legend>Users</legend>
+		<legend>Order Executives</legend>
 			<table border=1 width=100%>
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
 					<th>Email</th>
-					<th>Total Purchases</th>
 					<th>Last Active</th>
-					<th>Status</th>
 				</tr>
 				<?php
 					
@@ -95,12 +103,12 @@
 									<td>".$member['Member_ID']."</td>
 									<td>".$member['Name']."</td>
 									<td>".$member['Email']."</td>
-									<td>".$member['Total_Purchase']."</td>
 									<td>".$log."</td>
-									<td>".$member['Status']."</td>
-									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">edit</a></td>
-									<td><a href=\"deleteuser.php?memberID=".$member['Member_ID']."\">delete</a></td></tr>";
-							
+									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">edit</a></td>";
+						if($member['Member_ID']!=$memberID)
+							{
+								echo	"<td><a href=\"deleteadmin.php?memberID=".$member['Member_ID']."&id=".$memberID."\">delete</a></td></tr>";
+							}
 					}
 					?>
 			</table>
