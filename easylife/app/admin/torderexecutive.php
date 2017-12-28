@@ -104,7 +104,8 @@
 									<td>".$member['Name']."</td>
 									<td>".$member['Email']."</td>
 									<td>".$log."</td>
-									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">edit</a></td>";
+									<td><a href=\"uview.php?memberID=".$member['Member_ID']."\">View</a></td>
+									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">Edit</a></td>";
 						if($member['Member_ID']!=$memberID)
 							{
 								echo	"<td><a href=\"deleteadmin.php?memberID=".$member['Member_ID']."&id=".$memberID."\">delete</a></td></tr>";

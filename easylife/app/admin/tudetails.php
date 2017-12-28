@@ -98,7 +98,8 @@
 									<td>".$member['Total_Purchase']."</td>
 									<td>".$log."</td>
 									<td>".$member['Status']."</td>
-									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">edit</a></td>
+									<td><a href=\"uview.php?memberID=".$member['Member_ID']."\">View</a></td>
+									<td><a href=\"Editprofile.php?memberID=".$member['Member_ID']."\">Edit</a></td>
 									<td><a href=\"deleteuser.php?memberID=".$member['Member_ID']."\">delete</a></td></tr>";
 							
 					}
