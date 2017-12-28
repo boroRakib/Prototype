@@ -58,7 +58,7 @@
 		elseif(getInvoiceByCodeFromDB($icode)!=true)
 		{
 			$isValid = false;
-            $emailErr = "Product Not found";
+            $emailErr = "Order Not found!!!";
 		}
        
 		if($isValid==true){

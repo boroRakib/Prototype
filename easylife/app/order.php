@@ -158,13 +158,13 @@
 									<td></td>
 									<td></td>
 									<td>Shipping bill</td>
-									<td>40 tk</td>
+									<td>60 tk</td>
 								</tr>
 								<tr height="50">
 									<td></td>
 									<td></td>
 									<td><b>Net Total</b></td>
-									<td><b><?=((int)$p+40)?> tk</b></td>
+									<td><b><?=((int)$p+60)?> tk</b></td>
 								</tr>
 								<tr >
 									<td colspan="4" bgcolor="red" align="center"><a href="cancelOrder.php?del=<?=$invoiceCode?>"><input type="submit" value="Cancel Order" name="cancel"></td>
