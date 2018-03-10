@@ -258,11 +258,13 @@
 												
 												<td width="500" colspan="3"><p align="justify"><?=$product[0]['Description']?></td>
 											</tr>
-						
+											<?php if(count($suggetions)>4) {?>
 											<tr bgcolor="#cccccc">
 												<td colspan="3"><h3>Related Products</h3></td>
 											</tr>
 											<tr>
+											<?php }?>
+											
 											<?php if(count($suggetions)>4) {?>
 													<?php $count=0; foreach($suggetions as $s) { ?>
 													
@@ -280,11 +282,14 @@
 												
 											</tr>
 											
+											<?php if(count($newArrival)!=0 && $newArrival[0]['Name']!=$product_name) {?>
 											<tr bgcolor="#cccccc">
 												<td colspan="3"><h3>New Arrival</h3></td>
 											</tr>
+											<?php }?>
+											
 											<tr>
-											<?php if(count($newArrival)>4) {?>
+										
 													<?php $count=0; foreach($newArrival as $s) { ?>
 													
 														<?php if($s['Name']!=$product_name) {?>
@@ -295,7 +300,7 @@
 															if($count==3){break;}
 														}?>
 													<?php }?>
-												<?php }?>
+												
 												
 												
 												
